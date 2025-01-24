@@ -1,6 +1,6 @@
 # Personal Website of Adil Shamim
 
-Welcome to the repository for my personal website, [adilshamim.me](https://adilshamim.me/). This site serves as a platform to share my thoughts, projects, and insights on technology, programming, and artificial intelligence.
+Welcome to the repository for my personal website, [adilshamim.me](http://adilshamim.me/). This site serves as a platform to share my thoughts, projects, and insights on technology, programming, and artificial intelligence.
 
 ## About Me
 
