@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adil Shamim | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        nav ul li {
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #6c5ce7;
+        }
+
+        nav ul li i {
+            margin-right: 0.5rem;
+            font-size: 1.4rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #333;
+            text-align: center;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #555;
+        }
+
+        .contact-container {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 650px;
+            margin: 0 auto;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .contact-container:hover {
+            transform: translateY(-10px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            display: block;
+            font-weight: 500;
+            color: #444;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s ease-in-out;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #6c5ce7;
+        }
+
+        button {
+            background-color: #6c5ce7;
+            color: white;
+            border: none;
+            padding: 0.9rem 1.7rem;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out, transform 0.2s ease;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        button:hover {
+            background-color: #5a4ec8;
+            transform: translateY(-2px);
+        }
+
+        #msg {
+            margin-top: 1rem;
+            color: green;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .social-links {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin-top: 3rem;
+        }
+
+        .social-links li {
+            margin: 0 1.5rem;
+        }
+
+        .social-links a {
+            text-decoration: none;
+            font-size: 1.2rem;
+            color: #333;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .social-links a i {
+            margin-right: 0.7rem;
+            font-size: 1.5rem;
+        }
+
+        .social-links a:hover {
+            color: #6c5ce7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .contact-container {
+                padding: 1rem;
+                width: 90%;
+            }
+
+            button {
+                width: 100%;
+            }
+
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .social-links li {
+                margin-bottom: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+                <li><a href="about.html"><i class="fas fa-user"></i>About</a></li>
+                <li><a href="blogs.html"><i class="fas fa-blog"></i>Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="contact">
+        <div class="contact-container">
+            <h2>Contact Me</h2>
+            <p>If you have any questions, feel free to reach out by filling out the form below.</p>
+            <form name="submit-to-google-sheet" id="contact-form">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" placeholder="Type your message here" rows="5" required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+                <div id="msg"></div>
+            </form>
+        </div>
+    </section>
+
+    <section id="contact">
+        <ul class="social-links">
+            <li>
+                <a href="http://linkedin.com/in/adilshamim8" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/AdilShamim8" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </li>
+            <li>
+                <a href="https://x.com/adil_shamim8" target="_blank" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i> Twitter
+                </a>
+            </li>
+            <li>
+                <a href="https://leetcode.com/u/AdilShamim8/" target="_blank" aria-label="LeetCode">
+                    <i class="fas fa-code"></i> LeetCode
+                </a>
+            </li>
+        </ul>
+    </section>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxLLeKXGKuKt44iJ-6HNVy-kROthTrFPbqKhSHdLSn8e-JOB_9TlhZ--FBVE-06PzQU/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById("msg");
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => {  
+            msg.innerHTML = "Message sent successfully";  
+            setTimeout(function() {  
+            msg.innerHTML = "";  
+                }, 5000);  
+                form.reset();  
+                })
+            .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+</body>
+</html>

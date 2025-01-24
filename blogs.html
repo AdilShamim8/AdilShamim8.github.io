@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recent Articles</title>
+    <style>
+        /* General reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        header {
+            margin-bottom: 30px;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            list-style-type: none;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #333;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #007BFF;
+            color: #fff;
+        }
+
+        .blog-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .blog-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .blog-card {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .blog-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #f0f0f0;
+            opacity: 0.2;
+            z-index: -1;
+            transition: opacity 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .blog-card:hover::before {
+            opacity: 0.3;
+        }
+
+        .blog-card a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .blog-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 700;
+        }
+
+        .blog-card p {
+            font-size: 1rem;
+            color: #777;
+            margin-bottom: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .blog-container {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .blog-card {
+                padding: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li a {
+                font-size: 1rem;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="blog-section">
+        <div class="blog-container">
+            <div class="blog-card">
+                <a href="8_Rules_of_Love.html">
+                    <h2>The 8 Rules of Love: A Guide to Building Stronger Relationships</h2>
+                </a>
+                <p>January 24, 2025</p>
+            </div>
+            <div class="blog-card">
+                <a href="GetRich.html">
+                    <h2>How To Get Rich</h2>
+                </a>
+                <p>January 17, 2025</p>
+            </div>
+            <div class="blog-card">
+                <a href="human_phycology.html">
+                    <h2>Understanding Human Psychology</h2>
+                </a>
+                <p>January 10, 2025</p>
+            </div>
+            <div class="blog-card">
+                <a href="philosophy.html">
+                    <h2>Timeless Wisdom: A Journey Through Philosophy</h2>
+                </a>
+                <p>January 3, 2025</p>
+            </div>
+            <!-- Add more blog entries as needed -->
+        </div>
+    </section>
+</body>
+</html>
