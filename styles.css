@@ -422,3 +422,112 @@ body {
     margin-top: 20px;
     font-family: Arial, sans-serif;
 }
+
+
+
+
+
+/* Base styles (desktop default) */
+
+/* Add responsive design with media queries */
+@media (max-width: 768px) {
+    /* Navigation styling */
+    nav {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end; /* Align nav items to the right */
+        padding-right: 20px; /* Add spacing from the right edge */
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        text-align: right; /* Ensure text is right-aligned */
+    }
+
+    /* Navigation menu hidden by default on mobile */
+    #navLinks {
+        position: fixed;
+        top: 0;
+        right: -250px; /* Menu starts off-screen */
+        width: 250px; /* Adjust the width for the menu */
+        height: 100%;
+        background-color: #333;
+        transition: right 0.3s ease-in-out;
+    }
+
+    /* Show the menu when active */
+    #navLinks.active {
+        right: 0;
+    }
+
+    /* Hero section */
+    .hero {
+        text-align: center;
+        padding: 20px;
+    }
+    
+    .hero img {
+        width: 100%;
+        height: auto;
+    }
+    
+    /* Subscribe form */
+    .subscribe-form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch; /* Stretch inputs and buttons to full width */
+        padding: 0 20px; /* Add horizontal padding */
+    }
+
+    /* About section */
+    .about-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px; /* Add spacing around the section */
+    }
+
+    .about-photo img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    /* Blog container */
+    .blog-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 10px;
+    }
+
+    .blog-card {
+        text-align: center;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: #f9f9f9; /* Light background for better contrast */
+    }
+
+    /* Social links */
+    .social-links {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+        margin: 20px 0;
+    }
+
+    /* Footer styling */
+    footer {
+        text-align: center;
+        padding: 10px;
+        font-size: 14px; /* Adjust font size for better readability */
+    }
+}
+
