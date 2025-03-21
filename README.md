@@ -13,9 +13,9 @@ The website includes the following sections:
 - **Home**: An introduction to who I am and what I do.
 - **About**: A deeper dive into my background, skills, and experiences.
 - **Blogs**: A collection of my writings on various topics, including:
-  - *8 Rules of Love*: Insights and reflections on building meaningful relationships.
-  - *The Power of AI in Modern Technology*: Exploring how artificial intelligence is transforming industries.
-  - *Balancing Work and Life in Tech*: Tips and strategies for maintaining a healthy work-life balance in the tech world.
+  - ------------------------------------------------------------------
+  - ------------------------------------------------------------------
+
 - **Projects**: Showcasing some of the notable projects I've worked on, with links to their respective repositories.
 - **Contact**: Ways to get in touch with me for collaborations, inquiries, or just a friendly chat.
 
