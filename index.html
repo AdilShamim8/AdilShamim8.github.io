@@ -1,103 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-</head>
-<body>
-    <header>
-        <nav>
-            <div class="name">Adil Shamim</div>
-            <ul class="nav-links">
-                <li><a href="https://adilshamim8.github.io/Now/">Now</a></li>
-                <li><a href="#home">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="blogs.html">Blog</a></li>
-                <li><a href="Contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Adil Shamim - Personal Website</title>
+    <meta name="description" content=" Personal website of Adil Shamim" />
+    <meta name="author" content="Adil Shamim " />
+    <meta property="og:image" content="/og-image.png" />
+    <link rel="stylesheet" href="style.css">
+  </head>
 
-    <section id="home" class="hero">
-        <p align="center">
-            <a href="https://github.com/AdilShamim8">
-                <img src="https://readme-typing-svg.herokuapp.com?font=Georgia&duration=2000&pause=1000&color=4682B4&center=true&multiline=true&width=650&height=80&lines=Adil+Shamim;Researcher+%7C+Undergraduate+Student+%7C+Computer+Vision+%7C+Deep+Learning" alt="Typing SVG" />
-            </a>
-            <br/>
-        <a href="https://drive.google.com/file/d/1piRlmRj7sKd8arAKm4a3ChuZ_whWiewN/view?usp=sharing" target="_blank" class="btn">View Resume</a>
-        <a href="#about" class="cta-btn">Learn More</a>
-    </section>
+  <body>
+    <div id="root">
+      <!-- Navbar - Updated Style -->
+      <nav class="navbar">
+        <div class="navbar-container">
+          <a href="/" class="logo">Adil Shamim </a>
+          
+          <div class="desktop-menu">
+            <a href="index.html" class="nav-link active">Home</a>
+            <a href="Blog page/blog.html" class="nav-link">Blog</a>
+            <a href="Project page/project.html" class="nav-link">Projects</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="now.html" class="nav-link">Now</a>
+            <!-- <a href="#" class="search-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            </a> -->
+          </div>
+          
+          <div class="header-right">
+            <a href="https://drive.google.com/file/d/1piRlmRj7sKd8arAKm4a3ChuZ_whWiewN/view?usp=sharing" target="_blank" class="resume-button">Resume</a>
+            <button class="menu-toggle">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menu-icon"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+          </div>
+        </div>
+        
+        <div class="mobile-menu">
+          <div class="mobile-menu-header">
+            <a href="/" class="logo">Adil Shamim</a>
+            <button class="close-menu">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="close-icon"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+          </div>
+          <div class="mobile-menu-links">
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="Blog page/blog.html" class="mobile-nav-link">Blog</a>
+            <a href="Project page/project.html" class="mobile-nav-link">Projects</a>
+            <a href="about.html" class="mobile-nav-link">About</a>
+            <a href="now.html" class="mobile-nav-link">Now</a>
+            <a href="https://drive.google.com/file/d/1piRlmRj7sKd8arAKm4a3ChuZ_whWiewN/view?usp=sharing" class="mobile-nav-link">Resume</a>
+          </div>
+        </div>
+      </nav>
 
+      <!-- Hero Section -->
+      <section id="home" class="hero">
+        <div class="hero-content">
+          <h6 class="hero-title">The greatest superpower is the ability to change yourself.</h6>
+          
+          <a href="https://github.com/AdilShamim8">
+            <img src="https://readme-typing-svg.herokuapp.com?font=Georgia&duration=2000&pause=1000&color=4682B4&center=true&multiline=true&width=650&height=80&lines=Adil+Shamim;Researcher+%7C+Undergraduate+Student+%7C+Computer+Vision+%7C+Deep+Learning" alt="Typing SVG" />
+        </a>
+          
+          <p class="hero-description">
+            For side hustlers, entrepreneurs, and people who want to improve their lives.
+          </p>
+          
+          <!-- <div class="newsletter-form">
+            <input type="email" placeholder="Email Address" class="email-input">
+            <button class="join-button">JOIN NOW</button>
+          </div> -->
+          
+          <p class="hero-footer">
+            One lesson, thought, or resource to living a fuller life.
+          </p>
+        </div>
+      </section>
 
-
-    <section id="subscribe">
-        <form class="subscribe-form">
-            <div class="input-group">
-                <input type="email" name="email" placeholder="Email Address" required>
-                <button type="submit">JOIN NOW</button>
+         <!-- About Section -->
+         <section id="about" class="about">
+            <div class="about-container">
+              <div class="profile-image-container">
+                <img src="image/Adil.png" alt="Profile photo" class="profile-image">
+              </div>
+              <div class="about-content">
+                <p class="about-subtitle">HEY!</p>
+                <h2 class="about-title">I'm Adil Shamim</h2>
+                <p class="about-text">
+                  I’ve been seeking balance in my life since starting my journey as a Machine Learning enthusiast and aspiring researcher. I’ve dedicated my time to exploring the depths of AI, building innovative projects, and continuously learning new technologies.
+                </p>
+                <p class="about-text">
+                  Created impactful GitHub projects, and worked on shaping my career as an ML engineer.
+                </p>
+                <p class="about-text">
+                  I’ve been sharing the lessons I’ve learnt along the way to a more fulfilled personal and professional life.
+                </p>
+                <!-- <button class="story-button"> -->
+                  <a href="about.html" class="read-more">Read My Story →</a>
+                  <!-- Read My Story  -->
+                  <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="arrow-icon"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </button> -->
+              </div>
             </div>
-        </form>
-        <p class="subscribe-description">One lesson, thought, or resource to living a fuller life every week.</p>
-    </section>
+          </section>
     
 
-    <section id="about">
-        <div class="about-container">
-            <div class="about-photo">
-                <img src="image/Adil.png" alt="Adil's Photo">
-            </div>
-            <div class="about-text">
-                <p class="greeting">HEY!, Ciao!, Bonjour!,  こんにちは(Konnichiwa), Здравствуйте(Zdravstvuyte), 你好(Nǐ hǎo) </p>
-                <h1>I'm Adil Shamim</h1>
 
-                <p>
-                    I’ve been seeking balance in my life since starting my journey as a Machine Learning enthusiast and aspiring researcher. I’ve dedicated my time to exploring the depths of AI, building innovative projects, and continuously learning new technologies. 
-                    Since then, I’ve completed over 159 LeetCode problems, created impactful GitHub projects, and worked on shaping my career as an ML engineer.
-                </p>
-                <p>
-                    Through my blog and GitHub projects, I share lessons, tutorials, and stories from my journey, aiming to inspire and guide others who dream of excelling in technology, learning AI, or pursuing big aspirations like studying at Harvard.
-                </p>
-                
-                <a href="about.html" class="read-more">Read My Story →</a>
-            </div>
+      <!-- Blog Articles Section -->
+      <!-- <section id="blog" class="articles">
+        <h2 class="section-title">Recent articles...</h2> -->
+        
+        <!-- <div class="article-grid"> -->
+          <!-- Articles will be populated via JavaScript -->
+        <!-- </div> -->
+        
+        <!-- <div class="pagination">
+          <button class="page-button active">1</button>
+          <button class="page-button">2</button>
+          <button class="page-button">3</button>
+          <button class="page-button">4</button>
+          <button class="page-button">5</button>
+          <button class="page-button">6</button>
+          <button class="page-button">7</button>
+          <button class="page-button">Next »</button>
         </div>
-    </section>
+      </section> -->
 
-    <section id="Blog">
-        <h1>Recent Articles...</h1>
-        <div class="blog-container">
-            <div class="blog-card">
-                <a href="go.html">
-                    <h2>Embrace Life: Focus on What Truly Matters</h2> <p>Embrace what truly matters</p>
-                </a>
-                <p>February 28, 2025</p>
-            </div>
-            <div class="blog-card">
-                <a href="ArtOfThingkingClearly.html">
-                    <h2>The Art of Thinking Clearly</h2><p>The Art of Thinking Clearly: A Guide to Avoiding Our Everyday Cognitive Traps.</p>
-                </a>
-                <p>February 21, 2025</p>
-            </div>
-            <div class="blog-card">
-                <a href="Wealth.html">
-                    <h2>Wealth Creation</h2> <p>The principles of leverage, compounding, and how to build wealth ethically.</p>
-                </a>
-                <p>February 14, 2025</p>
-            </div>
-            <!-- Add more blog entries as needed -->
-        </div>
-    </section>
+    
 
+      <!-- Footer -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-<!-- Add this in your <head> section -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-    <section id="contact">
-        <h2>Connect with Me</h2>
-        <ul class="social-links">
+     <footer class="footer">
+        <div class="footer-container">
+          <a href="/" class="footer-logo">Adil Shamim</a>
+          
+          <ul class="social-links">
             <li>
                 <a href="http://linkedin.com/in/adilshamim8" target="_blank" aria-label="LinkedIn">
                     <i class="fab fa-linkedin"></i> LinkedIn
@@ -124,27 +163,14 @@
                 </a>  
             </li>  
         </ul>
-    </section>
-    
-    <footer>
-        <p>&copy; 2025 <strong>Adil Shamim</strong>. All rights reserved.</p>
-    </footer>
-    
-    <script src="script.js" defer></script>
+          
+          <p class="copyright">© <span id="current-year"></span> Adil Shamim</p>
+        </div>
+      </footer>
+    </div>
 
-
-    <script>
-        var navLinks = document.getElementById("navLinks");
-    
-        // Function to show the menu
-        function showMenu() {
-            navLinks.style.right = "0";
-        }
-    
-        // Function to hide the menu
-        function hideMenu() {
-            navLinks.style.right = "-250px";  // Adjust width for visibility
-        }
-    </script>    
-</body>
+    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
+    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+    <script src="script.js"></script>
+  </body>
 </html>
