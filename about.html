@@ -1,85 +1,386 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="blogs.html">Blog</a></li>
-                <li><a href="Contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section class="about-section">
-        <div class="about-container">
-            <div class="about-text">
-                <p class="greeting">HEY!</p>
-                <h1>Adil’s Journey: From Dreams to Reality</h1>
-
-                <p>Adil, a 20-year-old student from Bangladesh, dreamed big—bigger than most. With aspirations of studying at Harvard University and becoming an ML engineer, his life was a canvas waiting for bold strokes of success.</p>
-
-                <h2>The Beginning</h2>
-                <p>Adil woke up every day at 6 AM, filled with a sense of purpose. His mornings were not about rushing to keep up with the world but about setting the pace for his ambitions. A 15-hour winter routine became his mantra, where five hours were dedicated solely to Machine Learning (ML), 1.5 hours to academic studies, and another 1.5 hours to book reading. English learning and LeetCode challenges also found their rightful place in his daily schedule.</p>
-
-                <p>Adil’s passion for coding had no bounds. He started his journey by creating simple yet elegant websites. His GitHub became a treasure trove of projects like his Tic-Tac-Toe game and the ‘50 Days of Machine Learning’ series. Each upload reflected his dedication and growth, from Day 1’s baby steps to Day 53’s advanced concepts. The repository didn’t just mark progress; it told a story of perseverance.</p>
-
-                <h2>Notable GitHub Projects</h2>
-                <p>Adil’s GitHub is a testament to his creativity and technical skills. Here are some of his standout projects:</p>
-                <ul>
-                    <li><strong>Machine Learning Housing Corp:</strong> A project focused on predicting housing prices using advanced machine learning algorithms.</li>
-                    <li><strong>100 Simple Websites:</strong> A collection of easy-to-build yet effective website designs showcasing web development fundamentals.</li>
-                    <li><strong>50 Days of Machine Learning:</strong> A comprehensive series documenting Adil’s journey from beginner to advanced concepts in ML.</li>
-                    <li><strong>Harvard Website:</strong> A beautifully designed website concept dedicated to Harvard University.</li>
-                    <li><strong>Book Recommender System:</strong> An intelligent system that suggests books based on user preferences and reading history.</li>
-                    <li><strong>Cat vs Dog Image Classification Project:</strong> A deep learning model that classifies images of cats and dogs with high accuracy.</li>
-                </ul>
-
-                <h2>Triumphs and Challenges</h2>
-                <p>Adil’s path was not without hurdles. Learning Machine Learning, Generative AI, and DSA from scratch tested his resilience. But with a dedicated coding tutor and a roadmap tailored to his needs, he steadily progressed from beginner to advanced levels. His efforts bore fruit when he cracked over 159 LeetCode problems before the end of 2024, sharing his triumphs on Twitter with his growing audience.</p>
-
-                <h2>The Visionary</h2>
-                <p>Adil’s vision extended beyond personal achievements. He aimed to use AI to help companies grow, imagining a future where his innovations could transform businesses. His entrepreneurial streak and technical prowess made him a force to reckon with in the tech world.</p>
-
-                <h2>The Future Beckons</h2>
-                <p>As 2025 began, each project reflected his growth, creativity, and relentless pursuit of excellence. Adil’s journey was far from over; it was just beginning. With Harvard on the horizon and his aspirations as his compass, Adil was poised to leave an indelible mark on the world.</p>
-                <p>Through my blog, I share lessons and stories from my journey, aiming to help others achieve innovation and success in AI and technology.</p>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>About Adil Shamim</title>
+          <style>
+            * {
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            }
+            
+            body {
+              background-color: white;
+              color: #333;
+              line-height: 1.6;
+            }
+            
+            /* Header Styles */
+            header {
+              background-color: #e6f4ff;
+              padding: 20px 0;
+            }
+            
+            .container {
+              width: 90%;
+              max-width: 1200px;
+              margin: 0 auto;
+              padding: 0 20px;
+            }
+            
+            .header-content {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              flex-wrap: wrap;
+            }
+            
+            .logo {
+              font-size: 24px;
+              font-weight: 500;
+              color: #333;
+              text-decoration: none;
+              margin-bottom: 15px;
+            }
+            
+            nav {
+              display: flex;
+              align-items: center;
+              gap: 24px;
+              margin-bottom: 15px;
+            }
+            
+            nav a {
+              color: #555;
+              text-decoration: none;
+              transition: color 0.3s;
+            }
+            
+            nav a:hover {
+              color: #000;
+            }
+            
+            nav a.active {
+              font-weight: 500;
+            }
+            
+            .search-icon {
+              background: none;
+              border: none;
+              cursor: pointer;
+              color: #555;
+            }
+            
+            .resume-btn {
+              background-color: #333;
+              color: white;
+              padding: 8px 24px;
+              border-radius: 4px;
+              text-decoration: none;
+              transition: background-color 0.3s;
+            }
+            
+            .resume-btn:hover {
+              background-color: #555;
+            }
+            
+            /* Main Content Styles */
+            main {
+              padding: 48px 0;
+            }
+            
+            .content {
+              max-width: 800px;
+              margin: 0 auto;
+            }
+            
+            h1 {
+              font-size: 36px;
+              font-weight: 700;
+              text-align: center;
+              margin-bottom: 40px;
+            }
+            
+            .bio-box {
+              background-color: #f0f7ff;
+              padding: 24px;
+              border-radius: 8px;
+              margin-bottom: 48px;
+              text-align: center;
+              font-style: italic;
+            }
+            
+            .bio-box p {
+              font-size: 18px;
+              color: #555;
+            }
+            
+            .separator {
+              display: flex;
+              justify-content: center;
+              margin-bottom: 48px;
+            }
+            
+            .dot {
+              width: 8px;
+              height: 8px;
+              background-color: #999;
+              border-radius: 50%;
+              margin: 0 4px;
+            }
+            
+            .about-content {
+              display: flex;
+              flex-direction: column-reverse;
+              gap: 40px;
+              align-items: center;
+            }
+            
+            .text-content p {
+              margin-bottom: 24px;
+              color: #555;
+            }
+            
+            .text-content a {
+              color: #000;
+              text-decoration: none;
+            }
+            
+            .text-content a:hover {
+              text-decoration: underline;
+            }
+            
+            .profile-image {
+              width: 256px;
+              height: 256px;
+              border-radius: 50%;
+              background-color: #6eb8f5;
+              overflow: hidden;
+            }
+            
+            .profile-image img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+            
+           /* Footer */
+  .footer {
+    background-color: #000;
+    color: white;
+    padding: 2.5rem 0;
+    text-align: center;
+  }
+  
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .footer-logo {
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .social-link {
+    color: white;
+    transition: color 0.2s;
+  }
+  
+  .social-link:hover {
+    color: #ccc;
+  }
+  
+  .copyright {
+    color: #999;
+    font-size: 0.875rem;
+  }
+            
+            /* Responsive Styles */
+            @media (min-width: 768px) {
+              .logo {
+                margin-bottom: 0;
+              }
+              
+              nav {
+                margin-bottom: 0;
+              }
+              
+              .header-content {
+                flex-wrap: nowrap;
+              }
+              
+              .about-content {
+                flex-direction: row;
+                align-items: flex-start;
+              }
+              
+              .text-content {
+                width: 66.66%;
+              }
+              
+              .profile-image-container {
+                width: 33.33%;
+                display: flex;
+                justify-content: center;
+              }
+            }
+          </style>
+        </head>
+        <body>
+          <!-- Header with Navigation -->
+          <header>
+            <div class="container">
+              <div class="header-content">
+                <a href="/" class="logo">Adil Shamim</a>
+                
+                <nav>
+                  <a href="index.html">Home</a>
+                  <a href="Blog page/blog.html">Blog</a>
+                  <a href="Project page/project.html">Projects</a>
+                  <a href="about.html" class="active">About</a>
+                  <a href="now.html">Now</a>
+                  <!-- <button class="search-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="11" cy="11" r="8"/>
+                      <path d="m21 21-4.3-4.3"/>
+                    </svg>
+                  </button> -->
+                </nav>
+                
+                <a href="https://drive.google.com/file/d/1piRlmRj7sKd8arAKm4a3ChuZ_whWiewN/view" class="resume-btn">Resume</a>
+              </div>
             </div>
-        </div>
-    </section>
+          </header>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+          <!-- Main Content -->
+          <main>
+            <div class="container">
+              <div class="content">
+                <h1>About</h1>
+                
+                <!-- Bio Box -->
+                <div class="bio-box">
+                  <p>
+                    Adil Shamim is a machine learning engineer, researcher, deep learning, and developer—constantly evolving and passionate about learning new frontiers.
+                  </p>
+                </div>
+                
+                <!-- Dot Separator -->
+                <div class="separator">
+                  <div class="dot"></div>
+                  <div class="dot"></div>
+                  <div class="dot"></div>
+                </div>
+                
+                <!-- Content with Image -->
+                <div class="about-content">
+                  <div class="text-content">
+                    <p>
+                      <i>Hey,</i> it's Adil Shamim, thanks for checking out my blog.
+                    </p>
+                    <p>
+                      I share actionable tips for optimizing your life and work.
+                    </p>
+                    <p>
+                      If you want to get in touch, email me at <span style="font-style: italic;"> <em>adilshamim696@gmail.com</em></span>.
+                    </p>
+                    <p>
+                      See <a href="now.html">what I'm doing now →</a>
+                    </p>
+                    <br>
+                    <p>
+                      In 2024, despite my thriving career as a machine learning engineer, researcher, and deep learning developer, I felt a deep sense of stagnation. I was juggling projects and ideas, yet something was missing—true balance and fulfillment in my life.
+                    </p>
+                    <p>
+                      I decided it was time to take a closer look at what truly mattered. I immersed myself in countless books, articles, and documentaries. Every resource taught me something new—even if much of it didn’t stick, there were golden nuggets of wisdom that reshaped my outlook on life and work.
+                    </p>
+                    <p>
+                      Realizing that the insights I was gathering could help others who felt stuck too, I launched my blog. This space became my personal repository of learnings—a living document of my evolution as a constant learner. It’s a chronicle of every step I took toward finding balance and fulfillment.
+                    </p>
+                    <p> 
+                      My story is far from over. Every day, I continue to push the boundaries in machine learning and beyond, always on the lookout for new ideas and fresh perspectives. This relentless pursuit of learning not only defines my career but also fuels my passion for life—a passion I’m eager to share with everyone who follows my journey.
+                    </p>
+                    <br>
+                    <h3 class="wp-block-heading">More about my background</h3>
+                    <br>
+                    <ul class="wp-block-list">
+                      <li>
+                        <b>I was born in Bangladesh and lived there for most of my life.</b>
+                      </li>
+                      <li>
+                        <b>I'm a machine learning engineer and researcher.</b>
+                      </li>
+                      <li>
+                        <b>I'm passionate about deep learning and computer vision.</b>
+                      </li>
+                      <li>
+                        <strong>I design, draw, and make everything you see on my website myself.</strong>
+                      </li>
+                      <li>
+                      <b>I have multiple interests and hobbies besides writing. Those include reserching, reading, and working out.</b>
+                      </li>
 
-    <section id="contact">
-        <h2>Connect with Me</h2>
-        <ul class="social-links">
-            <li>
-                <a href="http://linkedin.com/in/adilshamim8" target="_blank" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin"></i> LinkedIn
-                </a>
-            </li>
-            <li>
-                <a href="https://github.com/AdilShamim8" target="_blank" aria-label="GitHub">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
-            </li>
-            <li>
-                <a href="https://x.com/adil_shamim8" target="_blank" aria-label="Twitter">
-                    <i class="fab fa-twitter"></i> Twitter
-                </a>
-            </li>
-            <li>
-                <a href="https://leetcode.com/u/AdilShamim8/" target="_blank" aria-label="LeetCode">
-                    <i class="fas fa-code"></i> LeetCode
-                </a>
-            </li>
-        </ul>
-    </section>
-</body>
-</html>
+                  </div>
+                  
+                  <div class="profile-image-container">
+                    <div class="profile-image">
+                      <img src="image/Adil.png" alt="Adil Shamim">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </main>
+          
+          <!-- Footer -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+ <footer class="footer">
+     <div class="footer-container">
+       <a href="/" class="footer-logo">Adil Shamim</a>
+       
+       <ul class="social-links">
+         <li>
+           <a href="http://linkedin.com/in/adilshamim8" target="_blank" aria-label="LinkedIn" class="social-link">
+             <i class="fab fa-linkedin"></i>
+           </a>
+         </li>
+         <li>
+           <a href="https://github.com/AdilShamim8" target="_blank" aria-label="GitHub" class="social-link">
+             <i class="fab fa-github"></i>
+           </a>
+         </li>
+         <li>
+           <a href="https://x.com/adil_shamim8" target="_blank" aria-label="Twitter" class="social-link">
+             <i class="fab fa-twitter"></i>
+           </a>
+         </li>
+         <li>
+           <a href="https://leetcode.com/u/AdilShamim8/" target="_blank" aria-label="LeetCode" class="social-link">
+             <i class="fas fa-code"></i>
+           </a>
+         </li>
+         <li>
+           <a href="https://www.kaggle.com/adilshamim8" target="_blank" rel="noopener" aria-label="Visit Kaggle profile" class="social-link">
+             <i class="fab fa-kaggle"></i>
+           </a>
+         </li>
+       </ul>
+       
+       <p class="copyright">© <span id="current-year"></span> Adil Shamim</p>
+     </div>
+   </footer>
+     </div>
+        </body>
+        </html>
