@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects - Adil Shamim</title>
+  <style>
+    /* Reset & Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    
+    body {
+      background-color: white;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    /* Header Styles */
+    header {
+      background-color: #e6f4ff;
+      padding: 20px 0;
+    }
+    
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    .logo {
+      font-size: 24px;
+      font-weight: 500;
+      color: #333;
+      text-decoration: none;
+      margin-bottom: 15px;
+    }
+    
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 15px;
+    }
+    
+    nav a {
+      color: #555;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    nav a:hover {
+      color: #000;
+    }
+    
+    nav a.active {
+      font-weight: 500;
+    }
+    
+    .resume-btn {
+      background-color: #333;
+      color: white;
+      padding: 8px 24px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+    
+    .resume-btn:hover {
+      background-color: #555;
+    }
+    
+    /* Main Content */
+    main {
+      padding: 48px 0;
+    }
+    
+    h1 {
+      text-align: center;
+      margin-bottom: 32px;
+      color: #333;
+    }
+    
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    
+    .project-card {
+      border: 1px solid #eee;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .project-image {
+      width: 100%;
+      height: 200px;
+      background-color: #f0f7ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .project-details {
+      padding: 16px;
+    }
+    
+    .project-title {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #333;
+    }
+    
+    .project-description {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 16px;
+    }
+    
+    .view-project {
+      display: inline-block;
+      background-color: #333;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+    
+    .view-project:hover {
+      background-color: #555;
+    }
+    
+    /* Footer Styles */
+    .footer {
+      background-color: #000;
+      color: white;
+      padding: 2.5rem 0;
+      text-align: center;
+    }
+    
+    .footer-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    
+    .footer-logo {
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    
+    .social-link {
+      color: white;
+      transition: color 0.2s;
+    }
+    
+    .social-link:hover {
+      color: #ccc;
+    }
+    
+    .copyright {
+      color: #999;
+      font-size: 0.875rem;
+    }
+    
+    /* Responsive Styles */
+    @media (min-width: 768px) {
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+  
+  <!-- FontAwesome for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header with Navigation -->
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <a href="/" class="logo">Adil Shamim</a>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="blog.html">Blog</a>
+          <a href="project.html" class="active">Projects</a>
+          <a href="about.html">About</a>
+        </nav>
+        <a href="https://drive.google.com/file/d/1piRlmRj7sKd8arAKm4a3ChuZ_whWiewN/view" class="resume-btn">Resume</a>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Main Content -->
+  <main>
+    <div class="container">
+      <h1>Projects</h1>
+      <div class="projects-grid">
+        <!-- Project Card 1 -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://digicrusader.com/wp-content/uploads/2024/05/machine-learning-projects.jpg" alt=" 100 AI Machine Learning Deep Learning Projects">
+          </div>
+          <div class="project-details">
+            <h2 class="project-title">100 AI Machine Learning Deep Learning Projects</h2>
+            <p class="project-description">100 AI Machine Learning Deep Learning Projects is a curated repository showcasing innovative, production-ready solutions across computer vision, NLP, and more.</p>
+            <a href="https://github.com/AdilShamim8/100-AI-Machine-Learning-Deep-Learnin-Projects" class="view-project">View Project »</a>
+          </div>
+        </div>
+        <!-- Project Card 2 -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://machinelearningmastery.com/wp-content/uploads/2025/01/mlm-mehreen-roadmap-master-ml-2025-1.png" alt=" ML-Roadmap-and-Notes">
+          </div>
+          <div class="project-details">
+            <h2 class="project-title">ML-Roadmap-and-Notes</h2>
+            <p class="project-description">A carefully curated collection of machine learning notes, resources, projects, and datasets designed to guide you through the ML landscape effectively.</p>
+            <a href="https://github.com/AdilShamim8/ML-Roadmap-and-Notes" class="view-project">View Project »</a>
+          </div>
+        </div>
+        <!-- Project Card 3 -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://miro.medium.com/v2/resize:fit:1400/1*WA9aceQugVlBS81r2a7Snw.png" alt=" Email Spam Classifier">
+          </div>
+          <div class="project-details">
+            <h2 class="project-title">Email Spam Classifier</h2>
+            <p class="project-description">This Email Spam Classifier leverages machine learning and NLP to detect spam emails with high accuracy. It preprocesses data, extracts features, and trains a model to keep your inbox clean.</p>
+            <a href="https://github.com/AdilShamim8/Email-Spam-Classifier" class="view-project">View Project »</a>
+          </div>
+        </div>
+        <!-- Additional project cards can be added here -->
+      </div>
+    </div>
+  </main>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <a href="/" class="footer-logo">Adil Shamim</a>
+      <ul class="social-links">
+        <li>
+          <a href="http://linkedin.com/in/adilshamim8" target="_blank" aria-label="LinkedIn" class="social-link">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/AdilShamim8" target="_blank" aria-label="GitHub" class="social-link">
+            <i class="fab fa-github"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://x.com/adil_shamim8" target="_blank" aria-label="Twitter" class="social-link">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://leetcode.com/u/AdilShamim8/" target="_blank" aria-label="LeetCode" class="social-link">
+            <i class="fas fa-code"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.kaggle.com/adilshamim8" target="_blank" rel="noopener" aria-label="Kaggle" class="social-link">
+            <i class="fab fa-kaggle"></i>
+          </a>
+        </li>
+      </ul>
+      <p class="copyright">© <span id="current-year"></span> Adil Shamim</p>
+    </div>
+  </footer>
+  
+  <script>
+    // Set current year in footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
