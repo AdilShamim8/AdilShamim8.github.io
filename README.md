@@ -1,39 +1,61 @@
-# Personal Website of Adil Shamim
+# Personal Portfolio Website
 
-Welcome to the repository for my personal website, [adilshamim.me](https://adilshamim.me). This site serves as a platform to share my thoughts, projects, and insights on technology, programming, and artificial intelligence.
+A modern, responsive personal portfolio website built with HTML, CSS, and JavaScript. This website showcases my skills, projects, and contact information in a visually appealing and interactive way.
 
-## About Me
+## Features
 
-I am passionate about empowering innovation with AI and have a keen interest in programming and machine learning. I enjoy pushing the boundaries of technology to create impactful solutions. Let's code the future together! #AI #Programming #Tech
+- **Responsive Design**: Looks great on all devices (desktop, tablet, mobile)
+- **Dark/Light Theme**: Toggle between dark and light modes
+- **Dynamic Content**: Projects are loaded dynamically from JavaScript
+- **Animated Elements**: Smooth animations and transitions
+- **Interactive UI**: Filtering projects, form validation, and more
+- **Modern Design**: Clean and professional layout
 
-## Website Overview
+## Sections
 
-The website includes the following sections:
-
-- **Home**: An introduction to who I am and what I do.
-- **About**: A deeper dive into my background, skills, and experiences.
-- **Blogs**: A collection of my writings on various topics, including:
-  - ------------------------------------------------------------------
-  - ------------------------------------------------------------------
-
-- **Projects**: Showcasing some of the notable projects I've worked on, with links to their respective repositories.
-- **Contact**: Ways to get in touch with me for collaborations, inquiries, or just a friendly chat.
+1. **Home**: Introduction with a typing animation
+2. **About**: Personal information and background
+3. **Projects**: Portfolio of work with filtering options
+4. **Skills**: Technical and professional skills with progress bars
+5. **Contact**: Contact form and information
 
 ## Technologies Used
 
-This website is built using:
+- **HTML5**: Structure of the website
+- **CSS3**: Styling with custom properties (variables) for theming
+- **JavaScript**: Dynamic functionality and interactivity
+- **Font Awesome**: Icons
+- **Google Fonts**: Typography
 
-- **HTML5**: For structuring the content.
-- **CSS3**: For styling and layout.
-- **JavaScript**: For interactive features.
-- **Jekyll**: To transform plain text into static websites and blogs.
-- **GitHub Pages**: For hosting the website.
 
-## Contributing
+### Styling
 
-I welcome feedback and suggestions to improve the website. If you have any ideas or encounter any issues, please feel free to open an issue or submit a pull request.
+The website uses CSS variables for easy customization:
+
+- Colors can be changed in the `:root` section of `styles.css`
+- Dark theme colors can be modified in the `[data-theme="dark"]` section
+
+## Browser Support
+
+The website is compatible with all modern browsers:
+
+- Chrome
+- Firefox
+- Safari
+- Edge
+
+## Getting Started
+
+1. Clone or download this repository
+2. Open `index.html` in your browser
+3. Customize the content to make it your own
 
 ## License
 
-This repository is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+This project is open source and available under the [MIT License](LICENSE).
 
+## Acknowledgements
+
+- Font Awesome for icons
+- Google Fonts for typography
+- Placeholder.com for placeholder images 
