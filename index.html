@@ -1,179 +1,324 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title> Adil Shamim - Personal Website</title>
-    <meta name="description" content=" Personal website of Adil Shamim" />
-    <meta name="author" content="Adil Shamim " />
-    <meta property="og:image" content="/og-image.png" />
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
-    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"> -->
-    <link rel="stylesheet" href="style.css">
-  </head>
-
-  <body>
-    <div id="root">
-      <!-- Navbar - Updated Style -->
-      <nav class="navbar">
-        <div class="navbar-container">
-          <a href="/" class="logo">Adil Shamim </a>
-          
-          <div class="desktop-menu">
-            <a href="index.html" class="nav-link active">Home</a>
-            <a href="blog.html" class="nav-link">Blog</a>
-            <a href="project.html" class="nav-link">Projects</a>
-            <a href="about.html" class="nav-link">About</a>
-            <!-- <a href="now.html" class="nav-link">Now</a> -->
-            <!-- <a href="#" class="search-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-            </a> -->
-          </div>
-          
-          <div class="header-right">
-            <a href="https://drive.google.com/file/d/1piRlmRj7sKd8arAKm4a3ChuZ_whWiewN/view?usp=sharing" target="_blank" class="resume-button">Resume</a>
-            <button class="menu-toggle">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menu-icon"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
-            </button>
-          </div>
-        </div>
-        
-        <div class="mobile-menu">
-          <div class="mobile-menu-header">
-            <a href="/" class="logo">Adil Shamim</a>
-            <button class="close-menu">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="close-icon"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-            </button>
-          </div>
-          <div class="mobile-menu-links">
-            <a href="index.html" class="mobile-nav-link">Home</a>
-            <a href="blog.html" class="mobile-nav-link">Blog</a>
-            <a href="project.html" class="mobile-nav-link">Projects</a>
-            <a href="about.html" class="mobile-nav-link">About</a>
-            <!-- <a href="now.html" class="mobile-nav-link">Now</a> -->
-            <a href="https://drive.google.com/file/d/1piRlmRj7sKd8arAKm4a3ChuZ_whWiewN/view?usp=sharing" class="mobile-nav-link">Resume</a>
-          </div>
-        </div>
-      </nav>
-
-      <!-- Hero Section -->
-      <section id="home" class="hero">
-        <div class="hero-content">
-          <h6 class="hero-title">The greatest superpower is the ability to change yourself.</h6>
-          
-          <a href="https://github.com/AdilShamim8">
-            <img src="https://readme-typing-svg.herokuapp.com?font=Georgia&duration=2000&pause=1000&color=4682B4&center=true&multiline=true&width=650&height=80&lines=Adil+Shamim;Researcher+%7C+Undergraduate+Student+%7C+Computer+Vision+%7C+Deep+Learning" alt="Typing SVG" />
-        </a>
-          
-          <p class="hero-description">
-            For side hustlers, entrepreneurs, and people who want to improve their lives.
-          </p>
-          
-          <!-- <div class="newsletter-form">
-            <input type="email" placeholder="Email Address" class="email-input">
-            <button class="join-button">JOIN NOW</button>
-          </div> -->
-          
-          <p class="hero-footer">
-            One lesson, thought, or resource to living a fuller life.
-          </p>
-        </div>
-      </section>
-
-         <!-- About Section -->
-         <section id="about" class="about">
-            <div class="about-container">
-              <div class="profile-image-container">
-                <img src="image/Adil.png" alt="Profile photo" class="profile-image">
-              </div>
-              <div class="about-content">
-                <p class="about-subtitle">HEY!</p>
-                <h2 class="about-title">I'm Adil Shamim</h2>
-                <p class="about-text">
-                  I’ve been seeking balance in my life since starting my journey as a Machine Learning enthusiast and aspiring researcher. I’ve dedicated my time to exploring the depths of AI, building innovative projects, and continuously learning new technologies.
-                </p>
-                <p class="about-text">
-                  Created impactful GitHub projects, and worked on shaping my career as an ML engineer.
-                </p>
-                <p class="about-text">
-                  I’ve been sharing the lessons I’ve learnt along the way to a more fulfilled personal and professional life.
-                </p>
-                <!-- <button class="story-button"> -->
-                  <a href="about.html" class="read-more">Read My Story →</a>
-                  <!-- Read My Story  -->
-                  <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="arrow-icon"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                </button> -->
-              </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adil Shamim - Machine Learning Engineer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1 id="logo-text">Adil Shamim</h1>
             </div>
-          </section>
-    
-
-
-      <!-- Blog Articles Section -->
-      <!-- <section id="blog" class="articles">
-        <h2 class="section-title">Recent articles...</h2> -->
-        
-        <!-- <div class="article-grid"> -->
-          <!-- Articles will be populated via JavaScript -->
-        <!-- </div> -->
-        
-        <!-- <div class="pagination">
-          <button class="page-button active">1</button>
-          <button class="page-button">2</button>
-          <button class="page-button">3</button>
-          <button class="page-button">4</button>
-          <button class="page-button">5</button>
-          <button class="page-button">6</button>
-          <button class="page-button">7</button>
-          <button class="page-button">Next »</button>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="https://adilshamim8.medium.com/" class="nav-link">Blog</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><button id="theme-toggle" class="theme-btn">
+                    <i class="fas fa-moon"></i>
+                </button></li>
+            </ul>
         </div>
-      </section> -->
+    </nav>
 
-    
-
-      <!-- Footer -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-     <footer class="footer">
-        <div class="footer-container">
-          <a href="/" class="footer-logo">Adil Shamim</a>
-          
-          <ul class="social-links">
-            <li>
-                <a href="http://linkedin.com/in/adilshamim8" target="_blank" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin"></i> LinkedIn
-                </a>
-            </li>
-            <li>
-                <a href="https://github.com/AdilShamim8" target="_blank" aria-label="GitHub">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
-            </li>
-            <li>
-                <a href="https://x.com/adil_shamim8" target="_blank" aria-label="Twitter">
-                    <i class="fab fa-twitter"></i> Twitter
-                </a>
-            </li>
-            <li>
-                <a href="https://leetcode.com/u/AdilShamim8/" target="_blank" aria-label="LeetCode">
-                    <i class="fas fa-code"></i> LeetCode
-                </a>
-            </li>
-            <li>  
-                <a href="https://www.kaggle.com/adilshamim8" target="_blank" rel="noopener" aria-label="Visit Kaggle profile">  
-                    <i class="fab fa-kaggle"></i> Kaggle  
-                </a>  
-            </li>  
-        </ul>
-          
-          <p class="copyright">© <span id="current-year"></span> Adil Shamim</p>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="animate-text">Hello, I'm <span class="highlight">Adil Shamim</span></h1>
+                <h2 class="animate-text delay-1">I'm a <span id="typing-text"></span></h2>
+                <p class="animate-text delay-2">Welcome to my personal website where I showcase my work and skills.</p>
+                <div class="hero-buttons animate-text delay-3">
+                    <a href="#contact" class="btn primary-btn">Contact Me</a>
+                    <a href="#projects" class="btn secondary-btn">View My Work</a>
+                </div>
+                <div class="social-icons animate-text delay-4">
+                    <a href="https://www.linkedin.com/in/adilshamim8" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/AdilShamim8" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="https://www.kaggle.com/adilshamim8" class="social-link"><i class="fab fa-kaggle"></i></a>
+                    <a href="https://x.com/adil_shamim8" class="social-link"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="hero-image animate-text delay-2">
+                <div class="profile-container">
+                    <div class="profile-circle">
+                        <img src="image/Adil.JPG" alt="Adil Shamim" id="profile-img">
+                    </div>
+                </div>
+            </div>
         </div>
-      </footer>
-    </div>
+    </section>
 
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+    <!-- About Section -->
+    <section id="about" class="about section">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Me</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Get to know me!</h3>
+                    <p><span class="highlight">Adil Shamim</span> is a <span class="highlight">machine learning engineer, researcher, deep learning,</span>and developer—constantly evolving and passionate about learning new frontiers.</p>
+                    <p>I specialize in creating intelligent systems and data-driven solutions. With a background in <span class="highlight">Machine Learning</span>, I combine analytical thinking and technical skills to deliver outstanding results.</p>
+                    <p>When I'm not working, you can find me exploring new technologies, contributing to open-source projects, or enjoying outdoor activities.</p>
+                    <div class="about-buttons">
+                        <a href="https://drive.google.com/file/d/1piRlmRj7sKd8arAKm4a3ChuZ_whWiewN/view" class="btn primary-btn" id="download-cv">Resume</a>
+                    </div>
+                </div>
+                <div class="about-details">
+                    <div class="detail-item">
+                        <i class="fas fa-user-graduate"></i>
+                        <div>
+                            <h4>Education</h4>
+                            <p>Computer Science, BNIST</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-briefcase"></i>
+                        <div>
+                            <h4>Experience</h4>
+                            <p>Kaggle Expert with strong data science skills</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Dhaka, Bangladesh</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-language"></i>
+                        <div>
+                            <h4>Languages</h4>
+                            <p>English, Hindi, Bengali</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>My Projects</h2>
+                    <div class="underline"></div>
+                </div>
+                <!-- <div class="project-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="web">ML Models</button>
+                    <button class="filter-btn" data-filter="app">Applications</button>
+                    <button class="filter-btn" data-filter="design">Data Viz</button>
+                </div> -->
+                <div class="projects-grid">
+                    <!-- Project items will be dynamically generated with JavaScript -->
+                </div>
+            </div>
+        </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills section">
+        <div class="container">
+            <div class="section-header">
+                <h2>My Skills</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Technical Skills</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item" data-skill="Python">
+                            <div class="skill-icon"><i class="fab fa-python"></i></div>
+                            <h4>Python</h4>
+                            <div class="skill-progress">
+                                <div class="progress-bar" style="width: 95%"></div>
+                            </div>
+                            <span class="skill-percentage">95%</span>
+                        </div>
+                        <div class="skill-item" data-skill="Machine Learning">
+                            <div class="skill-icon"><i class="fas fa-brain"></i></div>
+                            <h4>Machine Learning</h4>
+                            <div class="skill-progress">
+                                <div class="progress-bar" style="width: 90%"></div>
+                            </div>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                        <div class="skill-item" data-skill="Deep Learning">
+                            <div class="skill-icon"><i class="fas fa-network-wired"></i></div>
+                            <h4>Deep Learning</h4>
+                            <div class="skill-progress">
+                                <div class="progress-bar" style="width: 85%"></div>
+                            </div>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-item" data-skill="Data Analysis">
+                            <div class="skill-icon"><i class="fas fa-chart-bar"></i></div>
+                            <h4>Data Analysis</h4>
+                            <div class="skill-progress">
+                                <div class="progress-bar" style="width: 88%"></div>
+                            </div>
+                            <span class="skill-percentage">88%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Professional Skills</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item" data-skill="Communication">
+                            <div class="skill-icon"><i class="fas fa-comments"></i></div>
+                            <h4>Communication</h4>
+                            <div class="skill-progress">
+                                <div class="progress-bar" style="width: 90%"></div>
+                            </div>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                        <div class="skill-item" data-skill="Teamwork">
+                            <div class="skill-icon"><i class="fas fa-users"></i></div>
+                            <h4>Teamwork</h4>
+                            <div class="skill-progress">
+                                <div class="progress-bar" style="width: 85%"></div>
+                            </div>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-item" data-skill="Problem Solving">
+                            <div class="skill-icon"><i class="fas fa-puzzle-piece"></i></div>
+                            <h4>Problem Solving</h4>
+                            <div class="skill-progress">
+                                <div class="progress-bar" style="width: 88%"></div>
+                            </div>
+                            <span class="skill-percentage">88%</span>
+                        </div>
+                        <div class="skill-item" data-skill="Creativity">
+                            <div class="skill-icon"><i class="fas fa-lightbulb"></i></div>
+                            <h4>Creativity</h4>
+                            <div class="skill-progress">
+                                <div class="progress-bar" style="width: 92%"></div>
+                            </div>
+                            <span class="skill-percentage">92%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contact Me</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>Feel free to reach out to me for any questions or opportunities!</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>adilshamim696@gmail.com</p>
+                            </div>
+                        </div>
+                        <!-- <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+1 (234) 567-8901</p>
+                            </div> -->
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Location</h4>
+                                <p>Dhaka, Bangladesh</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div> -->
+                </div>
+                <!-- <div class="contact-form">
+                    <h3>Send Me a Message</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn primary-btn">Send Message</button>
+                    </form>
+                    <div id="form-status"></div>
+                </div>
+            </div> -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Adil Shamim</h2>
+                </div>
+                <!-- <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </div> -->
+                <p>Thanks for visiting my portfolio website.</p>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/in/adilshamim8" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/AdilShamim8" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="https://www.kaggle.com/adilshamim8" class="social-link"><i class="fab fa-kaggle"></i></a>
+                    <a href="https://x.com/adil_shamim8" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <!-- <a href="#" class="social-link"><i class="fab fa-instagram"></i></a> -->
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> Adil Shamim. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
     <script src="script.js"></script>
-  </body>
-</html>
+</body>
+</html> 
