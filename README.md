@@ -1,6 +1,6 @@
 # Personal Portfolio Website
 
-A modern, responsive personal portfolio website built with HTML, CSS, and JavaScript. This website showcases my skills, projects, and contact information in a visually appealing and interactive way.
+A modern, responsive personal portfolio website built with HTML, CSS, and JavaScript. This website showcases my skills, projects, and contact information in a visually appealing and interactive way. 
 
 ## Features
 
@@ -52,7 +52,7 @@ The website is compatible with all modern browsers:
 
 ## License
 
-This project is open source and available under the [MIT License](LICENSE).
+This open-source project is available under the [MIT License](License).
 
 ## Acknowledgements
 
