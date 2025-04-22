@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
 </head>
 <body>
     <!-- Navigation -->
@@ -36,8 +37,9 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <div id="particles-js"></div>
         <div class="container">
-            <div class="hero-content">
+            <div class="hero-content" data-aos="fade-right" data-aos-duration="1000">
                 <h1 class="animate-text">Hello, I'm <span class="highlight">Adil Shamim</span></h1>
                 <h2 class="animate-text delay-1">I'm a <span id="typing-text"></span></h2>
                 <p class="animate-text delay-2">Welcome to my personal website where I showcase my work and skills.</p>
@@ -52,7 +54,7 @@
                     <a href="https://x.com/adil_shamim8" class="social-link"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
-            <div class="hero-image animate-text delay-2">
+            <div class="hero-image animate-text delay-2" data-aos="fade-left" data-aos-duration="1000">
                 <div class="profile-container">
                     <div class="profile-circle">
                         <img src="image/Adil.JPG" alt="Adil Shamim" id="profile-img">
@@ -65,21 +67,21 @@
     <!-- About Section -->
     <section id="about" class="about section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-aos="fade-up">
                 <h2>About Me</h2>
                 <div class="underline"></div>
             </div>
             <div class="about-content">
-                <div class="about-text">
+                <div class="about-text" data-aos="fade-right" data-aos-duration="800">
                     <h3>Get to know me!</h3>
                     <p><span class="highlight">Adil Shamim</span> is a <span class="highlight">machine learning engineer, researcher, deep learning,</span>and developer—constantly evolving and passionate about learning new frontiers.</p>
                     <p>I specialize in creating intelligent systems and data-driven solutions. With a background in <span class="highlight">Machine Learning</span>, I combine analytical thinking and technical skills to deliver outstanding results.</p>
-                    <p>When I'm not working, you can find me exploring new technologies, contributing to open-source projects, or enjoying outdoor activities.</p>
+                    <p>When I'm not working, you can find me exploring new technologies, contributing to open-source projects, or reading books.</p>
                     <div class="about-buttons">
                         <a href="https://drive.google.com/file/d/1piRlmRj7sKd8arAKm4a3ChuZ_whWiewN/view" class="btn primary-btn" id="download-cv">Resume</a>
                     </div>
                 </div>
-                <div class="about-details">
+                <div class="about-details" data-aos="fade-left" data-aos-duration="800">
                     <div class="detail-item">
                         <i class="fas fa-user-graduate"></i>
                         <div>
@@ -117,15 +119,15 @@
         <!-- Projects Section -->
         <section id="projects" class="projects section">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header" data-aos="fade-up">
                     <h2>My Projects</h2>
                     <div class="underline"></div>
                 </div>
-                <!-- <div class="project-filters">
+                <!-- <div class="project-filters" data-aos="fade-up" data-aos-delay="200">
                     <button class="filter-btn active" data-filter="all">All</button>
                     <button class="filter-btn" data-filter="web">ML Models</button>
                     <button class="filter-btn" data-filter="app">Applications</button>
-                    <button class="filter-btn" data-filter="design">Data Viz</button>
+                    <button class="filter-btn" data-filter="competition">Competitions</button>
                 </div> -->
                 <div class="projects-grid">
                     <!-- Project items will be dynamically generated with JavaScript -->
@@ -136,12 +138,12 @@
     <!-- Skills Section -->
     <section id="skills" class="skills section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-aos="fade-up">
                 <h2>My Skills</h2>
                 <div class="underline"></div>
             </div>
             <div class="skills-container">
-                <div class="skill-category">
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
                     <h3>Technical Skills</h3>
                     <div class="skills-grid">
                         <div class="skill-item" data-skill="Python">
@@ -178,7 +180,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="skill-category">
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
                     <h3>Professional Skills</h3>
                     <div class="skills-grid">
                         <div class="skill-item" data-skill="Communication">
@@ -219,16 +221,101 @@
         </div>
     </section>
 
+        <!-- Tech Stack Section -->
+        <section id="tech-stack" class="tech-stack section">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <!-- <h2>My Tech Stack</h2> -->
+                    <!-- <div class="underline"></div> -->
+                </div>
+                <div class="tech-categories">
+                    <div class="tech-category" data-aos="fade-up">
+                        <h3>Programming Languages</h3>
+                        <div class="tech-grid">
+                            <div class="tech-item" data-tilt>
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+                                <span>Python</span>
+                            </div>
+                            <!-- <div class="tech-item" data-tilt>
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" alt="R">
+                                <span>R</span>
+                            </div> -->
+                            <!-- <div class="tech-item" data-tilt>
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+                                <span>JavaScript</span>
+                            </div> -->
+                            <div class="tech-item" data-tilt>
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
+                                <span>Java</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-category" data-aos="fade-up" data-aos-delay="100">
+                        <h3>Machine Learning / AI</h3>
+                        <div class="tech-grid">
+                            <div class="tech-item" data-tilt>
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow">
+                                <span>TensorFlow</span>
+                            </div>
+                            <div class="tech-item" data-tilt>
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch">
+                                <span>PyTorch</span>
+                            </div>
+                            <div class="tech-item" data-tilt>
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="Scikit-learn">
+                                <span>Scikit-learn</span>
+                            </div>
+                            <div class="tech-item" data-tilt>
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" alt="NumPy">
+                                <span>NumPy</span>
+                            </div>
+                            <div class="tech-item" data-tilt>
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="Pandas">
+                                <span>Pandas</span>
+                            </div>
+                            <div class="tech-item" data-tilt>
+                                <img src="https://seaborn.pydata.org/_images/logo-mark-lightbg.svg" alt="Seaborn">
+                                <span>Seaborn</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-category" data-aos="fade-up" data-aos-delay="200">
+                        <h3>Tools & Platforms</h3>
+                        <div class="tech-grid">
+                            <div class="tech-item" data-tilt>
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
+                                <span>Git</span>
+                            </div>
+                            <div class="tech-item" data-tilt>
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker">
+                                <span>Docker</span>
+                            </div>
+                            <div class="tech-item" data-tilt>
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg" alt="Jupyter">
+                                <span>Jupyter</span>
+                            </div>
+                            <div class="tech-item" data-tilt>
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code">
+                                <span>VS Code</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
 
     <!-- Contact Section -->
     <section id="contact" class="contact section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-aos="fade-up">
                 <h2>Contact Me</h2>
                 <div class="underline"></div>
             </div>
             <div class="contact-content">
-                <div class="contact-info">
+                <div class="contact-info" data-aos="fade-right" data-aos-duration="800">
                     <h3>Get In Touch</h3>
                     <p>Feel free to reach out to me for any questions or opportunities!</p>
                     <div class="contact-details">
@@ -239,13 +326,6 @@
                                 <p>adilshamim696@gmail.com</p>
                             </div>
                         </div>
-                        <!-- <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <div>
-                                <h4>Phone</h4>
-                                <p>+1 (234) 567-8901</p>
-                            </div> -->
-                        </div>
                         <div class="contact-item">
                             <i class="fas fa-map-marker-alt"></i>
                             <div>
@@ -254,35 +334,47 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                    </div> -->
                 </div>
-                <!-- <div class="contact-form">
-                    <h3>Send Me a Message</h3>
-                    <form id="contact-form">
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                
+                <!-- Code snippet showcase -->
+                <div class="contact-code" data-aos="fade-left" data-aos-duration="800">
+                    <div class="code-snippet-container">
+                        <div class="code-header">
+                            <span class="code-title">Python ML Code Sample</span>
+                            <div class="code-actions">
+                                <span class="code-dot red"></span>
+                                <span class="code-dot yellow"></span>
+                                <span class="code-dot green"></span>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn primary-btn">Send Message</button>
-                    </form>
-                    <div id="form-status"></div>
+                        <pre><code class="language-python">
+ # Machine Learning Pipeline with Scikit-learn
+ import numpy as np
+ from sklearn.model_selection import train_test_split
+ from sklearn.ensemble import RandomForestClassifier
+ from sklearn.metrics import accuracy_score
+                            
+ # Load and prepare data
+ X, y = load_data()
+ X_train, X_test, y_train, y_test = train_test_split(
+ X, y, test_size=0.25, random_state=42
+ )
+                            
+ # Train model
+ model = RandomForestClassifier(n_estimators=100)
+  model.fit(X_train, y_train)
+                            
+ # Evaluate
+ y_pred = model.predict(X_test)
+ accuracy = accuracy_score(y_test, y_pred)
+ print(f"Model accuracy: {accuracy:.2f}")
+                        </code></pre>
+                    </div>
                 </div>
-            </div> -->
+            </div>
         </div>
     </section>
+
 
     <!-- Footer -->
     <footer class="footer">
@@ -291,20 +383,12 @@
                 <div class="footer-logo">
                     <h2>Adil Shamim</h2>
                 </div>
-                <!-- <div class="footer-links">
-                    <a href="#home">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#skills">Skills</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#contact">Contact</a>
-                </div> -->
                 <p>Thanks for visiting my portfolio website.</p>
                 <div class="footer-social">
                     <a href="https://www.linkedin.com/in/adilshamim8" class="social-link"><i class="fab fa-linkedin"></i></a>
                     <a href="https://github.com/AdilShamim8" class="social-link"><i class="fab fa-github"></i></a>
                     <a href="https://www.kaggle.com/adilshamim8" class="social-link"><i class="fab fa-kaggle"></i></a>
                     <a href="https://x.com/adil_shamim8" class="social-link"><i class="fab fa-twitter"></i></a>
-                    <!-- <a href="#" class="social-link"><i class="fab fa-instagram"></i></a> -->
                 </div>
             </div>
             <div class="footer-bottom">
@@ -319,6 +403,8 @@
     </button>
 
     <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>
 </html> 
