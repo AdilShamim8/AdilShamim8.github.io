@@ -1,6 +1,8 @@
 // Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all functions
+    initParticles();
+    initAOS();
     initNavbar();
     initThemeToggle();
     initTypingEffect();
@@ -11,6 +13,127 @@ document.addEventListener('DOMContentLoaded', function() {
     initContactForm();
     setCurrentYear();
 });
+
+// Initialize particles.js
+function initParticles() {
+    if (document.getElementById('particles-js')) {
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: '#4a6cf7'
+                },
+                shape: {
+                    type: 'circle',
+                    stroke: {
+                        width: 0,
+                        color: '#000000'
+                    },
+                    polygon: {
+                        nb_sides: 5
+                    }
+                },
+                opacity: {
+                    value: 0.5,
+                    random: false,
+                    anim: {
+                        enable: false,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 3,
+                    random: true,
+                    anim: {
+                        enable: false,
+                        speed: 40,
+                        size_min: 0.1,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#4a6cf7',
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 3,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false,
+                    attract: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: 'grab'
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: 'push'
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 140,
+                        line_linked: {
+                            opacity: 1
+                        }
+                    },
+                    bubble: {
+                        distance: 400,
+                        size: 40,
+                        duration: 2,
+                        opacity: 8,
+                        speed: 3
+                    },
+                    repulse: {
+                        distance: 200,
+                        duration: 0.4
+                    },
+                    push: {
+                        particles_nb: 4
+                    },
+                    remove: {
+                        particles_nb: 2
+                    }
+                }
+            },
+            retina_detect: true
+        });
+    }
+}
+
+// Initialize AOS animation library
+function initAOS() {
+    AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true,
+        mirror: false
+    });
+}
 
 // Navbar functionality
 function initNavbar() {
@@ -104,7 +227,7 @@ function initTypingEffect() {
     const phrases = [
         'Machine Learning Engineer',
         'Researcher',
-        'Deep Learning Engineer',
+        'Deep Learning',
         'Problem Solver'
     ];
     
@@ -245,7 +368,7 @@ function initProjectsData() {
         {
             id: 1,
             title: 'ML Roadmap and Notes',
-            description: 'A resource outlining the journey of learning machine learning, featuring detailed notes and guides on various topics and techniques for beginners and advanced learners alike.',
+            description: 'A resource outlining the journey of learning machine learning, featuring detailed notes and guides on various topics and techniques for beginners and advanced learners.',
             image: 'https://machinelearningmastery.com/wp-content/uploads/2025/01/mlm-mehreen-roadmap-master-ml-2025-1.png',
             category: 'web',
             tags: ['Machine Learning', 'Notes', 'Education', 'Learning Path'],
@@ -308,6 +431,8 @@ function initProjectsData() {
     projects.forEach(project => {
         const projectItem = document.createElement('div');
         projectItem.className = `project-item ${project.category}`;
+        projectItem.setAttribute('data-aos', 'fade-up');
+        projectItem.setAttribute('data-aos-delay', (project.id * 100).toString());
         
         projectItem.innerHTML = `
             <img src="${project.image}" alt="${project.title}" class="project-img">
