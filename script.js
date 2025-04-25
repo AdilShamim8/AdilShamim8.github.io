@@ -367,6 +367,17 @@ function initProjectsData() {
     const projects = [
         {
             id: 1,
+            title: 'Book Recommender System',
+            description: 'A machine learning model designed to recommend books based on user preferences and reading history, utilizing collaborative filtering and content-based techniques.',
+            image: 'https://images.unsplash.com/photo-1711701201402-54745024530a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODJ8fEJvb2slMjBSZWNvbW1lbmRlciUyMFN5c3RlbXxlbnwwfHwwfHx8MA%3D%3D',
+            category: 'web',
+            tags: ['Python', 'Scikit-learn', 'Collaborative Filtering',' Machine Learning'],
+            demoLink: 'https://adil-book-recommender.onrender.com/',
+            codeLink: 'https://github.com/AdilShamim8/Book-Recommender-System'
+        },
+        
+        {
+            id: 2,
             title: 'ML Roadmap and Notes',
             description: 'A resource outlining the journey of learning machine learning, featuring detailed notes and guides on various topics and techniques for beginners and advanced learners.',
             image: 'https://machinelearningmastery.com/wp-content/uploads/2025/01/mlm-mehreen-roadmap-master-ml-2025-1.png',
@@ -376,7 +387,7 @@ function initProjectsData() {
             codeLink: 'https://github.com/AdilShamim8/ML-Roadmap-and-Notes'
         },
         {
-            id: 2,
+            id: 3,
             title: '100 AI Machine Learning & Deep Learning Projects',
             description: 'Explore a collection of 100 projects that demonstrate various applications of machine learning and deep learning, ranging from basic to advanced implementations.',
             image: 'https://digicrusader.com/wp-content/uploads/2024/05/machine-learning-projects.jpg',
@@ -386,7 +397,7 @@ function initProjectsData() {
             codeLink: 'https://github.com/AdilShamim8/100-AI-Machine-Learning-Deep-Learnin-Projects'
         },
         {
-            id: 3,
+            id: 4,
             title: 'Email Spam Classifier',
             description: 'An application that uses natural language processing techniques to classify emails as spam or not spam, improving your email management and productivity.',
             image: 'https://miro.medium.com/v2/resize:fit:1400/1*WA9aceQugVlBS81r2a7Snw.png',
@@ -396,7 +407,7 @@ function initProjectsData() {
             codeLink: 'https://github.com/AdilShamim8/Email-Spam-Classifier'
         },
         {
-            id: 4,
+            id: 5,
             title: 'Titanic: Machine Learning from Disaster',
             description: 'A machine learning project aimed at predicting survival outcomes of passengers aboard the Titanic using various features such as age, gender, and class. This project utilizes classification techniques to analyze historical data and improve prediction accuracy.',
             image: 'https://media.cnn.com/api/v1/images/stellar/prod/230213144330-02-titanic-25th-anniversary-restricted.jpg?c=16x9&q=h_833,w_1480,c_fill',
@@ -406,7 +417,7 @@ function initProjectsData() {
             codeLink: 'https://github.com/AdilShamim8/Titanic-Machine-Learning-from-Disaster'
         },
         {
-            id: 5,
+            id: 6,
             title: ' Laptop Price Predictor Regression Project',
             description: 'A regression model that predicts laptop prices based on various features such as specifications, brand, and condition. This project utilizes machine learning techniques to provide accurate price predictions for prospective buyers and sellers.',
             image: 'https://miro.medium.com/v2/resize:fit:720/format:webp/0*XmAiY1Zac-OcaF6U',
@@ -414,16 +425,6 @@ function initProjectsData() {
             tags: ['Python', 'Machine Learning', 'Regression', 'Data Science'],
             demoLink: 'https://github.com/AdilShamim8/Laptop-price-predictor-regression-project',
             codeLink: 'https://github.com/AdilShamim8/Laptop-price-predictor-regression-project'
-        },
-        {
-            id: 6,
-            title: 'Book Recommender System',
-            description: 'A machine learning model designed to recommend books based on user preferences and reading history, utilizing collaborative filtering and content-based techniques.',
-            image: 'https://images.unsplash.com/photo-1711701201402-54745024530a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODJ8fEJvb2slMjBSZWNvbW1lbmRlciUyMFN5c3RlbXxlbnwwfHwwfHx8MA%3D%3D',
-            category: 'web',
-            tags: ['Python', 'Scikit-learn', 'Collaborative Filtering','Machine Learning'],
-            demoLink: 'https://github.com/AdilShamim8/Book-Recommender-System',
-            codeLink: 'https://github.com/AdilShamim8/Book-Recommender-System'
         }
     ];
     
