@@ -367,64 +367,94 @@ function initProjectsData() {
     const projects = [
         {
             id: 1,
-            title: '100 AI Machine Learning & Deep Learning Projects',
-            description: 'Explore a collection of 100 projects that demonstrate various applications of machine learning and deep learning, ranging from basic to advanced implementations.',
-            image: 'https://i.postimg.cc/RVZHsrVx/Chat-GPT-Image-Apr-18-2025-11-13-11-AM.png',
-            category: 'web',
-            tags: ['Python', 'Machine Learning', 'Deep Learning', 'AI Projects', 'Data Science'],
-            demoLink: 'https://github.com/AdilShamim8/100-AI-Machine-Learning-Deep-Learnin-Projects',
-            codeLink: 'https://github.com/AdilShamim8/100-AI-Machine-Learning-Deep-Learnin-Projects'
+            title: 'Toolly',
+            description: 'An AI-powered productivity suite that automates and streamlines your daily tasks. Features include intelligent text processing, automated content generation, and smart task management, all designed to boost your efficiency and save valuable time.',
+            image: 'https://i.postimg.cc/4d0vfpLB/20250613-1939-Toolly-Modern-Tech-Logo-simple-compose-01jxmr7v1neyav79wdd6fye13h.png',
+            category: 'ai',
+            tags: ['Python', 'AI', 'NLP', 'Web Development', 'Productivity Tools', 'Automation'],
+            demoLink: 'https://adilshamim.me/Toolly/',
+            codeLink: 'https://github.com/AdilShamim8/Toolly'
         },
         {
             id: 2,
-            title: "Echo AI",
-            description: "Echo AI is an interactive, web-based chatbot designed to engage users in natural conversations. Built with HTML, CSS, and JavaScript, it offers a seamless chat experience and can be easily customized and deployed.",
-            image: "https://i.postimg.cc/BbdMgq9s/Chat-GPT-Image-May-9-2025-10-13-26-PM.png",
-            category: "web",
-            tags: ["HTML", "CSS", "JavaScript", "Chatbot", "Web Development"],
-            demoLink: "https://echoai-iota.vercel.app/",
-            codeLink: "https://github.com/AdilShamim8/Echo_AI"
+            title: '100 AI Machine Learning & Deep Learning Projects',
+            description: 'A comprehensive collection of 100 hands-on projects covering the entire spectrum of AI, from fundamental machine learning algorithms to advanced deep learning architectures. Each project includes detailed implementations, best practices, and real-world applications across various domains.',
+            image: 'https://i.postimg.cc/RVZHsrVx/Chat-GPT-Image-Apr-18-2025-11-13-11-AM.png',
+            category: 'ml',
+            tags: ['Python', 'Machine Learning', 'Deep Learning', 'AI', 'Data Science', 'Computer Vision', 'NLP'],
+            //demoLink: 'https://github.com/AdilShamim8/100-AI-Machine-Learning-Deep-Learning-Projects',
+            codeLink: 'https://github.com/AdilShamim8/100-AI-Machine-Learning-Deep-Learnin-Projects'
         },
         {
             id: 3,
-            title: 'ML Roadmap and Notes',
-            description: 'A resource outlining the journey of learning machine learning, featuring detailed notes and guides on various topics and techniques for beginners and advanced learners.',
-            image: 'https://i.postimg.cc/7hsf86Y8/Chat-GPT-Image-Apr-18-2025-11-13-08-AM.png',
-            category: 'web',
-            tags: ['Machine Learning', 'Notes', 'Education', 'Learning Path'],
-            demoLink: 'https://github.com/AdilShamim8/ML-Roadmap-and-Notes',
-            codeLink: 'https://github.com/AdilShamim8/ML-Roadmap-and-Notes'
+            title: "Prices Predictor System",
+            description: "An end-to-end machine learning pipeline for price prediction using ZenML and MLflow. Features include data preprocessing, model training, evaluation, and deployment with automated tracking of experiments and model versions.",
+            image: "https://videos.openai.com/vg-assets/assets%2Ftask_01jxmy2hyge8zb0nn9b4p0dpq4%2F1749828150_img_0.webp?st=2025-06-13T14%3A23%3A19Z&se=2025-06-19T15%3A23%3A19Z&sks=b&skt=2025-06-13T14%3A23%3A19Z&ske=2025-06-19T15%3A23%3A19Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=aa5ddad1-c91a-4f0a-9aca-e20682cc8969&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=SdMFNAgvJltZZkLBiP3JrNqYjm4H62fJg48PNZsVezk%3D&az=oaivgprodscus",
+            category: "ml",
+            tags: ['Python', 'Machine Learning', 'ZenML', 'MLflow', 'Data Science', 'MLOps'],
+            //demoLink: "https://github.com/AdilShamim8/Prices_Predictor_System",
+            codeLink: "https://github.com/AdilShamim8/Prices_Predictor_System"
         },
         {
             id: 4,
+            title: 'Sentiment Analysis',
+            description: 'A powerful NLP application that performs sentiment analysis on text input, classifying it as positive, neutral, or negative. Built with Python and Streamlit, featuring a clean user interface and real-time analysis capabilities.',
+            image: 'https://videos.openai.com/vg-assets/assets%2Ftask_01jxmy92zmeqyt06h0933a86cn%2F1749828373_img_0.webp?st=2025-06-13T14%3A23%3A23Z&se=2025-06-19T15%3A23%3A23Z&sks=b&skt=2025-06-13T14%3A23%3A23Z&ske=2025-06-19T15%3A23%3A23Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=aa5ddad1-c91a-4f0a-9aca-e20682cc8969&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=PP98CiKaVLDk7S0SQmgUfVc193sU3DLF1rk3nqyt1uU%3D&az=oaivgprodscus',
+            category: 'ml',
+            tags: ['Python', 'NLP', 'Streamlit', 'Machine Learning', 'Text Classification', 'Web App'],
+            //demoLink: 'https://github.com/AdilShamim8/Sentiment-analysis',
+            codeLink: 'https://github.com/AdilShamim8/Sentiment-analysis'
+        },
+        {
+            id: 5,
+            title: 'Cat vs Dog Image Classification',
+            description: 'A deep learning project implementing Convolutional Neural Networks (CNN) for binary image classification. Features include data augmentation, model training with transfer learning, and real-time prediction capabilities.',
+            image: 'https://i.postimg.cc/B6TZvvvx/Screenshot-2025-06-13-212543.png',
+            category: 'ml',
+            tags: ['Python', 'Deep Learning', 'CNN', 'Computer Vision', 'TensorFlow', 'Image Classification'],
+            //demoLink: 'https://github.com/AdilShamim8/Cat_Vs_Dog_Image_Classification_Project',
+            codeLink: 'https://github.com/AdilShamim8/Cat_Vs_Dog_Image_Classification_Project'
+        },
+        {
+            id: 6,
+            title: 'Stock Price Prediction',
+            description: 'A sophisticated time series forecasting project using LSTM neural networks to predict stock prices. Features include data preprocessing, feature engineering, model training with TensorFlow/Keras, and performance evaluation metrics.',
+            image: 'https://videos.openai.com/vg-assets/assets%2Ftask_01jxmywvckfyzvbrw4c0qqt6xj%2F1749829013_img_0.webp?st=2025-06-13T14%3A22%3A50Z&se=2025-06-19T15%3A22%3A50Z&sks=b&skt=2025-06-13T14%3A22%3A50Z&ske=2025-06-19T15%3A22%3A50Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=aa5ddad1-c91a-4f0a-9aca-e20682cc8969&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=Dx3MyFQZszXMsIKzEupPgFISXSRaYff222uJrkL98aI%3D&az=oaivgprodscus',
+            category: 'ml',
+            tags: ['Python', 'Deep Learning', 'LSTM', 'Time Series', 'TensorFlow', 'Financial Analysis'],
+            //demoLink: 'https://github.com/AdilShamim8/Stock_Price_Prediction',
+            codeLink: 'https://github.com/AdilShamim8/Stock_Price_Prediction'
+        },
+        {
+            id: 7,
             title: 'Book Recommender System',
-            description: 'A machine learning model designed to recommend books based on user preferences and reading history, utilizing collaborative filtering and content-based techniques.',
-            image: 'https://images.unsplash.com/photo-1711701201402-54745024530a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODJ8fEJvb2slMjBSZWNvbW1lbmRlciUyMFN5c3RlbXxlbnwwfHwwfHx8MA%3D%3D',
-            category: 'web',
-            tags: ['Python', 'Scikit-learn', 'Collaborative Filtering','Machine Learning'],
+            description: 'An intelligent book recommendation system that combines collaborative filtering and content-based approaches. Features include personalized recommendations, user preference analysis, and a user-friendly web interface for seamless book discovery.',
+            image: 'https://videos.openai.com/vg-assets/assets%2Ftask_01jxn1n8m5f54rtnt94a1emb5b%2F1749831907_img_0.webp?st=2025-06-13T15%3A17%3A22Z&se=2025-06-19T16%3A17%3A22Z&sks=b&skt=2025-06-13T15%3A17%3A22Z&ske=2025-06-19T16%3A17%3A22Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=3d249c53-07fa-4ba4-9b65-0bf8eb4ea46a&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=5x0Iswycb9Rkz6%2FEKJCLBE2XDKPnfwdRfJFTUtbqHf4%3D&az=oaivgprodscus',
+            category: 'ml',
+            tags: ['Python', 'Machine Learning', 'Recommender Systems', 'Web Development', 'Flask', 'Data Science'],
             demoLink: 'https://adil-book-recommender.onrender.com/',
             codeLink: 'https://github.com/AdilShamim8/Book-Recommender-System'
         },
         {
-            id: 5,
-            title: 'Email Spam Classifier',
-            description: 'An application that uses natural language processing techniques to classify emails as spam or not spam, improving your email management and productivity.',
-            image: 'https://miro.medium.com/v2/resize:fit:1400/1*WA9aceQugVlBS81r2a7Snw.png',
-            category: 'app',
-            tags: ['Python', 'NLP', 'Machine Learning', 'Text Classification'],
-            demoLink: 'https://github.com/AdilShamim8/Email-Spam-Classifier',
-            codeLink: 'https://github.com/AdilShamim8/Email-Spam-Classifier'
+            id: 8,
+            title: 'Olympic History Analysis',
+            description: 'A comprehensive data analysis project exploring 120 years of Olympic history. Features interactive visualizations, statistical analysis of athlete performance trends, and insights into the evolution of sports across different countries and time periods.',
+            image: 'https://videos.openai.com/vg-assets/assets%2Ftask_01jxn1ab9ffzjb1vn1ya1axrjq%2F1749831555_img_0.webp?st=2025-06-13T15%3A16%3A28Z&se=2025-06-19T16%3A16%3A28Z&sks=b&skt=2025-06-13T15%3A16%3A28Z&ske=2025-06-19T16%3A16%3A28Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=3d249c53-07fa-4ba4-9b65-0bf8eb4ea46a&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=Z72PuK2gWn7oeRGqFs43YpcvEDSEcBA6s%2BntWFS7hSM%3D&az=oaivgprodscus',
+            category: 'data',
+            tags: ['Python', 'Data Analysis', 'Data Visualization', 'Pandas', 'Matplotlib', 'Sports Analytics'],
+            demoLink: null,
+            codeLink: 'https://github.com/AdilShamim8/Olympic_History_Analysis'
         },
         {
-            id: 6,
-            title: 'Titanic: Machine Learning from Disaster',
-            description: 'A machine learning project aimed at predicting survival outcomes of passengers aboard the Titanic using various features such as age, gender, and class. This project utilizes classification techniques to analyze historical data and improve prediction accuracy.',
-            image: 'https://media.cnn.com/api/v1/images/stellar/prod/230213144330-02-titanic-25th-anniversary-restricted.jpg?c=16x9&q=h_833,w_1480,c_fill',
-            category: 'competition',
-            tags:  ['Python', 'Machine Learning', 'Classification', 'Data Science'],
-            demoLink: 'https://github.com/AdilShamim8/Titanic-Machine-Learning-from-Disaster',
-            codeLink: 'https://github.com/AdilShamim8/Titanic-Machine-Learning-from-Disaster'
-        }
+            id: 9,
+            title: 'ML Roadmap and Notes',
+            description: 'A comprehensive learning path and detailed notes covering the entire machine learning landscape. Features include structured learning modules, practical examples, implementation guides, and best practices for both beginners and advanced practitioners in the field of AI and ML.',
+            image: 'https://i.postimg.cc/7hsf86Y8/Chat-GPT-Image-Apr-18-2025-11-13-08-AM.png',
+            category: 'ml',
+            tags: ['Machine Learning', 'Deep Learning', 'AI', 'Data Science', 'Learning Resources', 'Best Practices'],
+            //demoLink: 'https://github.com/AdilShamim8/ML-Roadmap-and-Notes',
+            codeLink: 'https://github.com/AdilShamim8/ML-Roadmap-and-Notes'
+        },
     ];
     
     // Create project items
@@ -443,9 +473,11 @@ function initProjectsData() {
                     ${project.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}
                 </div>
                 <div class="project-links">
-                    <a href="${project.demoLink}" class="project-link" target="_blank">
-                        <i class="fas fa-external-link-alt"></i> Live Demo
-                    </a>
+                    ${project.demoLink && project.demoLink !== '' ? `
+                        <a href="${project.demoLink}" class="project-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                    ` : ''}
                     <a href="${project.codeLink}" class="project-link" target="_blank">
                         <i class="fab fa-github"></i> Source Code
                     </a>
