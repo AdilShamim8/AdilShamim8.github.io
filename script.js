@@ -389,7 +389,7 @@ function initProjectsData() {
             id: 3,
             title: "Prices Predictor System",
             description: "An end-to-end machine learning pipeline for price prediction using ZenML and MLflow. Features include data preprocessing, model training, evaluation, and deployment with automated tracking of experiments and model versions.",
-            image: "https://videos.openai.com/vg-assets/assets%2Ftask_01jxmy2hyge8zb0nn9b4p0dpq4%2F1749828150_img_0.webp?st=2025-06-13T14%3A23%3A19Z&se=2025-06-19T15%3A23%3A19Z&sks=b&skt=2025-06-13T14%3A23%3A19Z&ske=2025-06-19T15%3A23%3A19Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=aa5ddad1-c91a-4f0a-9aca-e20682cc8969&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=SdMFNAgvJltZZkLBiP3JrNqYjm4H62fJg48PNZsVezk%3D&az=oaivgprodscus",
+            image: "https://i.postimg.cc/gJpxfpx5/Price.jpg",
             category: "ml",
             tags: ['Python', 'Machine Learning', 'ZenML', 'MLflow', 'Data Science', 'MLOps'],
             //demoLink: "https://github.com/AdilShamim8/Prices_Predictor_System",
