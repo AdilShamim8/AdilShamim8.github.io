@@ -226,8 +226,7 @@ function initTypingEffect() {
     
     const phrases = [
         'Machine Learning Engineer',
-        'Researcher',
-        'Deep Learning',
+        'Deep Learning Enthusiast',
         'Problem Solver'
     ];
     
