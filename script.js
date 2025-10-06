@@ -367,11 +367,11 @@ function initProjectsData() {
         {
             id: 1,
             title: 'Toolly',
-            description: 'An AI-powered productivity suite that automates and streamlines your daily tasks. Features include intelligent text processing, automated content generation, and smart task management, all designed to boost your efficiency and save valuable time.',
+            description: "Welcome to Toolly, crafted with purpose and simplicity to empower every developer's journey. Here, we don't just provide utilities—we spark creativity, ignite innovation, and remove barriers between your ideas and reality.",
             image: 'https://i.postimg.cc/4d0vfpLB/20250613-1939-Toolly-Modern-Tech-Logo-simple-compose-01jxmr7v1neyav79wdd6fye13h.png',
             category: 'ai',
-            tags: ['Python', 'AI', 'NLP', 'Web Development', 'Productivity Tools', 'Automation'],
-            demoLink: 'https://adilshamim.me/Toolly/',
+            tags: ['Startup',' Full-Stack Development', 'Productivity Tools', 'Automation'],
+            demoLink: 'https://www.toolly.tech/',
             codeLink: 'https://github.com/AdilShamim8/Toolly'
         },
         {
@@ -547,3 +547,4 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 }); 
+
