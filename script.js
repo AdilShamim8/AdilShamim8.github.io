@@ -1,569 +1,879 @@
-// Wait for the DOM to be fully loaded
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all functions
-    initParticles();
-    initAOS();
-    initNavbar();
-    initThemeToggle();
-    initTypingEffect();
-    initScrollAnimation();
-    initBackToTop();
-    initProjectsFilter();
-    initProjectsData();
-    initContactForm();
-    setCurrentYear();
-});
-
-// Initialize particles.js
-function initParticles() {
-    if (document.getElementById('particles-js')) {
-        particlesJS('particles-js', {
-            particles: {
-                number: {
-                    value: 80,
-                    density: {
-                        enable: true,
-                        value_area: 800
-                    }
-                },
-                color: {
-                    value: '#4a6cf7'
-                },
-                shape: {
-                    type: 'circle',
-                    stroke: {
-                        width: 0,
-                        color: '#000000'
-                    },
-                    polygon: {
-                        nb_sides: 5
-                    }
-                },
-                opacity: {
-                    value: 0.5,
-                    random: false,
-                    anim: {
-                        enable: false,
-                        speed: 1,
-                        opacity_min: 0.1,
-                        sync: false
-                    }
-                },
-                size: {
-                    value: 3,
-                    random: true,
-                    anim: {
-                        enable: false,
-                        speed: 40,
-                        size_min: 0.1,
-                        sync: false
-                    }
-                },
-                line_linked: {
-                    enable: true,
-                    distance: 150,
-                    color: '#4a6cf7',
-                    opacity: 0.4,
-                    width: 1
-                },
-                move: {
-                    enable: true,
-                    speed: 3,
-                    direction: 'none',
-                    random: false,
-                    straight: false,
-                    out_mode: 'out',
-                    bounce: false,
-                    attract: {
-                        enable: false,
-                        rotateX: 600,
-                        rotateY: 1200
-                    }
-                }
+// Chatbot Configuration and Personal Information
+const CHATBOT_CONFIG = {
+    apiKey: 'AIzaSyDCORcHB7WLvvkqes2L52lpW0aEYytTJ7Y',
+    model: 'gemini-2.0-flash-exp',
+    apiEndpoint: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent',
+    
+    // Personal Information Context
+    personalInfo: {
+        name: "Adil Shamim",
+        title: "Machine Learning Engineer",
+        location: "Dhaka, Bangladesh",
+        phone: "+880 1321073452",
+        email: "adilshamim696@gmail.com",
+        education: "Computer Science and Engineering - BNIST (February 2023—Present)",
+        experience: "Machine Learning Engineer with over 2 years of hands-on experience",
+        kaggleStatus: "Kaggle Expert - Completed 15 competitions",
+        languages: ["English (Fluent)", "Bengali (Native)", "Hindi (Conversational)"],
+        
+        bio: `I'm Adil Shamim. I'm a Machine Learning Engineer with over two years of hands-on experience. I build practical ML systems—pipelines, Dockerized services, and tracked experiments—that teams actually use. I built a recommender that boosted a client's sales by 10%. I enjoy transforming complex data into intuitive tools that enable people to make informed decisions.`,
+        
+        skills: {
+            programmingAndData: [
+                "Python (Advanced)",
+                "SQL (Advanced)",
+                "R (Intermediate)",
+                "Bash"
+            ],
+            modelingAndML: [
+                "TensorFlow",
+                "scikit-learn",
+                "XGBoost",
+                "LightGBM",
+                "CatBoost"
+            ],
+            mlopsAndDeployment: [
+                "MLflow",
+                "ZenML",
+                "Docker",
+                "FastAPI"
+            ],
+            tools: [
+                "Jupyter",
+                "Git",
+                "VSCode",
+                "Streamlit",
+                "Flask"
+            ],
+            nlpAndEmbeddings: [
+                "spaCy",
+                "SBERT",
+                "FAISS",
+                "TF-IDF"
+            ]
+        },
+        
+        projects: [
+            {
+                name: "Prices Predictor System",
+                github: "GitHub link available",
+                technologies: ["ZenML", "MLflow", "XGBoost", "LightGBM", "Docker", "FastAPI"],
+                description: "Built an end-to-end price-prediction pipeline (ingest → preprocess → train → evaluate → register → serve). Tracked experiments with MLflow, ran CV and hyperparameter tuning, and Dockerized a FastAPI inference service for reproducible production use."
             },
-            interactivity: {
-                detect_on: 'canvas',
-                events: {
-                    onhover: {
-                        enable: true,
-                        mode: 'grab'
-                    },
-                    onclick: {
-                        enable: true,
-                        mode: 'push'
-                    },
-                    resize: true
+            {
+                name: "Toolly Studio",
+                github: "GitHub link available",
+                technologies: ["Streamlit", "Bria AI", "Python", "Docker"],
+                description: "Developed a demo-ready Streamlit app that generates professional product ads by integrating Bria AI image-generation APIs. Implemented client-preview, batch export workflows, and a one-command Docker demo."
+            },
+            {
+                name: "Resume Screening",
+                github: "GitHub link available",
+                technologies: ["spaCy", "SBERT", "FAISS", "Flask", "Python"],
+                description: "Built an automated resume-parsing → embedding → ranking pipeline (spaCy → SBERT → FAISS) to surface top candidates quickly. Served ranked shortlists via a Flask API and reduced manual screening overhead."
+            },
+            {
+                name: "Book Recommender System",
+                github: "GitHub link available",
+                preview: "Live preview available",
+                technologies: ["ALS", "TF-IDF/Embeddings", "Python", "Flask"],
+                description: "Implemented a hybrid recommendation system combining collaborative filtering (ALS) with content-based embeddings. Exposed recommendations via Flask API and achieved a +10% sales lift in pilot deployment."
+            }
+        ],
+        
+        socialMedia: {
+            linkedin: "https://www.linkedin.com/in/adilshamim8",
+            github: "https://github.com/AdilShamim8",
+            kaggle: "https://www.kaggle.com/adilshamim8",
+            twitter: "https://x.com/adil_shamim8",
+            medium: "https://adilshamim8.medium.com/"
+        },
+        
+        workExperience: [
+            {
+                title: "Freelance Machine Learning Engineer",
+                company: "Self-employed",
+                period: "July 2025—Present",
+                responsibilities: [
+                    "Performed end-to-end analyses on public datasets to extract actionable insights for health and economic questions",
+                    "Produced slide decks and dashboards for stakeholders",
+                    "Created a hybrid recommendation system for a local business (collaborative + content-based)",
+                    "Achieved a 10% sales increase in 3 months through deployed ML solutions"
+                ]
+            }
+        ],
+        
+        certifications: [
+            "Machine Learning — Stanford University (Coursera)",
+            "CS50: Introduction to Computer Science — Harvard",
+            "Python for Data Science, AI & Development — IBM",
+            "Career Essentials in Generative AI — Microsoft + LinkedIn",
+            "Machine Learning Pipelines with Azure ML Studio (Coursera)"
+        ],
+        
+        achievements: [
+            "Founder of Toolly — an AI-powered productivity tool",
+            "Published the Exploring Mental Health Dataset on Kaggle",
+            "Contributed to open-source projects in ML/NLP",
+            "Active blogger + educator with ML notes and guides",
+            "Kaggle Expert Rank with 15 completed competitions"
+        ],
+        
+        currentActivities: [
+            "Working on end-to-end ML pipelines and production deployments",
+            "Building practical ML systems with Docker and FastAPI",
+            "Competing in Kaggle data science competitions",
+            "Creating open-source ML tools and datasets",
+            "Writing technical blogs and educational content"
+        ],
+        
+        coursework: [
+            "Linear Algebra",
+            "Calculus",
+            "Probability & Statistics",
+            "Data Structures & Algorithms",
+            "Programming Languages",
+            "Operating Systems",
+            "Computer Architecture",
+            "Database Systems"
+        ],
+        
+        interests: [
+            "Machine Learning Pipeline Development",
+            "MLOps and Model Deployment",
+            "Recommendation Systems",
+            "Natural Language Processing",
+            "Computer Vision",
+            "Data Science",
+            "Open Source Development",
+            "AI-powered Productivity Tools"
+        ],
+        
+        resumePath: "Resume/AdilShamim_ML_Engineer_Resume.pdf",
+        website: "https://adilshamim.me"
+    },
+    
+    // System Prompt for Gemini
+    systemPrompt: `You are Adil Shamim's personal AI assistant on his portfolio website. Your role is to help visitors learn about Adil, his work, skills, and experiences.
+
+**About Adil Shamim:**
+- Name: Adil Shamim
+- Title: Machine Learning Engineer
+- Location: Dhaka, Bangladesh
+- Phone: +880 1321073452
+- Email: adilshamim696@gmail.com
+- Education: Computer Science and Engineering - BNIST (February 2023—Present)
+- Experience: Machine Learning Engineer with over 2 years of hands-on experience
+- Kaggle Status: Kaggle Expert - Completed 15 competitions
+- Languages: English (Fluent), Bengali (Native), Hindi (Conversational)
+
+**Professional Summary:**
+Adil Shamim is a Machine Learning Engineer with over two years of hands-on experience. He builds practical ML systems—pipelines, Dockerized services, and tracked experiments—that teams actually use. He built a recommender that boosted a client's sales by 10%. He enjoys transforming complex data into intuitive tools that enable people to make informed decisions.
+
+**SKILLS:**
+
+*Programming & Data:*
+- Python (Advanced)
+- SQL (Advanced)
+- R (Intermediate)
+- Bash
+
+*Modeling & ML - DL:*
+- TensorFlow
+- scikit-learn
+- XGBoost
+- LightGBM
+- CatBoost
+
+*MLOps & Deployment:*
+- MLflow
+- ZenML
+- Docker
+- FastAPI
+
+*Tools:*
+- Jupyter
+- Git
+- VSCode
+- Streamlit
+- Flask
+
+*NLP & Embeddings:*
+- spaCy
+- SBERT
+- FAISS
+- TF-IDF
+
+**PROJECTS:**
+
+1. **Prices Predictor System** | ZenML, MLflow, XGBoost, LightGBM, Docker, FastAPI
+   - Built an end-to-end price-prediction pipeline (ingest → preprocess → train → evaluate → register → serve) to standardize model development and deployment
+   - Tracked experiments with MLflow, ran CV and hyperparameter tuning for robust model selection
+   - Dockerized a FastAPI inference service for reproducible production use
+
+2. **Toolly Studio** | Streamlit, Bria AI, Python, Docker
+   - Developed a demo-ready Streamlit app that generates professional product ads by integrating Bria AI image-generation APIs and templated prompts
+   - Implemented client-preview, batch export workflows, and a one-command Docker demo
+
+3. **Resume Screening** | spaCy, SBERT, FAISS, Flask, Python
+   - Built an automated resume-parsing → embedding → ranking pipeline (spaCy → SBERT → FAISS) to surface top candidates quickly
+   - Served ranked shortlists via a Flask API and reduced manual screening overhead through accurate semantic matching
+
+4. **Book Recommender System** | ALS, TF-IDF/Embeddings, Python, Flask
+   - Implemented a hybrid recommendation system combining collaborative filtering (ALS) with content-based embeddings to personalize suggestions
+   - Exposed recommendations via a lightweight Flask API and supported a pilot deployment that produced a +10% sales lift
+
+**TECHNICAL EXPERIENCE:**
+
+*Freelance Machine Learning Engineer — Self-employed*
+July 2025—Present
+- Performed end-to-end analyses on public datasets to extract actionable insights for health and economic questions
+- Produced slide decks and dashboards for stakeholders
+- Created a hybrid recommendation system for a local business (collaborative + content-based)
+- Deployed results and achieved a 10% sales increase in 3 months
+
+*Kaggle Experience:*
+- Kaggle Expert Rank — completed 15 competitions
+- Focusing on robust modeling and reproducible notebooks
+
+**EDUCATION:**
+Computer Science and Engineering - BNIST
+February 2023—Present
+
+*Relevant Coursework:*
+Linear Algebra, Calculus, Probability & Statistics, Data Structures & Algorithms, Programming Languages, Operating Systems, Computer Architecture, Database Systems
+
+**CERTIFICATIONS:**
+- Machine Learning — Stanford University (Coursera)
+- CS50: Introduction to Computer Science — Harvard
+- Python for Data Science, AI & Development — IBM
+- Career Essentials in Generative AI — Microsoft + LinkedIn
+- Machine Learning Pipelines with Azure ML Studio (Coursera)
+
+**ACHIEVEMENTS:**
+- Founder of Toolly — an AI-powered productivity tool
+- Published the Exploring Mental Health Dataset on Kaggle
+- Contributed to open-source projects in ML/NLP
+- Active blogger + educator with ML notes and guides
+- Kaggle Expert with 15 completed competitions
+
+**Social Media & Online Presence:**
+- LinkedIn: https://www.linkedin.com/in/adilshamim8
+- GitHub: https://github.com/AdilShamim8
+- Kaggle: https://www.kaggle.com/adilshamim8
+- Twitter/X: https://x.com/adil_shamim8
+- Medium Blog: https://adilshamim8.medium.com/
+- Website: https://adilshamim.me
+
+**Resume:**
+Available for download at: Resume/AdilShamim_ML_Engineer_Resume.pdf
+
+**Instructions:**
+1. Be friendly, professional, and helpful
+2. Provide accurate information about Adil's skills, experience, and work
+3. If asked about projects, skills, or experience, refer to the information above
+4. **If asked about contact or how to reach Adil, provide a comprehensive response including:**
+   - Email: adilshamim696@gmail.com
+   - Phone: +880 1321073452
+   - LinkedIn: https://www.linkedin.com/in/adilshamim8
+   - GitHub: https://github.com/AdilShamim8
+   - Kaggle: https://www.kaggle.com/adilshamim8
+   - Twitter/X: https://x.com/adil_shamim8
+   - Medium Blog: https://adilshamim8.medium.com/
+   - Website: https://adilshamim.me
+   - Location: Dhaka, Bangladesh
+5. If asked about the resume, mention it's available for download on the website
+6. Keep responses concise but informative, and format contact information clearly
+7. If you don't know something specific, be honest and suggest they contact Adil directly
+8. Use a conversational yet professional tone
+9. Show enthusiasm about Adil's work and capabilities
+10. Help visitors navigate the website if needed
+11. **When sharing links, always provide them as plain URLs (e.g., https://github.com/AdilShamim8) - do NOT use markdown formatting like [text](url)**
+
+Remember: You represent Adil Shamim professionally. Always maintain a positive, helpful, and knowledgeable demeanor.`
+};
+
+// Chatbot Class
+class AdilChatbot {
+    constructor() {
+        this.messages = [];
+        this.isMinimized = false;
+        this.isTyping = false;
+        this.conversationHistory = [];
+        this.hasBeenOpened = false;
+        
+        this.init();
+    }
+    
+    init() {
+        this.createChatbotUI();
+        this.attachEventListeners();
+        // Don't load welcome message on init - only when user first opens chatbot
+    }
+    
+    createChatbotUI() {
+        // Check if chatbot already exists
+        if (document.getElementById('chatbot-container')) {
+            return;
+        }
+        
+        const chatbotHTML = `
+            <div id="chatbot-container" class="chatbot-container hidden">
+                <div class="chatbot-header" id="chatbot-header">
+                    <div class="chatbot-header-left">
+                        <img src="image/Adil.jpeg" alt="Adil" class="chatbot-avatar">
+                        <div class="chatbot-title-container">
+                            <h3>Adil's AI Assistant</h3>
+                            <div class="chatbot-status">
+                                <span class="status-dot"></span>
+                                <span>Online</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chatbot-controls">
+                        <button class="chatbot-control-btn" id="chatbot-minimize" title="Minimize">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                        <button class="chatbot-control-btn" id="chatbot-close" title="Close">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="chatbot-body" id="chatbot-body">
+                    <!-- Messages will be inserted here -->
+                </div>
+                
+                <div class="quick-actions" id="quick-actions">
+                    <button class="quick-action-btn" data-message="Tell me about Adil's technical skills"> Skills</button>
+                    <button class="quick-action-btn" data-message="What projects has Adil worked on?"> Projects</button>
+                    <button class="quick-action-btn" data-message="Tell me about Adil's work experience"> Experience</button>
+                    <button class="quick-action-btn" data-message="How can I contact Adil?"> Contact</button>
+                    <button class="quick-action-btn" data-message="Show me Adil's certifications"> Certifications</button>
+                    <button class="quick-action-btn" data-message="What are Adil's achievements?"> Achievements</button>
+                </div>
+                
+                <div class="chatbot-footer">
+                    <input 
+                        type="text" 
+                        class="chatbot-input" 
+                        id="chatbot-input" 
+                        placeholder="Ask me anything about Adil..."
+                        autocomplete="off"
+                    >
+                    <button class="chatbot-send-btn" id="chatbot-send">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <button class="chatbot-toggle-btn active" id="chatbot-toggle">
+                <i class="fas fa-comments"></i>
+            </button>
+        `;
+        
+        document.body.insertAdjacentHTML('beforeend', chatbotHTML);
+    }
+    
+    attachEventListeners() {
+        const sendBtn = document.getElementById('chatbot-send');
+        const input = document.getElementById('chatbot-input');
+        const minimizeBtn = document.getElementById('chatbot-minimize');
+        const closeBtn = document.getElementById('chatbot-close');
+        const toggleBtn = document.getElementById('chatbot-toggle');
+        const header = document.getElementById('chatbot-header');
+        const quickActions = document.querySelectorAll('.quick-action-btn');
+        
+        // Send message
+        sendBtn?.addEventListener('click', () => this.handleSendMessage());
+        input?.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                this.handleSendMessage();
+            }
+        });
+        
+        // Quick actions
+        quickActions.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const message = btn.dataset.message;
+                this.sendMessage(message);
+            });
+        });
+        
+        // Minimize
+        minimizeBtn?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            this.toggleMinimize();
+        });
+        
+        // Close
+        closeBtn?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            this.closeChatbot();
+        });
+        
+        // Toggle
+        toggleBtn?.addEventListener('click', () => {
+            this.openChatbot();
+        });
+        
+        // Header click to toggle minimize
+        header?.addEventListener('click', () => {
+            if (this.isMinimized) {
+                this.toggleMinimize();
+            }
+        });
+    }
+    
+    loadWelcomeMessage() {
+        const welcomeMsg = `Hi! I'm Adil's AI assistant. 
+
+I can help you learn about:
+• **Technical Skills** - Python, ML, MLOps, Docker
+• **Projects** - Price Predictor, Toolly Studio, Resume Screening
+• **Experience** - 2+ years in ML Engineering
+• **Certifications** - Stanford ML, Harvard CS50, and more
+• **Contact Info** - Email, LinkedIn, GitHub, Kaggle
+
+Try the quick action buttons below or ask me anything! `;
+        this.addMessage('bot', welcomeMsg);
+    }
+    
+    handleSendMessage() {
+        const input = document.getElementById('chatbot-input');
+        const message = input.value.trim();
+        
+        if (!message) return;
+        
+        this.sendMessage(message);
+        input.value = '';
+    }
+    
+    async sendMessage(message) {
+        // Add user message
+        this.addMessage('user', message);
+        
+        // Show typing indicator
+        this.showTypingIndicator();
+        
+        try {
+            // Get response from Gemini
+            const response = await this.getGeminiResponse(message);
+            
+            // Remove typing indicator
+            this.hideTypingIndicator();
+            
+            // Add bot response
+            this.addMessage('bot', response);
+            
+        } catch (error) {
+            console.error('Error getting response:', error);
+            this.hideTypingIndicator();
+            
+            // Try to answer from local knowledge base first
+            const localResponse = this.getLocalResponse(message);
+            
+            if (localResponse) {
+                // If we can answer from local knowledge, provide that
+                this.addMessage('bot', localResponse);
+            } else {
+                // Otherwise, show error message with contact info
+                const errorMessage = this.handleAPIError(error);
+                this.addMessage('bot', errorMessage);
+            }
+        }
+    }
+    
+    getLocalResponse(message) {
+        const lowerMessage = message.toLowerCase();
+        const info = CHATBOT_CONFIG.personalInfo;
+        
+        // Contact information queries
+        if (lowerMessage.match(/contact|reach|email|phone|call|connect|get in touch|communicate/i)) {
+            return `You can contact Adil through:\n\n📧 **Email:** ${info.email}\n📱 **Phone:** ${info.phone}\n🔗 **LinkedIn:** ${info.socialMedia.linkedin}\n🐙 **GitHub:** ${info.socialMedia.github}\n🏆 **Kaggle:** ${info.socialMedia.kaggle}\n🐦 **Twitter/X:** ${info.socialMedia.twitter}\n📝 **Medium Blog:** ${info.socialMedia.medium}\n🌐 **Website:** https://adilshamim.me\n\n📍 **Location:** ${info.location}`;
+        }
+        
+        // Skills queries
+        if (lowerMessage.match(/skill|technical|technology|programming|what (can|do) (you|adil)|expertise|proficient|languages/i)) {
+            let skillsText = `Adil has expertise in:\n\n`;
+            skillsText += `**Programming & Data:**\n${info.skills.programmingAndData.map(s => `• ${s}`).join('\n')}\n\n`;
+            skillsText += `**Modeling & Machine Learning:**\n${info.skills.modelingAndML.map(s => `• ${s}`).join('\n')}\n\n`;
+            skillsText += `**MLOps & Deployment:**\n${info.skills.mlopsAndDeployment.map(s => `• ${s}`).join('\n')}\n\n`;
+            skillsText += `**NLP & Embeddings:**\n${info.skills.nlpAndEmbeddings.map(s => `• ${s}`).join('\n')}\n\n`;
+            skillsText += `**Tools:**\n${info.skills.tools.map(s => `• ${s}`).join('\n')}`;
+            return skillsText;
+        }
+        
+        // Projects queries
+        if (lowerMessage.match(/project|portfolio|work|built|created|developed|show me/i)) {
+            let projectsText = `Here are Adil's key projects:\n\n`;
+            info.projects.forEach((project, index) => {
+                projectsText += `**${index + 1}. ${project.name}**\n`;
+                projectsText += `Technologies: ${project.technologies.join(', ')}\n`;
+                projectsText += `${project.description}\n\n`;
+            });
+            projectsText += `You can view all projects on GitHub: ${info.socialMedia.github}`;
+            return projectsText;
+        }
+        
+        // Experience queries
+        if (lowerMessage.match(/experience|work|job|career|employment|position|role/i)) {
+            let expText = `**Adil's Work Experience:**\n\n`;
+            info.workExperience.forEach(exp => {
+                expText += `**${exp.title}** at ${exp.company}\n`;
+                expText += `📅 ${exp.period}\n\n`;
+                expText += `Responsibilities:\n`;
+                expText += exp.responsibilities.map(r => `• ${r}`).join('\n');
+                expText += `\n\n`;
+            });
+            expText += `${info.experience}\n${info.kaggleStatus}`;
+            return expText;
+        }
+        
+        // Certifications queries
+        if (lowerMessage.match(/certification|certificate|course|learning|education|degree|study/i)) {
+            let certText = `**Education:**\n${info.education}\n\n`;
+            certText += `**Certifications:**\n${info.certifications.map(c => `• ${c}`).join('\n')}\n\n`;
+            certText += `**Relevant Coursework:**\n${info.coursework.map(c => `• ${c}`).join('\n')}`;
+            return certText;
+        }
+        
+        // Achievements queries
+        if (lowerMessage.match(/achievement|accomplish|award|recognition|kaggle|rank|competition/i)) {
+            let achieveText = `**Adil's Achievements:**\n\n`;
+            achieveText += info.achievements.map(a => `✨ ${a}`).join('\n\n');
+            achieveText += `\n\n**Current Activities:**\n`;
+            achieveText += info.currentActivities.map(a => `🚀 ${a}`).join('\n\n');
+            return achieveText;
+        }
+        
+        // About/Bio queries
+        if (lowerMessage.match(/about|who (is|are)|tell me (about|more)|introduce|background|bio/i)) {
+            return `${info.bio}\n\n**Title:** ${info.title}\n**Location:** ${info.location}\n**Languages:** ${info.languages.join(', ')}\n\n${info.experience}\n${info.kaggleStatus}\n\nFor more details, ask me about skills, projects, experience, or certifications!`;
+        }
+        
+        // Location queries
+        if (lowerMessage.match(/where|location|live|based|from/i)) {
+            return `Adil is based in **${info.location}**.\n\n${info.bio}`;
+        }
+        
+        // Interests queries
+        if (lowerMessage.match(/interest|passion|hobby|like|enjoy|focus/i)) {
+            let interestText = `**Adil's Interests & Focus Areas:**\n\n`;
+            interestText += info.interests.map(i => `💡 ${i}`).join('\n\n');
+            return interestText;
+        }
+        
+        // Resume/CV queries
+        if (lowerMessage.match(/resume|cv|download|document/i)) {
+            return `You can download Adil's resume from the website at:\n📄 **Resume/AdilShamim_ML_Engineer_Resume.pdf**\n\nIt's available in the website header or contact section.\n\nWould you like to know about his skills, projects, or experience?`;
+        }
+        
+        // Social media queries
+        if (lowerMessage.match(/social|linkedin|github|kaggle|twitter|medium|blog/i)) {
+            return `Connect with Adil on:\n\n🔗 **LinkedIn:** ${info.socialMedia.linkedin}\n🐙 **GitHub:** ${info.socialMedia.github}\n🏆 **Kaggle:** ${info.socialMedia.kaggle}\n🐦 **Twitter/X:** ${info.socialMedia.twitter}\n📝 **Medium Blog:** ${info.socialMedia.medium}\n🌐 **Website:** https://adilshamim.me`;
+        }
+        
+        // No match found
+        return null;
+    }
+    
+    handleAPIError(error) {
+        // Check for quota/cost exhaustion errors
+        if (error.message && (
+            error.message.includes('429') || 
+            error.message.includes('quota') || 
+            error.message.includes('RESOURCE_EXHAUSTED') ||
+            error.message.includes('insufficient') ||
+            error.statusCode === 429
+        )) {
+            return "I'm sorry, I'm having trouble connecting right now. Please try again in a moment or contact Adil directly through the contact section below.\n\n📧 Email: adilshamim696@gmail.com\n📱 Phone: +880 1321073452\n🔗 LinkedIn: https://www.linkedin.com/in/adilshamim8";
+        }
+        
+        // Check for rate limit errors
+        if (error.message && error.message.includes('rate limit')) {
+            return "I'm processing too many requests right now. Please wait a moment and try again, or reach out to Adil directly through the contact section.";
+        }
+        
+        // Check for network/connectivity errors
+        if (error.message && (
+            error.message.includes('network') || 
+            error.message.includes('fetch') ||
+            error.message.includes('Failed to fetch')
+        )) {
+            return "I'm having network connectivity issues. Please check your internet connection and try again, or contact Adil directly through the contact section.";
+        }
+        
+        // Generic fallback for all other errors
+        return "I'm sorry, I'm having trouble connecting right now. Please try again in a moment or contact Adil directly through the contact section.\n\n📧 Email: adilshamim696@gmail.com\n🔗 LinkedIn: https://www.linkedin.com/in/adilshamim8";
+    }
+    
+    async getGeminiResponse(userMessage) {
+        // Build conversation history
+        const contents = [
+            {
+                role: "user",
+                parts: [{ text: CHATBOT_CONFIG.systemPrompt }]
+            },
+            {
+                role: "model",
+                parts: [{ text: "I understand. I'm Adil Shamim's personal AI assistant. I'll help visitors learn about Adil, his work, skills, and experiences in a friendly and professional manner." }]
+            }
+        ];
+        
+        // Add conversation history
+        this.conversationHistory.forEach(msg => {
+            contents.push({
+                role: msg.role === 'user' ? 'user' : 'model',
+                parts: [{ text: msg.content }]
+            });
+        });
+        
+        // Add current message
+        contents.push({
+            role: "user",
+            parts: [{ text: userMessage }]
+        });
+        
+        const requestBody = {
+            contents: contents,
+            generationConfig: {
+                temperature: 0.7,
+                topK: 40,
+                topP: 0.95,
+                maxOutputTokens: 1024,
+            }
+        };
+        
+        try {
+            const response = await fetch(`${CHATBOT_CONFIG.apiEndpoint}?key=${CHATBOT_CONFIG.apiKey}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
                 },
-                modes: {
-                    grab: {
-                        distance: 140,
-                        line_linked: {
-                            opacity: 1
-                        }
-                    },
-                    bubble: {
-                        distance: 400,
-                        size: 40,
-                        duration: 2,
-                        opacity: 8,
-                        speed: 3
-                    },
-                    repulse: {
-                        distance: 200,
-                        duration: 0.4
-                    },
-                    push: {
-                        particles_nb: 4
-                    },
-                    remove: {
-                        particles_nb: 2
+                body: JSON.stringify(requestBody)
+            });
+            
+            // Handle HTTP errors with specific status codes
+            if (!response.ok) {
+                const errorData = await response.json().catch(() => ({}));
+                const error = new Error(`API request failed: ${response.status}`);
+                error.statusCode = response.status;
+                error.errorData = errorData;
+                
+                // Check for specific error messages in the response
+                if (errorData.error) {
+                    if (errorData.error.message) {
+                        error.message = errorData.error.message;
+                    }
+                    if (errorData.error.status) {
+                        error.errorStatus = errorData.error.status;
                     }
                 }
-            },
-            retina_detect: true
-        });
-    }
-}
-
-// Initialize AOS animation library
-function initAOS() {
-    AOS.init({
-        duration: 800,
-        easing: 'ease-in-out',
-        once: true,
-        mirror: false
-    });
-}
-
-// Navbar functionality
-function initNavbar() {
-    const navbar = document.querySelector('.navbar');
-    const menuToggle = document.querySelector('#mobile-menu');
-    const navMenu = document.querySelector('.nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    // Toggle mobile menu
-    if (menuToggle) {
-        menuToggle.addEventListener('click', function() {
-            menuToggle.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-    }
-
-    // Close mobile menu when clicking on a nav link
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            menuToggle.classList.remove('active');
-            navMenu.classList.remove('active');
-        });
-    });
-
-    // Add active class to nav links on scroll
-    window.addEventListener('scroll', function() {
-        let current = '';
-        const sections = document.querySelectorAll('section');
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            
-            if (pageYOffset >= (sectionTop - 200)) {
-                current = section.getAttribute('id');
+                
+                throw error;
             }
-        });
-
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href').substring(1) === current) {
-                link.classList.add('active');
-            }
-        });
-
-        // Navbar scroll effect
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
-}
-
-// Theme toggle functionality
-function initThemeToggle() {
-    const themeToggle = document.querySelector('#theme-toggle');
-    const themeIcon = themeToggle.querySelector('i');
-    
-    // Check for saved theme preference or use device preference
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        themeIcon.classList.replace('fa-moon', 'fa-sun');
-    }
-    
-    // Toggle theme on button click
-    themeToggle.addEventListener('click', function() {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        let newTheme = 'light';
-        
-        if (currentTheme !== 'dark') {
-            newTheme = 'dark';
-            themeIcon.classList.replace('fa-moon', 'fa-sun');
-        } else {
-            themeIcon.classList.replace('fa-sun', 'fa-moon');
-        }
-        
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-    });
-}
-
-// Typing effect for hero section
-function initTypingEffect() {
-    const typingElement = document.getElementById('typing-text');
-    if (!typingElement) return;
-    
-    const phrases = [
-        'Machine Learning Engineer',
-        'Deep Learning Enthusiast',
-        'Problem Solver'
-    ];
-    
-    let phraseIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    let typingSpeed = 100;
-    
-    function type() {
-        const currentPhrase = phrases[phraseIndex];
-        
-        if (isDeleting) {
-            typingElement.textContent = currentPhrase.substring(0, charIndex - 1);
-            charIndex--;
-            typingSpeed = 50;
-        } else {
-            typingElement.textContent = currentPhrase.substring(0, charIndex + 1);
-            charIndex++;
-            typingSpeed = 100;
-        }
-        
-        if (!isDeleting && charIndex === currentPhrase.length) {
-            isDeleting = true;
-            typingSpeed = 1000; // Pause at the end
-        } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            phraseIndex = (phraseIndex + 1) % phrases.length;
-            typingSpeed = 500; // Pause before typing next phrase
-        }
-        
-        setTimeout(type, typingSpeed);
-    }
-    
-    setTimeout(type, 1000);
-}
-
-// Scroll animations for elements
-function initScrollAnimation() {
-    const skillItems = document.querySelectorAll('.skill-item');
-    
-    // Initialize progress bars at 0 width
-    skillItems.forEach(item => {
-        const progressBar = item.querySelector('.progress-bar');
-        const percentage = item.querySelector('.skill-percentage').textContent;
-        progressBar.style.width = '0%';
-    });
-    
-    // Function to check if element is in viewport
-    function isInViewport(element) {
-        const rect = element.getBoundingClientRect();
-        return (
-            rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
-            rect.bottom >= 0
-        );
-    }
-    
-    // Function to animate elements when they come into view
-    function animateOnScroll() {
-        skillItems.forEach(item => {
-            if (isInViewport(item)) {
-                const progressBar = item.querySelector('.progress-bar');
-                const percentage = item.querySelector('.skill-percentage').textContent;
-                progressBar.style.width = percentage;
-            }
-        });
-    }
-    
-    // Run on scroll
-    window.addEventListener('scroll', animateOnScroll);
-    
-    // Run once on page load
-    animateOnScroll();
-}
-
-// Back to top button functionality
-function initBackToTop() {
-    const backToTopButton = document.getElementById('back-to-top');
-    
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 300) {
-            backToTopButton.classList.add('active');
-        } else {
-            backToTopButton.classList.remove('active');
-        }
-    });
-    
-    backToTopButton.addEventListener('click', function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-}
-
-// Projects filter functionality
-function initProjectsFilter() {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const projectItems = document.querySelectorAll('.project-item');
-    
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Remove active class from all buttons
-            filterButtons.forEach(btn => btn.classList.remove('active'));
             
-            // Add active class to clicked button
-            this.classList.add('active');
+            const data = await response.json();
             
-            // Get filter value
-            const filterValue = this.getAttribute('data-filter');
-            
-            // Filter projects
-            if (projectItems.length > 0) {
-                if (filterValue === 'all') {
-                    projectItems.forEach(item => {
-                        item.style.display = 'block';
-                    });
-                } else {
-                    projectItems.forEach(item => {
-                        if (item.classList.contains(filterValue)) {
-                            item.style.display = 'block';
-                        } else {
-                            item.style.display = 'none';
-                        }
-                    });
-                }
+            // Validate response structure
+            if (!data.candidates || !data.candidates[0] || !data.candidates[0].content) {
+                throw new Error('Invalid API response structure');
             }
-        });
-    });
-}
-
-// Dynamically populate projects
-function initProjectsData() {
-    const projectsGrid = document.querySelector('.projects-grid');
-    if (!projectsGrid) return;
+            
+            const botResponse = data.candidates[0].content.parts[0].text;
+            
+            // Update conversation history
+            this.conversationHistory.push({ role: 'user', content: userMessage });
+            this.conversationHistory.push({ role: 'bot', content: botResponse });
+            
+            // Keep only last 10 messages to manage token usage
+            if (this.conversationHistory.length > 20) {
+                this.conversationHistory = this.conversationHistory.slice(-20);
+            }
+            
+            return botResponse;
+            
+        } catch (error) {
+            // Enhance error with more context if it's a fetch error
+            if (error.name === 'TypeError' && error.message.includes('fetch')) {
+                error.message = 'Failed to fetch - network error';
+            }
+            throw error;
+        }
+    }
     
-    // Sample project data
-    const projects = [
-        {
-            id: 1,
-            title: "Prices Predictor System",
-            description: "An end-to-end machine learning pipeline for price prediction using ZenML and MLflow. Features include data preprocessing, model training, evaluation, and deployment with automated tracking of experiments and model versions.",
-            image: "https://i.postimg.cc/gJpxfpx5/Price.jpg",
-            category: "ml",
-            tags: ['Python', 'Machine Learning', 'ZenML', 'MLflow', 'Data Science', 'MLOps'],
-            //demoLink: "https://github.com/AdilShamim8/Prices_Predictor_System",
-            codeLink: "https://github.com/AdilShamim8/Prices_Predictor_System"
-        },
-        {
-            id: 2,
-            title: 'Toolly Studio',
-            description: 'A powerful Streamlit app for generating professional product ads using Bria AI\'s advanced image generation and manipulation APIs. Features intelligent prompt engineering, batch processing capabilities, and seamless integration with modern AI image generation tools.',
-            image: 'https://i.postimg.cc/mZ9YhHvq/20251013-1714-Ghibli-Inspired-Product-Ad-simple-compose-01k7emcvyce5zaj4jkz40q9fsz.png',
-            category: 'ai',
-            tags: ['Python', 'Streamlit', 'Bria AI', 'Image Generation', 'AI', 'Marketing Automation'],
-            demoLink: null,
-            codeLink: 'https://github.com/AdilShamim8/Toolly-Studio'
-        },
-        {
-            id: 3,
-            title: 'Book Recommender System',
-            description: 'An intelligent book recommendation system that combines collaborative filtering and content-based approaches. Features include personalized recommendations, user preference analysis, and a user-friendly web interface for seamless book discovery.',
-            image: 'https://i.postimg.cc/MGyXDb27/Book.jpg',
-            category: 'ml',
-            tags: ['Python', 'Machine Learning', 'Recommender Systems', 'Web Development', 'Flask', 'Data Science'],
-            demoLink: 'https://adil-book-recommender.onrender.com/',
-            codeLink: 'https://github.com/AdilShamim8/Book-Recommender-System'
-        },
-        // {
-        //     id: 2,
-        //     title: '100 AI Machine Learning & Deep Learning Projects',
-        //     description: 'A comprehensive collection of 100 hands-on projects covering the entire spectrum of AI, from fundamental machine learning algorithms to advanced deep learning architectures. Each project includes detailed implementations, best practices, and real-world applications across various domains.',
-        //     image: 'https://i.postimg.cc/dtNL5V70/AI.jpg',
-        //     category: 'ml',
-        //     tags: ['Python', 'Machine Learning', 'Deep Learning', 'AI', 'Data Science', 'Computer Vision', 'NLP'],
-        //     //demoLink: 'https://github.com/AdilShamim8/100-AI-Machine-Learning-Deep-Learning-Projects',
-        //     codeLink: 'https://github.com/AdilShamim8/100-AI-Machine-Learning-Deep-Learnin-Projects'
-        // },
-        {
-            id: 4,
-            title: 'Resume Screening',
-            description: 'AI-powered tool for efficient and fair candidate selection. Utilizes advanced NLP techniques to parse, analyze, and rank resumes based on job requirements. Features include automated skill extraction, experience matching, and bias-free candidate evaluation.',
-            image: 'https://i.postimg.cc/tTxx1KMP/20251013-1717-AI-Powered-Resume-Screening-simple-compose-01k7emhkcqffrrt7hwx30df76e.png',
-            category: 'ai',
-            tags: ['Python', 'NLP', 'Machine Learning', 'HR Tech', 'Text Analysis', 'Automation'],
-            demoLink: null,
-            codeLink: 'https://github.com/AdilShamim8/Resume-Screening'
-        },
-        {
-            id: 5,
-            title: 'Sentiment Analysis',
-            description: 'A powerful NLP application that performs sentiment analysis on text input, classifying it as positive, neutral, or negative. Built with Python and Streamlit, featuring a clean user interface and real-time analysis capabilities.',
-            image: 'https://i.postimg.cc/jj9d6bbm/NLP.jpg',
-            category: 'ml',
-            tags: ['Python', 'NLP', 'Streamlit', 'Machine Learning', 'Text Classification', 'Web App'],
-            //demoLink: 'https://github.com/AdilShamim8/Sentiment-analysis',
-            codeLink: 'https://github.com/AdilShamim8/Sentiment-analysis'
-        },
-        // {
-        //     id: 5,
-        //     title: 'Cat vs Dog Image Classification',
-        //     description: 'A deep learning project implementing Convolutional Neural Networks (CNN) for binary image classification. Features include data augmentation, model training with transfer learning, and real-time prediction capabilities.',
-        //     image: 'https://i.postimg.cc/B6TZvvvx/Screenshot-2025-06-13-212543.png',
-        //     category: 'ml',
-        //     tags: ['Python', 'Deep Learning', 'CNN', 'Computer Vision', 'TensorFlow', 'Image Classification'],
-        //     //demoLink: 'https://github.com/AdilShamim8/Cat_Vs_Dog_Image_Classification_Project',
-        //     codeLink: 'https://github.com/AdilShamim8/Cat_Vs_Dog_Image_Classification_Project'
-        // },
-        // {
-        //     id: 6,
-        //     title: 'Stock Price Prediction',
-        //     description: 'A sophisticated time series forecasting project using LSTM neural networks to predict stock prices. Features include data preprocessing, feature engineering, model training with TensorFlow/Keras, and performance evaluation metrics.',
-        //     image: 'https://i.postimg.cc/B6hRFk6X/Stock.jpg',
-        //     category: 'ml',
-        //     tags: ['Python', 'Deep Learning', 'LSTM', 'Time Series', 'TensorFlow', 'Financial Analysis'],
-        //     //demoLink: 'https://github.com/AdilShamim8/Stock_Price_Prediction',
-        //     codeLink: 'https://github.com/AdilShamim8/Stock_Price_Prediction'
-        // },
-        // {
-        //     id: 10,
-        //     title: 'Olympic History Analysis',
-        //     description: 'A comprehensive data analysis project exploring 120 years of Olympic history. Features interactive visualizations, statistical analysis of athlete performance trends, and insights into the evolution of sports across different countries and time periods.',
-        //     image: 'https://i.postimg.cc/G3MwZ8bv/OLYMPC.jpg',
-        //     category: 'data',
-        //     tags: ['Python', 'Data Analysis', 'Data Visualization', 'Pandas', 'Matplotlib', 'Sports Analytics'],
-        //     demoLink: null,
-        //     codeLink: 'https://github.com/AdilShamim8/Olympic_History_Analysis'
-        // },
-        // {
-        //     id: 9,
-        //     title: 'ML Roadmap and Notes',
-        //     description: 'A comprehensive learning path and detailed notes covering the entire machine learning landscape. Features include structured learning modules, practical examples, implementation guides, and best practices for both beginners and advanced practitioners in the field of AI and ML.',
-        //     image: 'https://i.postimg.cc/FKRp2Rpn/Roadmap.jpg',
-        //     category: 'ml',
-        //     tags: ['Machine Learning', 'Deep Learning', 'AI', 'Data Science', 'Learning Resources', 'Best Practices'],
-        //     //demoLink: 'https://github.com/AdilShamim8/ML-Roadmap-and-Notes',
-        //     codeLink: 'https://github.com/AdilShamim8/ML-Roadmap-and-Notes'
-        // },
-        {
-            id: 6,
-            title: 'Toolly',
-            description: 'An AI-powered productivity suite that automates and streamlines your daily tasks. Features include intelligent text processing, automated content generation, and smart task management, all designed to boost your efficiency and save valuable time.',
-            image: 'https://i.postimg.cc/4d0vfpLB/20250613-1939-Toolly-Modern-Tech-Logo-simple-compose-01jxmr7v1neyav79wdd6fye13h.png',
-            category: 'ai',
-            tags: ['Python', 'AI', 'NLP', 'Web Development', 'Productivity Tools', 'Automation'],
-            demoLink: 'https://www.toolly.tech/',
-            codeLink: 'https://github.com/AdilShamim8/Toolly'
-        },
-    ];
-    
-    // Create project items
-    projects.forEach(project => {
-        const projectItem = document.createElement('div');
-        projectItem.className = `project-item ${project.category}`;
-        projectItem.setAttribute('data-aos', 'fade-up');
-        projectItem.setAttribute('data-aos-delay', (project.id * 100).toString());
+    addMessage(sender, text) {
+        const chatBody = document.getElementById('chatbot-body');
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${sender}`;
         
-        projectItem.innerHTML = `
-            <img src="${project.image}" alt="${project.title}" class="project-img">
-            <div class="project-content">
-                <h3>${project.title}</h3>
-                <p>${project.description}</p>
-                <div class="project-tags">
-                    ${project.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}
-                </div>
-                <div class="project-links">
-                    ${project.demoLink && project.demoLink !== '' ? `
-                        <a href="${project.demoLink}" class="project-link" target="_blank">
-                            <i class="fas fa-external-link-alt"></i> Live Demo
-                        </a>
-                    ` : ''}
-                    <a href="${project.codeLink}" class="project-link" target="_blank">
-                        <i class="fab fa-github"></i> Source Code
-                    </a>
-                </div>
+        const time = new Date().toLocaleTimeString('en-US', { 
+            hour: '2-digit', 
+            minute: '2-digit' 
+        });
+        
+        const avatarHTML = sender === 'bot' ? 
+            `<img src="image/Adil.jpeg" alt="Avatar" class="message-avatar">` : '';
+        
+        messageDiv.innerHTML = `
+            ${avatarHTML}
+            <div>
+                <div class="message-content">${this.formatMessage(text)}</div>
+                <div class="message-time">${time}</div>
             </div>
         `;
         
-        projectsGrid.appendChild(projectItem);
-    });
-}
-
-// Contact form functionality
-function initContactForm() {
-    const contactForm = document.getElementById('contact-form');
-    const formStatus = document.getElementById('form-status');
+        chatBody.appendChild(messageDiv);
+        chatBody.scrollTop = chatBody.scrollHeight;
+        
+        this.messages.push({ sender, text, time });
+    }
     
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                subject: document.getElementById('subject').value,
-                message: document.getElementById('message').value
-            };
-            
-            // Simulate form submission (in a real project, you would send this to a server)
-            setTimeout(() => {
-                // Show success message
-                formStatus.textContent = 'Your message has been sent successfully!';
-                formStatus.className = 'success';
-                
-                // Reset form
-                contactForm.reset();
-                
-                // Hide message after 5 seconds
-                setTimeout(() => {
-                    formStatus.style.display = 'none';
-                }, 5000);
-            }, 1000);
+    formatMessage(text) {
+        // First, convert markdown-style links [text](url) to clean URLs
+        text = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (match, linkText, url) => {
+            // If the link text is the same as the URL or starts with http, just use the URL
+            if (linkText === url || linkText.startsWith('http')) {
+                return url;
+            }
+            // Otherwise keep the markdown format for now, will be converted to HTML later
+            return `[${linkText}](${url})`;
         });
-    }
-}
-
-// Set current year in footer
-function setCurrentYear() {
-    const yearElement = document.getElementById('current-year');
-    if (yearElement) {
-        yearElement.textContent = new Date().getFullYear();
-    }
-}
-
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
         
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
+        // Convert plain URLs to clickable links
+        const urlRegex = /(https?:\/\/[^\s\]]+)/g;
+        text = text.replace(urlRegex, (url) => {
+            // Don't convert if it's part of a markdown link (already has closing parenthesis)
+            return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="chatbot-link">${url}</a>`;
+        });
         
-        if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop - 70,
-                behavior: 'smooth'
+        // Convert remaining markdown links [text](url) to HTML
+        text = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (match, linkText, url) => {
+            return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="chatbot-link">${linkText}</a>`;
+        });
+        
+        // Convert markdown-style bold to HTML
+        text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        
+        // Convert markdown-style italic to HTML
+        text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
+        
+        // Convert markdown-style code to HTML
+        text = text.replace(/`([^`]+)`/g, '<code>$1</code>');
+        
+        // Convert bullet points to proper lists
+        if (text.includes('\n•') || text.includes('\n-')) {
+            text = text.replace(/\n([•\-])\s(.+)/g, (match, bullet, content) => {
+                return `<li>${content}</li>`;
             });
+            // Wrap in ul if li tags exist
+            if (text.includes('<li>')) {
+                text = text.replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>');
+            }
         }
+        
+        // Convert numbered lists
+        text = text.replace(/\n(\d+)\.\s(.+)/g, '<li>$2</li>');
+        if (text.includes('<li>') && !text.includes('<ul>')) {
+            text = text.replace(/(<li>.*<\/li>)/s, '<ol>$1</ol>');
+        }
+        
+        // Convert line breaks to paragraphs for better spacing
+        const paragraphs = text.split(/\n\n+/);
+        if (paragraphs.length > 1) {
+            text = paragraphs.map(p => {
+                if (p.trim() && !p.includes('<ul>') && !p.includes('<ol>') && !p.includes('<li>')) {
+                    return `<p>${p.trim()}</p>`;
+                }
+                return p;
+            }).join('');
+        } else {
+            // Single line breaks to <br>
+            text = text.replace(/\n/g, '<br>');
+        }
+        
+        return text;
+    }
+    
+    showTypingIndicator() {
+        const chatBody = document.getElementById('chatbot-body');
+        const typingDiv = document.createElement('div');
+        typingDiv.className = 'message bot';
+        typingDiv.id = 'typing-indicator';
+        
+        typingDiv.innerHTML = `
+            <img src="image/Adil.jpeg" alt="Avatar" class="message-avatar">
+            <div class="typing-indicator">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+            </div>
+        `;
+        
+        chatBody.appendChild(typingDiv);
+        chatBody.scrollTop = chatBody.scrollHeight;
+        this.isTyping = true;
+    }
+    
+    hideTypingIndicator() {
+        const typingIndicator = document.getElementById('typing-indicator');
+        if (typingIndicator) {
+            typingIndicator.remove();
+        }
+        this.isTyping = false;
+    }
+    
+    toggleMinimize() {
+        const container = document.getElementById('chatbot-container');
+        const minimizeBtn = document.getElementById('chatbot-minimize');
+        const icon = minimizeBtn.querySelector('i');
+        
+        this.isMinimized = !this.isMinimized;
+        container.classList.toggle('minimized');
+        
+        if (this.isMinimized) {
+            icon.className = 'fas fa-plus';
+            minimizeBtn.title = 'Expand';
+        } else {
+            icon.className = 'fas fa-minus';
+            minimizeBtn.title = 'Minimize';
+        }
+    }
+    
+    closeChatbot() {
+        const container = document.getElementById('chatbot-container');
+        const toggleBtn = document.getElementById('chatbot-toggle');
+        
+        container.classList.add('hidden');
+        toggleBtn.classList.add('active');
+    }
+    
+    openChatbot() {
+        const container = document.getElementById('chatbot-container');
+        const toggleBtn = document.getElementById('chatbot-toggle');
+        
+        container.classList.remove('hidden');
+        toggleBtn.classList.remove('active');
+        
+        // Load welcome message only on first open
+        if (!this.hasBeenOpened) {
+            this.loadWelcomeMessage();
+            this.hasBeenOpened = true;
+        }
+        
+        if (this.isMinimized) {
+            this.toggleMinimize();
+        }
+    }
+}
+
+// Initialize chatbot when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        window.adilChatbot = new AdilChatbot();
     });
-}); 
+} else {
+    window.adilChatbot = new AdilChatbot();
+}
