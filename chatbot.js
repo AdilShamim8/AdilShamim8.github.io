@@ -1,6 +1,6 @@
 // Chatbot Configuration and Personal Information
 const CHATBOT_CONFIG = {
-    apiKey: 'AIzaSyDHaqmdSjoVsry1sIeYDtRdBRnZWfM-d24', // DEMO API KEY 
+    apiKey: 'AIzaSyDCORcHB7WLvvkqes2L52lpW0aEYytTJ7Y',
     model: 'gemini-2.0-flash-exp',
     apiEndpoint: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent',
     
@@ -471,10 +471,112 @@ Try the quick action buttons below or ask me anything! `;
             console.error('Error getting response:', error);
             this.hideTypingIndicator();
             
-            // Handle different error types with specific messages
-            const errorMessage = this.handleAPIError(error);
-            this.addMessage('bot', errorMessage);
+            // Try to answer from local knowledge base first
+            const localResponse = this.getLocalResponse(message);
+            
+            if (localResponse) {
+                // If we can answer from local knowledge, provide that
+                this.addMessage('bot', localResponse);
+            } else {
+                // Otherwise, show error message with contact info
+                const errorMessage = this.handleAPIError(error);
+                this.addMessage('bot', errorMessage);
+            }
         }
+    }
+    
+    getLocalResponse(message) {
+        const lowerMessage = message.toLowerCase();
+        const info = CHATBOT_CONFIG.personalInfo;
+        
+        // Contact information queries
+        if (lowerMessage.match(/contact|reach|email|phone|call|connect|get in touch|communicate/i)) {
+            return `You can contact Adil through:\n\n📧 **Email:** ${info.email}\n📱 **Phone:** ${info.phone}\n🔗 **LinkedIn:** ${info.socialMedia.linkedin}\n🐙 **GitHub:** ${info.socialMedia.github}\n🏆 **Kaggle:** ${info.socialMedia.kaggle}\n🐦 **Twitter/X:** ${info.socialMedia.twitter}\n📝 **Medium Blog:** ${info.socialMedia.medium}\n🌐 **Website:** https://adilshamim.me\n\n📍 **Location:** ${info.location}`;
+        }
+        
+        // Skills queries
+        if (lowerMessage.match(/skill|technical|technology|programming|what (can|do) (you|adil)|expertise|proficient|languages/i)) {
+            let skillsText = `Adil has expertise in:\n\n`;
+            skillsText += `**Programming & Data:**\n${info.skills.programmingAndData.map(s => `• ${s}`).join('\n')}\n\n`;
+            skillsText += `**Modeling & Machine Learning:**\n${info.skills.modelingAndML.map(s => `• ${s}`).join('\n')}\n\n`;
+            skillsText += `**MLOps & Deployment:**\n${info.skills.mlopsAndDeployment.map(s => `• ${s}`).join('\n')}\n\n`;
+            skillsText += `**NLP & Embeddings:**\n${info.skills.nlpAndEmbeddings.map(s => `• ${s}`).join('\n')}\n\n`;
+            skillsText += `**Tools:**\n${info.skills.tools.map(s => `• ${s}`).join('\n')}`;
+            return skillsText;
+        }
+        
+        // Projects queries
+        if (lowerMessage.match(/project|portfolio|work|built|created|developed|show me/i)) {
+            let projectsText = `Here are Adil's key projects:\n\n`;
+            info.projects.forEach((project, index) => {
+                projectsText += `**${index + 1}. ${project.name}**\n`;
+                projectsText += `Technologies: ${project.technologies.join(', ')}\n`;
+                projectsText += `${project.description}\n\n`;
+            });
+            projectsText += `You can view all projects on GitHub: ${info.socialMedia.github}`;
+            return projectsText;
+        }
+        
+        // Experience queries
+        if (lowerMessage.match(/experience|work|job|career|employment|position|role/i)) {
+            let expText = `**Adil's Work Experience:**\n\n`;
+            info.workExperience.forEach(exp => {
+                expText += `**${exp.title}** at ${exp.company}\n`;
+                expText += `📅 ${exp.period}\n\n`;
+                expText += `Responsibilities:\n`;
+                expText += exp.responsibilities.map(r => `• ${r}`).join('\n');
+                expText += `\n\n`;
+            });
+            expText += `${info.experience}\n${info.kaggleStatus}`;
+            return expText;
+        }
+        
+        // Certifications queries
+        if (lowerMessage.match(/certification|certificate|course|learning|education|degree|study/i)) {
+            let certText = `**Education:**\n${info.education}\n\n`;
+            certText += `**Certifications:**\n${info.certifications.map(c => `• ${c}`).join('\n')}\n\n`;
+            certText += `**Relevant Coursework:**\n${info.coursework.map(c => `• ${c}`).join('\n')}`;
+            return certText;
+        }
+        
+        // Achievements queries
+        if (lowerMessage.match(/achievement|accomplish|award|recognition|kaggle|rank|competition/i)) {
+            let achieveText = `**Adil's Achievements:**\n\n`;
+            achieveText += info.achievements.map(a => `✨ ${a}`).join('\n\n');
+            achieveText += `\n\n**Current Activities:**\n`;
+            achieveText += info.currentActivities.map(a => `🚀 ${a}`).join('\n\n');
+            return achieveText;
+        }
+        
+        // About/Bio queries
+        if (lowerMessage.match(/about|who (is|are)|tell me (about|more)|introduce|background|bio/i)) {
+            return `${info.bio}\n\n**Title:** ${info.title}\n**Location:** ${info.location}\n**Languages:** ${info.languages.join(', ')}\n\n${info.experience}\n${info.kaggleStatus}\n\nFor more details, ask me about skills, projects, experience, or certifications!`;
+        }
+        
+        // Location queries
+        if (lowerMessage.match(/where|location|live|based|from/i)) {
+            return `Adil is based in **${info.location}**.\n\n${info.bio}`;
+        }
+        
+        // Interests queries
+        if (lowerMessage.match(/interest|passion|hobby|like|enjoy|focus/i)) {
+            let interestText = `**Adil's Interests & Focus Areas:**\n\n`;
+            interestText += info.interests.map(i => `💡 ${i}`).join('\n\n');
+            return interestText;
+        }
+        
+        // Resume/CV queries
+        if (lowerMessage.match(/resume|cv|download|document/i)) {
+            return `You can download Adil's resume from the website at:\n📄 **Resume/AdilShamim_ML_Engineer_Resume.pdf**\n\nIt's available in the website header or contact section.\n\nWould you like to know about his skills, projects, or experience?`;
+        }
+        
+        // Social media queries
+        if (lowerMessage.match(/social|linkedin|github|kaggle|twitter|medium|blog/i)) {
+            return `Connect with Adil on:\n\n🔗 **LinkedIn:** ${info.socialMedia.linkedin}\n🐙 **GitHub:** ${info.socialMedia.github}\n🏆 **Kaggle:** ${info.socialMedia.kaggle}\n🐦 **Twitter/X:** ${info.socialMedia.twitter}\n📝 **Medium Blog:** ${info.socialMedia.medium}\n🌐 **Website:** https://adilshamim.me`;
+        }
+        
+        // No match found
+        return null;
     }
     
     handleAPIError(error) {
