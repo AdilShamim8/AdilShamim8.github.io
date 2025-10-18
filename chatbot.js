@@ -470,8 +470,41 @@ Try the quick action buttons below or ask me anything! `;
         } catch (error) {
             console.error('Error getting response:', error);
             this.hideTypingIndicator();
-            this.addMessage('bot', "I'm sorry, I'm having trouble connecting right now. Please try again in a moment or contact Adil directly through the contact section.");
+            
+            // Handle different error types with specific messages
+            const errorMessage = this.handleAPIError(error);
+            this.addMessage('bot', errorMessage);
         }
+    }
+    
+    handleAPIError(error) {
+        // Check for quota/cost exhaustion errors
+        if (error.message && (
+            error.message.includes('429') || 
+            error.message.includes('quota') || 
+            error.message.includes('RESOURCE_EXHAUSTED') ||
+            error.message.includes('insufficient') ||
+            error.statusCode === 429
+        )) {
+            return "I'm sorry, I'm having trouble connecting right now. Please try again in a moment or contact Adil directly through the contact section below.\n\n📧 Email: adilshamim696@gmail.com\n📱 Phone: +880 1321073452\n🔗 LinkedIn: https://www.linkedin.com/in/adilshamim8";
+        }
+        
+        // Check for rate limit errors
+        if (error.message && error.message.includes('rate limit')) {
+            return "I'm processing too many requests right now. Please wait a moment and try again, or reach out to Adil directly through the contact section.";
+        }
+        
+        // Check for network/connectivity errors
+        if (error.message && (
+            error.message.includes('network') || 
+            error.message.includes('fetch') ||
+            error.message.includes('Failed to fetch')
+        )) {
+            return "I'm having network connectivity issues. Please check your internet connection and try again, or contact Adil directly through the contact section.";
+        }
+        
+        // Generic fallback for all other errors
+        return "I'm sorry, I'm having trouble connecting right now. Please try again in a moment or contact Adil directly through the contact section.\n\n📧 Email: adilshamim696@gmail.com\n🔗 LinkedIn: https://www.linkedin.com/in/adilshamim8";
     }
     
     async getGeminiResponse(userMessage) {
@@ -511,31 +544,62 @@ Try the quick action buttons below or ask me anything! `;
             }
         };
         
-        const response = await fetch(`${CHATBOT_CONFIG.apiEndpoint}?key=${CHATBOT_CONFIG.apiKey}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(requestBody)
-        });
-        
-        if (!response.ok) {
-            throw new Error(`API request failed: ${response.status}`);
+        try {
+            const response = await fetch(`${CHATBOT_CONFIG.apiEndpoint}?key=${CHATBOT_CONFIG.apiKey}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(requestBody)
+            });
+            
+            // Handle HTTP errors with specific status codes
+            if (!response.ok) {
+                const errorData = await response.json().catch(() => ({}));
+                const error = new Error(`API request failed: ${response.status}`);
+                error.statusCode = response.status;
+                error.errorData = errorData;
+                
+                // Check for specific error messages in the response
+                if (errorData.error) {
+                    if (errorData.error.message) {
+                        error.message = errorData.error.message;
+                    }
+                    if (errorData.error.status) {
+                        error.errorStatus = errorData.error.status;
+                    }
+                }
+                
+                throw error;
+            }
+            
+            const data = await response.json();
+            
+            // Validate response structure
+            if (!data.candidates || !data.candidates[0] || !data.candidates[0].content) {
+                throw new Error('Invalid API response structure');
+            }
+            
+            const botResponse = data.candidates[0].content.parts[0].text;
+            
+            // Update conversation history
+            this.conversationHistory.push({ role: 'user', content: userMessage });
+            this.conversationHistory.push({ role: 'bot', content: botResponse });
+            
+            // Keep only last 10 messages to manage token usage
+            if (this.conversationHistory.length > 20) {
+                this.conversationHistory = this.conversationHistory.slice(-20);
+            }
+            
+            return botResponse;
+            
+        } catch (error) {
+            // Enhance error with more context if it's a fetch error
+            if (error.name === 'TypeError' && error.message.includes('fetch')) {
+                error.message = 'Failed to fetch - network error';
+            }
+            throw error;
         }
-        
-        const data = await response.json();
-        const botResponse = data.candidates[0].content.parts[0].text;
-        
-        // Update conversation history
-        this.conversationHistory.push({ role: 'user', content: userMessage });
-        this.conversationHistory.push({ role: 'bot', content: botResponse });
-        
-        // Keep only last 10 messages to manage token usage
-        if (this.conversationHistory.length > 20) {
-            this.conversationHistory = this.conversationHistory.slice(-20);
-        }
-        
-        return botResponse;
     }
     
     addMessage(sender, text) {
@@ -711,4 +775,3 @@ if (document.readyState === 'loading') {
 } else {
     window.adilChatbot = new AdilChatbot();
 }
-
