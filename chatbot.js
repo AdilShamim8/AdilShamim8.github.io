@@ -1,7 +1,7 @@
 // Chatbot Configuration and Personal Information
 const CHATBOT_CONFIG = {
     apiKey: 'AIzaSyCowPJq8eOQt6r2cf8UPibjb3z7T_Szhaw', // DEMO API KEY 
-    model: 'gemini-2.0-flash-exp',
+    model: 'gemini-2.5-flash',
     apiEndpoint: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent',
     
     // Personal Information Context
@@ -877,5 +877,6 @@ if (document.readyState === 'loading') {
 } else {
     window.adilChatbot = new AdilChatbot();
 }
+
 
 
