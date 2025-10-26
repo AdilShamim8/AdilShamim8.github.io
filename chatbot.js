@@ -1,8 +1,8 @@
 // Chatbot Configuration and Personal Information
 const CHATBOT_CONFIG = {
-    apiKey: 'AIzaSyCowPJq8eOQt6r2cf8UPibjb3z7T_Szhaw', // DEMO API KEY 
+    apiKey: 'AIzaSyDvgopXRsbdxsjxF835yzDAjGkeImohdCg',
     model: 'gemini-2.5-flash',
-    apiEndpoint: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent',
+    apiEndpoint: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent',
     
     // Personal Information Context
     personalInfo: {
@@ -98,17 +98,24 @@ const CHATBOT_CONFIG = {
                     "Performed end-to-end analyses on public datasets to extract actionable insights for health and economic questions",
                     "Produced slide decks and dashboards for stakeholders",
                     "Created a hybrid recommendation system for a local business (collaborative + content-based)",
-                    "Achieved a 10% sales increase in 3 months through deployed ML solutions"
+                    "Built and deployed ML services with Docker and FastAPI; tracked experiments with MLflow"
+                ],
+                achievements: [
+                    "Achieved a 10% sales increase in 3 months through a deployed recommendation system",
+                    "Reduced manual screening effort via an automated resume ranking pipeline"
+                ],
+                technologies: [
+                    "Python", "scikit-learn", "TensorFlow", "XGBoost", "LightGBM", "MLflow", "Docker", "FastAPI", "Pandas", "NumPy"
                 ]
             }
         ],
         
         certifications: [
-            "Machine Learning — Stanford University (Coursera)",
-            "CS50: Introduction to Computer Science — Harvard",
-            "Python for Data Science, AI & Development — IBM",
-            "Career Essentials in Generative AI — Microsoft + LinkedIn",
-            "Machine Learning Pipelines with Azure ML Studio (Coursera)"
+            { name: "Machine Learning", organization: "Stanford University (Coursera)", date: "Not specified", link: "" },
+            { name: "CS50: Introduction to Computer Science", organization: "Harvard University", date: "Not specified", link: "" },
+            { name: "Python for Data Science, AI & Development", organization: "IBM (Coursera)", date: "Not specified", link: "" },
+            { name: "Career Essentials in Generative AI", organization: "Microsoft + LinkedIn", date: "Not specified", link: "" },
+            { name: "Machine Learning Pipelines with Azure ML Studio", organization: "Coursera", date: "Not specified", link: "" }
         ],
         
         achievements: [
@@ -318,7 +325,7 @@ class AdilChatbot {
         }
         
         const chatbotHTML = `
-            <div id="chatbot-container" class="chatbot-container hidden">
+            <div id="chatbot-container" class="chatbot-container hidden" role="dialog" aria-label="Adil's AI Assistant" aria-live="polite" aria-modal="false">
                 <div class="chatbot-header" id="chatbot-header">
                     <div class="chatbot-header-left">
                         <img src="image/Adil.jpeg" alt="Adil" class="chatbot-avatar">
@@ -331,10 +338,10 @@ class AdilChatbot {
                         </div>
                     </div>
                     <div class="chatbot-controls">
-                        <button class="chatbot-control-btn" id="chatbot-minimize" title="Minimize">
+                        <button class="chatbot-control-btn" id="chatbot-minimize" title="Minimize" aria-label="Minimize chat">
                             <i class="fas fa-minus"></i>
                         </button>
-                        <button class="chatbot-control-btn" id="chatbot-close" title="Close">
+                        <button class="chatbot-control-btn" id="chatbot-close" title="Close" aria-label="Close chat">
                             <i class="fas fa-times"></i>
                         </button>
                     </div>
@@ -360,15 +367,21 @@ class AdilChatbot {
                         id="chatbot-input" 
                         placeholder="Ask me anything about Adil..."
                         autocomplete="off"
+                        aria-label="Message input"
                     >
-                    <button class="chatbot-send-btn" id="chatbot-send">
+                    <button class="chatbot-send-btn" id="chatbot-send" aria-label="Send message">
                         <i class="fas fa-paper-plane"></i>
                     </button>
                 </div>
             </div>
             
-            <button class="chatbot-toggle-btn active" id="chatbot-toggle">
-                <i class="fas fa-comments"></i>
+            <button class="chatbot-toggle-btn active" id="chatbot-toggle" aria-label="Open chat assistant" aria-controls="chatbot-container" aria-expanded="false">
+                <svg class="cbt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M5.5 4.5h12a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-6l-4.5 3.5v-3.5h-1.5a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2z"/>
+                    <circle cx="9" cy="10" r="1.5"/>
+                    <circle cx="12.5" cy="10" r="1.5"/>
+                    <circle cx="16" cy="10" r="1.5"/>
+                </svg>
             </button>
         `;
         
@@ -416,6 +429,12 @@ class AdilChatbot {
         // Toggle
         toggleBtn?.addEventListener('click', () => {
             this.openChatbot();
+        });
+        toggleBtn?.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                this.openChatbot();
+            }
         });
         
         // Header click to toggle minimize
@@ -489,6 +508,9 @@ Try the quick action buttons below or ask me anything! `;
         const lowerMessage = message.toLowerCase();
         const info = CHATBOT_CONFIG.personalInfo;
         
+        // Helper: classify intent to avoid mixing types
+        const isCertQuery = /\b(certifications?|certificates?)\b/.test(lowerMessage) && !/\b(projects?|portfolio|built|created|developed)\b/.test(lowerMessage);
+        
         // Contact information queries
         if (lowerMessage.match(/contact|reach|email|phone|call|connect|get in touch|communicate/i)) {
             return `You can contact Adil through:\n\n📧 **Email:** ${info.email}\n📱 **Phone:** ${info.phone}\n🔗 **LinkedIn:** ${info.socialMedia.linkedin}\n🐙 **GitHub:** ${info.socialMedia.github}\n🏆 **Kaggle:** ${info.socialMedia.kaggle}\n🐦 **Twitter/X:** ${info.socialMedia.twitter}\n📝 **Medium Blog:** ${info.socialMedia.medium}\n🌐 **Website:** https://adilshamim.me\n\n📍 **Location:** ${info.location}`;
@@ -505,6 +527,16 @@ Try the quick action buttons below or ask me anything! `;
             return skillsText;
         }
         
+        // Certifications (strict match to avoid mixing with projects/education)
+        if (isCertQuery) {
+            let text = `Here are Adil's certifications:`;
+            info.certifications.forEach((c) => {
+                const line = `\n• ${c.name} — ${c.organization} — Date: ${c.date}` + (c.link ? ` — Verification: ${c.link}` : '');
+                text += line;
+            });
+            return text;
+        }
+
         // Projects queries
         if (lowerMessage.match(/project|portfolio|work|built|created|developed|show me/i)) {
             let projectsText = `Here are Adil's key projects:\n\n`;
@@ -517,26 +549,39 @@ Try the quick action buttons below or ask me anything! `;
             return projectsText;
         }
         
-        // Experience queries
-        if (lowerMessage.match(/experience|work|job|career|employment|position|role/i)) {
-            let expText = `**Adil's Work Experience:**\n\n`;
+        // Experience queries (structured and validated)
+        if (/\b(experience|work|employment|position|role|career)\b/i.test(lowerMessage) && !/\b(projects?|portfolio)\b/i.test(lowerMessage)) {
+            let expText = `Here is Adil's complete work experience:`;
             info.workExperience.forEach(exp => {
-                expText += `**${exp.title}** at ${exp.company}\n`;
-                expText += `📅 ${exp.period}\n\n`;
-                expText += `Responsibilities:\n`;
-                expText += exp.responsibilities.map(r => `• ${r}`).join('\n');
-                expText += `\n\n`;
+                expText += `\n\n**${exp.title}** — ${exp.company}`;
+                expText += `\nDuration: ${exp.period}`;
+                if (exp.responsibilities && exp.responsibilities.length) {
+                    expText += `\nKey Responsibilities:`;
+                    exp.responsibilities.forEach(item => {
+                        expText += `\n- ${item}`;
+                    });
+                }
+                if (exp.achievements && exp.achievements.length) {
+                    expText += `\nMajor Achievements:`;
+                    exp.achievements.forEach(item => {
+                        expText += `\n- ${item}`;
+                    });
+                }
+                if (exp.technologies && exp.technologies.length) {
+                    expText += `\nTechnologies/Skills Utilized:`;
+                    exp.technologies.forEach(tech => {
+                        expText += `\n- ${tech}`;
+                    });
+                }
             });
-            expText += `${info.experience}\n${info.kaggleStatus}`;
             return expText;
         }
         
-        // Certifications queries
-        if (lowerMessage.match(/certification|certificate|course|learning|education|degree|study/i)) {
-            let certText = `**Education:**\n${info.education}\n\n`;
-            certText += `**Certifications:**\n${info.certifications.map(c => `• ${c}`).join('\n')}\n\n`;
-            certText += `**Relevant Coursework:**\n${info.coursework.map(c => `• ${c}`).join('\n')}`;
-            return certText;
+        // Education or courses (kept separate from certifications)
+        if (lowerMessage.match(/\b(education|degree|study|coursework|courses)\b/i)) {
+            let eduText = `**Education:**\n${info.education}\n\n`;
+            eduText += `**Relevant Coursework:**\n${info.coursework.map(c => `• ${c}`).join('\n')}`;
+            return eduText;
         }
         
         // Achievements queries
@@ -848,6 +893,7 @@ Try the quick action buttons below or ask me anything! `;
         
         container.classList.add('hidden');
         toggleBtn.classList.add('active');
+        toggleBtn.setAttribute('aria-expanded', 'false');
     }
     
     openChatbot() {
@@ -856,6 +902,7 @@ Try the quick action buttons below or ask me anything! `;
         
         container.classList.remove('hidden');
         toggleBtn.classList.remove('active');
+        toggleBtn.setAttribute('aria-expanded', 'true');
         
         // Load welcome message only on first open
         if (!this.hasBeenOpened) {
@@ -877,6 +924,3 @@ if (document.readyState === 'loading') {
 } else {
     window.adilChatbot = new AdilChatbot();
 }
-
-
-
