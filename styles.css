@@ -142,6 +142,22 @@ img {
     display: block;
 }
 
+/* Accessible skip link */
+.skip-link:focus {
+    position: fixed !important;
+    left: 16px !important;
+    top: 16px !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 10px 14px;
+    z-index: 2000;
+    background: var(--background-elevated);
+    color: var(--text-color);
+    border: 2px solid var(--primary-color);
+    border-radius: var(--radius-medium);
+    box-shadow: 0 6px 20px var(--shadow-color);
+}
+
 button, input, textarea {
     font-family: inherit;
     -webkit-appearance: none;
@@ -1368,6 +1384,11 @@ button {
     transform: translateY(-5px);
 }
 
+/* Hide back-to-top button (requested removal) */
+#back-to-top {
+    display: none !important;
+}
+
 /* ===== ANIMATIONS - iOS STYLE ===== */
 .animate-text {
     opacity: 0;
@@ -1731,15 +1752,3 @@ img[src] {
     );
     background-size: 1000px 100%;
 } 
-
-
-
-
-
-
-
-
-
-
-
-
