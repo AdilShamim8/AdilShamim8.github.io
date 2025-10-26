@@ -16,8 +16,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Initialize particles.js
 function initParticles() {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) return;
     if (document.getElementById('particles-js')) {
-        particlesJS('particles-js', {
+        const run = () => particlesJS('particles-js', {
             particles: {
                 number: {
                     value: 80,
@@ -122,17 +124,27 @@ function initParticles() {
             },
             retina_detect: true
         });
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(run);
+        } else {
+            setTimeout(run, 0);
+        }
     }
 }
 
 // Initialize AOS animation library
 function initAOS() {
-    AOS.init({
+    const run = () => AOS.init({
         duration: 800,
         easing: 'ease-in-out',
         once: true,
         mirror: false
     });
+    if ('requestIdleCallback' in window) {
+        requestIdleCallback(run);
+    } else {
+        setTimeout(run, 0);
+    }
 }
 
 // Navbar functionality
@@ -145,16 +157,28 @@ function initNavbar() {
     // Toggle mobile menu
     if (menuToggle) {
         menuToggle.addEventListener('click', function() {
+            const isOpen = navMenu.classList.toggle('active');
             menuToggle.classList.toggle('active');
-            navMenu.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', String(isOpen));
+        });
+
+        // Close menu with Escape key
+        menuToggle.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                navMenu.classList.remove('active');
+                menuToggle.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                menuToggle.focus();
+            }
         });
     }
 
     // Close mobile menu when clicking on a nav link
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
-            menuToggle.classList.remove('active');
+            menuToggle?.classList.remove('active');
             navMenu.classList.remove('active');
+            menuToggle?.setAttribute('aria-expanded', 'false');
         });
     });
 
@@ -174,8 +198,10 @@ function initNavbar() {
 
         navLinks.forEach(link => {
             link.classList.remove('active');
+            link.removeAttribute('aria-current');
             if (link.getAttribute('href').substring(1) === current) {
                 link.classList.add('active');
+                link.setAttribute('aria-current', 'page');
             }
         });
 
@@ -484,7 +510,7 @@ function initProjectsData() {
         projectItem.setAttribute('data-aos-delay', (project.id * 100).toString());
         
         projectItem.innerHTML = `
-            <img src="${project.image}" alt="${project.title}" class="project-img">
+            <img src="${project.image}" alt="${project.title}" class="project-img" loading="lazy" decoding="async">
             <div class="project-content">
                 <h3>${project.title}</h3>
                 <p>${project.description}</p>
@@ -493,11 +519,11 @@ function initProjectsData() {
                 </div>
                 <div class="project-links">
                     ${project.demoLink && project.demoLink !== '' ? `
-                        <a href="${project.demoLink}" class="project-link" target="_blank">
+                        <a href="${project.demoLink}" class="project-link" target="_blank" rel="noopener">
                             <i class="fas fa-external-link-alt"></i> Live Demo
                         </a>
                     ` : ''}
-                    <a href="${project.codeLink}" class="project-link" target="_blank">
+                    <a href="${project.codeLink}" class="project-link" target="_blank" rel="noopener">
                         <i class="fab fa-github"></i> Source Code
                     </a>
                 </div>
