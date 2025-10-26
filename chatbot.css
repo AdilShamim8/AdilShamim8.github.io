@@ -3,8 +3,8 @@
 /* Chatbot Container */
 .chatbot-container {
     position: fixed;
-    top: 80px;
-    right: 20px;
+    bottom: 100px;
+    right: 24px;
     width: 480px;
     max-height: 750px;
     background: var(--background-color);
@@ -185,6 +185,8 @@
 .message {
     display: flex;
     gap: 12px;
+    width: 100%;
+    align-items: flex-end;
     animation: fadeInSlide 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -219,7 +221,12 @@
     border-radius: 16px;
     font-size: 15px;
     line-height: 1.7;
-    word-wrap: break-word;
+    /* Improve wrapping so short messages don't stack vertically */
+    word-wrap: break-word; /* legacy */
+    overflow-wrap: anywhere; /* modern wrapping for long URLs/words */
+    word-break: normal; /* avoid breaking every character */
+    white-space: pre-wrap; /* preserve user-intended line breaks */
+    min-width: 10ch; /* ensure small bubbles have reasonable width */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
     letter-spacing: 0.01em;
@@ -406,23 +413,41 @@
 /* Toggle Button (for mobile/collapsed state) */
 .chatbot-toggle-btn {
     position: fixed;
-    top: 80px;
-    right: 20px;
-    width: 70px;
-    height: 70px;
+    bottom: 24px;
+    right: 24px;
+    width: 64px;
+    height: 64px;
     background: var(--gradient-primary);
     border: none;
     border-radius: 50%;
     color: white;
-    font-size: 28px;
+    font-size: 26px;
     cursor: pointer;
-    box-shadow: 0 6px 25px rgba(74, 108, 247, 0.4);
+    box-shadow: 0 10px 25px rgba(74, 108, 247, 0.35);
     display: none;
     align-items: center;
     justify-content: center;
     z-index: 998;
-    transition: all 0.3s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
     animation: floatBounce 3s ease-in-out infinite;
+}
+
+/* Aesthetic SVG icon styling */
+.chatbot-toggle-btn .cbt-icon {
+    width: 28px;
+    height: 28px;
+    display: block;
+    filter: drop-shadow(0 1px 1px rgba(0,0,0,0.15));
+}
+.chatbot-toggle-btn .cbt-icon path {
+    stroke: #ffffff;
+    stroke-width: 1.8;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+.chatbot-toggle-btn .cbt-icon circle {
+    fill: #ffffff;
 }
 
 @keyframes floatBounce {
@@ -431,12 +456,30 @@
 }
 
 .chatbot-toggle-btn:hover {
-    transform: scale(1.15) rotate(10deg);
-    box-shadow: 0 8px 30px rgba(74, 108, 247, 0.6);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 14px 30px rgba(74, 108, 247, 0.5);
 }
 
 .chatbot-toggle-btn.active {
     display: flex;
+}
+
+.chatbot-toggle-btn:focus-visible {
+    outline: 3px solid rgba(255,255,255,0.9);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 6px rgba(74,108,247,0.35);
+}
+
+.chatbot-toggle-btn::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 8px;
+    height: 8px;
+    background: #ff7b7b;
+    border-radius: 50%;
+    box-shadow: 0 0 0 5px rgba(255,123,123,0.18);
 }
 
 /* Welcome Message */
@@ -609,8 +652,8 @@
 @media (max-width: 768px) {
     .chatbot-container {
         width: 420px;
-        top: 70px;
-        right: 10px;
+        right: 12px;
+        bottom: 100px;
         max-height: 650px;
     }
     
@@ -624,7 +667,7 @@
         width: calc(100vw - 20px);
         left: 10px;
         right: 10px;
-        top: 70px;
+        bottom: 96px;
         border-radius: 16px;
         max-height: 600px;
     }
@@ -632,12 +675,17 @@
     .chatbot-body {
         max-height: 400px;
     }
+    /* Slightly reduce the minimum bubble width on very small screens */
+    .message-content {
+        min-width: 8ch;
+    }
     
     .chatbot-toggle-btn {
-        width: 62px;
-        height: 62px;
+        width: 58px;
+        height: 58px;
         font-size: 24px;
-        right: 15px;
+        right: 16px;
+        bottom: 16px;
     }
     
     .quick-actions {
