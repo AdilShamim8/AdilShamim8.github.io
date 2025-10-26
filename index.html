@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Adil Shamim – Machine Learning Engineer. Explore projects, skills, and contact information.">
     <title>Adil Shamim - Machine Learning Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="image" href="image/Adil.jpeg">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="chatbot.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -12,26 +16,27 @@
     <link rel="shortcut icon" href="https://adilshamim.me/image/Adil.jpeg" type="image/x-icon">
 </head>
 <body>
+    <a href="#home" class="skip-link" style="position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden;">Skip to main content</a>
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" role="navigation" aria-label="Main">
         <div class="container">
             <div class="logo">
                 <h1 id="logo-text">Adil Shamim</h1>
             </div>
-            <div class="menu-toggle" id="mobile-menu">
+            <button class="menu-toggle" id="mobile-menu" aria-label="Toggle menu" aria-controls="primary-navigation" aria-expanded="false">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
-            </div>
-            <ul class="nav-menu">
+            </button>
+            <ul class="nav-menu" id="primary-navigation" role="menubar">
                 <li><a href="#home" class="nav-link active">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="https://adilshamim8.medium.com/" class="nav-link">Blog</a></li>
+                <li><a href="https://adilshamim8.medium.com/" class="nav-link" target="_blank" rel="noopener">Blog</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
-                <li><button id="theme-toggle" class="theme-btn">
-                    <i class="fas fa-moon"></i>
+                <li><button id="theme-toggle" class="theme-btn" aria-label="Toggle dark mode" title="Toggle theme">
+                    <i class="fas fa-moon" aria-hidden="true"></i>
                 </button></li>
             </ul>
         </div>
@@ -50,16 +55,16 @@
                     <a href="#projects" class="btn secondary-btn">View My Work</a>
                 </div>
                 <div class="social-icons animate-text delay-4">
-                    <a href="https://www.linkedin.com/in/adilshamim8" class="social-link"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/AdilShamim8" class="social-link"><i class="fab fa-github"></i></a>
-                    <a href="https://www.kaggle.com/adilshamim8" class="social-link"><i class="fab fa-kaggle"></i></a>
-                    <a href="https://x.com/adil_shamim8" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/adilshamim8" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                    <a href="https://github.com/AdilShamim8" class="social-link" aria-label="GitHub" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i></a>
+                    <a href="https://www.kaggle.com/adilshamim8" class="social-link" aria-label="Kaggle" target="_blank" rel="noopener"><i class="fab fa-kaggle" aria-hidden="true"></i></a>
+                    <a href="https://x.com/adil_shamim8" class="social-link" aria-label="X (Twitter)" target="_blank" rel="noopener"><i class="fab fa-twitter" aria-hidden="true"></i></a>
                 </div>
             </div>
             <div class="hero-image animate-text delay-2" data-aos="fade-left" data-aos-duration="1000">
                 <div class="profile-container">
                     <div class="profile-circle">
-                        <img src="image/Adil.jpeg" alt="Adil Shamim" id="profile-img">
+                        <img src="image/Adil.jpeg" alt="Portrait of Adil Shamim" id="profile-img" width="340" height="340" decoding="async" fetchpriority="high">
                     </div>
                 </div>
             </div>
@@ -465,10 +470,10 @@
                 </div>
                 <p>Thanks for visiting my portfolio website.</p>
                 <div class="footer-social">
-                    <a href="https://www.linkedin.com/in/adilshamim8" class="social-link"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/AdilShamim8" class="social-link"><i class="fab fa-github"></i></a>
-                    <a href="https://www.kaggle.com/adilshamim8" class="social-link"><i class="fab fa-kaggle"></i></a>
-                    <a href="https://x.com/adil_shamim8" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/adilshamim8" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                    <a href="https://github.com/AdilShamim8" class="social-link" aria-label="GitHub" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i></a>
+                    <a href="https://www.kaggle.com/adilshamim8" class="social-link" aria-label="Kaggle" target="_blank" rel="noopener"><i class="fab fa-kaggle" aria-hidden="true"></i></a>
+                    <a href="https://x.com/adil_shamim8" class="social-link" aria-label="X (Twitter)" target="_blank" rel="noopener"><i class="fab fa-twitter" aria-hidden="true"></i></a>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -478,14 +483,15 @@
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="back-to-top" class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
     </button>
 
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script src="script.js"></script>
-    <script src="chatbot.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
+    <script src="ab.js" defer></script>
+    <script src="script.js" defer></script>
+    <script src="chatbot.js" defer></script>
 </body>
 </html> 
