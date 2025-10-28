@@ -17,8 +17,10 @@
     --separator-color: rgba(60, 60, 67, 0.29);
     --shadow-color: rgba(0, 0, 0, 0.08);
     --shadow-elevated: rgba(0, 0, 0, 0.12);
-    --gradient-primary: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
-    --gradient-mesh: linear-gradient(135deg, rgba(0, 122, 255, 0.1) 0%, rgba(88, 86, 214, 0.1) 100%);
+    --gradient-primary: linear-gradient(135deg, #6EB5FF 0%, #B5A8FF 100%); /* softer pastel take on iOS blue/purple */
+    --gradient-primary-strong: linear-gradient(135deg, #007AFF 0%, #5856D6 100%); /* keep strong gradient for accents */
+    --gradient-mesh: linear-gradient(135deg, rgba(110, 181, 255, 0.15) 0%, rgba(181, 168, 255, 0.15) 100%);
+    --gradient-pastel-overlay: radial-gradient(1200px 800px at 80% 10%, rgba(110,181,255,0.15) 0%, rgba(181,168,255,0.12) 35%, rgba(255,173,173,0.08) 60%, rgba(255,255,255,0) 70%);
     
     /* iOS Typography Scale */
     --font-size-caption2: 0.6875rem;      /* 11px */
@@ -49,7 +51,7 @@
     /* iOS Border Radius */
     --radius-small: 0.5rem;    /* 8px */
     --radius-medium: 0.75rem;  /* 12px */
-    --radius-large: 1rem;      /* 16px */
+    --radius-large: 0.75rem;   /* 12px - refined to iOS proportion */
     --radius-xlarge: 1.25rem;  /* 20px */
     --radius-xxlarge: 1.75rem; /* 28px */
     --radius-full: 50%;
@@ -83,8 +85,10 @@
     --separator-color: rgba(255, 255, 255, 0.2);
     --shadow-color: rgba(0, 0, 0, 0.3);
     --shadow-elevated: rgba(0, 0, 0, 0.5);
-    --gradient-primary: linear-gradient(135deg, #0A84FF 0%, #5E5CE6 100%);
-    --gradient-mesh: linear-gradient(135deg, rgba(10, 132, 255, 0.15) 0%, rgba(94, 92, 230, 0.15) 100%);
+    --gradient-primary: linear-gradient(135deg, #5AA0FF 0%, #9B92FF 100%); /* pastel in dark too */
+    --gradient-primary-strong: linear-gradient(135deg, #0A84FF 0%, #5E5CE6 100%);
+    --gradient-mesh: linear-gradient(135deg, rgba(90, 160, 255, 0.18) 0%, rgba(155, 146, 255, 0.18) 100%);
+    --gradient-pastel-overlay: radial-gradient(1200px 800px at 80% 10%, rgba(90,160,255,0.18) 0%, rgba(155,146,255,0.18) 35%, rgba(255,153,153,0.08) 60%, rgba(0,0,0,0) 70%);
 }
 
 /* ===== RESET & BASE STYLES - iOS ===== */
@@ -105,6 +109,7 @@ html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -115,6 +120,7 @@ body {
     background-color: var(--background-color);
     transition: background-color var(--transition-smooth), color var(--transition-smooth);
     overflow-x: hidden;
+    -webkit-overflow-scrolling: touch; /* iOS inertial scrolling */
 }
 
 a {
@@ -194,6 +200,8 @@ button {
     letter-spacing: -0.03em;
     margin-bottom: var(--spacing-12);
     color: var(--text-color);
+    line-height: 1.15;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.04);
 }
 
 .underline {
@@ -218,7 +226,7 @@ button {
     align-items: center;
     justify-content: center;
     padding: var(--spacing-12) var(--spacing-24);
-    border-radius: var(--radius-large);
+    border-radius: var(--radius-medium);
     font-size: var(--font-size-body);
     font-weight: 600;
     letter-spacing: -0.022em;
@@ -230,6 +238,8 @@ button {
     overflow: hidden;
     -webkit-user-select: none;
     user-select: none;
+    min-height: 44px; /* iOS touch target */
+    min-width: 44px;
 }
 
 .btn::before {
@@ -253,7 +263,7 @@ button {
 }
 
 .primary-btn {
-    background: var(--gradient-primary);
+    background: var(--gradient-primary-strong);
     color: white;
     box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
 }
@@ -264,7 +274,7 @@ button {
 }
 
 .secondary-btn {
-    background-color: var(--background-elevated);
+    background-color: color-mix(in oklab, var(--background-elevated), var(--primary-color) 2%);
     color: var(--primary-color);
     border: 1.5px solid var(--border-color);
     box-shadow: 0 2px 8px var(--shadow-color);
@@ -284,7 +294,7 @@ button {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background-color: rgba(242, 242, 247, 0.8);
+    background-color: rgba(242, 242, 247, 0.65);
     backdrop-filter: var(--blur-light);
     -webkit-backdrop-filter: var(--blur-light);
     border-bottom: 0.5px solid var(--separator-color);
@@ -300,7 +310,7 @@ button {
     justify-content: space-between;
     align-items: center;
     padding: var(--spacing-16) var(--spacing-24);
-    max-height: 60px;
+    max-height: 64px;
 }
 
 .logo h1 {
@@ -332,6 +342,7 @@ button {
     padding: var(--spacing-8) var(--spacing-12);
     border-radius: var(--radius-medium);
     transition: all var(--transition-swift);
+    min-height: 44px; /* touch target */
 }
 
 .nav-link::after {
@@ -368,8 +379,8 @@ button {
     cursor: pointer;
     font-size: var(--font-size-body);
     color: var(--text-color);
-    width: 36px;
-    height: 36px;
+    width: 44px;
+    height: 44px; /* iOS touch target */
     border-radius: var(--radius-full);
     display: flex;
     align-items: center;
@@ -475,6 +486,7 @@ button {
     letter-spacing: -0.04em;
     margin-bottom: var(--spacing-16);
     line-height: 1.1;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 
 .hero-content h2 {
@@ -483,6 +495,7 @@ button {
     letter-spacing: -0.03em;
     margin-bottom: var(--spacing-16);
     color: var(--text-color-secondary);
+    text-shadow: 0 1px 3px rgba(0,0,0,0.04);
 }
 
 .hero-content p {
@@ -633,7 +646,7 @@ button {
     gap: var(--spacing-16);
     padding: var(--spacing-20);
     background-color: var(--background-elevated);
-    border-radius: var(--radius-large);
+    border-radius: var(--radius-medium);
     border: 1px solid var(--border-color);
     box-shadow: 0 4px 16px var(--shadow-color);
     transition: all var(--transition-swift);
@@ -719,7 +732,7 @@ button {
 .skill-item {
     background-color: var(--background-elevated);
     padding: var(--spacing-24);
-    border-radius: var(--radius-large);
+    border-radius: var(--radius-medium);
     border: 1px solid var(--border-color);
     box-shadow: 0 4px 16px var(--shadow-color);
     transition: all var(--transition-swift);
@@ -854,7 +867,7 @@ button {
     gap: var(--spacing-12);
     padding: var(--spacing-20);
     background-color: var(--background-elevated);
-    border-radius: var(--radius-large);
+    border-radius: var(--radius-medium);
     border: 1px solid var(--border-color);
     box-shadow: 0 4px 12px var(--shadow-color);
     transition: all var(--transition-swift);
@@ -914,6 +927,16 @@ button {
     filter: blur(60px);
 }
 
+/* Subtle global pastel overlay for hero and sections */
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-pastel-overlay);
+    pointer-events: none;
+    z-index: 0;
+}
+
 .projects .container {
     position: relative;
     z-index: 2;
@@ -963,7 +986,7 @@ button {
 
 .project-item {
     background-color: var(--background-elevated);
-    border-radius: var(--radius-xlarge);
+    border-radius: var(--radius-medium);
     overflow: hidden;
     border: 1px solid var(--border-color);
     box-shadow: 0 4px 16px var(--shadow-color);
@@ -1006,7 +1029,43 @@ button {
     color: var(--text-color-light);
     line-height: 1.5;
     margin-bottom: var(--spacing-16);
+    line-height: 1.25;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.04);
     flex: 1;
+
+/* ===== CODE SNIPPET CONTAINER (Contact section) - FROSTED GLASS ===== */
+.code-snippet-container {
+    background: color-mix(in oklab, var(--background-elevated), transparent 25%);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-medium);
+    box-shadow: 0 8px 28px var(--shadow-color);
+    overflow: hidden;
+    backdrop-filter: var(--blur-light);
+    -webkit-backdrop-filter: var(--blur-light);
+}
+
+.code-snippet-container .code-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-12) var(--spacing-16);
+    background: var(--gradient-primary);
+    color: white;
+}
+
+.code-snippet-container pre {
+    margin: 0;
+    padding: var(--spacing-16);
+    background: color-mix(in oklab, var(--background-alt), transparent 10%);
+}
+
+.code-snippet-container code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    text-shadow: 0 1px 1px rgba(0,0,0,0.03);
+}
 }
 
 .project-tags {
@@ -1752,3 +1811,15 @@ img[src] {
     );
     background-size: 1000px 100%;
 } 
+
+
+
+
+
+
+
+
+
+
+
+
