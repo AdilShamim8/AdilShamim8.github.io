@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initProjectsFilter();
     initProjectsData();
     initContactForm();
+    initHaptics();
     setCurrentYear();
 });
 
@@ -593,3 +594,34 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 }); 
+
+// Gentle haptic feedback for key interactions (mobile/touch only)
+function initHaptics() {
+    const isTouch = window.matchMedia('(pointer: coarse)').matches;
+    const canVibrate = 'vibrate' in navigator;
+    if (!isTouch || !canVibrate) return;
+
+    const vibrateTap = () => navigator.vibrate?.(12);
+    const vibrateStrong = () => navigator.vibrate?.([8, 12]);
+
+    const tapSelectors = [
+        '.btn',
+        '.nav-link',
+        '#theme-toggle',
+        '.filter-btn',
+        '#back-to-top',
+        '.project-link',
+        '.social-link'
+    ];
+    const elements = document.querySelectorAll(tapSelectors.join(','));
+    elements.forEach(el => {
+        el.addEventListener('click', vibrateTap, { passive: true });
+        el.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') vibrateTap();
+        }, { passive: true });
+    });
+
+    // Stronger feedback for theme toggle and back-to-top
+    document.getElementById('theme-toggle')?.addEventListener('click', vibrateStrong, { passive: true });
+    document.getElementById('back-to-top')?.addEventListener('click', vibrateStrong, { passive: true });
+}
