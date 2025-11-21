@@ -67,11 +67,11 @@ This open-source project is available under the [MIT License](License).
 
 
 
-macOS Interactive Portfolio
+# Personal Portfolio Website
 
 An immersive, web-based portfolio that simulates the macOS Big Sur desktop environment. This project serves as an interactive resume for Adil Shamim, showcasing skills, projects, and experience through draggable windows, a working dock, and themed "apps".
 
-🌟 Features
+## Features
 
 Desktop Environment: A realistic desktop with a customizable wallpaper, menu bar with a live clock, and a floating dock.
 
@@ -99,7 +99,7 @@ Mail: A contact form simulation with social media links (LinkedIn, GitHub, Kaggl
 
 Responsive Design: Built with Tailwind CSS to look great on various screen sizes.
 
-🚀 Quick Start (Single File)
+## Quick Start (Single File)
 
 The easiest way to run this project is using the standalone HTML file.
 
@@ -109,7 +109,7 @@ Open the file in any modern web browser (Chrome, Firefox, Safari, Edge).
 
 Note: An internet connection is required to load the React, Tailwind, and Babel libraries via CDN.
 
-🛠️ Tech Stack
+## Tech Stack
 
 React.js: Core UI library for component-based architecture.
 
@@ -119,7 +119,7 @@ Lucide React: Beautiful, consistent icons for apps and UI elements.
 
 Babel (Standalone): Used in the HTML version to compile JSX in the browser.
 
-⚙️ Customization
+## Customization
 
 All content is managed via a central configuration object called RESUME_DATA inside the code. To update the portfolio with your own details:
 
@@ -143,13 +143,13 @@ const RESUME_DATA = {
 };
 ```
 
-📂 Project Structure
+## Project Structure
 
 index.html: The complete, self-contained application. Contains HTML structure, CSS styles (via Tailwind), and the React application logic in a single file.
 
 App.jsx: The source React component (if moving to a Create React App or Vite environment).
 
-👤 Author
+## Author
 
 Adil Shamim
 
