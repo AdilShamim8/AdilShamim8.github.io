@@ -51,7 +51,6 @@ The website is compatible with all modern browsers:
 3. Customize the content to make it your own
 
 ## License
-
 This open-source project is available under the [MIT License](License).
 
 ## Acknowledgements
