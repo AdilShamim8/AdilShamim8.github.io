@@ -73,61 +73,61 @@ An immersive, web-based portfolio that simulates the macOS Big Sur desktop envir
 
 ## Features
 
-Desktop Environment: A realistic desktop with a customizable wallpaper, menu bar with a live clock, and a floating dock.
+- Desktop Environment: A realistic desktop with a customizable wallpaper, menu bar with a live clock, and a floating dock.
 
-Interactive Windows:
+- Interactive Windows:
 
-Draggable: Move windows anywhere on the screen.
+  - Draggable: Move windows anywhere on the screen.
 
-Layering: Clicking a window brings it to the front (active state).
+  - Layering: Clicking a window brings it to the front (active state).
 
-Controls: Functional "Traffic Light" buttons to Close (Red), Minimize (Yellow), and Maximize (Green) windows.
+  - Controls: Functional "Traffic Light" buttons to Close (Red), Minimize (Yellow), and Maximize (Green) windows.
 
-Minimization: Windows shrink into the dock and can be restored by clicking their icon.
+  - Minimization: Windows shrink into the dock and can be restored by clicking their icon.
 
-Themed Applications:
+- Themed Applications:
 
-Finder: Displays "About Me", Education, and Achievements.
+  - Finder: Displays "About Me", Education, and Achievements.
 
-Terminal: Lists technical skills in a CLI-style interface.
+  - Terminal: Lists technical skills in a CLI-style interface.
 
-Safari: A browser-style showcase of projects with GitHub links.
+  - Safari: A browser-style showcase of projects with GitHub links.
 
-Calendar: A timeline view of work experience and certifications.
+  - Calendar: A timeline view of work experience and certifications.
 
-Mail: A contact form simulation with social media links (LinkedIn, GitHub, Kaggle, X, Medium).
+  - Mail: A contact form simulation with social media links (LinkedIn, GitHub, Kaggle, X, Medium).
 
-Responsive Design: Built with Tailwind CSS to look great on various screen sizes.
+- Responsive Design: Built with Tailwind CSS to look great on various screen sizes.
 
 ## Quick Start (Single File)
 
 The easiest way to run this project is using the standalone HTML file.
 
-Download the index.html file provided in the project.
+1. Download the index.html file provided in the project.
 
-Open the file in any modern web browser (Chrome, Firefox, Safari, Edge).
+2. Open the file in any modern web browser (Chrome, Firefox, Safari, Edge).
 
-Note: An internet connection is required to load the React, Tailwind, and Babel libraries via CDN.
+3. Note: An internet connection is required to load the React, Tailwind, and Babel libraries via CDN.
 
 ## Tech Stack
 
-React.js: Core UI library for component-based architecture.
+- React.js: Core UI library for component-based architecture.
 
-Tailwind CSS: Utility-first CSS framework for styling and responsiveness.
+- Tailwind CSS: Utility-first CSS framework for styling and responsiveness.
 
-Lucide React: Beautiful, consistent icons for apps and UI elements.
+- Lucide React: Beautiful, consistent icons for apps and UI elements.
 
-Babel (Standalone): Used in the HTML version to compile JSX in the browser.
+- Babel (Standalone): Used in the HTML version to compile JSX in the browser.
 
 ## Customization
 
 All content is managed via a central configuration object called RESUME_DATA inside the code. To update the portfolio with your own details:
 
-Open index.html (or App.jsx) in a code editor.
+1. Open index.html (or App.jsx) in a code editor.
 
-Locate the const RESUME_DATA = { ... } object near the top of the script.
+2. Locate the const RESUME_DATA = { ... } object near the top of the script.
 
-Modify the fields as needed:
+3. Modify the fields as needed:
 ```
 const RESUME_DATA = {
   personal: {
@@ -145,18 +145,21 @@ const RESUME_DATA = {
 
 ## Project Structure
 
-index.html: The complete, self-contained application. Contains HTML structure, CSS styles (via Tailwind), and the React application logic in a single file.
+- index.html: The complete, self-contained application. Contains HTML structure, CSS styles (via Tailwind), and the React application logic in a single file.
 
-App.jsx: The source React component (if moving to a Create React App or Vite environment).
+- App.jsx: The source React component (if moving to a Create React App or Vite environment).
 
 ## Author
 
 Adil Shamim
 
-Website: adilshamim.me
+- Website: adilshamim.me
 
-LinkedIn: @adilshamim8
+- LinkedIn: @adilshamim8
 
-GitHub: @AdilShamim8
+- GitHub: @AdilShamim8
 
-Built with ❤️ using React and Tailwind CSS.
+Built using React and Tailwind CSS.
+
+## License
+This open-source project is available under the [MIT License](License).
