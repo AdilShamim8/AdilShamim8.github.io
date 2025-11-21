@@ -80,17 +80,12 @@ const RESUME_DATA = {
 
 - App.jsx: The source React component (if moving to a Create React App or Vite environment).
 
-## Author
-
-Adil Shamim
-
-- Website: adilshamim.me
-
-- LinkedIn: @adilshamim8
-
-- GitHub: @AdilShamim8
-
-Built using React and Tailwind CSS.
-
 ## License
 This open-source project is available under the [MIT License](License).
+
+Developed by [Adil Shamim](https://adilshamim.me/)
+
+[![Kaggle](https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white)](https://www.kaggle.com/adilshamim8)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/adilshamim8)
+[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://x.com/adil_shamim8)
+
