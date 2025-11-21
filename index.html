@@ -3,495 +3,688 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of Adil Shamim – Machine Learning Engineer. Explore projects, skills, and contact information.">
-    <title>Adil Shamim - Machine Learning Engineer</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="image" href="image/Adil.jpeg">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="chatbot.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
-    <link rel="shortcut icon" href="https://adilshamim.me/image/Adil.jpeg" type="image/x-icon">
+    <title>Adil Shamim - macOS Portfolio</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- React & ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+        /* Custom Scrollbar Hiding */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
 </head>
 <body>
-    <a href="#home" class="skip-link" style="position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden;">Skip to main content</a>
-    <!-- Navigation -->
-    <nav class="navbar" role="navigation" aria-label="Main">
-        <div class="container">
-            <div class="logo">
-                <h1 id="logo-text">Adil Shamim</h1>
-            </div>
-            <button class="menu-toggle" id="mobile-menu" aria-label="Toggle menu" aria-controls="primary-navigation" aria-expanded="false">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect, useRef } = React;
+
+        // --- Icons (Inline replacements for lucide-react to keep file single) ---
+        
+        const IconWrapper = ({ size = 24, className, children, ...props }) => (
+            <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width={size} 
+                height={size} 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                className={className}
+                {...props}
+            >
+                {children}
+            </svg>
+        );
+
+        const Terminal = (props) => <IconWrapper {...props}><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></IconWrapper>;
+        const User = (props) => <IconWrapper {...props}><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></IconWrapper>;
+        const Briefcase = (props) => <IconWrapper {...props}><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></IconWrapper>;
+        const Mail = (props) => <IconWrapper {...props}><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></IconWrapper>;
+        const Cpu = (props) => <IconWrapper {...props}><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></IconWrapper>;
+        const X = (props) => <IconWrapper {...props}><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></IconWrapper>;
+        const Minus = (props) => <IconWrapper {...props}><line x1="5" y1="12" x2="19" y2="12"/></IconWrapper>;
+        const Maximize2 = (props) => <IconWrapper {...props}><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></IconWrapper>;
+        const Wifi = (props) => <IconWrapper {...props}><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></IconWrapper>;
+        const Battery = (props) => <IconWrapper {...props}><rect x="1" y="6" width="18" height="12" rx="2" ry="2"/><line x1="23" y1="13" x2="23" y2="11"/></IconWrapper>;
+        const Search = (props) => <IconWrapper {...props}><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></IconWrapper>;
+        const Command = (props) => <IconWrapper {...props}><path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></IconWrapper>;
+        const Github = (props) => <IconWrapper {...props}><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></IconWrapper>;
+        const Linkedin = (props) => <IconWrapper {...props}><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></IconWrapper>;
+        const Globe = (props) => <IconWrapper {...props}><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></IconWrapper>;
+        const Award = (props) => <IconWrapper {...props}><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></IconWrapper>;
+        const ExternalLink = (props) => <IconWrapper {...props}><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></IconWrapper>;
+        const CalendarIcon = (props) => <IconWrapper {...props}><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></IconWrapper>;
+
+        // --- Custom SVGs (Kaggle, X, Medium) ---
+        const KaggleIcon = ({ size = 16, className }) => (
+        <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className} xmlns="http://www.w3.org/2000/svg">
+            <path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.447 1.374v5.113c0 .214-.135.35-.406.35H4.627c-.248 0-.373-.136-.373-.35V.35c0-.215.125-.351.373-.351h3.255c.271 0 .406.136.406.351v15.348l6.386-7.21c.169-.181.35-.282.539-.282h3.21c.234 0 .351.129.351.375 0 .123-.053.228-.158.328l-5.87 6.167 6.244 8.182c.118.158.164.305.135.451z"/>
+        </svg>
+        );
+
+        const XIcon = ({ size = 16, className }) => (
+        <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className} xmlns="http://www.w3.org/2000/svg">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+        );
+
+        const MediumIcon = ({ size = 16, className }) => (
+        <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className} xmlns="http://www.w3.org/2000/svg">
+            <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+        </svg>
+        );
+
+        // --- Resume Data ---
+        const RESUME_DATA = {
+            personal: {
+                name: "Adil Shamim",
+                role: "Machine Learning Engineer",
+                phone: "+880 1321073452",
+                email: "adilshamim696@gmail.com",
+                website: "adilshamim.me",
+                linkedin: "adilshamim8",
+                github: "AdilShamim8",
+                kaggle: "adilshamim8",
+                twitter: "adil_shamim8",
+                medium: "https://adilshamim8.medium.com/",
+                location: "Dhaka, Bangladesh",
+                avatar: "https://adilshamim.me/image/Adil.jpeg",
+                summary: "I'm a Machine Learning Engineer and Deep Learning Enthusiast specializing in creating intelligent systems and data-driven solutions. With over two years of experience, I build practical ML systems—pipelines, Dockerized services, and tracked experiments. I combine analytical thinking and technical skills to deliver outstanding results."
+            },
+            skills: {
+                languages: ["Python", "SQL"],
+                modeling: ["TensorFlow", "scikit-learn", "XGBoost", "LightGBM", "CatBoost"],
+                mlops: ["MLflow", "ZenML", "Docker", "FastAPI"],
+                tools: ["Jupyter", "Git", "VSCode", "Cursor"]
+            },
+            experience: [
+                {
+                id: 1,
+                role: "Freelance Machine Learning Engineer",
+                company: "Self-employed",
+                date: "July 2025 - Present",
+                desc: "Created a hybrid recommendation system for a local business (collaborative + content-based); deployed results and achieved a 10% sales increase in 3 months."
+                },
+                {
+                id: 2,
+                role: "Kaggle Expert",
+                company: "Kaggle Competitions",
+                date: "Ongoing",
+                desc: "Completed 15 competitions focusing on robust modeling. Ranked Top 1% in Predicting Road Accident Risk and Top 2% in Predicting Beats-per-Minute of Songs."
+                }
+            ],
+            projects: [
+                {
+                title: "Prices Predictor System",
+                link: "https://github.com/AdilShamim8/Prices_Predictor_System",
+                tech: ["ZenML", "MLflow", "XGBoost", "FastAPI", "Docker"],
+                desc: "End-to-end price-prediction pipeline. Features include data preprocessing, model training, and deployment with automated tracking of experiments."
+                },
+                {
+                title: "Toolly Studio",
+                link: "https://github.com/AdilShamim8/Toolly-Studio",
+                tech: ["Streamlit", "Bria AI", "Python", "Docker"],
+                desc: "Streamlit app generating professional product ads using Bria AI. Features intelligent prompt engineering and batch processing capabilities."
+                },
+                {
+                title: "Resume Screening",
+                link: "https://github.com/AdilShamim8/Resume-Screening",
+                tech: ["spaCy", "SBERT", "FAISS", "Flask"],
+                desc: "AI-powered tool for efficient candidate selection. Utilizes NLP to parse, analyze, and rank resumes based on job requirements."
+                },
+                {
+                title: "Book Recommender System",
+                link: "https://github.com/AdilShamim8/Book-Recommender-System",
+                tech: ["ALS", "TF-IDF", "Flask"],
+                desc: "Hybrid recommendation system (collaborative + content-based). Features personalized recommendations and user preference analysis."
+                },
+                {
+                title: "Sentiment Analysis",
+                link: "https://github.com/AdilShamim8/Sentiment-Analysis",
+                tech: ["Python", "NLP", "Streamlit", "Text Classification"],
+                desc: "Powerful NLP application that performs sentiment analysis on text input. Features a clean user interface and real-time analysis capabilities."
+                },
+                {
+                title: "Toolly",
+                link: "https://github.com/AdilShamim8/Toolly",
+                tech: ["Python", "AI", "NLP", "Automation"],
+                desc: "AI-powered productivity suite that automates daily tasks. Features intelligent text processing, automated content generation, and smart task management."
+                }
+            ],
+            education: {
+                degree: "Computer Science and Engineering",
+                institution: "BNIST",
+                coursework: "Linear Algebra, Calculus, Probability & Statistics, Data Structures, OS, Computer Architecture"
+            },
+            certifications: [
+                "Machine Learning - Stanford University",
+                "CS50: Intro to Computer Science - Harvard",
+                "Python for Data Science - IBM",
+                "Career Essentials in GenAI - Microsoft",
+                "Azure ML Studio Pipelines"
+            ]
+        };
+
+        // --- Helper Components ---
+
+        const WindowButton = ({ color, onClick, disabled }) => (
+            <button 
+                onClick={(e) => { e.stopPropagation(); !disabled && onClick && onClick(); }}
+                className={`w-3 h-3 rounded-full mr-2 flex items-center justify-center group ${color} ${disabled ? 'cursor-default' : ''}`}
+            >
+                <span className={`opacity-0 group-hover:opacity-100 text-[8px] font-bold text-black/60`}>
+                {color.includes('red') && <X size={6} />}
+                {color.includes('yellow') && <Minus size={6} />}
+                {color.includes('green') && <Maximize2 size={6} />}
+                </span>
             </button>
-            <ul class="nav-menu" id="primary-navigation" role="menubar">
-                <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="https://adilshamim8.medium.com/" class="nav-link" target="_blank" rel="noopener">Blog</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-                <li><button id="theme-toggle" class="theme-btn" aria-label="Toggle dark mode" title="Toggle theme">
-                    <i class="fas fa-moon" aria-hidden="true"></i>
-                </button></li>
-            </ul>
-        </div>
-    </nav>
+        );
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div id="particles-js"></div>
-        <div class="container">
-            <div class="hero-content" data-aos="fade-right" data-aos-duration="1000">
-                <h1 class="animate-text">Hello, I'm <span class="highlight">Adil Shamim</span></h1>
-                <h2 class="animate-text delay-1">I'm a <span id="typing-text"></span></h2>
-                <p class="animate-text delay-2">Welcome to my personal website where I showcase my work and skills.</p>
-                <div class="hero-buttons animate-text delay-3">
-                    <a href="#contact" class="btn primary-btn">Contact Me</a>
-                    <a href="#projects" class="btn secondary-btn">View My Work</a>
+        // --- Draggable Window Component ---
+
+        const DraggableWindow = ({ app, onClose, onMinimize, onFocus, isActive, zIndex, isMinimized }) => {
+            const [position, setPosition] = useState({ x: Math.random() * 50 + 50, y: Math.random() * 50 + 50 });
+            const [isDragging, setIsDragging] = useState(false);
+            const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
+            const [isMaximized, setIsMaximized] = useState(false);
+            const [isHidden, setIsHidden] = useState(false);
+            const windowRef = useRef(null);
+
+            const handleMouseDown = (e) => {
+                if (isMaximized) return; 
+                if (e.target.closest('.window-content')) return;
+                setIsDragging(true);
+                setDragOffset({
+                x: e.clientX - position.x,
+                y: e.clientY - position.y
+                });
+                onFocus(app.id);
+            };
+
+            useEffect(() => {
+                const handleMouseMove = (e) => {
+                if (isDragging) {
+                    const newX = e.clientX - dragOffset.x;
+                    const newY = e.clientY - dragOffset.y;
+                    const constrainedX = Math.max(0, Math.min(window.innerWidth - 200, newX));
+                    const constrainedY = Math.max(25, Math.min(window.innerHeight - 100, newY));
+                    setPosition({ x: constrainedX, y: constrainedY });
+                }
+                };
+                const handleMouseUp = () => setIsDragging(false);
+
+                if (isDragging) {
+                window.addEventListener('mousemove', handleMouseMove);
+                window.addEventListener('mouseup', handleMouseUp);
+                }
+                return () => {
+                window.removeEventListener('mousemove', handleMouseMove);
+                window.removeEventListener('mouseup', handleMouseUp);
+                };
+            }, [isDragging, dragOffset]);
+
+            // Handle Display None after animation to prevent freezing interactions
+            useEffect(() => {
+                if (isMinimized) {
+                    const timer = setTimeout(() => setIsHidden(true), 300); // Wait for transition (300ms)
+                    return () => clearTimeout(timer);
+                } else {
+                    setIsHidden(false);
+                }
+            }, [isMinimized]);
+
+            const toggleMaximize = () => {
+                setIsMaximized(!isMaximized);
+                onFocus(app.id);
+            };
+
+            const windowStyle = isMaximized 
+                ? {
+                    top: '0px',
+                    left: '0px',
+                    width: '100%',
+                    height: '100%',
+                    transform: 'none',
+                    borderRadius: '0px'
+                }
+                : {
+                    transform: `translate(${position.x}px, ${position.y}px)`,
+                    width: app.width || '600px',
+                    height: app.height || '400px'
+                };
+
+            return (
+                <div
+                ref={windowRef}
+                style={{
+                    ...windowStyle,
+                    zIndex: zIndex,
+                    display: isHidden ? 'none' : 'flex'
+                }}
+                className={`absolute flex-col overflow-hidden shadow-2xl border border-white/20 transition-all duration-300 ease-in-out
+                    ${isActive ? 'shadow-2xl ring-1 ring-white/10' : 'shadow-md opacity-90'}
+                    ${!isMaximized && 'rounded-xl'}
+                    ${isMinimized ? 'opacity-0 scale-90 pointer-events-none' : 'opacity-100 scale-100'}
+                `}
+                onMouseDown={() => onFocus(app.id)}
+                >
+                <div 
+                    className="h-8 bg-[#e3e3e3] dark:bg-[#2d2d2d] flex items-center px-4 select-none cursor-default"
+                    onMouseDown={handleMouseDown}
+                    onDoubleClick={toggleMaximize}
+                >
+                    <div className="flex items-center">
+                    <WindowButton color="bg-red-500 hover:bg-red-600" onClick={() => onClose(app.id)} />
+                    <WindowButton color="bg-yellow-500 hover:bg-yellow-600" onClick={() => onMinimize(app.id)} />
+                    <WindowButton color="bg-green-500 hover:bg-green-600" onClick={toggleMaximize} />
+                    </div>
+                    <div className="flex-1 text-center text-xs font-semibold text-gray-600 dark:text-gray-300">
+                    {app.title}
+                    </div>
+                    <div className="w-14"></div>
                 </div>
-                <div class="social-icons animate-text delay-4">
-                    <a href="https://www.linkedin.com/in/adilshamim8" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-                    <a href="https://github.com/AdilShamim8" class="social-link" aria-label="GitHub" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i></a>
-                    <a href="https://www.kaggle.com/adilshamim8" class="social-link" aria-label="Kaggle" target="_blank" rel="noopener"><i class="fab fa-kaggle" aria-hidden="true"></i></a>
-                    <a href="https://x.com/adil_shamim8" class="social-link" aria-label="X (Twitter)" target="_blank" rel="noopener"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+
+                <div className="flex-1 bg-white/90 dark:bg-[#1e1e1e]/95 backdrop-blur-md overflow-y-auto window-content scrollbar-hide">
+                    {app.content}
+                </div>
+                </div>
+            );
+        };
+
+        // --- App Content Components ---
+
+        const FinderContent = () => (
+            <div className="flex h-full text-gray-800 dark:text-gray-200">
+                <div className="w-48 bg-gray-100/50 dark:bg-gray-800/30 border-r border-gray-200 dark:border-gray-700 p-4 flex flex-col gap-2">
+                <div className="text-[10px] uppercase font-bold text-gray-400 mb-1">Favorites</div>
+                <div className="flex items-center gap-2 p-1 bg-blue-500/10 text-blue-600 rounded text-sm font-medium"><User size={16}/> About Me</div>
+                <div className="flex items-center gap-2 p-1 text-gray-500 hover:bg-gray-200/50 rounded text-sm cursor-not-allowed"><Briefcase size={16}/> Documents</div>
+                <div className="flex items-center gap-2 p-1 text-gray-500 hover:bg-gray-200/50 rounded text-sm cursor-not-allowed"><Search size={16}/> Recents</div>
+                </div>
+                <div className="flex-1 p-8 overflow-y-auto">
+                <div className="flex flex-col items-center mb-6">
+                    <div className="w-24 h-24 rounded-full bg-gray-200 mb-4 overflow-hidden shadow-lg border-2 border-white">
+                        <img src={RESUME_DATA.personal.avatar} alt="Avatar" className="w-full h-full object-cover"/>
+                    </div>
+                    <h1 className="text-2xl font-bold text-gray-900 dark:text-white">{RESUME_DATA.personal.name}</h1>
+                    <p className="text-sm text-gray-500">{RESUME_DATA.personal.role}</p>
+                    <p className="text-xs text-gray-400 mt-1">{RESUME_DATA.personal.location}</p>
+                </div>
+                
+                <div className="space-y-6">
+                    <section>
+                    <h3 className="text-xs font-bold uppercase text-gray-400 mb-2 border-b pb-1">Overview</h3>
+                    <p className="text-sm leading-relaxed">{RESUME_DATA.personal.summary}</p>
+                    </section>
+
+                    <section>
+                    <h3 className="text-xs font-bold uppercase text-gray-400 mb-2 border-b pb-1">Education</h3>
+                    <div className="text-sm">
+                        <p className="font-semibold">{RESUME_DATA.education.degree}</p>
+                        <p className="text-gray-500">{RESUME_DATA.education.institution}</p>
+                        <p className="text-xs text-gray-400 mt-1 italic">Relevant Coursework: {RESUME_DATA.education.coursework}</p>
+                    </div>
+                    </section>
+
+                    <section>
+                        <h3 className="text-xs font-bold uppercase text-gray-400 mb-2 border-b pb-1">Achievements</h3>
+                        <ul className="text-sm list-disc pl-4 space-y-1">
+                            <li>Founder of Toolly - AI productivity tool</li>
+                            <li>Published Mental Health Dataset on Kaggle</li>
+                            <li>Active Open Source Contributor</li>
+                        </ul>
+                    </section>
+                </div>
                 </div>
             </div>
-            <div class="hero-image animate-text delay-2" data-aos="fade-left" data-aos-duration="1000">
-                <div class="profile-container">
-                    <div class="profile-circle">
-                        <img src="image/Adil.jpeg" alt="Portrait of Adil Shamim" id="profile-img" width="340" height="340" decoding="async" fetchpriority="high">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        );
 
-    <!-- About Section -->
-    <section id="about" class="about section">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2>About Me</h2>
-                <div class="underline"></div>
-            </div>
-            <div class="about-content">
-                <div class="about-text" data-aos="fade-right" data-aos-duration="800">
-                    <h3>Get to know me!</h3>
-                    <p><span class="highlight">Adil Shamim</span> is a <span class="highlight">Machine Learning Engineer, Deep Learning Enthusiast,</span>and developer—constantly evolving and passionate about learning new frontiers.</p>
-                    <p>I specialize in creating intelligent systems and data-driven solutions. With a background in <span class="highlight">Machine Learning</span>, I combine analytical thinking and technical skills to deliver outstanding results.</p>
-                    <p>When I'm not working, you can find me exploring new technologies, contributing to open-source projects, or reading books.</p>
-                    <div class="about-buttons">
-                        <a href="Resume/AdilShamim_ML_Engineer_Resume.pdf" class="btn primary-btn" id="download-cv">Resume</a>
-                    </div>
+        const TerminalContent = () => (
+            <div className="h-full bg-[#1e1e1e] text-green-400 p-4 font-mono text-sm overflow-y-auto">
+                <div className="mb-4">
+                <span className="text-blue-400">adil@macbook</span>:<span className="text-blue-300">~</span>$ list_skills.py
                 </div>
-                <div class="about-details" data-aos="fade-left" data-aos-duration="800">
-                    <div class="detail-item">
-                        <i class="fas fa-user-graduate"></i>
-                        <div>
-                            <h4>Education</h4>
-                            <p>Computer Science, BNIST</p>
-                        </div>
-                    </div>
-                    <div class="detail-item">
-                        <i class="fas fa-briefcase"></i>
-                        <div>
-                            <h4>Experience</h4>
-                            <p>Kaggle Expert with strong data science skills</p>
-                        </div>
-                    </div>
-                    <div class="detail-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Location</h4>
-                            <p>Dhaka, Bangladesh</p>
-                        </div>
-                    </div>
-                    <div class="detail-item">
-                        <i class="fas fa-language"></i>
-                        <div>
-                            <h4>Languages</h4>
-                            <p>English, Hindi, Bengali</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-        <!-- Projects Section -->
-        <section id="projects" class="projects section">
-            <div class="container">
-                <div class="section-header" data-aos="fade-up">
-                    <h2>My Projects</h2>
-                    <div class="underline"></div>
-                </div>
-                <!-- <div class="project-filters" data-aos="fade-up" data-aos-delay="200">
-                    <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="web">ML Models</button>
-                    <button class="filter-btn" data-filter="app">Applications</button>
-                    <button class="filter-btn" data-filter="competition">Competitions</button>
-                </div> -->
-                <div class="projects-grid">
-                    <!-- Project items will be dynamically generated with JavaScript -->
-                </div>
-            </div>
-        </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills section">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2>My Skills</h2>
-                <div class="underline"></div>
-            </div>
-            <div class="skills-container">
-                <!-- Programming & Data -->
-                <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
-                    <h3>Programming & Data</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item" data-skill="Python (Advanced)">
-                            <div class="skill-icon"><i class="fab fa-python"></i></div>
-                            <h4>Python</h4>
-                            <div class="skill-progress">
-                                <div class="progress-bar" style="width: 95%"></div>
-                            </div>
-                            <span class="skill-percentage">Advanced</span>
-                        </div>
-                        <div class="skill-item" data-skill="SQL (Advanced)">
-                            <div class="skill-icon"><i class="fas fa-database"></i></div>
-                            <h4>SQL</h4>
-                            <div class="skill-progress">
-                                <div class="progress-bar" style="width: 95%"></div>
-                            </div>
-                            <span class="skill-percentage">Advanced</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Modeling & Machine Learning -->
-                <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
-                    <h3>Modeling & Machine Learning</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item" data-skill="TensorFlow">
-                            <div class="skill-icon"><i class="fas fa-brain"></i></div>
-                            <h4>TensorFlow</h4>
-                            <div class="skill-progress">
-                                <div class="progress-bar" style="width: 90%"></div>
-                            </div>
-                            <span class="skill-percentage"></span>
-                        </div>
-                        <div class="skill-item" data-skill="scikit-learn">
-                            <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
-                            <h4>scikit-learn</h4>
-                            <div class="skill-progress">
-                                <div class="progress-bar" style="width: 93%"></div>
-                            </div>
-                            <span class="skill-percentage"></span>
-                        </div>
-                        <div class="skill-item" data-skill="XGBoost">
-                            <div class="skill-icon"><i class="fas fa-rocket"></i></div>
-                            <h4>XGBoost</h4>
-                            <div class="skill-progress">
-                                <div class="progress-bar" style="width: 90%"></div>
-                            </div>
-                            <span class="skill-percentage"></span>
-                        </div>
-                        <div class="skill-item" data-skill="LightGBM">
-                            <div class="skill-icon"><i class="fas fa-bolt"></i></div>
-                            <h4>LightGBM</h4>
-                            <div class="skill-progress">
-                                <div class="progress-bar" style="width: 88%"></div>
-                            </div>
-                            <span class="skill-percentage"></span>
-                        </div>
-                        <div class="skill-item" data-skill="CatBoost">
-                            <div class="skill-icon"><i class="fas fa-cat"></i></div>
-                            <h4>CatBoost</h4>
-                            <div class="skill-progress">
-                                <div class="progress-bar" style="width: 85%"></div>
-                            </div>
-                            <span class="skill-percentage"></span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- MLOps & Deployment -->
-                <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
-                    <h3>MLOps & Deployment</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item" data-skill="MLflow">
-                            <div class="skill-icon"><i class="fas fa-project-diagram"></i></div>
-                            <h4>MLflow</h4>
-                            <div class="skill-progress">
-                                <div class="progress-bar" style="width: 88%"></div>
-                            </div>
-                            <span class="skill-percentage"></span>
-                        </div>
-                        <div class="skill-item" data-skill="ZenML">
-                            <div class="skill-icon"><i class="fas fa-layer-group"></i></div>
-                            <h4>ZenML</h4>
-                            <div class="skill-progress">
-                                <div class="progress-bar" style="width: 85%"></div>
-                            </div>
-                            <span class="skill-percentage"></span>
-                        </div>
-                        <div class="skill-item" data-skill="Docker">
-                            <div class="skill-icon"><i class="fab fa-docker"></i></div>
-                            <h4>Docker</h4>
-                            <div class="skill-progress">
-                                <div class="progress-bar" style="width: 90%"></div>
-                            </div>
-                            <span class="skill-percentage"></span>
-                        </div>
-                        <div class="skill-item" data-skill="FastAPI">
-                            <div class="skill-icon"><i class="fas fa-server"></i></div>
-                            <h4>FastAPI</h4>
-                            <div class="skill-progress">
-                                <div class="progress-bar" style="width: 92%"></div>
-                            </div>
-                            <span class="skill-percentage"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="skill-category" data-aos="fade-up" data-aos-delay="400">
-                    <h3>Professional Skills</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item" data-skill="Communication">
-                            <div class="skill-icon"><i class="fas fa-comments"></i></div>
-                            <h4>Communication</h4>
-                            <div class="skill-progress">
-                                <div class="progress-bar" style="width: 90%"></div>
-                            </div>
-                            <span class="skill-percentage"></span>
-                        </div>
-                        <div class="skill-item" data-skill="Teamwork">
-                            <div class="skill-icon"><i class="fas fa-users"></i></div>
-                            <h4>Teamwork</h4>
-                            <div class="skill-progress">
-                                <div class="progress-bar" style="width: 85%"></div>
-                            </div>
-                            <span class="skill-percentage"></span>
-                        </div>
-                        <div class="skill-item" data-skill="Problem Solving">
-                            <div class="skill-icon"><i class="fas fa-puzzle-piece"></i></div>
-                            <h4>Problem Solving</h4>
-                            <div class="skill-progress">
-                                <div class="progress-bar" style="width: 88%"></div>
-                            </div>
-                            <span class="skill-percentage"></span>
-                        </div>
-                        <div class="skill-item" data-skill="Creativity">
-                            <div class="skill-icon"><i class="fas fa-lightbulb"></i></div>
-                            <h4>Creativity</h4>
-                            <div class="skill-progress">
-                                <div class="progress-bar" style="width: 92%"></div>
-                            </div>
-                            <span class="skill-percentage"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-        <!-- Tech Stack Section -->
-        <section id="tech-stack" class="tech-stack section">
-            <div class="container">
-                <div class="section-header" data-aos="fade-up">
-                    <!-- <h2>My Tech Stack</h2> -->
-                    <!-- <div class="underline"></div> -->
-                </div>
-                <!-- <div class="tech-categories">
-                    <div class="tech-category" data-aos="fade-up">
-                        <h3>Programming Languages</h3>
-                        <div class="tech-grid">
-                            <div class="tech-item" data-tilt>
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
-                                <span>Python</span>
-                            </div>
-                            <div class="tech-item" data-tilt>
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" alt="R">
-                                <span>R</span>
-                            </div> -->
-                            <!-- <div class="tech-item" data-tilt>
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
-                                <span>JavaScript</span>
-                            </div> -->
-                            <!-- <div class="tech-item" data-tilt>
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
-                                <span>Java</span>
-                            </div>
-                        </div>
-                    </div> --> 
-                    
-                    <!-- <div class="tech-category" data-aos="fade-up" data-aos-delay="100">
-                        <h3>Machine Learning / AI</h3>
-                        <div class="tech-grid">
-                            <div class="tech-item" data-tilt>
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow">
-                                <span>TensorFlow</span>
-                            </div>
-                            <div class="tech-item" data-tilt>
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch">
-                                <span>PyTorch</span>
-                            </div>
-                            <div class="tech-item" data-tilt>
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="Scikit-learn">
-                                <span>Scikit-learn</span>
-                            </div>
-                            <div class="tech-item" data-tilt>
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" alt="NumPy">
-                                <span>NumPy</span>
-                            </div>
-                            <div class="tech-item" data-tilt>
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="Pandas">
-                                <span>Pandas</span>
-                            </div>
-                            <div class="tech-item" data-tilt>
-                                <img src="https://seaborn.pydata.org/_images/logo-mark-lightbg.svg" alt="Seaborn">
-                                <span>Seaborn</span>
-                            </div>
-                            <div class="tech-item" data-tilt>
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matplotlib/matplotlib-original.svg" alt="Matplotlib">
-                                <span>Matplotlib</span>
-                            </div>
-                        </div>
-                    </div> -->
-                    
-                    <div class="tech-category" data-aos="fade-up" data-aos-delay="200">
-                        <h3>Tools & Platforms</h3>
-                        <div class="tech-grid">
-                            <div class="tech-item" data-tilt>
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
-                                <span>Git</span>
-                            </div>
-                            <!-- <div class="tech-item" data-tilt>
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker">
-                                <span>Docker</span>
-                            </div> -->
-                            <div class="tech-item" data-tilt>
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg" alt="Jupyter">
-                                <span>Jupyter</span>
-                            </div>
-                            <div class="tech-item" data-tilt>
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code">
-                                <span>VS Code</span>
-                            </div>
-                            <div class="tech-item" data-tilt>
-                                <img src="https://cdn.brandfetch.io/cursor.com/fallback/lettermark/theme/dark/h/256/w/256/icon?c=1bfwsmEH20zzEfSNTed" alt="Cursor">
-                                <span>Cursor</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact section">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2>Contact Me</h2>
-                <div class="underline"></div>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info" data-aos="fade-right" data-aos-duration="800">
-                    <h3>Get In Touch</h3>
-                    <p>Feel free to reach out to me for any questions or opportunities!</p>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h4>Email</h4>
-                                <p>adilshamim696@gmail.com</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h4>Location</h4>
-                                <p>Dhaka, Bangladesh</p>
-                            </div>
-                        </div>
+                <div className="grid grid-cols-1 gap-6 pl-2">
+                <div>
+                    <div className="text-white mb-1 underline decoration-green-600 decoration-2">Languages & Data:</div>
+                    <div className="flex flex-wrap gap-2">
+                    {RESUME_DATA.skills.languages.map(s => <span key={s}>• {s}</span>)}
                     </div>
                 </div>
                 
-                <!-- Code snippet showcase -->
-                <div class="contact-code" data-aos="fade-left" data-aos-duration="800">
-                    <div class="code-snippet-container">
-                        <div class="code-header">
-                            <span class="code-title">Python ML Code Sample</span>
-                            <div class="code-actions">
-                                <span class="code-dot red"></span>
-                                <span class="code-dot yellow"></span>
-                                <span class="code-dot green"></span>
-                            </div>
+                <div>
+                    <div className="text-white mb-1 underline decoration-green-600 decoration-2">Modeling & DL:</div>
+                    <div className="flex flex-wrap gap-2">
+                    {RESUME_DATA.skills.modeling.map(s => <span key={s}>• {s}</span>)}
+                    </div>
+                </div>
+
+                <div>
+                    <div className="text-white mb-1 underline decoration-green-600 decoration-2">MLOps & Deployment:</div>
+                    <div className="flex flex-wrap gap-2">
+                    {RESUME_DATA.skills.mlops.map(s => <span key={s}>• {s}</span>)}
+                    </div>
+                </div>
+
+                <div>
+                    <div className="text-white mb-1 underline decoration-green-600 decoration-2">Tools:</div>
+                    <div className="flex flex-wrap gap-2">
+                    {RESUME_DATA.skills.tools.map(s => <span key={s}>• {s}</span>)}
+                    </div>
+                </div>
+                </div>
+                <div className="mt-4 animate-pulse">
+                <span className="text-blue-400">adil@macbook</span>:<span className="text-blue-300">~</span>$ <span className="w-2 h-4 bg-gray-500 inline-block align-middle"></span>
+                </div>
+            </div>
+        );
+
+        const SafariContent = () => (
+            <div className="flex flex-col h-full bg-gray-50 dark:bg-[#222]">
+                <div className="bg-gray-100 dark:bg-[#333] p-2 border-b border-gray-300 dark:border-black flex items-center gap-4">
+                    <div className="flex gap-2 text-gray-400">
+                        <div className="hover:bg-gray-300 rounded p-1"><Minus size={14}/></div>
+                        <div className="hover:bg-gray-300 rounded p-1"><Maximize2 size={14}/></div>
+                    </div>
+                    <div className="flex-1 bg-white dark:bg-[#111] rounded-lg px-3 py-1 text-center text-xs text-gray-500 flex items-center justify-center gap-2 shadow-inner">
+                        <Search size={12}/> adilshamim.me/projects
+                    </div>
+                </div>
+                
+                <div className="flex-1 overflow-y-auto p-6">
+                <h2 className="text-2xl font-bold mb-6 dark:text-white">Featured Projects</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {RESUME_DATA.projects.map((project, i) => (
+                    <div key={i} className="bg-white dark:bg-[#333] rounded-xl shadow-sm p-4 border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow">
+                        <div className="flex justify-between items-start">
+                            <a href={project.link} target="_blank" rel="noreferrer" className="group">
+                              <h3 className="font-bold text-lg text-blue-600 dark:text-blue-400 mb-1 group-hover:underline">{project.title}</h3>
+                            </a>
+                            <a href={project.link} target="_blank" rel="noreferrer">
+                                <Github size={16} className="text-gray-400 hover:text-black cursor-pointer transition-colors"/>
+                            </a>
                         </div>
-                        <pre><code class="language-python">
- # Machine Learning Pipeline with Scikit-learn
- import numpy as np
- from sklearn.model_selection import train_test_split
- from sklearn.ensemble import RandomForestClassifier
- from sklearn.metrics import accuracy_score
-                            
- # Load and prepare data
- X, y = load_data()
- X_train, X_test, y_train, y_test = train_test_split(
- X, y, test_size=0.25, random_state=42
- )
-                            
- # Train model
- model = RandomForestClassifier(n_estimators=100)
-  model.fit(X_train, y_train)
-                            
- # Evaluate
- y_pred = model.predict(X_test)
- accuracy = accuracy_score(y_test, y_pred)
- print(f"Model accuracy: {accuracy:.2f}")
-                        </code></pre>
+                        <div className="flex flex-wrap gap-1 mb-3">
+                        {project.tech.map(t => (
+                            <span key={t} className="px-2 py-0.5 bg-gray-100 dark:bg-black text-gray-600 dark:text-gray-300 text-[10px] rounded-full border border-gray-300 dark:border-gray-600">
+                            {t}
+                            </span>
+                        ))}
+                        </div>
+                        <p className="text-sm text-gray-600 dark:text-gray-300 leading-snug">{project.desc}</p>
+                    </div>
+                    ))}
+                </div>
+                </div>
+            </div>
+        );
+
+        const CalendarContent = () => (
+            <div className="flex h-full bg-white text-gray-800">
+                <div className="w-full p-6 overflow-y-auto">
+                    <div className="flex items-center justify-between mb-6">
+                        <h2 className="text-2xl font-bold">Work Experience</h2>
+                        <span className="text-red-500 font-semibold text-sm">Today</span>
+                    </div>
+                    
+                    <div className="border-l-2 border-red-200 ml-2 space-y-8">
+                        {RESUME_DATA.experience.map((exp, i) => (
+                            <div key={i} className="relative pl-6 pb-2">
+                                <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-red-500 border-4 border-white shadow-sm"></div>
+                                <div className="text-xs text-gray-400 font-bold uppercase mb-1">{exp.date}</div>
+                                <h3 className="text-lg font-bold text-gray-900">{exp.role}</h3>
+                                <div className="text-sm font-medium text-gray-600 mb-2">{exp.company}</div>
+                                <p className="text-sm text-gray-600 bg-gray-50 p-3 rounded-lg">{exp.desc}</p>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className="mt-8 pt-4 border-t">
+                        <h2 className="text-lg font-bold mb-4">Certifications</h2>
+                        <div className="grid grid-cols-1 gap-2">
+                            {RESUME_DATA.certifications.map((cert, idx) => (
+                                <div key={idx} className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
+                                    <Award size={18} className="text-yellow-500" />
+                                    <span className="text-sm text-gray-700">{cert}</span>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        );
 
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <h2>Adil Shamim</h2>
+        const MailContent = () => (
+            <div className="flex h-full bg-white dark:bg-[#222] divide-x divide-gray-200 dark:divide-gray-700">
+                <div className="w-1/3 p-2 bg-gray-50 dark:bg-[#1a1a1a]">
+                    <div className="px-2 py-2 text-xs font-bold text-gray-400 uppercase">Inbox</div>
+                    <div className="bg-blue-100 dark:bg-blue-900/30 p-3 rounded-lg mb-2 cursor-pointer">
+                        <div className="font-bold text-sm dark:text-white">{RESUME_DATA.personal.name}</div>
+                        <div className="text-xs text-gray-500 mb-1">New Opportunity?</div>
+                        <div className="text-xs text-gray-400 line-clamp-2">Hi there! Thanks for checking out my portfolio. Feel free to reach out...</div>
+                    </div>
                 </div>
-                <p>Thanks for visiting my portfolio website.</p>
-                <div class="footer-social">
-                    <a href="https://www.linkedin.com/in/adilshamim8" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-                    <a href="https://github.com/AdilShamim8" class="social-link" aria-label="GitHub" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i></a>
-                    <a href="https://www.kaggle.com/adilshamim8" class="social-link" aria-label="Kaggle" target="_blank" rel="noopener"><i class="fab fa-kaggle" aria-hidden="true"></i></a>
-                    <a href="https://x.com/adil_shamim8" class="social-link" aria-label="X (Twitter)" target="_blank" rel="noopener"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                <div className="flex-1 p-8 flex flex-col items-center justify-center text-center space-y-6">
+                    <div className="w-20 h-20 bg-gray-200 rounded-full flex items-center justify-center text-gray-400 mb-2">
+                        <Mail size={32} />
+                    </div>
+                    <div>
+                        <h2 className="text-xl font-bold dark:text-white">Contact Me</h2>
+                        <p className="text-gray-500 text-sm mt-1">I am currently available for new opportunities.</p>
+                    </div>
+                    
+                    <div className="flex flex-col gap-1 text-sm text-gray-600 dark:text-gray-300 bg-gray-50 dark:bg-gray-800/50 p-4 rounded-lg w-full max-w-xs">
+                        <div className="flex justify-between border-b border-gray-200 dark:border-gray-700 pb-2 mb-2">
+                            <span className="text-gray-400">Phone:</span>
+                            <span className="font-medium">{RESUME_DATA.personal.phone}</span>
+                        </div>
+                        <div className="flex justify-between">
+                            <span className="text-gray-400">Location:</span>
+                            <span className="font-medium">{RESUME_DATA.personal.location}</span>
+                        </div>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-3 w-full max-w-xs">
+                        <a href={`mailto:${RESUME_DATA.personal.email}`} className="flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg text-xs font-medium transition-colors col-span-2">
+                            <Mail size={14} /> Send Email
+                        </a>
+                        <a href={`https://linkedin.com/in/${RESUME_DATA.personal.linkedin}`} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 bg-[#0077b5] hover:opacity-90 text-white py-2 rounded-lg text-xs font-medium transition-colors">
+                            <Linkedin size={14} /> LinkedIn
+                        </a>
+                        <a href={`https://github.com/${RESUME_DATA.personal.github}`} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 bg-gray-900 hover:bg-black text-white py-2 rounded-lg text-xs font-medium transition-colors">
+                            <Github size={14} /> GitHub
+                        </a>
+                        <a href={`https://www.kaggle.com/${RESUME_DATA.personal.kaggle}`} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 bg-[#20BEFF] hover:opacity-90 text-white py-2 rounded-lg text-xs font-medium transition-colors">
+                            <KaggleIcon size={14} /> Kaggle
+                        </a>
+                        <a href={`https://x.com/${RESUME_DATA.personal.twitter}`} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 bg-black hover:bg-gray-900 text-white py-2 rounded-lg text-xs font-medium transition-colors">
+                            <XIcon size={14} /> X (Twitter)
+                        </a>
+                        <a href={RESUME_DATA.personal.medium} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 bg-black hover:bg-gray-800 text-white py-2 rounded-lg text-xs font-medium transition-colors">
+                            <MediumIcon size={14} /> Medium
+                        </a>
+                        <a href={`https://${RESUME_DATA.personal.website}`} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 bg-gray-800 hover:bg-gray-900 text-white py-2 rounded-lg text-xs font-medium transition-colors">
+                            <Globe size={14} /> {RESUME_DATA.personal.website}
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; <span id="current-year"></span> Adil Shamim. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
+        );
 
-    <!-- Back to Top Button -->
-    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
-        <i class="fas fa-arrow-up" aria-hidden="true"></i>
-    </button>
+        // --- Main OS Component ---
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
-    <script src="ab.js" defer></script>
-    <script src="script.js" defer></script>
-    <script src="chatbot.js" defer></script>
+        const App = () => {
+            const [time, setTime] = useState(new Date());
+            const [activeWindow, setActiveWindow] = useState(null);
+            const [openApps, setOpenApps] = useState([
+                { id: 'finder', zIndex: 1 }
+            ]);
+            const [minimizedApps, setMinimizedApps] = useState([]);
+            const [highestZ, setHighestZ] = useState(2);
+
+            useEffect(() => {
+                const timer = setInterval(() => setTime(new Date()), 60000);
+                return () => clearInterval(timer);
+            }, []);
+
+            const apps = [
+                { id: 'finder', title: 'Finder - About Me', icon: <User size={24} className="text-white"/>, color: 'bg-blue-500', content: <FinderContent />, width: '800px', height: '500px' },
+                { id: 'safari', title: 'Safari - Projects', icon: <Globe size={24} className="text-white"/>, color: 'bg-blue-400', content: <SafariContent />, width: '850px', height: '600px' },
+                { id: 'terminal', title: 'Terminal - Skills', icon: <Terminal size={24} className="text-white"/>, color: 'bg-gray-800', content: <TerminalContent />, width: '600px', height: '400px' },
+                { id: 'calendar', title: 'Calendar - Experience', icon: <CalendarIcon size={24} className="text-red-500"/>, color: 'bg-white border border-gray-200', content: <CalendarContent />, width: '700px', height: '550px' },
+                { id: 'mail', title: 'Mail - Contact', icon: <Mail size={24} className="text-white"/>, color: 'bg-blue-600', content: <MailContent />, width: '600px', height: '450px' },
+            ];
+
+            const openApp = (appId) => {
+                const existing = openApps.find(app => app.id === appId);
+                if (minimizedApps.includes(appId)) {
+                    setMinimizedApps(minimizedApps.filter(id => id !== appId));
+                    bringToFront(appId);
+                    return;
+                }
+
+                if (existing) {
+                bringToFront(appId);
+                } else {
+                setOpenApps([...openApps, { id: appId, zIndex: highestZ + 1 }]);
+                setHighestZ(prev => prev + 1);
+                setActiveWindow(appId);
+                }
+            };
+
+            const closeApp = (appId) => {
+                setOpenApps(openApps.filter(app => app.id !== appId));
+                setMinimizedApps(minimizedApps.filter(id => id !== appId));
+                if (activeWindow === appId) setActiveWindow(null);
+            };
+
+            const minimizeApp = (appId) => {
+                // PREVENT DUPLICATE STATE: Only add if not already minimized
+                if (!minimizedApps.includes(appId)) {
+                    setMinimizedApps([...minimizedApps, appId]);
+                    setActiveWindow(null);
+                }
+            };
+
+            const bringToFront = (appId) => {
+                setOpenApps(openApps.map(app => 
+                app.id === appId ? { ...app, zIndex: highestZ + 1 } : app
+                ));
+                setHighestZ(prev => prev + 1);
+                setActiveWindow(appId);
+            };
+
+            const formatTime = (date) => {
+                return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+            };
+
+            const formatDate = (date) => {
+                return date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+            };
+
+            return (
+                <div className="h-screen w-screen overflow-hidden bg-center bg-cover relative select-none font-sans"
+                    style={{ 
+                    backgroundImage: "url('https://4kwallpapers.com/images/walls/thumbs_3t/1455.jpg')",
+                    }}>
+                
+                <div className="h-7 bg-white/20 dark:bg-black/40 backdrop-blur-md flex items-center justify-between px-4 text-white text-xs shadow-sm relative z-50">
+                    <div className="flex items-center gap-4">
+                    <Command size={14} fill="white" />
+                    <span className="font-bold">Adil OS</span>
+                    <span className="hidden sm:inline">File</span>
+                    <span className="hidden sm:inline">Edit</span>
+                    <span className="hidden sm:inline">View</span>
+                    <span className="hidden sm:inline">Go</span>
+                    <span className="hidden sm:inline">Window</span>
+                    <span className="hidden sm:inline">Help</span>
+                    </div>
+                    <div className="flex items-center gap-4">
+                        <Battery size={16} />
+                        <Wifi size={16} />
+                        <Search size={14} />
+                        <span>{formatDate(time)}</span>
+                        <span>{formatTime(time)}</span>
+                    </div>
+                </div>
+
+                <div className="relative h-[calc(100vh-28px)] w-full">
+                    
+                    {/* Desktop Icons REMOVED */}
+
+                    {openApps.map(openAppInst => {
+                        const appData = apps.find(a => a.id === openAppInst.id);
+                        if (!appData) return null;
+                        const isMinimized = minimizedApps.includes(openAppInst.id);
+                        return (
+                            <DraggableWindow 
+                                key={openAppInst.id}
+                                app={appData}
+                                isActive={activeWindow === openAppInst.id}
+                                zIndex={openAppInst.zIndex}
+                                onClose={closeApp}
+                                onMinimize={minimizeApp}
+                                onFocus={bringToFront}
+                                isMinimized={isMinimized}
+                            />
+                        );
+                    })}
+
+                    <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-auto z-[100]">
+                    <div className="flex items-end gap-3 px-4 pb-2 pt-3 bg-white/20 dark:bg-black/30 backdrop-blur-2xl border border-white/20 rounded-2xl shadow-2xl transition-all duration-300">
+                        {apps.map((app) => {
+                        const isOpen = openApps.find(o => o.id === app.id);
+                        const isMinimized = minimizedApps.includes(app.id);
+
+                        return (
+                            <div key={app.id} className="group relative flex flex-col items-center gap-1">
+                                <div className="absolute -top-10 opacity-0 group-hover:opacity-100 transition-opacity bg-gray-800 text-white text-[10px] px-2 py-1 rounded shadow-lg pointer-events-none whitespace-nowrap">
+                                    {app.title.split(' - ')[1]}
+                                </div>
+                                
+                                <button 
+                                    onClick={() => openApp(app.id)}
+                                    className={`w-12 h-12 rounded-xl flex items-center justify-center shadow-lg transition-all duration-200 hover:-translate-y-2 active:scale-95
+                                    ${app.color} 
+                                    ${activeWindow === app.id && !isMinimized ? 'ring-2 ring-white/50' : ''}
+                                    ${isMinimized ? 'opacity-70 grayscale-[0.5]' : ''}
+                                    `}
+                                >
+                                    {app.icon}
+                                </button>
+
+                                <div className={`w-1 h-1 rounded-full bg-white/80 shadow-sm transition-opacity ${isOpen ? 'opacity-100' : 'opacity-0'}`}></div>
+                            </div>
+                        )})}
+                    </div>
+                    </div>
+                </div>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
 </body>
-</html> 
+</html>
