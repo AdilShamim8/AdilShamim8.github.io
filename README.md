@@ -128,7 +128,7 @@ Open index.html (or App.jsx) in a code editor.
 Locate the const RESUME_DATA = { ... } object near the top of the script.
 
 Modify the fields as needed:
-
+```
 const RESUME_DATA = {
   personal: {
     name: "Your Name",
@@ -141,7 +141,7 @@ const RESUME_DATA = {
   },
   // ... update projects, experience, etc.
 };
-
+```
 
 📂 Project Structure
 
