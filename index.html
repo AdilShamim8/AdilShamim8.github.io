@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Adil Shamim - macOS Portfolio</title>
     
     <!-- Tailwind CSS -->
@@ -27,6 +27,13 @@
         body {
             margin: 0;
             overflow: hidden;
+            touch-action: none; /* Prevents scrolling the whole page on mobile */
+            -webkit-tap-highlight-color: transparent;
+        }
+        /* Allow scrolling inside windows */
+        .window-content {
+            touch-action: auto;
+            -webkit-overflow-scrolling: touch;
         }
     </style>
 </head>
@@ -136,7 +143,7 @@
             projects: [
                 {
                 title: "Prices Predictor System",
-                link: "https://github.com/AdilShamim8/Prices_Predictor_System",
+                link: "https://github.com/AdilShamim8/Prices-Predictor-System",
                 tech: ["ZenML", "MLflow", "XGBoost", "FastAPI", "Docker"],
                 desc: "End-to-end price-prediction pipeline. Features include data preprocessing, model training, and deployment with automated tracking of experiments."
                 },
@@ -203,13 +210,29 @@
         // --- Draggable Window Component ---
 
         const DraggableWindow = ({ app, onClose, onMinimize, onFocus, isActive, zIndex, isMinimized }) => {
-            const [position, setPosition] = useState({ x: Math.random() * 50 + 50, y: Math.random() * 50 + 50 });
+            const [position, setPosition] = useState({ x: 0, y: 0 });
             const [isDragging, setIsDragging] = useState(false);
             const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
             const [isMaximized, setIsMaximized] = useState(false);
             const [isHidden, setIsHidden] = useState(false);
+            const [windowSize, setWindowSize] = useState({ width: window.innerWidth, height: window.innerHeight });
             const windowRef = useRef(null);
 
+            useEffect(() => {
+                const handleResize = () => setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+                window.addEventListener('resize', handleResize);
+                
+                // Initial centered position logic for mobile/desktop
+                const isMobile = window.innerWidth < 768;
+                setPosition({ 
+                    x: isMobile ? 10 : Math.random() * 50 + 50, 
+                    y: isMobile ? 40 : Math.random() * 50 + 50 
+                });
+
+                return () => window.removeEventListener('resize', handleResize);
+            }, []);
+
+            // Mouse Handlers
             const handleMouseDown = (e) => {
                 if (isMaximized) return; 
                 if (e.target.closest('.window-content')) return;
@@ -221,32 +244,54 @@
                 onFocus(app.id);
             };
 
+            // Touch Handlers
+            const handleTouchStart = (e) => {
+                if (isMaximized) return;
+                if (e.target.closest('.window-content')) return;
+                setIsDragging(true);
+                const touch = e.touches[0];
+                setDragOffset({
+                x: touch.clientX - position.x,
+                y: touch.clientY - position.y
+                });
+                onFocus(app.id);
+            };
+
             useEffect(() => {
                 const handleMouseMove = (e) => {
                 if (isDragging) {
-                    const newX = e.clientX - dragOffset.x;
-                    const newY = e.clientY - dragOffset.y;
-                    const constrainedX = Math.max(0, Math.min(window.innerWidth - 200, newX));
-                    const constrainedY = Math.max(25, Math.min(window.innerHeight - 100, newY));
-                    setPosition({ x: constrainedX, y: constrainedY });
+                    const newX = Math.max(0, Math.min(window.innerWidth - 50, e.clientX - dragOffset.x));
+                    const newY = Math.max(25, Math.min(window.innerHeight - 50, e.clientY - dragOffset.y));
+                    setPosition({ x: newX, y: newY });
                 }
                 };
-                const handleMouseUp = () => setIsDragging(false);
+                const handleTouchMove = (e) => {
+                    if (isDragging) {
+                        const touch = e.touches[0];
+                        const newX = Math.max(0, Math.min(window.innerWidth - 50, touch.clientX - dragOffset.x));
+                        const newY = Math.max(25, Math.min(window.innerHeight - 50, touch.clientY - dragOffset.y));
+                        setPosition({ x: newX, y: newY });
+                    }
+                };
+                const handleEnd = () => setIsDragging(false);
 
                 if (isDragging) {
                 window.addEventListener('mousemove', handleMouseMove);
-                window.addEventListener('mouseup', handleMouseUp);
+                window.addEventListener('mouseup', handleEnd);
+                window.addEventListener('touchmove', handleTouchMove, { passive: false });
+                window.addEventListener('touchend', handleEnd);
                 }
                 return () => {
                 window.removeEventListener('mousemove', handleMouseMove);
-                window.removeEventListener('mouseup', handleMouseUp);
+                window.removeEventListener('mouseup', handleEnd);
+                window.removeEventListener('touchmove', handleTouchMove);
+                window.removeEventListener('touchend', handleEnd);
                 };
             }, [isDragging, dragOffset]);
 
-            // Handle Display None after animation to prevent freezing interactions
             useEffect(() => {
                 if (isMinimized) {
-                    const timer = setTimeout(() => setIsHidden(true), 300); // Wait for transition (300ms)
+                    const timer = setTimeout(() => setIsHidden(true), 300);
                     return () => clearTimeout(timer);
                 } else {
                     setIsHidden(false);
@@ -257,6 +302,10 @@
                 setIsMaximized(!isMaximized);
                 onFocus(app.id);
             };
+
+            // Responsive sizing logic based on current window size
+            const currentWidth = windowSize.width < 768 ? '95vw' : (app.width || '600px');
+            const currentHeight = windowSize.width < 768 ? '80vh' : (app.height || '400px');
 
             const windowStyle = isMaximized 
                 ? {
@@ -269,8 +318,10 @@
                 }
                 : {
                     transform: `translate(${position.x}px, ${position.y}px)`,
-                    width: app.width || '600px',
-                    height: app.height || '400px'
+                    width: currentWidth,
+                    height: currentHeight,
+                    maxWidth: '100vw',
+                    maxHeight: '90vh'
                 };
 
             return (
@@ -281,24 +332,26 @@
                     zIndex: zIndex,
                     display: isHidden ? 'none' : 'flex'
                 }}
-                className={`absolute flex-col overflow-hidden shadow-2xl border border-white/20 transition-all duration-300 ease-in-out
+                className={`absolute flex-col overflow-hidden shadow-2xl border border-white/20 transition-all duration-300 ease-in-out bg-white dark:bg-[#1e1e1e]
                     ${isActive ? 'shadow-2xl ring-1 ring-white/10' : 'shadow-md opacity-90'}
                     ${!isMaximized && 'rounded-xl'}
                     ${isMinimized ? 'opacity-0 scale-90 pointer-events-none' : 'opacity-100 scale-100'}
                 `}
                 onMouseDown={() => onFocus(app.id)}
+                onTouchStart={() => onFocus(app.id)}
                 >
                 <div 
-                    className="h-8 bg-[#e3e3e3] dark:bg-[#2d2d2d] flex items-center px-4 select-none cursor-default"
+                    className="h-8 bg-[#e3e3e3] dark:bg-[#2d2d2d] flex items-center px-4 select-none cursor-default touch-none"
                     onMouseDown={handleMouseDown}
+                    onTouchStart={handleTouchStart}
                     onDoubleClick={toggleMaximize}
                 >
-                    <div className="flex items-center">
+                    <div className="flex items-center gap-1.5">
                     <WindowButton color="bg-red-500 hover:bg-red-600" onClick={() => onClose(app.id)} />
                     <WindowButton color="bg-yellow-500 hover:bg-yellow-600" onClick={() => onMinimize(app.id)} />
                     <WindowButton color="bg-green-500 hover:bg-green-600" onClick={toggleMaximize} />
                     </div>
-                    <div className="flex-1 text-center text-xs font-semibold text-gray-600 dark:text-gray-300">
+                    <div className="flex-1 text-center text-xs font-semibold text-gray-600 dark:text-gray-300 truncate px-2">
                     {app.title}
                     </div>
                     <div className="w-14"></div>
@@ -311,30 +364,30 @@
             );
         };
 
-        // --- App Content Components ---
+        // --- App Content Components (Responsive Layouts) ---
 
         const FinderContent = () => (
-            <div className="flex h-full text-gray-800 dark:text-gray-200">
-                <div className="w-48 bg-gray-100/50 dark:bg-gray-800/30 border-r border-gray-200 dark:border-gray-700 p-4 flex flex-col gap-2">
-                <div className="text-[10px] uppercase font-bold text-gray-400 mb-1">Favorites</div>
-                <div className="flex items-center gap-2 p-1 bg-blue-500/10 text-blue-600 rounded text-sm font-medium"><User size={16}/> About Me</div>
-                <div className="flex items-center gap-2 p-1 text-gray-500 hover:bg-gray-200/50 rounded text-sm cursor-not-allowed"><Briefcase size={16}/> Documents</div>
-                <div className="flex items-center gap-2 p-1 text-gray-500 hover:bg-gray-200/50 rounded text-sm cursor-not-allowed"><Search size={16}/> Recents</div>
+            <div className="flex flex-col md:flex-row h-full text-gray-800 dark:text-gray-200">
+                <div className="w-full md:w-48 bg-gray-100/50 dark:bg-gray-800/30 border-b md:border-b-0 md:border-r border-gray-200 dark:border-gray-700 p-4 flex flex-row md:flex-col gap-2 overflow-x-auto md:overflow-visible scrollbar-hide flex-shrink-0">
+                <div className="text-[10px] uppercase font-bold text-gray-400 mb-1 hidden md:block">Favorites</div>
+                <div className="flex items-center gap-2 p-1 bg-blue-500/10 text-blue-600 rounded text-sm font-medium whitespace-nowrap"><User size={16}/> About Me</div>
+                <div className="flex items-center gap-2 p-1 text-gray-500 hover:bg-gray-200/50 rounded text-sm cursor-not-allowed whitespace-nowrap"><Briefcase size={16}/> Documents</div>
+                <div className="flex items-center gap-2 p-1 text-gray-500 hover:bg-gray-200/50 rounded text-sm cursor-not-allowed whitespace-nowrap"><Search size={16}/> Recents</div>
                 </div>
-                <div className="flex-1 p-8 overflow-y-auto">
+                <div className="flex-1 p-4 md:p-8 overflow-y-auto">
                 <div className="flex flex-col items-center mb-6">
-                    <div className="w-24 h-24 rounded-full bg-gray-200 mb-4 overflow-hidden shadow-lg border-2 border-white">
+                    <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gray-200 mb-4 overflow-hidden shadow-lg border-2 border-white">
                         <img src={RESUME_DATA.personal.avatar} alt="Avatar" className="w-full h-full object-cover"/>
                     </div>
-                    <h1 className="text-2xl font-bold text-gray-900 dark:text-white">{RESUME_DATA.personal.name}</h1>
-                    <p className="text-sm text-gray-500">{RESUME_DATA.personal.role}</p>
-                    <p className="text-xs text-gray-400 mt-1">{RESUME_DATA.personal.location}</p>
+                    <h1 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white text-center">{RESUME_DATA.personal.name}</h1>
+                    <p className="text-sm text-gray-500 text-center">{RESUME_DATA.personal.role}</p>
+                    <p className="text-xs text-gray-400 mt-1 text-center">{RESUME_DATA.personal.location}</p>
                 </div>
                 
                 <div className="space-y-6">
                     <section>
                     <h3 className="text-xs font-bold uppercase text-gray-400 mb-2 border-b pb-1">Overview</h3>
-                    <p className="text-sm leading-relaxed">{RESUME_DATA.personal.summary}</p>
+                    <p className="text-sm leading-relaxed text-justify">{RESUME_DATA.personal.summary}</p>
                     </section>
 
                     <section>
@@ -360,7 +413,7 @@
         );
 
         const TerminalContent = () => (
-            <div className="h-full bg-[#1e1e1e] text-green-400 p-4 font-mono text-sm overflow-y-auto">
+            <div className="h-full bg-[#1e1e1e] text-green-400 p-4 font-mono text-xs md:text-sm overflow-y-auto">
                 <div className="mb-4">
                 <span className="text-blue-400">adil@macbook</span>:<span className="text-blue-300">~</span>$ list_skills.py
                 </div>
@@ -406,22 +459,22 @@
                         <div className="hover:bg-gray-300 rounded p-1"><Minus size={14}/></div>
                         <div className="hover:bg-gray-300 rounded p-1"><Maximize2 size={14}/></div>
                     </div>
-                    <div className="flex-1 bg-white dark:bg-[#111] rounded-lg px-3 py-1 text-center text-xs text-gray-500 flex items-center justify-center gap-2 shadow-inner">
+                    <div className="flex-1 bg-white dark:bg-[#111] rounded-lg px-3 py-1 text-center text-xs text-gray-500 flex items-center justify-center gap-2 shadow-inner truncate">
                         <Search size={12}/> adilshamim.me/projects
                     </div>
                 </div>
                 
-                <div className="flex-1 overflow-y-auto p-6">
-                <h2 className="text-2xl font-bold mb-6 dark:text-white">Featured Projects</h2>
+                <div className="flex-1 overflow-y-auto p-4 md:p-6">
+                <h2 className="text-xl md:text-2xl font-bold mb-6 dark:text-white">Featured Projects</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {RESUME_DATA.projects.map((project, i) => (
                     <div key={i} className="bg-white dark:bg-[#333] rounded-xl shadow-sm p-4 border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow">
                         <div className="flex justify-between items-start">
-                            <a href={project.link} target="_blank" rel="noreferrer" className="group">
-                              <h3 className="font-bold text-lg text-blue-600 dark:text-blue-400 mb-1 group-hover:underline">{project.title}</h3>
+                            <a href={project.link} target="_blank" rel="noreferrer" className="group flex-1">
+                              <h3 className="font-bold text-base md:text-lg text-blue-600 dark:text-blue-400 mb-1 group-hover:underline truncate">{project.title}</h3>
                             </a>
                             <a href={project.link} target="_blank" rel="noreferrer">
-                                <Github size={16} className="text-gray-400 hover:text-black cursor-pointer transition-colors"/>
+                                <Github size={16} className="text-gray-400 hover:text-black cursor-pointer transition-colors flex-shrink-0 ml-2"/>
                             </a>
                         </div>
                         <div className="flex flex-wrap gap-1 mb-3">
@@ -431,7 +484,7 @@
                             </span>
                         ))}
                         </div>
-                        <p className="text-sm text-gray-600 dark:text-gray-300 leading-snug">{project.desc}</p>
+                        <p className="text-sm text-gray-600 dark:text-gray-300 leading-snug line-clamp-3">{project.desc}</p>
                     </div>
                     ))}
                 </div>
@@ -475,8 +528,8 @@
         );
 
         const MailContent = () => (
-            <div className="flex h-full bg-white dark:bg-[#222] divide-x divide-gray-200 dark:divide-gray-700">
-                <div className="w-1/3 p-2 bg-gray-50 dark:bg-[#1a1a1a]">
+            <div className="flex flex-col md:flex-row h-full bg-white dark:bg-[#222] divide-y md:divide-y-0 md:divide-x divide-gray-200 dark:divide-gray-700">
+                <div className="w-full md:w-1/3 p-2 bg-gray-50 dark:bg-[#1a1a1a] flex-shrink-0">
                     <div className="px-2 py-2 text-xs font-bold text-gray-400 uppercase">Inbox</div>
                     <div className="bg-blue-100 dark:bg-blue-900/30 p-3 rounded-lg mb-2 cursor-pointer">
                         <div className="font-bold text-sm dark:text-white">{RESUME_DATA.personal.name}</div>
@@ -484,8 +537,8 @@
                         <div className="text-xs text-gray-400 line-clamp-2">Hi there! Thanks for checking out my portfolio. Feel free to reach out...</div>
                     </div>
                 </div>
-                <div className="flex-1 p-8 flex flex-col items-center justify-center text-center space-y-6">
-                    <div className="w-20 h-20 bg-gray-200 rounded-full flex items-center justify-center text-gray-400 mb-2">
+                <div className="flex-1 p-4 md:p-8 flex flex-col items-center justify-center text-center space-y-6 overflow-y-auto">
+                    <div className="w-16 h-16 md:w-20 md:h-20 bg-gray-200 rounded-full flex items-center justify-center text-gray-400 mb-2">
                         <Mail size={32} />
                     </div>
                     <div>
@@ -493,18 +546,18 @@
                         <p className="text-gray-500 text-sm mt-1">I am currently available for new opportunities.</p>
                     </div>
                     
-                    <div className="flex flex-col gap-1 text-sm text-gray-600 dark:text-gray-300 bg-gray-50 dark:bg-gray-800/50 p-4 rounded-lg w-full max-w-xs">
+                    <div className="flex flex-col gap-1 text-sm text-gray-600 dark:text-gray-300 bg-gray-50 dark:bg-gray-800/50 p-4 rounded-lg w-full max-w-xs mx-auto">
                         <div className="flex justify-between border-b border-gray-200 dark:border-gray-700 pb-2 mb-2">
                             <span className="text-gray-400">Phone:</span>
                             <span className="font-medium">{RESUME_DATA.personal.phone}</span>
                         </div>
                         <div className="flex justify-between">
                             <span className="text-gray-400">Location:</span>
-                            <span className="font-medium">{RESUME_DATA.personal.location}</span>
+                            <span className="font-medium text-right">{RESUME_DATA.personal.location}</span>
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-3 w-full max-w-xs">
+                    <div className="grid grid-cols-2 gap-3 w-full max-w-xs mx-auto">
                         <a href={`mailto:${RESUME_DATA.personal.email}`} className="flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg text-xs font-medium transition-colors col-span-2">
                             <Mail size={14} /> Send Email
                         </a>
@@ -523,7 +576,7 @@
                         <a href={RESUME_DATA.personal.medium} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 bg-black hover:bg-gray-800 text-white py-2 rounded-lg text-xs font-medium transition-colors">
                             <MediumIcon size={14} /> Medium
                         </a>
-                        <a href={`https://${RESUME_DATA.personal.website}`} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 bg-gray-800 hover:bg-gray-900 text-white py-2 rounded-lg text-xs font-medium transition-colors">
+                        <a href={`https://${RESUME_DATA.personal.website}`} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 bg-gray-800 hover:bg-gray-900 text-white py-2 rounded-lg text-xs font-medium transition-colors col-span-2">
                             <Globe size={14} /> {RESUME_DATA.personal.website}
                         </a>
                     </div>
