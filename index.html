@@ -43,24 +43,9 @@
     <script type="text/babel">
         const { useState, useEffect, useRef } = React;
 
-        // --- Icons (Inline replacements for lucide-react to keep file single) ---
-        
+        // --- Icons ---
         const IconWrapper = ({ size = 24, className, children, ...props }) => (
-            <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                width={size} 
-                height={size} 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
-                className={className}
-                {...props}
-            >
-                {children}
-            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props}>{children}</svg>
         );
 
         const Terminal = (props) => <IconWrapper {...props}><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></IconWrapper>;
@@ -82,24 +67,10 @@
         const ExternalLink = (props) => <IconWrapper {...props}><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></IconWrapper>;
         const CalendarIcon = (props) => <IconWrapper {...props}><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></IconWrapper>;
 
-        // --- Custom SVGs (Kaggle, X, Medium) ---
-        const KaggleIcon = ({ size = 16, className }) => (
-        <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className} xmlns="http://www.w3.org/2000/svg">
-            <path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.447 1.374v5.113c0 .214-.135.35-.406.35H4.627c-.248 0-.373-.136-.373-.35V.35c0-.215.125-.351.373-.351h3.255c.271 0 .406.136.406.351v15.348l6.386-7.21c.169-.181.35-.282.539-.282h3.21c.234 0 .351.129.351.375 0 .123-.053.228-.158.328l-5.87 6.167 6.244 8.182c.118.158.164.305.135.451z"/>
-        </svg>
-        );
-
-        const XIcon = ({ size = 16, className }) => (
-        <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className} xmlns="http://www.w3.org/2000/svg">
-            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-        </svg>
-        );
-
-        const MediumIcon = ({ size = 16, className }) => (
-        <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className} xmlns="http://www.w3.org/2000/svg">
-            <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
-        </svg>
-        );
+        // --- Custom SVGs ---
+        const KaggleIcon = ({ size = 16, className }) => (<svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className} xmlns="http://www.w3.org/2000/svg"><path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.447 1.374v5.113c0 .214-.135.35-.406.35H4.627c-.248 0-.373-.136-.373-.35V.35c0-.215.125-.351.373-.351h3.255c.271 0 .406.136.406.351v15.348l6.386-7.21c.169-.181.35-.282.539-.282h3.21c.234 0 .351.129.351.375 0 .123-.053.228-.158.328l-5.87 6.167 6.244 8.182c.118.158.164.305.135.451z"/></svg>);
+        const XIcon = ({ size = 16, className }) => (<svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className} xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>);
+        const MediumIcon = ({ size = 16, className }) => (<svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className} xmlns="http://www.w3.org/2000/svg"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>);
 
         // --- Resume Data ---
         const RESUME_DATA = {
@@ -192,13 +163,8 @@
             ]
         };
 
-        // --- Helper Components ---
-
         const WindowButton = ({ color, onClick, disabled }) => (
-            <button 
-                onClick={(e) => { e.stopPropagation(); !disabled && onClick && onClick(); }}
-                className={`w-3 h-3 rounded-full mr-2 flex items-center justify-center group ${color} ${disabled ? 'cursor-default' : ''}`}
-            >
+            <button onClick={(e) => { e.stopPropagation(); !disabled && onClick && onClick(); }} className={`w-3 h-3 rounded-full mr-2 flex items-center justify-center group ${color} ${disabled ? 'cursor-default' : ''}`}>
                 <span className={`opacity-0 group-hover:opacity-100 text-[8px] font-bold text-black/60`}>
                 {color.includes('red') && <X size={6} />}
                 {color.includes('yellow') && <Minus size={6} />}
@@ -206,8 +172,6 @@
                 </span>
             </button>
         );
-
-        // --- Draggable Window Component ---
 
         const DraggableWindow = ({ app, onClose, onMinimize, onFocus, isActive, zIndex, isMinimized }) => {
             const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -222,7 +186,6 @@
                 const handleResize = () => setWindowSize({ width: window.innerWidth, height: window.innerHeight });
                 window.addEventListener('resize', handleResize);
                 
-                // Initial centered position logic for mobile/desktop
                 const isMobile = window.innerWidth < 768;
                 setPosition({ 
                     x: isMobile ? 10 : Math.random() * 50 + 50, 
@@ -232,38 +195,30 @@
                 return () => window.removeEventListener('resize', handleResize);
             }, []);
 
-            // Mouse Handlers
             const handleMouseDown = (e) => {
                 if (isMaximized) return; 
                 if (e.target.closest('.window-content')) return;
                 setIsDragging(true);
-                setDragOffset({
-                x: e.clientX - position.x,
-                y: e.clientY - position.y
-                });
+                setDragOffset({ x: e.clientX - position.x, y: e.clientY - position.y });
                 onFocus(app.id);
             };
 
-            // Touch Handlers
             const handleTouchStart = (e) => {
                 if (isMaximized) return;
                 if (e.target.closest('.window-content')) return;
                 setIsDragging(true);
                 const touch = e.touches[0];
-                setDragOffset({
-                x: touch.clientX - position.x,
-                y: touch.clientY - position.y
-                });
+                setDragOffset({ x: touch.clientX - position.x, y: touch.clientY - position.y });
                 onFocus(app.id);
             };
 
             useEffect(() => {
                 const handleMouseMove = (e) => {
-                if (isDragging) {
-                    const newX = Math.max(0, Math.min(window.innerWidth - 50, e.clientX - dragOffset.x));
-                    const newY = Math.max(25, Math.min(window.innerHeight - 50, e.clientY - dragOffset.y));
-                    setPosition({ x: newX, y: newY });
-                }
+                    if (isDragging) {
+                        const newX = Math.max(0, Math.min(window.innerWidth - 50, e.clientX - dragOffset.x));
+                        const newY = Math.max(25, Math.min(window.innerHeight - 50, e.clientY - dragOffset.y));
+                        setPosition({ x: newX, y: newY });
+                    }
                 };
                 const handleTouchMove = (e) => {
                     if (isDragging) {
@@ -276,16 +231,16 @@
                 const handleEnd = () => setIsDragging(false);
 
                 if (isDragging) {
-                window.addEventListener('mousemove', handleMouseMove);
-                window.addEventListener('mouseup', handleEnd);
-                window.addEventListener('touchmove', handleTouchMove, { passive: false });
-                window.addEventListener('touchend', handleEnd);
+                    window.addEventListener('mousemove', handleMouseMove);
+                    window.addEventListener('mouseup', handleEnd);
+                    window.addEventListener('touchmove', handleTouchMove, { passive: false });
+                    window.addEventListener('touchend', handleEnd);
                 }
                 return () => {
-                window.removeEventListener('mousemove', handleMouseMove);
-                window.removeEventListener('mouseup', handleEnd);
-                window.removeEventListener('touchmove', handleTouchMove);
-                window.removeEventListener('touchend', handleEnd);
+                    window.removeEventListener('mousemove', handleMouseMove);
+                    window.removeEventListener('mouseup', handleEnd);
+                    window.removeEventListener('touchmove', handleTouchMove);
+                    window.removeEventListener('touchend', handleEnd);
                 };
             }, [isDragging, dragOffset]);
 
@@ -303,191 +258,93 @@
                 onFocus(app.id);
             };
 
-            // Responsive sizing logic based on current window size
             const currentWidth = windowSize.width < 768 ? '95vw' : (app.width || '600px');
             const currentHeight = windowSize.width < 768 ? '80vh' : (app.height || '400px');
 
             const windowStyle = isMaximized 
-                ? {
-                    top: '0px',
-                    left: '0px',
-                    width: '100%',
-                    height: '100%',
-                    transform: 'none',
-                    borderRadius: '0px'
-                }
-                : {
-                    transform: `translate(${position.x}px, ${position.y}px)`,
-                    width: currentWidth,
-                    height: currentHeight,
-                    maxWidth: '100vw',
-                    maxHeight: '90vh'
-                };
+                ? { top: 0, left: 0, width: '100%', height: '100%', borderRadius: 0, transform: 'none' }
+                : { transform: `translate(${position.x}px, ${position.y}px)`, width: currentWidth, height: currentHeight, maxWidth: '100vw', maxHeight: '90vh' };
 
             return (
-                <div
-                ref={windowRef}
-                style={{
-                    ...windowStyle,
-                    zIndex: zIndex,
-                    display: isHidden ? 'none' : 'flex'
-                }}
-                className={`absolute flex-col overflow-hidden shadow-2xl border border-white/20 transition-all duration-300 ease-in-out bg-white dark:bg-[#1e1e1e]
-                    ${isActive ? 'shadow-2xl ring-1 ring-white/10' : 'shadow-md opacity-90'}
-                    ${!isMaximized && 'rounded-xl'}
-                    ${isMinimized ? 'opacity-0 scale-90 pointer-events-none' : 'opacity-100 scale-100'}
-                `}
-                onMouseDown={() => onFocus(app.id)}
-                onTouchStart={() => onFocus(app.id)}
+                <div style={{...windowStyle, zIndex, display: isHidden ? 'none' : 'flex'}}
+                    className={`absolute flex-col overflow-hidden shadow-2xl border border-white/20 transition-all duration-300 ease-in-out bg-white dark:bg-[#1e1e1e] ${!isMaximized && 'rounded-xl'} ${isActive ? 'shadow-2xl ring-1 ring-white/10' : 'shadow-md opacity-90'} ${isMinimized ? 'opacity-0 scale-90 pointer-events-none' : 'opacity-100 scale-100'}`}
+                    onMouseDown={() => onFocus(app.id)}
+                    onTouchStart={() => onFocus(app.id)}
                 >
-                <div 
-                    className="h-8 bg-[#e3e3e3] dark:bg-[#2d2d2d] flex items-center px-4 select-none cursor-default touch-none"
-                    onMouseDown={handleMouseDown}
-                    onTouchStart={handleTouchStart}
-                    onDoubleClick={toggleMaximize}
-                >
-                    <div className="flex items-center gap-1.5">
-                    <WindowButton color="bg-red-500 hover:bg-red-600" onClick={() => onClose(app.id)} />
-                    <WindowButton color="bg-yellow-500 hover:bg-yellow-600" onClick={() => onMinimize(app.id)} />
-                    <WindowButton color="bg-green-500 hover:bg-green-600" onClick={toggleMaximize} />
+                    <div className="h-8 bg-[#e3e3e3] dark:bg-[#2d2d2d] flex items-center px-4 select-none cursor-default touch-none" onMouseDown={handleMouseDown} onTouchStart={handleTouchStart} onDoubleClick={toggleMaximize}>
+                        <div className="flex items-center gap-1.5">
+                            <WindowButton color="bg-red-500 hover:bg-red-600" onClick={() => onClose(app.id)} />
+                            <WindowButton color="bg-yellow-500 hover:bg-yellow-600" onClick={() => onMinimize(app.id)} />
+                            <WindowButton color="bg-green-500 hover:bg-green-600" onClick={toggleMaximize} />
+                        </div>
+                        <div className="flex-1 text-center text-xs font-semibold text-gray-600 dark:text-gray-300 truncate px-2">{app.title}</div>
+                        <div className="w-14"></div>
                     </div>
-                    <div className="flex-1 text-center text-xs font-semibold text-gray-600 dark:text-gray-300 truncate px-2">
-                    {app.title}
+                    <div className="flex-1 bg-white/90 dark:bg-[#1e1e1e]/95 backdrop-blur-md overflow-y-auto window-content scrollbar-hide">
+                        {app.content}
                     </div>
-                    <div className="w-14"></div>
-                </div>
-
-                <div className="flex-1 bg-white/90 dark:bg-[#1e1e1e]/95 backdrop-blur-md overflow-y-auto window-content scrollbar-hide">
-                    {app.content}
-                </div>
                 </div>
             );
         };
 
-        // --- App Content Components (Responsive Layouts) ---
-
         const FinderContent = () => (
             <div className="flex flex-col md:flex-row h-full text-gray-800 dark:text-gray-200">
                 <div className="w-full md:w-48 bg-gray-100/50 dark:bg-gray-800/30 border-b md:border-b-0 md:border-r border-gray-200 dark:border-gray-700 p-4 flex flex-row md:flex-col gap-2 overflow-x-auto md:overflow-visible scrollbar-hide flex-shrink-0">
-                <div className="text-[10px] uppercase font-bold text-gray-400 mb-1 hidden md:block">Favorites</div>
-                <div className="flex items-center gap-2 p-1 bg-blue-500/10 text-blue-600 rounded text-sm font-medium whitespace-nowrap"><User size={16}/> About Me</div>
-                <div className="flex items-center gap-2 p-1 text-gray-500 hover:bg-gray-200/50 rounded text-sm cursor-not-allowed whitespace-nowrap"><Briefcase size={16}/> Documents</div>
-                <div className="flex items-center gap-2 p-1 text-gray-500 hover:bg-gray-200/50 rounded text-sm cursor-not-allowed whitespace-nowrap"><Search size={16}/> Recents</div>
+                    <div className="text-[10px] uppercase font-bold text-gray-400 mb-1 hidden md:block">Favorites</div>
+                    <div className="flex items-center gap-2 p-1 bg-blue-500/10 text-blue-600 rounded text-sm font-medium whitespace-nowrap"><User size={16}/> About Me</div>
+                    <div className="flex items-center gap-2 p-1 text-gray-500 hover:bg-gray-200/50 rounded text-sm cursor-not-allowed whitespace-nowrap"><Briefcase size={16}/> Documents</div>
+                    <div className="flex items-center gap-2 p-1 text-gray-500 hover:bg-gray-200/50 rounded text-sm cursor-not-allowed whitespace-nowrap"><Search size={16}/> Recents</div>
                 </div>
                 <div className="flex-1 p-4 md:p-8 overflow-y-auto">
-                <div className="flex flex-col items-center mb-6">
-                    <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gray-200 mb-4 overflow-hidden shadow-lg border-2 border-white">
-                        <img src={RESUME_DATA.personal.avatar} alt="Avatar" className="w-full h-full object-cover"/>
+                    <div className="flex flex-col items-center mb-6">
+                        <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gray-200 mb-4 overflow-hidden shadow-lg border-2 border-white">
+                            <img src={RESUME_DATA.personal.avatar} alt="Avatar" className="w-full h-full object-cover"/>
+                        </div>
+                        <h1 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white text-center">{RESUME_DATA.personal.name}</h1>
+                        <p className="text-sm text-gray-500 text-center">{RESUME_DATA.personal.role}</p>
+                        <p className="text-xs text-gray-400 mt-1 text-center">{RESUME_DATA.personal.location}</p>
                     </div>
-                    <h1 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white text-center">{RESUME_DATA.personal.name}</h1>
-                    <p className="text-sm text-gray-500 text-center">{RESUME_DATA.personal.role}</p>
-                    <p className="text-xs text-gray-400 mt-1 text-center">{RESUME_DATA.personal.location}</p>
-                </div>
-                
-                <div className="space-y-6">
-                    <section>
-                    <h3 className="text-xs font-bold uppercase text-gray-400 mb-2 border-b pb-1">Overview</h3>
-                    <p className="text-sm leading-relaxed text-justify">{RESUME_DATA.personal.summary}</p>
-                    </section>
-
-                    <section>
-                    <h3 className="text-xs font-bold uppercase text-gray-400 mb-2 border-b pb-1">Education</h3>
-                    <div className="text-sm">
-                        <p className="font-semibold">{RESUME_DATA.education.degree}</p>
-                        <p className="text-gray-500">{RESUME_DATA.education.institution}</p>
-                        <p className="text-xs text-gray-400 mt-1 italic">Relevant Coursework: {RESUME_DATA.education.coursework}</p>
+                    <div className="space-y-6">
+                        <section><h3 className="text-xs font-bold uppercase text-gray-400 mb-2 border-b pb-1">Overview</h3><p className="text-sm leading-relaxed text-justify">{RESUME_DATA.personal.summary}</p></section>
+                        <section><h3 className="text-xs font-bold uppercase text-gray-400 mb-2 border-b pb-1">Education</h3><div className="text-sm"><p className="font-semibold">{RESUME_DATA.education.degree}</p><p className="text-gray-500">{RESUME_DATA.education.institution}</p><p className="text-xs text-gray-400 mt-1 italic">Relevant Coursework: {RESUME_DATA.education.coursework}</p></div></section>
+                        <section><h3 className="text-xs font-bold uppercase text-gray-400 mb-2 border-b pb-1">Achievements</h3><ul className="text-sm list-disc pl-4 space-y-1"><li>Founder of Toolly - AI productivity tool</li><li>Published Mental Health Dataset on Kaggle</li><li>Active Open Source Contributor</li></ul></section>
                     </div>
-                    </section>
-
-                    <section>
-                        <h3 className="text-xs font-bold uppercase text-gray-400 mb-2 border-b pb-1">Achievements</h3>
-                        <ul className="text-sm list-disc pl-4 space-y-1">
-                            <li>Founder of Toolly - AI productivity tool</li>
-                            <li>Published Mental Health Dataset on Kaggle</li>
-                            <li>Active Open Source Contributor</li>
-                        </ul>
-                    </section>
-                </div>
                 </div>
             </div>
         );
 
         const TerminalContent = () => (
             <div className="h-full bg-[#1e1e1e] text-green-400 p-4 font-mono text-xs md:text-sm overflow-y-auto">
-                <div className="mb-4">
-                <span className="text-blue-400">adil@macbook</span>:<span className="text-blue-300">~</span>$ list_skills.py
-                </div>
+                <div className="mb-4"><span className="text-blue-400">adil@macbook</span>:<span className="text-blue-300">~</span>$ list_skills.py</div>
                 <div className="grid grid-cols-1 gap-6 pl-2">
-                <div>
-                    <div className="text-white mb-1 underline decoration-green-600 decoration-2">Languages & Data:</div>
-                    <div className="flex flex-wrap gap-2">
-                    {RESUME_DATA.skills.languages.map(s => <span key={s}>• {s}</span>)}
-                    </div>
+                    <div><div className="text-white mb-1 underline decoration-green-600 decoration-2">Languages & Data:</div><div className="flex flex-wrap gap-2">{RESUME_DATA.skills.languages.map(s => <span key={s}>• {s}</span>)}</div></div>
+                    <div><div className="text-white mb-1 underline decoration-green-600 decoration-2">Modeling & DL:</div><div className="flex flex-wrap gap-2">{RESUME_DATA.skills.modeling.map(s => <span key={s}>• {s}</span>)}</div></div>
+                    <div><div className="text-white mb-1 underline decoration-green-600 decoration-2">MLOps & Deployment:</div><div className="flex flex-wrap gap-2">{RESUME_DATA.skills.mlops.map(s => <span key={s}>• {s}</span>)}</div></div>
+                    <div><div className="text-white mb-1 underline decoration-green-600 decoration-2">Tools:</div><div className="flex flex-wrap gap-2">{RESUME_DATA.skills.tools.map(s => <span key={s}>• {s}</span>)}</div></div>
                 </div>
-                
-                <div>
-                    <div className="text-white mb-1 underline decoration-green-600 decoration-2">Modeling & DL:</div>
-                    <div className="flex flex-wrap gap-2">
-                    {RESUME_DATA.skills.modeling.map(s => <span key={s}>• {s}</span>)}
-                    </div>
-                </div>
-
-                <div>
-                    <div className="text-white mb-1 underline decoration-green-600 decoration-2">MLOps & Deployment:</div>
-                    <div className="flex flex-wrap gap-2">
-                    {RESUME_DATA.skills.mlops.map(s => <span key={s}>• {s}</span>)}
-                    </div>
-                </div>
-
-                <div>
-                    <div className="text-white mb-1 underline decoration-green-600 decoration-2">Tools:</div>
-                    <div className="flex flex-wrap gap-2">
-                    {RESUME_DATA.skills.tools.map(s => <span key={s}>• {s}</span>)}
-                    </div>
-                </div>
-                </div>
-                <div className="mt-4 animate-pulse">
-                <span className="text-blue-400">adil@macbook</span>:<span className="text-blue-300">~</span>$ <span className="w-2 h-4 bg-gray-500 inline-block align-middle"></span>
-                </div>
+                <div className="mt-4 animate-pulse"><span className="text-blue-400">adil@macbook</span>:<span className="text-blue-300">~</span>$ <span className="w-2 h-4 bg-gray-500 inline-block align-middle"></span></div>
             </div>
         );
 
         const SafariContent = () => (
             <div className="flex flex-col h-full bg-gray-50 dark:bg-[#222]">
                 <div className="bg-gray-100 dark:bg-[#333] p-2 border-b border-gray-300 dark:border-black flex items-center gap-4">
-                    <div className="flex gap-2 text-gray-400">
-                        <div className="hover:bg-gray-300 rounded p-1"><Minus size={14}/></div>
-                        <div className="hover:bg-gray-300 rounded p-1"><Maximize2 size={14}/></div>
-                    </div>
-                    <div className="flex-1 bg-white dark:bg-[#111] rounded-lg px-3 py-1 text-center text-xs text-gray-500 flex items-center justify-center gap-2 shadow-inner truncate">
-                        <Search size={12}/> adilshamim.me/projects
-                    </div>
+                    <div className="flex gap-2 text-gray-400"><div className="hover:bg-gray-300 rounded p-1"><Minus size={14}/></div><div className="hover:bg-gray-300 rounded p-1"><Maximize2 size={14}/></div></div>
+                    <div className="flex-1 bg-white dark:bg-[#111] rounded-lg px-3 py-1 text-center text-xs text-gray-500 flex items-center justify-center gap-2 shadow-inner truncate"><Search size={12}/> adilshamim.me/projects</div>
                 </div>
-                
                 <div className="flex-1 overflow-y-auto p-4 md:p-6">
-                <h2 className="text-xl md:text-2xl font-bold mb-6 dark:text-white">Featured Projects</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {RESUME_DATA.projects.map((project, i) => (
-                    <div key={i} className="bg-white dark:bg-[#333] rounded-xl shadow-sm p-4 border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow">
-                        <div className="flex justify-between items-start">
-                            <a href={project.link} target="_blank" rel="noreferrer" className="group flex-1">
-                              <h3 className="font-bold text-base md:text-lg text-blue-600 dark:text-blue-400 mb-1 group-hover:underline truncate">{project.title}</h3>
-                            </a>
-                            <a href={project.link} target="_blank" rel="noreferrer">
-                                <Github size={16} className="text-gray-400 hover:text-black cursor-pointer transition-colors flex-shrink-0 ml-2"/>
-                            </a>
-                        </div>
-                        <div className="flex flex-wrap gap-1 mb-3">
-                        {project.tech.map(t => (
-                            <span key={t} className="px-2 py-0.5 bg-gray-100 dark:bg-black text-gray-600 dark:text-gray-300 text-[10px] rounded-full border border-gray-300 dark:border-gray-600">
-                            {t}
-                            </span>
-                        ))}
-                        </div>
-                        <p className="text-sm text-gray-600 dark:text-gray-300 leading-snug line-clamp-3">{project.desc}</p>
+                    <h2 className="text-xl md:text-2xl font-bold mb-6 dark:text-white">Featured Projects</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {RESUME_DATA.projects.map((project, i) => (
+                        <div key={i} className="bg-white dark:bg-[#333] rounded-xl shadow-sm p-4 border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow">
+                            <div className="flex justify-between items-start">
+                                <a href={project.link} target="_blank" rel="noreferrer" className="group flex-1"><h3 className="font-bold text-base md:text-lg text-blue-600 dark:text-blue-400 mb-1 group-hover:underline truncate">{project.title}</h3></a>
+                                <a href={project.link} target="_blank" rel="noreferrer"><Github size={16} className="text-gray-400 hover:text-black cursor-pointer transition-colors flex-shrink-0 ml-2"/></a>
+                            </div>
+                            <div className="flex flex-wrap gap-1 mb-3">{project.tech.map(t => (<span key={t} className="px-2 py-0.5 bg-gray-100 dark:bg-black text-gray-600 dark:text-gray-300 text-[10px] rounded-full border border-gray-300 dark:border-gray-600">{t}</span>))}</div>
+                            <p className="text-sm text-gray-600 dark:text-gray-300 leading-snug line-clamp-3">{project.desc}</p>
+                        </div>))}
                     </div>
-                    ))}
-                </div>
                 </div>
             </div>
         );
@@ -495,11 +352,7 @@
         const CalendarContent = () => (
             <div className="flex h-full bg-white text-gray-800">
                 <div className="w-full p-6 overflow-y-auto">
-                    <div className="flex items-center justify-between mb-6">
-                        <h2 className="text-2xl font-bold">Work Experience</h2>
-                        <span className="text-red-500 font-semibold text-sm">Today</span>
-                    </div>
-                    
+                    <div className="flex items-center justify-between mb-6"><h2 className="text-2xl font-bold">Work Experience</h2><span className="text-red-500 font-semibold text-sm">Today</span></div>
                     <div className="border-l-2 border-red-200 ml-2 space-y-8">
                         {RESUME_DATA.experience.map((exp, i) => (
                             <div key={i} className="relative pl-6 pb-2">
@@ -511,17 +364,9 @@
                             </div>
                         ))}
                     </div>
-
                     <div className="mt-8 pt-4 border-t">
                         <h2 className="text-lg font-bold mb-4">Certifications</h2>
-                        <div className="grid grid-cols-1 gap-2">
-                            {RESUME_DATA.certifications.map((cert, idx) => (
-                                <div key={idx} className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
-                                    <Award size={18} className="text-yellow-500" />
-                                    <span className="text-sm text-gray-700">{cert}</span>
-                                </div>
-                            ))}
-                        </div>
+                        <div className="grid grid-cols-1 gap-2">{RESUME_DATA.certifications.map((cert, idx) => (<div key={idx} className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors"><Award size={18} className="text-yellow-500" /><span className="text-sm text-gray-700">{cert}</span></div>))}</div>
                     </div>
                 </div>
             </div>
@@ -538,60 +383,29 @@
                     </div>
                 </div>
                 <div className="flex-1 p-4 md:p-8 flex flex-col items-center justify-center text-center space-y-6 overflow-y-auto">
-                    <div className="w-16 h-16 md:w-20 md:h-20 bg-gray-200 rounded-full flex items-center justify-center text-gray-400 mb-2">
-                        <Mail size={32} />
-                    </div>
-                    <div>
-                        <h2 className="text-xl font-bold dark:text-white">Contact Me</h2>
-                        <p className="text-gray-500 text-sm mt-1">I am currently available for new opportunities.</p>
-                    </div>
-                    
+                    <div className="w-16 h-16 md:w-20 md:h-20 bg-gray-200 rounded-full flex items-center justify-center text-gray-400 mb-2"><Mail size={32} /></div>
+                    <div><h2 className="text-xl font-bold dark:text-white">Contact Me</h2><p className="text-gray-500 text-sm mt-1">I am currently available for new opportunities.</p></div>
                     <div className="flex flex-col gap-1 text-sm text-gray-600 dark:text-gray-300 bg-gray-50 dark:bg-gray-800/50 p-4 rounded-lg w-full max-w-xs mx-auto">
-                        <div className="flex justify-between border-b border-gray-200 dark:border-gray-700 pb-2 mb-2">
-                            <span className="text-gray-400">Phone:</span>
-                            <span className="font-medium">{RESUME_DATA.personal.phone}</span>
-                        </div>
-                        <div className="flex justify-between">
-                            <span className="text-gray-400">Location:</span>
-                            <span className="font-medium text-right">{RESUME_DATA.personal.location}</span>
-                        </div>
+                        <div className="flex justify-between border-b border-gray-200 dark:border-gray-700 pb-2 mb-2"><span className="text-gray-400">Phone:</span><span className="font-medium">{RESUME_DATA.personal.phone}</span></div>
+                        <div className="flex justify-between"><span className="text-gray-400">Location:</span><span className="font-medium text-right">{RESUME_DATA.personal.location}</span></div>
                     </div>
-
                     <div className="grid grid-cols-2 gap-3 w-full max-w-xs mx-auto">
-                        <a href={`mailto:${RESUME_DATA.personal.email}`} className="flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg text-xs font-medium transition-colors col-span-2">
-                            <Mail size={14} /> Send Email
-                        </a>
-                        <a href={`https://linkedin.com/in/${RESUME_DATA.personal.linkedin}`} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 bg-[#0077b5] hover:opacity-90 text-white py-2 rounded-lg text-xs font-medium transition-colors">
-                            <Linkedin size={14} /> LinkedIn
-                        </a>
-                        <a href={`https://github.com/${RESUME_DATA.personal.github}`} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 bg-gray-900 hover:bg-black text-white py-2 rounded-lg text-xs font-medium transition-colors">
-                            <Github size={14} /> GitHub
-                        </a>
-                        <a href={`https://www.kaggle.com/${RESUME_DATA.personal.kaggle}`} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 bg-[#20BEFF] hover:opacity-90 text-white py-2 rounded-lg text-xs font-medium transition-colors">
-                            <KaggleIcon size={14} /> Kaggle
-                        </a>
-                        <a href={`https://x.com/${RESUME_DATA.personal.twitter}`} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 bg-black hover:bg-gray-900 text-white py-2 rounded-lg text-xs font-medium transition-colors">
-                            <XIcon size={14} /> X (Twitter)
-                        </a>
-                        <a href={RESUME_DATA.personal.medium} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 bg-black hover:bg-gray-800 text-white py-2 rounded-lg text-xs font-medium transition-colors">
-                            <MediumIcon size={14} /> Medium
-                        </a>
-                        <a href={`https://${RESUME_DATA.personal.website}`} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 bg-gray-800 hover:bg-gray-900 text-white py-2 rounded-lg text-xs font-medium transition-colors col-span-2">
-                            <Globe size={14} /> {RESUME_DATA.personal.website}
-                        </a>
+                        <a href={`mailto:${RESUME_DATA.personal.email}`} className="flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg text-xs font-medium transition-colors col-span-2"><Mail size={14} /> Send Email</a>
+                        <a href={`https://linkedin.com/in/${RESUME_DATA.personal.linkedin}`} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 bg-[#0077b5] hover:opacity-90 text-white py-2 rounded-lg text-xs font-medium transition-colors"><Linkedin size={14} /> LinkedIn</a>
+                        <a href={`https://github.com/${RESUME_DATA.personal.github}`} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 bg-gray-900 hover:bg-black text-white py-2 rounded-lg text-xs font-medium transition-colors"><Github size={14} /> GitHub</a>
+                        <a href={`https://www.kaggle.com/${RESUME_DATA.personal.kaggle}`} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 bg-[#20BEFF] hover:opacity-90 text-white py-2 rounded-lg text-xs font-medium transition-colors"><KaggleIcon size={14} /> Kaggle</a>
+                        <a href={`https://x.com/${RESUME_DATA.personal.twitter}`} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 bg-black hover:bg-gray-900 text-white py-2 rounded-lg text-xs font-medium transition-colors"><XIcon size={14} /> X (Twitter)</a>
+                        <a href={RESUME_DATA.personal.medium} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 bg-black hover:bg-gray-800 text-white py-2 rounded-lg text-xs font-medium transition-colors"><MediumIcon size={14} /> Medium</a>
+                        <a href={`https://${RESUME_DATA.personal.website}`} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 bg-gray-800 hover:bg-gray-900 text-white py-2 rounded-lg text-xs font-medium transition-colors col-span-2"><Globe size={14} /> {RESUME_DATA.personal.website}</a>
                     </div>
                 </div>
             </div>
         );
 
-        // --- Main OS Component ---
-
         const App = () => {
             const [time, setTime] = useState(new Date());
             const [activeWindow, setActiveWindow] = useState(null);
-            const [openApps, setOpenApps] = useState([
-                { id: 'finder', zIndex: 1 }
-            ]);
+            const [openApps, setOpenApps] = useState([{ id: 'finder', zIndex: 1 }]);
             const [minimizedApps, setMinimizedApps] = useState([]);
             const [highestZ, setHighestZ] = useState(2);
 
@@ -615,13 +429,12 @@
                     bringToFront(appId);
                     return;
                 }
-
                 if (existing) {
-                bringToFront(appId);
+                    bringToFront(appId);
                 } else {
-                setOpenApps([...openApps, { id: appId, zIndex: highestZ + 1 }]);
-                setHighestZ(prev => prev + 1);
-                setActiveWindow(appId);
+                    setOpenApps([...openApps, { id: appId, zIndex: highestZ + 1 }]);
+                    setHighestZ(prev => prev + 1);
+                    setActiveWindow(appId);
                 }
             };
 
@@ -632,7 +445,6 @@
             };
 
             const minimizeApp = (appId) => {
-                // PREVENT DUPLICATE STATE: Only add if not already minimized
                 if (!minimizedApps.includes(appId)) {
                     setMinimizedApps([...minimizedApps, appId]);
                     setActiveWindow(null);
@@ -640,98 +452,42 @@
             };
 
             const bringToFront = (appId) => {
-                setOpenApps(openApps.map(app => 
-                app.id === appId ? { ...app, zIndex: highestZ + 1 } : app
-                ));
+                setOpenApps(openApps.map(app => app.id === appId ? { ...app, zIndex: highestZ + 1 } : app));
                 setHighestZ(prev => prev + 1);
                 setActiveWindow(appId);
             };
 
-            const formatTime = (date) => {
-                return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
-            };
-
-            const formatDate = (date) => {
-                return date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
-            };
+            const formatTime = (date) => date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+            const formatDate = (date) => date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
 
             return (
-                <div className="h-screen w-screen overflow-hidden bg-center bg-cover relative select-none font-sans"
-                    style={{ 
-                    backgroundImage: "url('https://4kwallpapers.com/images/walls/thumbs_3t/1455.jpg')",
-                    }}>
-                
-                <div className="h-7 bg-white/20 dark:bg-black/40 backdrop-blur-md flex items-center justify-between px-4 text-white text-xs shadow-sm relative z-50">
-                    <div className="flex items-center gap-4">
-                    <Command size={14} fill="white" />
-                    <span className="font-bold">Adil OS</span>
-                    <span className="hidden sm:inline">File</span>
-                    <span className="hidden sm:inline">Edit</span>
-                    <span className="hidden sm:inline">View</span>
-                    <span className="hidden sm:inline">Go</span>
-                    <span className="hidden sm:inline">Window</span>
-                    <span className="hidden sm:inline">Help</span>
+                <div className="h-screen w-screen overflow-hidden bg-center bg-cover relative select-none font-sans" style={{ backgroundImage: "url('https://4kwallpapers.com/images/walls/thumbs_3t/1455.jpg')" }}>
+                    <div className="h-7 bg-white/20 dark:bg-black/40 backdrop-blur-md flex items-center justify-between px-2 md:px-4 text-white text-xs shadow-sm relative z-50">
+                        <div className="flex items-center gap-2 md:gap-4"><Command size={14} fill="white" /><span className="font-bold">Adil OS</span><span className="hidden sm:inline">File</span><span className="hidden sm:inline">Edit</span><span className="hidden sm:inline">View</span><span className="hidden sm:inline">Go</span><span className="hidden sm:inline">Window</span><span className="hidden sm:inline">Help</span></div>
+                        <div className="flex items-center gap-2 md:gap-4"><Battery size={16} className="hidden md:block"/><Wifi size={16} /><Search size={14} className="hidden md:block"/><span className="hidden sm:inline">{formatDate(time)}</span><span>{formatTime(time)}</span></div>
                     </div>
-                    <div className="flex items-center gap-4">
-                        <Battery size={16} />
-                        <Wifi size={16} />
-                        <Search size={14} />
-                        <span>{formatDate(time)}</span>
-                        <span>{formatTime(time)}</span>
-                    </div>
-                </div>
-
-                <div className="relative h-[calc(100vh-28px)] w-full">
-                    
-                    {/* Desktop Icons REMOVED */}
-
-                    {openApps.map(openAppInst => {
-                        const appData = apps.find(a => a.id === openAppInst.id);
-                        if (!appData) return null;
-                        const isMinimized = minimizedApps.includes(openAppInst.id);
-                        return (
-                            <DraggableWindow 
-                                key={openAppInst.id}
-                                app={appData}
-                                isActive={activeWindow === openAppInst.id}
-                                zIndex={openAppInst.zIndex}
-                                onClose={closeApp}
-                                onMinimize={minimizeApp}
-                                onFocus={bringToFront}
-                                isMinimized={isMinimized}
-                            />
-                        );
-                    })}
-
-                    <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-auto z-[100]">
-                    <div className="flex items-end gap-3 px-4 pb-2 pt-3 bg-white/20 dark:bg-black/30 backdrop-blur-2xl border border-white/20 rounded-2xl shadow-2xl transition-all duration-300">
-                        {apps.map((app) => {
-                        const isOpen = openApps.find(o => o.id === app.id);
-                        const isMinimized = minimizedApps.includes(app.id);
-
-                        return (
-                            <div key={app.id} className="group relative flex flex-col items-center gap-1">
-                                <div className="absolute -top-10 opacity-0 group-hover:opacity-100 transition-opacity bg-gray-800 text-white text-[10px] px-2 py-1 rounded shadow-lg pointer-events-none whitespace-nowrap">
-                                    {app.title.split(' - ')[1]}
-                                </div>
-                                
-                                <button 
-                                    onClick={() => openApp(app.id)}
-                                    className={`w-12 h-12 rounded-xl flex items-center justify-center shadow-lg transition-all duration-200 hover:-translate-y-2 active:scale-95
-                                    ${app.color} 
-                                    ${activeWindow === app.id && !isMinimized ? 'ring-2 ring-white/50' : ''}
-                                    ${isMinimized ? 'opacity-70 grayscale-[0.5]' : ''}
-                                    `}
-                                >
-                                    {app.icon}
-                                </button>
-
-                                <div className={`w-1 h-1 rounded-full bg-white/80 shadow-sm transition-opacity ${isOpen ? 'opacity-100' : 'opacity-0'}`}></div>
+                    <div className="relative h-[calc(100vh-28px)] w-full">
+                        {/* Desktop Icons REMOVED */}
+                        {openApps.map(openAppInst => {
+                            const appData = apps.find(a => a.id === openAppInst.id);
+                            if (!appData) return null;
+                            return (<DraggableWindow key={openAppInst.id} app={appData} isActive={activeWindow === openAppInst.id} zIndex={openAppInst.zIndex} onClose={closeApp} onMinimize={minimizeApp} onFocus={bringToFront} isMinimized={minimizedApps.includes(openAppInst.id)} />);
+                        })}
+                        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 w-auto max-w-[95vw] z-[100]">
+                            <div className="flex items-end gap-4 px-4 pb-2 pt-3 bg-white/20 dark:bg-black/30 backdrop-blur-2xl border border-white/20 rounded-2xl shadow-2xl transition-all duration-300 overflow-x-auto scrollbar-hide justify-center">
+                                {apps.map((app) => {
+                                const isOpen = openApps.find(o => o.id === app.id);
+                                const isMinimized = minimizedApps.includes(app.id);
+                                return (
+                                    <div key={app.id} className="group relative flex flex-col items-center gap-1 min-w-[48px]">
+                                        <div className="hidden md:block absolute -top-10 opacity-0 group-hover:opacity-100 transition-opacity bg-gray-800 text-white text-[10px] px-2 py-1 rounded shadow-lg pointer-events-none whitespace-nowrap">{app.title.split(' - ')[1]}</div>
+                                        <button onClick={() => openApp(app.id)} className={`w-12 h-12 rounded-xl flex items-center justify-center shadow-lg transition-all duration-200 hover:-translate-y-2 active:scale-95 ${app.color} ${activeWindow === app.id && !isMinimized ? 'ring-2 ring-white/50' : ''} ${isMinimized ? 'opacity-70 grayscale-[0.5]' : ''}`}>{app.icon}</button>
+                                        <div className={`w-1 h-1 rounded-full bg-white/80 shadow-sm transition-opacity ${isOpen ? 'opacity-100' : 'opacity-0'}`}></div>
+                                    </div>
+                                )})}
                             </div>
-                        )})}
+                        </div>
                     </div>
-                    </div>
-                </div>
                 </div>
             );
         };
