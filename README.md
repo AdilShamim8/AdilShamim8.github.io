@@ -77,10 +77,10 @@ const RESUME_DATA = {
 ## Project Structure
 
 - index.html: The complete, self-contained application. Contains HTML structure, CSS styles (via Tailwind), and the React application logic in a single file.
-
 - App.jsx: The source React component (if moving to a Create React App or Vite environment).
 
 ## License
+
 This open-source project is available under the [MIT License](License).
 
 Developed by [Adil Shamim](https://adilshamim.me/)
