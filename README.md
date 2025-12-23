@@ -1,4 +1,4 @@
-# Personal Portfolio Website
+# `Personal Portfolio Website`
 
 An immersive, web-based portfolio that simulates the macOS Big Sur desktop environment. This project serves as an interactive resume for Adil Shamim, showcasing skills, projects, and experience through draggable windows, a working dock, and themed "apps".
 
