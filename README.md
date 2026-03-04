@@ -1,89 +1,126 @@
-> # `Personal Portfolio Website`
+# Adil Shamim — ML Engineer Portfolio
 
-An immersive, web-based portfolio that simulates the macOS Big Sur desktop environment. This project serves as an interactive resume for Adil Shamim, showcasing skills, projects, and experience through draggable windows, a working dock, and themed "apps".
+Production-ready personal portfolio website for Adil Shamim, focused on ML engineering credibility, project proof, and recruiter-friendly conversion.
 
-## Features
+**Live:** https://adilshamim.me
 
-- Desktop Environment: A realistic desktop with a customizable wallpaper, menu bar with a live clock, and a floating dock.
+## Overview
 
-- Interactive Windows:
+This site presents Adil's profile, technical depth, achievements, projects, and contact pathways in a fast, responsive, and clean single-page experience, with an additional long-form story page.
 
-  - Draggable: Move windows anywhere on the screen.
+The content emphasizes:
+- shipped AI products
+- production ML systems (pipelines, Dockerized services, semantic search, recommendation engines)
+- measurable business impact (+10% recommender lift)
+- conference publication and Kaggle performance
 
-  - Layering: Clicking a window brings it to the front (active state).
+## Key Features
 
-  - Controls: Functional "Traffic Light" buttons to Close (Red), Minimize (Yellow), and Maximize (Green) windows.
+- **Professional Hero Section** with concise value proposition and 2026 hiring statement
+- **Experience & Education** section covering:
+	- Founder (Toolly)
+	- Conference Paper (1st Author)
+	- Freelance Machine Learning Engineer
+	- Kaggle Competitions / Master-level profile
+	- B.Sc. in CSE (BNIST)
+- **Dynamic Project Rendering** from a JavaScript data source (`script.js`)
+- **Technical Skills Matrix** grouped by practical engineering domains
+- **Latest Writings** integration (Medium)
+- **Contact + Resume CTA** for recruiter and client outreach
+- **Dark/Light Theme** with persisted user preference (`localStorage`)
+- **Scroll Reveal Animations** for content entrance
+- **Image Lightbox** for hero/story/project images
+- **Embedded AI Chatbot** with portfolio-aware context
 
-  - Minimization: Windows shrink into the dock and can be restored by clicking their icon.
+## Information Architecture
 
-- Themed Applications:
+### Main Page (`index.html`)
+1. Home (`#home`)
+2. Latest Writings (`#blog`)
+3. Experience & Education (`#experience`)
+4. Projects (`#projects`)
+5. Technical Skills (`#skills`)
+6. Contact (`#contact`)
 
-  - Finder: Displays "About Me", Education, and Achievements.
-
-  - Terminal: Lists technical skills in a CLI-style interface.
-
-  - Safari: A browser-style showcase of projects with GitHub links.
-
-  - Calendar: A timeline view of work experience and certifications.
-
-  - Mail: A contact form simulation with social media links (LinkedIn, GitHub, Kaggle, X, Medium).
-
-- Responsive Design: Built with Tailwind CSS to look great on various screen sizes.
-
-## Quick Start (Single File)
-
-The easiest way to run this project is using the standalone HTML file.
-
-1. Download the index.html file provided in the project.
-
-2. Open the file in any modern web browser (Chrome, Firefox, Safari, Edge).
-
-3. Note: An internet connection is required to load the React, Tailwind, and Babel libraries via CDN.
+### Story Page (`My_Story.html`)
+- Narrative profile with journey, milestones, and highlight counters
 
 ## Tech Stack
 
-- React.js: Core UI library for component-based architecture.
+- **HTML5** (semantic structure + metadata)
+- **CSS3** (custom properties, responsive layout, theming)
+- **Vanilla JavaScript** (UI behavior + dynamic content)
+- **Font Awesome** (icons)
+- **Google Fonts** (`Inter`, `Newsreader`)
 
-- Tailwind CSS: Utility-first CSS framework for styling and responsiveness.
+## Core Files
 
-- Lucide React: Beautiful, consistent icons for apps and UI elements.
+- `index.html` — primary portfolio page, navigation, SEO/OG metadata, JSON-LD profile data
+- `My_Story.html` — long-form personal narrative page
+- `styles.css` — design system tokens, components, layout, responsiveness
+- `script.js` — navbar state, theme toggle, dynamic projects, reveal logic, lightbox, current year
+- `chatbot.css` — chatbot styling
+- `chatbot.js` — AI assistant behavior, portfolio context, API request handling
+- `Resume/AdilShamim_ML_Engineer_Resume.pdf` — downloadable resume
 
-- Babel (Standalone): Used in the HTML version to compile JSX in the browser.
+## Dynamic Content Model
 
-## Customization
+Projects are defined in `script.js` as a structured array with:
+- `title`
+- `description`
+- `image`
+- `tags`
+- `demo` (optional)
+- `code`
 
-All content is managed via a central configuration object called RESUME_DATA inside the code. To update the portfolio with your own details:
+The UI is generated at runtime and injected into `.projects-grid`, enabling easy updates without editing HTML card markup.
 
-1. Open index.html (or App.jsx) in a code editor.
+## SEO & Social Metadata
 
-2. Locate the const RESUME_DATA = { ... } object near the top of the script.
+The site includes:
+- canonical URL
+- Open Graph tags
+- Twitter card metadata
+- schema.org JSON-LD (`Person`)
 
-3. Modify the fields as needed:
+Update these in `index.html` when profile links, title, or branding changes.
+
+## Local Development
+
+### Option 1: Open directly
+Open `index.html` in a browser for quick edits.
+
+### Option 2: Run a local static server
+- Python: `python -m http.server 8000`
+- Node: `npx serve .`
+
+Then open `http://localhost:8000`.
+
+## Chatbot Setup (Optional)
+
+The chatbot reads the API key from `window.CHATBOT_API_KEY`.
+
+Add before loading `chatbot.js`:
+
+```html
+<script>
+	window.CHATBOT_API_KEY = "YOUR_API_KEY";
+</script>
 ```
-const RESUME_DATA = {
-  personal: {
-    name: "Your Name",
-    role: "Your Job Title",
-    // ... update links, summary, avatar, etc.
-  },
-  skills: {
-    languages: ["Skill 1", "Skill 2"],
-    // ...
-  },
-  // ... update projects, experience, etc.
-};
-```
 
-## Project Structure
+Without a valid key, chatbot API requests cannot authenticate.
 
-- index.html: The complete, self-contained application. Contains HTML structure, CSS styles (via Tailwind), and the React application logic in a single file.
-- App.jsx: The source React component (if moving to a Create React App or Vite environment).
+## Customization Guide
+
+- **Profile content:** update `index.html` and `My_Story.html`
+- **Projects:** update the `projects` array in `script.js`
+- **Theme tokens:** update `:root` and `[data-theme="dark"]` in `styles.css`
+- **Chatbot persona/context:** update `CHATBOT_CONFIG` in `chatbot.js`
+- **SEO/schema:** update metadata and JSON-LD in `index.html`
 
 ## License
 
-This open-source project is available under the [MIT License](License).
-
-Developed by [Adil Shamim](https://adilshamim.me/)
+This project is available under the [MIT License](License).
 
 [![Kaggle](https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white)](https://www.kaggle.com/adilshamim8)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/adilshamim8)
