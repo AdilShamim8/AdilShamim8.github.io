@@ -151,7 +151,7 @@ const CHATBOT_CONFIG = {
         ],
         
         resumePath: "Resume/AdilShamim_ML_Engineer_Resume.pdf",
-        website: "https://adilshamim.me"
+        website: "https://adilshamim8.github.io/"
     },
     
     // System Prompt for Gemini
@@ -264,7 +264,7 @@ Linear Algebra, Calculus, Probability & Statistics, Data Structures & Algorithms
 - Kaggle: https://www.kaggle.com/adilshamim8
 - Twitter/X: https://x.com/adil_shamim8
 - Medium Blog: https://adilshamim8.medium.com/
-- Website: https://adilshamim.me
+- Website: https://adilshamim8.github.io/
 
 **Resume:**
 Available for download at: Resume/AdilShamim_ML_Engineer_Resume.pdf
@@ -281,7 +281,7 @@ Available for download at: Resume/AdilShamim_ML_Engineer_Resume.pdf
    - Kaggle: https://www.kaggle.com/adilshamim8
    - Twitter/X: https://x.com/adil_shamim8
    - Medium Blog: https://adilshamim8.medium.com/
-   - Website: https://adilshamim.me
+    - Website: https://adilshamim8.github.io/
    - Location: Dhaka, Bangladesh
 5. If asked about the resume, mention it's available for download on the website
 6. Keep responses concise but informative, and format contact information clearly

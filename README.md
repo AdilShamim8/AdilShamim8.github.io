@@ -2,6 +2,8 @@
 
 Production-ready personal portfolio website for Adil Shamim, focused on ML engineering credibility, project proof, and recruiter-friendly conversion.
 
+**Live:** https://adilshamim8.github.io/
+
 ## Overview
 
 This site presents Adil's profile, technical depth, achievements, projects, and contact pathways in a fast, responsive, and clean single-page experience, with an additional long-form story page.
@@ -119,7 +121,3 @@ Without a valid key, chatbot API requests cannot authenticate.
 ## License
 
 This project is available under the [MIT License](License).
-
-[![Kaggle](https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white)](https://www.kaggle.com/adilshamim8)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/adilshamim8)
-[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://x.com/adil_shamim8)
