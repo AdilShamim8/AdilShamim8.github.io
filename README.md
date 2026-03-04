@@ -2,8 +2,6 @@
 
 Production-ready personal portfolio website for Adil Shamim, focused on ML engineering credibility, project proof, and recruiter-friendly conversion.
 
-**Live:** https://adilshamim.me
-
 ## Overview
 
 This site presents Adil's profile, technical depth, achievements, projects, and contact pathways in a fast, responsive, and clean single-page experience, with an additional long-form story page.
