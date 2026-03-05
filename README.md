@@ -83,7 +83,7 @@ The site includes:
 - Twitter card metadata
 - schema.org JSON-LD (`Person`)
 
-Update these in `index.html` when profile links, title, or branding changes.
+Update these in `index.html` when profile links, title, or branding change.
 
 ## Local Development
 
