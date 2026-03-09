@@ -119,5 +119,4 @@ Without a valid key, chatbot API requests cannot authenticate.
 - **SEO/schema:** update metadata and JSON-LD in `index.html`
 
 ## License
-
 This project is available under the [MIT License](License).
