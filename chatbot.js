@@ -12,9 +12,9 @@ const CHATBOT_CONFIG = {
         location: "Dhaka, Bangladesh",
         phone: "+880 1321073452",
         email: "adilshamim696@gmail.com",
-        education: "Computer Science and Engineering - BNIST (February 2023—Present)",
+        education: "B.Sc. in Computer Science & Engineering - BNIST (February 2023—Present)",
         experience: "Machine Learning Engineer with over 2 years of hands-on experience",
-        kaggleStatus: "Kaggle Expert - Completed 15 competitions",
+        kaggleStatus: "Kaggle Master - Completed 22 competitions",
         languages: ["English (Fluent)", "Bengali (Native)", "Hindi (Conversational)"],
         
         bio: `I'm Adil Shamim. I'm a Machine Learning Engineer with over two years of hands-on experience. I build practical ML systems—pipelines, Dockerized services, and tracked experiments—that teams actually use. I built a recommender that boosted a client's sales by 10%. I enjoy transforming complex data into intuitive tools that enable people to make informed decisions.`,
@@ -23,8 +23,9 @@ const CHATBOT_CONFIG = {
             programmingAndData: [
                 "Python (Advanced)",
                 "SQL (Advanced)",
-                "R (Intermediate)",
-                "Bash"
+                "Bash",
+                "Pandas",
+                "NumPy"
             ],
             modelingAndML: [
                 "TensorFlow",
@@ -51,6 +52,13 @@ const CHATBOT_CONFIG = {
                 "SBERT",
                 "FAISS",
                 "TF-IDF"
+            ],
+            generativeAI: [
+                "LLMs",
+                "Prompt Engineering",
+                "RAG",
+                "LangChain",
+                "LangGraph"
             ]
         },
         
@@ -87,10 +95,39 @@ const CHATBOT_CONFIG = {
             github: "https://github.com/AdilShamim8",
             kaggle: "https://www.kaggle.com/adilshamim8",
             twitter: "https://x.com/adil_shamim8",
-            medium: "https://adilshamim8.medium.com/"
+            medium: "https://adilshamim8.medium.com/",
+            toolly: "https://www.toolly.tech/",
+            researchgate: "https://www.researchgate.net/publication/401194830_Bangla_Diarizz_Domain-Adapted_Speaker_Diarization_for_Bengali_Long-Form_Audio"
         },
         
         workExperience: [
+            {
+                title: "Founder",
+                company: "Toolly",
+                period: "Ongoing",
+                description: "Founded Toolly to make discovering, submitting, and sharing AI tools effortless for creators and users. A community-driven platform where makers can submit their AI tools for free, and users can discover trusted, categorized AI utilities.",
+                responsibilities: [
+                    "Defined product vision, roadmap, and go-to-market strategy",
+                    "Built and launched the live website (toolly.tech) with tool submission flow",
+                    "Led full-stack development and integrations",
+                    "Managed user acquisition, community outreach, and early partnerships",
+                    "Oversaw UI/UX and site performance improvements",
+                    "Set up analytics and feedback loops for rapid iteration"
+                ]
+            },
+            {
+                title: "1st Author - Conference Paper",
+                company: "Research",
+                period: "2026",
+                description: "Bangla Diarizz: Domain-Adapted Speaker Diarization for Bengali Long-Form Audio",
+                achievements: [
+                    "Addressed low-resource speech challenge: speaker diarization for Bengali",
+                    "Developed system for DL Sprint 4.0 Bengali Speaker Diarization (BUET CSE Fest 2026)",
+                    "Achieved competitive Diarization Error Rate (DER) on Bengali-Loop benchmark",
+                    "Reduced inference time from 1h 22m to ~36m",
+                    "Delivered 56% wall-clock speed improvement"
+                ]
+            },
             {
                 title: "Freelance Machine Learning Engineer",
                 company: "Self-employed",
@@ -111,13 +148,20 @@ const CHATBOT_CONFIG = {
             "Career Essentials in Generative AI — Microsoft + LinkedIn",
             "Machine Learning Pipelines with Azure ML Studio (Coursera)"
         ],
+        kaggleAchievements: [
+            "Kaggle Master (22 competitions completed)",
+            "Predicting Road Accident Risk — Ranked Top 1% (29/4,082 participants)",
+            "Predicting Beats-per-Minute of Songs — Ranked Top 2% (38/2,581 participants)",
+            "Hosted competitions to engage the data science community"
+        ],
         
         achievements: [
-            "Founder of Toolly — an AI-powered productivity tool",
-            "Published the Exploring Mental Health Dataset on Kaggle",
-            "Contributed to open-source projects in ML/NLP",
-            "Active blogger + educator with ML notes and guides",
-            "Kaggle Expert Rank with 15 completed competitions"
+            "Founder of Toolly — an AI tools discovery platform with 400+ curated tools",
+            "1st Author of 'Bangla Diarizz' — Conference Paper on Bengali Speaker Diarization (56% faster inference)",
+            "Shipped a live AI product (Toolly.tech) with moderation and analytics",
+            "Ranked Top 1% on Kaggle (29/4,082 in Road Accident Prediction)",
+            "Kaggle Master with 22 completed competitions and hosted competitions",
+            "Active blogger + educator with ML notes and guides"
         ],
         
         currentActivities: [
@@ -163,10 +207,11 @@ const CHATBOT_CONFIG = {
 - Location: Dhaka, Bangladesh
 - Phone: +880 1321073452
 - Email: adilshamim696@gmail.com
-- Education: Computer Science and Engineering - BNIST (February 2023—Present)
+- Education: B.Sc. in Computer Science & Engineering - BNIST (February 2023—Present)
 - Experience: Machine Learning Engineer with over 2 years of hands-on experience
-- Kaggle Status: Kaggle Expert - Completed 15 competitions
+- Kaggle Status: Kaggle Master - Completed 22 competitions
 - Languages: English (Fluent), Bengali (Native), Hindi (Conversational)
+- Notable Achievement: Shipped a live AI product, published a conference paper, ranked Top 1% on Kaggle
 
 **Professional Summary:**
 Adil Shamim is a Machine Learning Engineer with over two years of hands-on experience. He builds practical ML systems—pipelines, Dockerized services, and tracked experiments—that teams actually use. He built a recommender that boosted a client's sales by 10%. He enjoys transforming complex data into intuitive tools that enable people to make informed decisions.
@@ -176,8 +221,9 @@ Adil Shamim is a Machine Learning Engineer with over two years of hands-on exper
 *Programming & Data:*
 - Python (Advanced)
 - SQL (Advanced)
-- R (Intermediate)
 - Bash
+- Pandas
+- NumPy
 
 *Modeling & ML - DL:*
 - TensorFlow
@@ -192,18 +238,24 @@ Adil Shamim is a Machine Learning Engineer with over two years of hands-on exper
 - Docker
 - FastAPI
 
-*Tools:*
-- Jupyter
+*Tools & Collaboration:*
 - Git
-- VSCode
+- GitHub
+- Jupyter
 - Streamlit
-- Flask
 
 *NLP & Embeddings:*
 - spaCy
 - SBERT
 - FAISS
 - TF-IDF
+
+*Generative AI & LLMs:*
+- LLMs (Large Language Models)
+- Prompt Engineering
+- RAG (Retrieval-Augmented Generation)
+- LangChain
+- LangGraph
 
 **PROJECTS:**
 
@@ -226,6 +278,29 @@ Adil Shamim is a Machine Learning Engineer with over two years of hands-on exper
 
 **TECHNICAL EXPERIENCE:**
 
+*Founder — Toolly*
+Ongoing
+- Founded Toolly, a community-driven platform for discovering and sharing AI tools (400+ curated tools)
+- Built and launched toolly.tech with full-stack development including submission moderation
+- Led product vision, roadmap, and go-to-market strategy
+- Managed user acquisition, community outreach, and early partnerships
+- Set up analytics and feedback loops for rapid product iteration
+
+*1st Author — Conference Paper: "Bangla Diarizz: Domain-Adapted Speaker Diarization for Bengali Long-Form Audio"*
+2026
+- Addressed critical low-resource speech challenge: speaker diarization for Bengali
+- Developed system that achieved competitive performance on Bengali-Loop benchmark
+- Engineered 56% wall-clock speed improvement (reduced inference from 1h 22m to ~36m)
+- Used Pyannote, WeSpeaker ResNet34-LM, and custom post-processing techniques
+- Paper available on ResearchGate
+
+*Kaggle Master — Completed 22 Competitions*
+Ongoing
+- Top 1% rank on "Predicting Road Accident Risk" (29/4,082 participants)
+- Top 2% rank on "Predicting Beats-per-Minute of Songs" (38/2,581 participants)
+- Hosted competitions to engage the data science community
+- Focus on robust modeling and reproducible notebooks
+
 *Freelance Machine Learning Engineer — Self-employed*
 July 2025—Present
 - Performed end-to-end analyses on public datasets to extract actionable insights for health and economic questions
@@ -233,12 +308,8 @@ July 2025—Present
 - Created a hybrid recommendation system for a local business (collaborative + content-based)
 - Deployed results and achieved a 10% sales increase in 3 months
 
-*Kaggle Experience:*
-- Kaggle Expert Rank — completed 15 competitions
-- Focusing on robust modeling and reproducible notebooks
-
 **EDUCATION:**
-Computer Science and Engineering - BNIST
+B.Sc. in Computer Science & Engineering - BNIST
 February 2023—Present
 
 *Relevant Coursework:*
@@ -252,11 +323,12 @@ Linear Algebra, Calculus, Probability & Statistics, Data Structures & Algorithms
 - Machine Learning Pipelines with Azure ML Studio (Coursera)
 
 **ACHIEVEMENTS:**
-- Founder of Toolly — an AI-powered productivity tool
-- Published the Exploring Mental Health Dataset on Kaggle
-- Contributed to open-source projects in ML/NLP
+- Founder of Toolly — an AI tools discovery platform with 400+ curated tools
+- 1st Author of 'Bangla Diarizz' — Conference Paper on Bengali Speaker Diarization (56% faster inference)
+- Shipped a live AI product (Toolly.tech) with full moderation and analytics
+- Ranked Top 1% on Kaggle (29/4,082 in Road Accident Prediction)
+- Kaggle Master with 22 completed competitions
 - Active blogger + educator with ML notes and guides
-- Kaggle Expert with 15 completed competitions
 
 **Social Media & Online Presence:**
 - LinkedIn: https://www.linkedin.com/in/adilshamim8
@@ -264,6 +336,8 @@ Linear Algebra, Calculus, Probability & Statistics, Data Structures & Algorithms
 - Kaggle: https://www.kaggle.com/adilshamim8
 - Twitter/X: https://x.com/adil_shamim8
 - Medium Blog: https://adilshamim8.medium.com/
+- Toolly: https://www.toolly.tech/
+- ResearchGate Paper: https://www.researchgate.net/publication/401194830_Bangla_Diarizz_Domain-Adapted_Speaker_Diarization_for_Bengali_Long-Form_Audio
 - Website: https://adilshamim8.github.io/
 
 **Resume:**

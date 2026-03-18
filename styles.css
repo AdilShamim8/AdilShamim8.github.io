@@ -808,6 +808,93 @@ button { cursor: pointer; }
     color: var(--text);
 }
 
+/* ===== CERTIFICATIONS SECTION ===== */
+.certifications-list {
+    display: grid;
+    gap: 16px;
+}
+
+.cert-item {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 20px 24px;
+    transition: all var(--transition);
+}
+
+.cert-item:hover {
+    border-color: var(--border);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.cert-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.cert-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0;
+}
+
+.cert-issuer {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin: 0;
+    white-space: nowrap;
+}
+
+/* ===== ACHIEVEMENTS SECTION ===== */
+.achievements-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.achievement-item {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 32px 24px;
+    display: flex;
+    gap: 16px;
+    transition: all var(--transition);
+    align-items: flex-start;
+}
+
+.achievement-item:hover {
+    border-color: var(--border);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.achievement-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.achievement-content {
+    flex: 1;
+}
+
+.achievement-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0 0 8px 0;
+}
+
+.achievement-desc {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.5;
+}
+
 /* ===== CONTACT SECTION ===== */
 .contact-section {
     padding-bottom: 40px;
@@ -1296,6 +1383,29 @@ button { cursor: pointer; }
 
     .exp-desc {
         font-size: 0.8125rem;
+    }
+
+    /* Certifications mobile */
+    .cert-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cert-issuer {
+        white-space: normal;
+    }
+
+    /* Achievements mobile */
+    .achievements-list {
+        grid-template-columns: 1fr;
+    }
+
+    .achievement-item {
+        padding: 20px 16px;
+    }
+
+    .achievement-icon {
+        font-size: 1.5rem;
     }
 
     /* Nav mobile */
