@@ -83,7 +83,7 @@ The site includes:
 - Twitter card metadata
 - schema.org JSON-LD (`Person`)
 
-Update these in `index.html` when profile links, title, or branding change.
+Update these in `index.html` when profile links, title, or branding changes.
 
 ## Local Development
 
@@ -119,4 +119,5 @@ Without a valid key, chatbot API requests cannot authenticate.
 - **SEO/schema:** update metadata and JSON-LD in `index.html`
 
 ## License
+
 This project is available under the [MIT License](License).

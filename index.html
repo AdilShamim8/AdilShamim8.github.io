@@ -45,22 +45,24 @@
     </script>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="nav-logo">AdilShamim.</a>
             <div class="nav-right">
-                <ul class="nav-menu">
+                <ul class="nav-menu" id="primary-menu" aria-label="Primary">
                     <li><a href="#projects" class="nav-link">Projects</a></li>
                     <li><a href="#experience" class="nav-link">Experience</a></li>
                     <li><a href="#blog" class="nav-link">Blog</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                     <li><a href="My_Story.html" class="nav-link">My Story</a></li>
                 </ul>
-                <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
+                <button id="theme-toggle" class="theme-btn" aria-label="Switch to dark mode" aria-pressed="false">
                     <i class="fas fa-moon"></i>
                 </button>
-                <button class="menu-toggle" id="mobile-menu" aria-label="Menu">
+                <button class="menu-toggle" id="mobile-menu" aria-label="Toggle navigation menu" aria-controls="primary-menu" aria-expanded="false">
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -68,6 +70,8 @@
             </div>
         </div>
     </nav>
+
+    <main id="main-content">
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -81,11 +85,11 @@
                     <p class="hero-description fade-in delay-3"><strong>Looking for a full-time AI/ML Engineer role in 2026.</strong></p>
                     <div class="hero-actions fade-in delay-3">
                         <a href="#contact" class="hero-cta">Get in touch &rarr;</a>
-                        <a href="Resume/AdilShamim_ML_Engineer_Resume.pdf" class="hero-resume" target="_blank">View Resume &rarr;</a>
+                        <a href="Resume/AdilShamim_ML_Engineer_Resume.pdf" class="hero-resume" target="_blank" rel="noopener noreferrer">View Resume &rarr;</a>
                     </div>
                 </div>
                 <div class="hero-image fade-in delay-2">
-                    <img src="image/Adil.jpeg" alt="Adil Shamim" class="hero-photo">
+                    <img src="image/Adil.jpeg" alt="Adil Shamim" class="hero-photo" width="250" height="250" loading="eager" decoding="async">
                 </div>
             </div>
         </div>
@@ -332,11 +336,13 @@
                 <p class="contact-description">Feel free to reach out if you're looking for an ML engineer, have a question, or just want to connect.</p>
                 <div class="contact-actions">
                     <a href="mailto:adilshamim696@gmail.com" class="contact-email">adilshamim696@gmail.com</a>
-                    <a href="Resume/AdilShamim_ML_Engineer_Resume.pdf" class="contact-resume-link" target="_blank">View Resume &rarr;</a>
+                    <a href="Resume/AdilShamim_ML_Engineer_Resume.pdf" class="contact-resume-link" target="_blank" rel="noopener noreferrer">View Resume &rarr;</a>
                 </div>
             </div>
         </div>
     </section>
+
+    </main>
 
     <!-- Footer -->
     <footer class="footer">

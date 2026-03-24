@@ -22,22 +22,24 @@
     <link rel="shortcut icon" href="https://adilshamim8.github.io/image/Adil.jpeg" type="image/x-icon">
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="nav-logo">AdilShamim.</a>
             <div class="nav-right">
-                <ul class="nav-menu">
+                <ul class="nav-menu" id="primary-menu" aria-label="Primary">
                     <li><a href="index.html#projects" class="nav-link">Projects</a></li>
                     <li><a href="index.html#experience" class="nav-link">Experience</a></li>
                     <li><a href="index.html#blog" class="nav-link">Blog</a></li>
                     <li><a href="index.html#contact" class="nav-link">Contact</a></li>
                     <li><a href="My_Story.html" class="nav-link active">My Story</a></li>
                 </ul>
-                <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
+                <button id="theme-toggle" class="theme-btn" aria-label="Switch to dark mode" aria-pressed="false">
                     <i class="fas fa-moon"></i>
                 </button>
-                <button class="menu-toggle" id="mobile-menu" aria-label="Menu">
+                <button class="menu-toggle" id="mobile-menu" aria-label="Toggle navigation menu" aria-controls="primary-menu" aria-expanded="false">
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -46,12 +48,14 @@
         </div>
     </nav>
 
+    <main id="main-content">
+
     <!-- My Story Section -->
     <section id="story" class="section story-section">
         <div class="container">
             <h2 class="story-title">My life story (so far)</h2>
             <div class="story-hero-image">
-                <img src="image/My_Story.jpg" alt="Adil Shamim" class="story-photo">
+                <img src="image/My_Story.jpg" alt="Adil Shamim" class="story-photo" loading="eager" decoding="async">
             </div>
             <div class="story-content">
                 <p class="story-lead">I'm a Machine Learning Engineer from Dhaka, Bangladesh &mdash; passionate about turning raw data into systems that actually work. Here is a short account of how I got here.</p>
@@ -83,6 +87,8 @@
             </div>
         </div>
     </section>
+
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
