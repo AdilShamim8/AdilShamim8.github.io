@@ -636,7 +636,7 @@ Try the quick action buttons below or ask me anything! `;
         if (/(skill|tech|stack|mlops|python|tensorflow|nlp|deployment)/i.test(text)) {
             return [
                 "Adil's core technical strengths:",
-                "• Programming & Data: Python, SQL, R, Bash",
+                "• Programming & Data: Python, SQL, Bash, Pandas, NumPy",
                 "• ML & Modeling: TensorFlow, scikit-learn, XGBoost, LightGBM, CatBoost",
                 "• MLOps & Deployment: MLflow, ZenML, Docker, FastAPI",
                 "• NLP & Embeddings: spaCy, SBERT, FAISS, TF-IDF"
@@ -658,8 +658,8 @@ Try the quick action buttons below or ask me anything! `;
                 "Quick profile summary:",
                 "• 2+ years of hands-on Machine Learning Engineering experience",
                 "• Freelance ML Engineer (July 2025—Present)",
-                "• Kaggle Expert with 15 completed competitions",
-                "• CSE at BNIST",
+                "• Kaggle Master with 22 completed competitions",
+                "• B.Sc. in Computer Science & Engineering at BNIST (Feb 2023—Present)",
                 "• Certifications include Stanford ML, Harvard CS50, IBM Python for DS/AI, and Microsoft GenAI essentials"
             ].join('\n');
         }

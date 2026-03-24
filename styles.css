@@ -401,6 +401,90 @@ button { cursor: pointer; }
     color: var(--text);
 }
 
+/* ===== WHY HIRE ME ===== */
+.hire-section {
+    padding-top: 32px;
+}
+
+.hire-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.hire-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+}
+
+.hire-card-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+}
+
+.hire-card-text {
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+}
+
+.hire-card-text:last-child {
+    margin-bottom: 0;
+}
+
+.hire-list {
+    list-style: disc;
+    margin-left: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.hire-list li {
+    font-size: 0.875rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+}
+
+.hire-proof-card {
+    background: linear-gradient(145deg, var(--bg-secondary) 0%, var(--card-bg) 100%);
+    border-color: var(--border);
+}
+
+.hire-metrics {
+    display: grid;
+    gap: 14px;
+}
+
+.hire-metric {
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    padding: 12px 14px;
+    background: var(--card-bg);
+}
+
+.hire-metric-number {
+    display: block;
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 1.6rem;
+    line-height: 1;
+    color: var(--text);
+    margin-bottom: 6px;
+}
+
+.hire-metric-label {
+    display: block;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: var(--text-tertiary);
+}
+
 /* ===== BLOG LIST ===== */
 .blog-list {
     display: flex;
@@ -1140,6 +1224,10 @@ button { cursor: pointer; }
     .skills-grid {
         grid-template-columns: repeat(3, 1fr);
     }
+
+    .hire-grid {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 /* Tablet */
@@ -1215,6 +1303,10 @@ button { cursor: pointer; }
 
     .skills-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hire-grid {
+        grid-template-columns: 1fr;
     }
 
     .contact-card {
@@ -1322,6 +1414,14 @@ button { cursor: pointer; }
     .skills-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
+    }
+
+    .hire-card {
+        padding: 18px;
+    }
+
+    .hire-metric-number {
+        font-size: 1.35rem;
     }
 
     .projects-grid {
