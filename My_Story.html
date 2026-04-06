@@ -4,35 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Story - Adil Shamim</title>
-    <meta name="description" content="The story of Adil Shamim — Machine Learning Engineer from Dhaka, Bangladesh.">
+    <meta name="description" content="The story of Adil Shamim — AI/ML Engineer from Dhaka, Bangladesh.">
     <meta name="author" content="Adil Shamim">
     <meta name="robots" content="index, follow">
     <meta property="og:type" content="website">
     <meta property="og:title" content="My Story - Adil Shamim">
-    <meta property="og:description" content="The story of Adil Shamim — ML Engineer building production systems and intelligent applications.">
-    <meta property="og:image" content="https://adilshamim8.github.io/image/Adil.jpeg">
+    <meta property="og:description" content="The story of Adil Shamim — AI/ML Engineer building production systems and intelligent applications.">
+    <meta property="og:image" content="https://adilshamim8.github.io/assets/images/Adil.jpeg">
     <meta property="og:url" content="https://adilshamim8.github.io/My_Story.html">
     <link rel="canonical" href="https://adilshamim8.github.io/My_Story.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="chatbot.css">
-    <link rel="shortcut icon" href="https://adilshamim8.github.io/image/Adil.jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/chatbot.css">
+    <link rel="shortcut icon" href="https://adilshamim8.github.io/assets/images/Adil.jpeg" type="image/x-icon">
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Main navigation">
         <div class="nav-container">
             <a href="index.html" class="nav-logo">AdilShamim.</a>
             <div class="nav-right">
                 <ul class="nav-menu" id="primary-menu" aria-label="Primary">
                     <li><a href="index.html#projects" class="nav-link">Projects</a></li>
-                    <li><a href="index.html#experience" class="nav-link">Experience</a></li>
                     <li><a href="index.html#blog" class="nav-link">Blog</a></li>
+                    <li><a href="index.html#about" class="nav-link">About</a></li>
                     <li><a href="index.html#contact" class="nav-link">Contact</a></li>
                     <li><a href="My_Story.html" class="nav-link active">My Story</a></li>
                 </ul>
@@ -55,10 +55,10 @@
         <div class="container">
             <h2 class="story-title">My life story (so far)</h2>
             <div class="story-hero-image">
-                <img src="image/My_Story.jpg" alt="Adil Shamim" class="story-photo" loading="eager" decoding="async">
+                <img src="assets/images/My_Story.jpg" alt="Adil Shamim" class="story-photo" loading="eager" decoding="async">
             </div>
             <div class="story-content">
-                <p class="story-lead">I'm a Machine Learning Engineer from Dhaka, Bangladesh &mdash; passionate about turning raw data into systems that actually work. Here is a short account of how I got here.</p>
+                <p class="story-lead">I'm an AI/ML Engineer from Dhaka, Bangladesh &mdash; passionate about turning raw data into systems that actually work. Here is a short account of how I got here.</p>
                 <div class="story-body">
                     <p>My journey into machine learning started during my Computer Science studies at BNIST, where courses in linear algebra, probability, and data structures sparked a deep curiosity about how machines learn from data. What began as academic curiosity quickly became a full-blown obsession.</p>
                     <p>Over the past 2+ years, I've been building production ML systems &mdash; from end-to-end pipelines with ZenML and MLflow, to Dockerized inference services with FastAPI. One of my proudest moments was creating a hybrid recommendation system that boosted a client's sales by 10%.</p>
@@ -88,6 +88,48 @@
         </div>
     </section>
 
+    <!-- Books Section -->
+    <section id="books" class="section books-section">
+        <div class="container">
+            <div class="section-header-row">
+                <h2 class="section-title">Books That Shaped My Thinking</h2>
+            </div>
+            <p class="books-intro">Reading is how I sharpen my mental models. Here are books that changed how I think about building, learning, and living.</p>
+
+            <div class="books-grid">
+
+                <!-- Book 1 -->
+                <article class="book-card reveal">
+                    <div class="book-card-header" onclick="toggleBookNotes(this)" role="button" tabindex="0" aria-expanded="false">
+                        <div class="book-icon"><i class="fas fa-book"></i></div>
+                        <div>
+                            <h3 class="book-title">The Almanack of Naval Ravikant</h3>
+                            <p class="book-author">by Eric Jorgenson</p>
+                        </div>
+                        <i class="fas fa-chevron-down book-chevron"></i>
+                    </div>
+                    <div class="book-notes">
+                        <div class="book-lessons">
+                            <h4 class="book-lessons-heading">Key Lessons</h4>
+                            <ul class="book-lesson-list">
+                                <li><strong>Leverage is everything.</strong> Code and media are the new leverage — they work while you sleep. This is why I invest in building systems and writing, not just doing one-off tasks.</li>
+                                <li><strong>Specific knowledge can't be taught.</strong> It's found by pursuing your genuine curiosity. My obsession with Bengali speech AI and low-resource NLP is my specific knowledge.</li>
+                                <li><strong>Play long-term games with long-term people.</strong> Compound interest applies to relationships, knowledge, and skills — not just money.</li>
+                                <li><strong>Learn to sell, learn to build.</strong> If you can do both, you're unstoppable. Engineering is building; writing and sharing your work is selling.</li>
+                                <li><strong>Happiness is a skill.</strong> It's not something you chase — it's something you practice by removing desires, not adding achievements.</li>
+                            </ul>
+                        </div>
+                        <div class="book-takeaway">
+                            <span class="book-takeaway-label">My Takeaway</span>
+                            <p>This book reframed how I think about my career. I stopped optimizing for salary and started optimizing for leverage, learning, and long-term compounding. It's why I build open-source tools, write publicly, and chase problems that genuinely excite me.</p>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
     </main>
 
     <!-- Footer -->
@@ -95,6 +137,9 @@
         <div class="container">
             <div class="footer-content">
                 <p class="footer-copy">&copy; <span id="current-year"></span> Adil Shamim.</p>
+                <div class="footer-links">
+                    <a href="assets/docs/AdilShamim_ML_Engineer_Resume.pdf" class="footer-resume-link" target="_blank" rel="noopener noreferrer">Resume</a>
+                </div>
                 <div class="footer-socials">
                     <a href="https://github.com/AdilShamim8" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
                     <a href="https://www.linkedin.com/in/adilshamim8" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
@@ -106,7 +151,22 @@
         </div>
     </footer>
 
-    <script src="script.js" defer></script>
-    <script src="chatbot.js" defer></script>
+    <script src="assets/js/script.js" defer></script>
+    <script src="assets/js/chatbot.js" defer></script>
+    <script>
+        function toggleBookNotes(header) {
+            const card = header.closest('.book-card');
+            const isOpen = card.classList.toggle('open');
+            header.setAttribute('aria-expanded', isOpen);
+        }
+
+        // Also allow keyboard activation (Enter / Space)
+        document.addEventListener('keydown', function(e) {
+            if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('book-card-header')) {
+                e.preventDefault();
+                toggleBookNotes(e.target);
+            }
+        });
+    </script>
 </body>
 </html>
