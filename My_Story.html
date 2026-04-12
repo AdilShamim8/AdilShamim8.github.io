@@ -3,43 +3,508 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Story - Adil Shamim</title>
-    <meta name="description" content="The story of Adil Shamim — AI/ML Engineer from Dhaka, Bangladesh.">
+    <title>My Story & Books — Adil Shamim</title>
+    <meta name="description" content="The story of Adil Shamim — AI/ML Engineer from Dhaka. Books that shaped my thinking, with honest notes and opinions on each.">
     <meta name="author" content="Adil Shamim">
     <meta name="robots" content="index, follow">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="My Story - Adil Shamim">
-    <meta property="og:description" content="The story of Adil Shamim — AI/ML Engineer building production systems and intelligent applications.">
+    <meta property="og:title" content="My Story & Books — Adil Shamim">
+    <meta property="og:description" content="Books I've read, lessons I've kept, and honest opinions on whether you should read them.">
     <meta property="og:image" content="https://adilshamim8.github.io/assets/images/Adil.jpeg">
     <meta property="og:url" content="https://adilshamim8.github.io/My_Story.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@adil_shamim8">
+    <meta name="twitter:title" content="My Story &amp; Books — Adil Shamim">
+    <meta name="twitter:description" content="Books I've read, lessons I've kept, and honest opinions on whether you should read them.">
+    <meta name="twitter:image" content="https://adilshamim8.github.io/assets/images/Adil.jpeg">
     <link rel="canonical" href="https://adilshamim8.github.io/My_Story.html">
+
+    <!-- Google Fonts: Inter (body text) + Newsreader (headings/titles) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome icons (used for nav icons, search icon, arrows, etc.) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Main site styles (colors, fonts, navbar, footer, etc.) -->
     <link rel="stylesheet" href="assets/css/styles.css">
+
+    <!-- Chatbot widget styles -->
     <link rel="stylesheet" href="assets/css/chatbot.css">
+
+    <!-- Favicon -->
     <link rel="shortcut icon" href="https://adilshamim8.github.io/assets/images/Adil.jpeg" type="image/x-icon">
+
+    <style>
+        /* ================================================
+           MY_STORY.HTML — PAGE-SPECIFIC STYLES
+           These styles only apply to this page.
+           Global design tokens (colors, fonts, spacing)
+           all come from assets/css/styles.css
+        ================================================ */
+
+        /* ── Story section: extra top padding to clear the fixed navbar ── */
+        .story-section {
+            padding-top: 120px;
+        }
+
+        /* ════════════════════════════════════════════════
+           BOOKS SECTION WRAPPER
+        ════════════════════════════════════════════════ */
+        .books-section {
+            padding-top: 32px;
+            padding-bottom: 100px;
+        }
+
+        /* ── Header block above the book list ── */
+        .books-header {
+            margin-bottom: 40px;
+        }
+
+        /* ── Title row: "Books That Shaped My Thinking" + count badge ── */
+        .books-header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 16px;
+        }
+
+        /* Serif section title */
+        .books-title {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            color: var(--text);
+        }
+
+        /* Small "8 books" counter on the right */
+        .books-count {
+            font-size: 0.8125rem;
+            color: var(--text-tertiary);
+            font-weight: 400;
+        }
+
+        /* Intro paragraph below the title */
+        .books-intro {
+            font-size: 0.9375rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            max-width: 640px;
+            margin-bottom: 28px;
+        }
+
+        /* ════════════════════════════════════════════════
+           SEARCH BAR + YEAR FILTER CONTROLS
+        ════════════════════════════════════════════════ */
+        .books-controls {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;  /* stacks on mobile */
+        }
+
+        /* Search input wrapper (icon + input) */
+        .books-search-wrap {
+            position: relative;
+            flex: 1;
+            min-width: 200px;
+            max-width: 360px;
+        }
+
+        /* Magnifying glass icon inside the search box */
+        .books-search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-tertiary);
+            font-size: 0.8125rem;
+            pointer-events: none; /* click passes through to the input */
+        }
+
+        /* The actual search <input> */
+        .books-search {
+            width: 100%;
+            padding: 9px 12px 9px 34px; /* left padding leaves room for the icon */
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--bg-secondary);
+            color: var(--text);
+            font-size: 0.875rem;
+            transition: border-color var(--transition), box-shadow var(--transition);
+        }
+
+        /* Focus ring for accessibility */
+        .books-search:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-light);
+        }
+
+        .books-search::placeholder {
+            color: var(--text-tertiary);
+        }
+
+        /* Row of year pill buttons (All / 2023 / 2024 / 2025) */
+        .year-filters {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        /* Each individual year button */
+        .year-btn {
+            font-size: 0.8125rem;
+            font-weight: 500;
+            padding: 7px 14px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            background: transparent;
+            cursor: pointer;
+            transition: all var(--transition);
+            white-space: nowrap;
+        }
+
+        .year-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: var(--accent-light);
+        }
+
+        /* Active (selected) year button fills with accent color */
+        .year-btn.active {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+        }
+
+        /* Dark mode: keep text readable on the filled button */
+        [data-theme="dark"] .year-btn.active {
+            color: #09090b;
+        }
+
+        /* ════════════════════════════════════════════════
+           BOOK LIST — nav.al inspired row layout
+           Each book is a clickable <a> that navigates
+           to its dedicated book notes page in /books/
+        ════════════════════════════════════════════════ */
+        .books-list {
+            margin-top: 32px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* One book row */
+        .book-list-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 0;
+            border-bottom: 1px solid var(--border-light);
+            text-decoration: none;
+            color: var(--text);
+            /* Smooth slide-right on hover */
+            transition: padding-left var(--transition), color var(--transition), border-bottom-color var(--transition);
+            gap: 20px;
+        }
+
+        /* Top border only on the very first row */
+        .book-list-item:first-child {
+            border-top: 1px solid var(--border-light);
+        }
+
+        /* Hover: indent + accent color + accent border */
+        .book-list-item:hover {
+            padding-left: 14px;
+            color: var(--accent);
+            border-bottom-color: var(--accent-light);
+        }
+
+        /* Left side: colored dot + title + author */
+        .book-list-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex: 1;
+            min-width: 0; /* allow text-overflow to work */
+        }
+
+        /* Color-coded outcome dot (green/amber/grey) */
+        .book-verdict-dot {
+            flex-shrink: 0;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        /* Dot color by verdict */
+        .book-verdict-dot.must-read   { background: #22c55e; }
+        .book-verdict-dot.recommended { background: #f59e0b; }
+        .book-verdict-dot.optional    { background: #94a3b8; }
+
+        /* Book title text — truncates with … if too long */
+        .book-list-title {
+            font-size: 0.9375rem;
+            font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Author name (hidden on very small screens) */
+        .book-list-author {
+            font-size: 0.8125rem;
+            color: var(--text-tertiary);
+            flex-shrink: 0;
+        }
+
+        /* Right side: year + verdict pill + arrow icon */
+        .book-list-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-shrink: 0;
+        }
+
+        /* "2024" year label */
+        .book-list-year {
+            font-size: 0.8125rem;
+            color: var(--text-tertiary);
+            font-weight: 400;
+        }
+
+        /* Verdict pill: Must Read / Recommended / Optional */
+        .book-list-verdict {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+
+        /* Verdict pill colors — light mode */
+        .book-list-verdict.must-read   { background: rgba(34,197,94,0.12);  color: #16a34a; }
+        .book-list-verdict.recommended { background: rgba(245,158,11,0.12); color: #d97706; }
+        .book-list-verdict.optional    { background: rgba(148,163,184,0.12);color: #64748b; }
+
+        /* Verdict pill colors — dark mode */
+        [data-theme="dark"] .book-list-verdict.must-read   { background: rgba(34,197,94,0.15);  color: #4ade80; }
+        [data-theme="dark"] .book-list-verdict.recommended { background: rgba(245,158,11,0.15); color: #fbbf24; }
+        [data-theme="dark"] .book-list-verdict.optional    { background: rgba(148,163,184,0.15);color: #94a3b8; }
+
+        /* Arrow icon on the right of each row — slides right on hover */
+        .book-list-arrow {
+            font-size: 0.875rem;
+            color: var(--text-tertiary);
+            transition: transform var(--transition);
+        }
+
+        .book-list-item:hover .book-list-arrow {
+            transform: translateX(4px);
+            color: var(--accent);
+        }
+
+        /* ════════════════════════════════════════════════
+           VERDICT LEGEND
+           Small colour-key above the search bar explaining
+           what green / amber / grey dots mean
+        ════════════════════════════════════════════════ */
+        .verdict-legend {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 0;
+            padding: 14px 16px;
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            border: 1px solid var(--border-light);
+        }
+
+        .verdict-legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+        }
+
+        .verdict-legend-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* ── Empty state shown when search has no results ── */
+        .books-empty {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-tertiary);
+            font-size: 0.9375rem;
+            display: none; /* hidden by default; shown by JS */
+        }
+
+        .books-empty i {
+            font-size: 2rem;
+            margin-bottom: 12px;
+            display: block;
+            opacity: 0.4;
+        }
+
+        /* ── Horizontal rule separating story section from books section ── */
+        .section-divider {
+            border: none;
+            border-top: 1px solid var(--border-light);
+            margin: 0;
+        }
+
+        /* ════════════════════════════════════════════════
+           RESPONSIVE — mobile adjustments
+        ════════════════════════════════════════════════ */
+        @media (max-width: 640px) {
+            /* Stack title + count vertically */
+            .books-header-top {
+                flex-direction: column;
+                gap: 6px;
+            }
+
+            /* Stack search + year filters vertically */
+            .books-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            /* Search fills full width on mobile */
+            .books-search-wrap {
+                max-width: 100%;
+            }
+
+            /* Hide verdict pill — not enough room */
+            .book-list-verdict {
+                display: none;
+            }
+
+            /* Hide author name — not enough room */
+            .book-list-author {
+                display: none;
+            }
+
+            .verdict-legend {
+                gap: 12px;
+            }
+        }
+
+        /* Override centered title */
+        .story-title {
+            text-align: center;
+            font-size: clamp(1.875rem, 4.5vw, 2.625rem);
+            font-style: italic;
+            margin-bottom: 0;
+        }
+
+        /* Small accent label above the title */
+        .story-overline {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 14px;
+            text-align: center;
+        }
+
+        /* Constrained essay container — centered on page, text reads left */
+        .story-essay-wrap {
+            max-width: 660px;
+            margin: 0 auto;
+        }
+
+        /* Essay body */
+        .story-essay {
+            margin-top: 36px;
+        }
+
+        /* Each paragraph in the essay */
+        .story-essay p {
+            font-size: 1rem;
+            line-height: 1.875;
+            color: var(--text-secondary);
+            margin-bottom: 1.4em;
+            letter-spacing: -0.01em;
+            text-align: left;
+        }
+
+        .story-essay p:last-child {
+            margin-bottom: 0;
+        }
+
+        .story-essay strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .story-essay a {
+            color: var(--accent);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .story-essay a:hover {
+            color: var(--accent-hover);
+        }
+
+        /* Closing sentence — serif italic, centered for emphasis */
+        .story-essay .story-closing {
+            font-family: 'Newsreader', Georgia, serif;
+            font-style: italic;
+            font-size: 1.0625rem;
+            color: var(--text);
+            border-top: 1px solid var(--border-light);
+            padding-top: 28px;
+            margin-top: 8px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
+
+    <!-- Skip to main content link (screen readers / keyboard users) -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- Navigation -->
+    <!-- ═══════════════════════════════════════════
+         NAVBAR — fixed at the top of every page
+         Links go back to index.html sections since
+         this is a separate page (My_Story.html)
+    ═══════════════════════════════════════════ -->
     <nav class="navbar" aria-label="Main navigation">
         <div class="nav-container">
+            <!-- Logo: clicking returns to portfolio home -->
             <a href="index.html" class="nav-logo">AdilShamim.</a>
+
             <div class="nav-right">
+                <!-- Primary navigation links -->
                 <ul class="nav-menu" id="primary-menu" aria-label="Primary">
                     <li><a href="index.html#projects" class="nav-link">Projects</a></li>
-                    <li><a href="index.html#blog" class="nav-link">Blog</a></li>
-                    <li><a href="index.html#about" class="nav-link">About</a></li>
-                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                    <li><a href="index.html#blog"     class="nav-link">Blog</a></li>
+                    <li><a href="index.html#about"    class="nav-link">About</a></li>
+                    <li><a href="index.html#contact"  class="nav-link">Contact</a></li>
+                    <!-- "active" class highlights the current page in the nav -->
                     <li><a href="My_Story.html" class="nav-link active">My Story</a></li>
                 </ul>
+
+                <!-- Light / dark mode toggle button -->
                 <button id="theme-toggle" class="theme-btn" aria-label="Switch to dark mode" aria-pressed="false">
                     <i class="fas fa-moon"></i>
                 </button>
-                <button class="menu-toggle" id="mobile-menu" aria-label="Toggle navigation menu" aria-controls="primary-menu" aria-expanded="false">
+
+                <!-- Hamburger menu (visible only on mobile) -->
+                <button class="menu-toggle" id="mobile-menu"
+                        aria-label="Toggle navigation menu"
+                        aria-controls="primary-menu"
+                        aria-expanded="false">
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -48,125 +513,557 @@
         </div>
     </nav>
 
+    <!-- ═══════════════════════════════════════════
+         MAIN CONTENT AREA
+    ═══════════════════════════════════════════ -->
     <main id="main-content">
 
-    <!-- My Story Section -->
+    <!-- ════════════════════════════════════════════
+         SECTION 1 — MY LIFE STORY
+         Long-form personal essay, no image, no stat grid
+     ════════════════════════════════════════════ -->
     <section id="story" class="section story-section">
         <div class="container">
-            <h2 class="story-title">My life story (so far)</h2>
-            <div class="story-hero-image">
-                <img src="assets/images/My_Story.jpg" alt="Adil Shamim" class="story-photo" loading="eager" decoding="async">
-            </div>
-            <div class="story-content">
-                <p class="story-lead">I'm an AI/ML Engineer from Dhaka, Bangladesh &mdash; passionate about turning raw data into systems that actually work. Here is a short account of how I got here.</p>
-                <div class="story-body">
-                    <p>My journey into machine learning started during my Computer Science studies at BNIST, where courses in linear algebra, probability, and data structures sparked a deep curiosity about how machines learn from data. What began as academic curiosity quickly became a full-blown obsession.</p>
-                    <p>Over the past 2+ years, I've been building production ML systems &mdash; from end-to-end pipelines with ZenML and MLflow, to Dockerized inference services with FastAPI. One of my proudest moments was creating a hybrid recommendation system that boosted a client's sales by 10%.</p>
-                    <p>Along the way, I earned an <strong>Master rank on Kaggle</strong> after completing 22 competitions, published datasets, and built open-source tools. I also founded <strong>Toolly</strong>, a community-driven platform that makes discovering and sharing AI tools effortless.</p>
-                    <p>When I'm not training models, I enjoy writing technical blogs, earning certifications from Stanford, Harvard, IBM, and Microsoft, and exploring the frontier of Generative AI &mdash; LLMs, RAG pipelines, and LangChain/LangGraph agents.</p>
-                    <p>I believe the best ML work happens at the intersection of strong engineering and genuine curiosity. I'm always looking to connect with people who share that belief.</p>
+            <div class="story-essay-wrap">
+
+                <!-- Small overline label -->
+                <p class="story-overline">My life story</p>
+
+                <!-- Page h1 — only one per page for SEO -->
+                <h1 class="story-title">My life story (so far)</h1>
+
+                <!-- Hero photo -->
+                <div class="story-hero-image">
+                    <img src="assets/images/My_Story.jpg"
+                         alt="Adil Shamim"
+                         class="story-photo"
+                         loading="eager"
+                         decoding="async">
                 </div>
-                <div class="story-highlights">
-                    <div class="story-highlight-item">
-                        <span class="highlight-number">2+</span>
-                        <span class="highlight-label">Years of Experience</span>
-                    </div>
-                    <div class="story-highlight-item">
-                        <span class="highlight-number">22</span>
-                        <span class="highlight-label">Kaggle Competitions</span>
-                    </div>
-                    <div class="story-highlight-item">
-                        <span class="highlight-number">6+</span>
-                        <span class="highlight-label">Production Projects</span>
-                    </div>
-                    <div class="story-highlight-item">
-                        <span class="highlight-number">5</span>
-                        <span class="highlight-label">Certifications</span>
-                    </div>
-                </div>
-            </div>
+
+                <!-- Long-form essay -->
+                <div class="story-essay">
+
+                    <p>A friend once reminded me that my story is what sets me apart. For a long time, I hesitated to embrace it — but they were right. So, here is a short, honest account of how I got here.</p>
+
+                    <p>I grew up in Dhaka, Bangladesh.</p>
+
+                    <p>My interest in computers started early, but it took university to turn that interest into something real.</p>
+
+                    <p>I joined BNIST in February 2023 to study Computer Science &amp; Engineering. The first semester was a recalibration. Linear algebra, probability, and data structures were suddenly more than subjects — they were the vocabulary of a discipline I wanted to master.</p>
+
+                    <p>I started building things. Small scripts, then models, then full pipelines.</p>
+
+                    <p>My first serious project was a hybrid recommendation system for a local business — a mix of collaborative filtering and content-based embeddings. It wasn't glamorous, but it worked. It produced a <strong>10% increase in sales</strong> over three months. That result told me everything I needed to know: production systems are where real learning happens.</p>
+
+                    <p>I joined Kaggle not long after. What started as casual practice became something I took seriously. I went on to complete 22 competitions. A <strong>Top 1% finish</strong> — 29th out of 4,082 teams — in Road Accident Risk prediction earned me a <strong>Kaggle Master</strong> rank.</p>
+
+                    <p>While competing, I was also researching.</p>
+
+                    <p>I led a project that became a first-author conference paper: <strong>Bangla Diarizz</strong> — a domain-adapted speaker diarization system for Bengali long-form audio. We presented at BUET CSE Fest 2026. The system achieved a Diarization Error Rate of 0.19, processed at 3.4&times; real-time on CPU, and ran <strong>56% faster</strong> than our baseline through knowledge distillation.</p>
+
+
+                    <p>That project taught me that low-resource problems are the most creative ones. Building systems that no one has built before, with almost no labeled data, forces a different kind of engineering discipline.</p>
+
+                    <p>Around the same time, I founded <strong>Toolly</strong> — a community-driven platform for discovering and sharing AI tools. It now hosts over 400 curated tools across 15 categories.</p>
+
+                    <p>Running Toolly while competing on Kaggle while publishing research while staying current in a field that moves every week is a constant juggle.</p>
+
+                    <p>But I have learned that momentum is its own reward.</p>
+
+                    <p>Today, I focus on production AI systems: Bengali speech AI, GenAI pipelines, and MLOps. I believe that 60–70% of AI/ML work is software engineering, and I take that part just as seriously as the modeling.</p>
+
+                    <p>I am actively looking for <strong>AI/ML Engineering roles</strong> at global startups where the problems are hard and the standards are high.</p>
+
+                    <p>If you are building something ambitious, I would love to connect. <a href="mailto:adilshamim696@gmail.com">Shoot me an email</a>, and let's talk.</p>
+
+                    <p class="story-closing">I spent a lot of time reading. My only real friends were books. Books make for great friends.</p>
+
+                </div><!-- end .story-essay -->
+            </div><!-- end .story-essay-wrap -->
         </div>
     </section>
 
-    <!-- Books Section -->
+    <!-- Visual divider between story and books sections -->
+    <hr class="section-divider">
+
+
+    <!-- ════════════════════════════════════════════
+         SECTION 2 — BOOKS READING LIST
+         - Verdict legend (color key)
+         - Search bar + year filter buttons
+         - Scrollable book list (populated by JavaScript)
+         - Each book links to its own page in /books/
+    ════════════════════════════════════════════ -->
     <section id="books" class="section books-section">
         <div class="container">
-            <div class="section-header-row">
-                <h2 class="section-title">Books That Shaped My Thinking</h2>
-            </div>
-            <p class="books-intro">Reading is how I sharpen my mental models. Here are books that changed how I think about building, learning, and living.</p>
 
-            <div class="books-grid">
+            <!-- Section header block -->
+            <div class="books-header">
 
-                <!-- Book 1 -->
-                <article class="book-card reveal">
-                    <div class="book-card-header" onclick="toggleBookNotes(this)" role="button" tabindex="0" aria-expanded="false">
-                        <div class="book-icon"><i class="fas fa-book"></i></div>
-                        <div>
-                            <h3 class="book-title">The Almanack of Naval Ravikant</h3>
-                            <p class="book-author">by Eric Jorgenson</p>
-                        </div>
-                        <i class="fas fa-chevron-down book-chevron"></i>
+                <!-- Title + book count -->
+                <div class="books-header-top">
+                    <h2 class="books-title">Books That Shaped My Thinking</h2>
+                    <!-- Updated dynamically by JS: "8 books" / "3 books" etc. -->
+                    <span class="books-count" id="books-count-label"></span>
+                </div>
+
+                <!-- Intro paragraph -->
+                <p class="books-intro">Reading is how I sharpen my mental models. Every book here has a dedicated page with my key notes, learning summary, and honest opinion on whether <em>you</em> should read it.</p>
+
+                <!-- Color legend: what each dot color means -->
+                <div class="verdict-legend" role="legend" aria-label="Verdict color guide">
+                    <div class="verdict-legend-item">
+                        <span class="verdict-legend-dot" style="background:#22c55e;"></span>
+                        Must Read
                     </div>
-                    <div class="book-notes">
-                        <div class="book-lessons">
-                            <h4 class="book-lessons-heading">Key Lessons</h4>
-                            <ul class="book-lesson-list">
-                                <li><strong>Leverage is everything.</strong> Code and media are the new leverage — they work while you sleep. This is why I invest in building systems and writing, not just doing one-off tasks.</li>
-                                <li><strong>Specific knowledge can't be taught.</strong> It's found by pursuing your genuine curiosity. My obsession with Bengali speech AI and low-resource NLP is my specific knowledge.</li>
-                                <li><strong>Play long-term games with long-term people.</strong> Compound interest applies to relationships, knowledge, and skills — not just money.</li>
-                                <li><strong>Learn to sell, learn to build.</strong> If you can do both, you're unstoppable. Engineering is building; writing and sharing your work is selling.</li>
-                                <li><strong>Happiness is a skill.</strong> It's not something you chase — it's something you practice by removing desires, not adding achievements.</li>
-                            </ul>
-                        </div>
-                        <div class="book-takeaway">
-                            <span class="book-takeaway-label">My Takeaway</span>
-                            <p>This book reframed how I think about my career. I stopped optimizing for salary and started optimizing for leverage, learning, and long-term compounding. It's why I build open-source tools, write publicly, and chase problems that genuinely excite me.</p>
-                        </div>
+                    <div class="verdict-legend-item">
+                        <span class="verdict-legend-dot" style="background:#f59e0b;"></span>
+                        Recommended
                     </div>
-                </article>
+                    <div class="verdict-legend-item">
+                        <span class="verdict-legend-dot" style="background:#94a3b8;"></span>
+                        Optional
+                    </div>
+                </div>
+            </div><!-- end .books-header -->
 
+            <!-- Search input + year filter pills -->
+            <div class="books-controls" role="search" aria-label="Filter books">
+
+                <!-- Search box (searches title, author, genre) -->
+                <div class="books-search-wrap">
+                    <i class="fas fa-search books-search-icon" aria-hidden="true"></i>
+                    <input
+                        type="search"
+                        id="books-search"
+                        class="books-search"
+                        placeholder="Search books or authors…"
+                        aria-label="Search books"
+                        autocomplete="off"
+                    >
+                </div>
+
+                <!-- Year filter buttons — built dynamically by JS -->
+                <div class="year-filters" id="year-filters" role="group" aria-label="Filter by year read">
+                    <!-- JS inserts: [All] [2023] [2024] [2025] -->
+                </div>
             </div>
+
+            <!-- Book list — rows inserted here by JS -->
+            <div class="books-list" id="books-list" role="list" aria-label="Book list">
+                <!-- Each <a class="book-list-item"> is created by renderBooks() below -->
+            </div>
+
+            <!-- Empty state: shown by JS when search returns no results -->
+            <div class="books-empty" id="books-empty" aria-live="polite">
+                <i class="fas fa-book-open"></i>
+                No books match your search.
+            </div>
+
         </div>
     </section>
 
-    </main>
+    </main><!-- end #main-content -->
 
-    <!-- Footer -->
+    <!-- ═══════════════════════════════════════════
+         FOOTER
+    ═══════════════════════════════════════════ -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
+                <!-- Copyright year is injected by setCurrentYear() in script.js -->
                 <p class="footer-copy">&copy; <span id="current-year"></span> Adil Shamim.</p>
-                <div class="footer-links">
-                    <a href="assets/docs/AdilShamim_ML_Engineer_Resume.pdf" class="footer-resume-link" target="_blank" rel="noopener noreferrer">Resume</a>
-                </div>
+
+                <p class="footer-thanks">Thanks for visiting my portfolio website.</p>
+
+                <!-- Social icon links -->
                 <div class="footer-socials">
-                    <a href="https://github.com/AdilShamim8" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://github.com/AdilShamim8"          target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
                     <a href="https://www.linkedin.com/in/adilshamim8" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://www.kaggle.com/adilshamim8" target="_blank" rel="noopener" aria-label="Kaggle"><i class="fab fa-kaggle"></i></a>
-                    <a href="https://adilshamim8.medium.com/" target="_blank" rel="noopener" aria-label="Medium"><i class="fab fa-medium"></i></a>
-                    <a href="https://x.com/adil_shamim8" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.kaggle.com/adilshamim8"      target="_blank" rel="noopener" aria-label="Kaggle"><i class="fab fa-kaggle"></i></a>
+                    <a href="https://adilshamim8.medium.com/"         target="_blank" rel="noopener" aria-label="Medium"><i class="fab fa-medium"></i></a>
+                    <a href="https://x.com/adil_shamim8"              target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- Shared JS: navbar, theme toggle, reveal animations, year, smooth scroll -->
     <script src="assets/js/script.js" defer></script>
+    <!-- Chatbot widget JS -->
     <script src="assets/js/chatbot.js" defer></script>
+
     <script>
-        function toggleBookNotes(header) {
-            const card = header.closest('.book-card');
-            const isOpen = card.classList.toggle('open');
-            header.setAttribute('aria-expanded', isOpen);
+    /* ================================================
+       BOOKS DATA ARRAY
+       ------------------------------------------------
+       Add a new book by adding an object here.
+       Each object has:
+         title       — displayed in the list row
+         author      — displayed smaller next to title
+         year        — used for the year-filter buttons
+         verdict     — CSS class: "must-read" | "recommended" | "optional"
+         verdictLabel— human-readable label for the pill badge
+         slug        — relative URL to the book's detail page
+         genre       — used by the search filter
+    ================================================ */
+    var BOOKS = [
+        /* ── Must Read ── */
+        {
+            title: "The Almanack of Naval Ravikant",
+            author: "Eric Jorgenson",
+            year: 2024,
+            verdict: "must-read",
+            verdictLabel: "Must Read",
+            slug: "books/the-almanack-of-naval-ravikant.html",
+            genre: "Philosophy, Wealth"
+        },
+        {
+            title: "Atomic Habits",
+            author: "James Clear",
+            year: 2024,
+            verdict: "must-read",
+            verdictLabel: "Must Read",
+            slug: "books/atomic-habits.html",
+            genre: "Productivity, Self-Improvement"
+        },
+        {
+            title: "Deep Work",
+            author: "Cal Newport",
+            year: 2023,
+            verdict: "must-read",
+            verdictLabel: "Must Read",
+            slug: "books/deep-work.html",
+            genre: "Productivity, Focus"
+        },
+        {
+            title: "Sapiens",
+            author: "Yuval Noah Harari",
+            year: 2025,
+            verdict: "must-read",
+            verdictLabel: "Must Read",
+            slug: "books/sapiens.html",
+            genre: "History, Humanity"
+        },
+        {
+            title: "Zero to One",
+            author: "Peter Thiel",
+            year: 2025,
+            verdict: "must-read",
+            verdictLabel: "Must Read",
+            slug: "books/zero-to-one.html",
+            genre: "Business, Startups"
+        },
+        {
+            title: "The Pragmatic Programmer",
+            author: "Andrew Hunt & David Thomas",
+            year: 2025,
+            verdict: "must-read",
+            verdictLabel: "Must Read",
+            slug: "books/the-pragmatic-programmer.html",
+            genre: "Software Engineering"
+        },
+
+        /* ── Recommended ── */
+        {
+            title: "The Lean Startup",
+            author: "Eric Ries",
+            year: 2023,
+            verdict: "recommended",
+            verdictLabel: "Recommended",
+            slug: "books/the-lean-startup.html",
+            genre: "Business, Entrepreneurship"
+        },
+        {
+            title: "Thinking, Fast and Slow",
+            author: "Daniel Kahneman",
+            year: 2025,
+            verdict: "recommended",
+            verdictLabel: "Recommended",
+            slug: "books/thinking-fast-and-slow.html",
+            genre: "Psychology, Decision Making"
+        },
+        {
+            title: "Elon Musk",
+            author: "Walter Isaacson",
+            year: 2024,
+            verdict: "recommended",
+            verdictLabel: "Recommended",
+            slug: "books/elon-musk.html",
+            genre: "Biography, Business"
+        },
+        {
+            title: "The Psychology of Money",
+            author: "Morgan Housel",
+            year: 2025,
+            verdict: "recommended",
+            verdictLabel: "Recommended",
+            slug: "books/the-psychology-of-money.html",
+            genre: "Finance, Wealth"
+        },
+        {
+            title: "Rich Dad Poor Dad",
+            author: "Robert Kiyosaki",
+            year: 2024,
+            verdict: "recommended",
+            verdictLabel: "Recommended",
+            slug: "books/rich-dad-poor-dad.html",
+            genre: "Finance, Personal Finance"
+        },
+        {
+            title: "How to Win Friends and Influence People",
+            author: "Dale Carnegie",
+            year: 2023,
+            verdict: "recommended",
+            verdictLabel: "Recommended",
+            slug: "books/how-to-win-friends.html",
+            genre: "Communication, Self-Improvement"
+        },
+        {
+            title: "Think and Grow Rich",
+            author: "Napoleon Hill",
+            year: 2023,
+            verdict: "recommended",
+            verdictLabel: "Recommended",
+            slug: "books/think-and-grow-rich.html",
+            genre: "Mindset, Wealth"
+        },
+        {
+            title: "Think Like a Monk",
+            author: "Jay Shetty",
+            year: 2025,
+            verdict: "recommended",
+            verdictLabel: "Recommended",
+            slug: "books/think-like-a-monk.html",
+            genre: "Mindset, Philosophy"
+        },
+        {
+            title: "The Art of Thinking Clearly",
+            author: "Rolf Dobelli",
+            year: 2025,
+            verdict: "recommended",
+            verdictLabel: "Recommended",
+            slug: "books/the-art-of-thinking-clearly.html",
+            genre: "Psychology, Decision Making"
+        },
+        {
+            title: "The 48 Laws of Power",
+            author: "Robert Greene",
+            year: 2024,
+            verdict: "recommended",
+            verdictLabel: "Recommended",
+            slug: "books/the-48-laws-of-power.html",
+            genre: "Strategy, Power"
+        },
+
+        /* ── Optional ── */
+        {
+            title: "Ikigai",
+            author: "Héctor García & Francesc Miralles",
+            year: 2024,
+            verdict: "optional",
+            verdictLabel: "Optional",
+            slug: "books/ikigai.html",
+            genre: "Philosophy, Life Purpose"
+        },
+        {
+            title: "Shoe Dog",
+            author: "Phil Knight",
+            year: 2023,
+            verdict: "optional",
+            verdictLabel: "Optional",
+            slug: "books/shoe-dog.html",
+            genre: "Biography, Business"
+        },
+        {
+            title: "The Subtle Art of Not Giving a F*ck",
+            author: "Mark Manson",
+            year: 2024,
+            verdict: "optional",
+            verdictLabel: "Optional",
+            slug: "books/the-subtle-art-of-not-giving.html",
+            genre: "Self-Help, Philosophy"
+        },
+        {
+            title: "How to Talk to Anyone",
+            author: "Leil Lowndes",
+            year: 2023,
+            verdict: "optional",
+            verdictLabel: "Optional",
+            slug: "books/how-to-talk-to-anyone.html",
+            genre: "Communication, Social Skills"
+        },
+        {
+            title: "Grit",
+            author: "Angela Duckworth",
+            year: 2023,
+            verdict: "optional",
+            verdictLabel: "Optional",
+            slug: "books/grit.html",
+            genre: "Psychology, Self-Help"
+        }
+    ];
+
+    /* ================================================
+       renderBooks(filtered)
+       ------------------------------------------------
+       Clears the #books-list container and fills it
+       with one <a> row per book in the filtered array.
+       Also updates the count label and toggles the
+       empty-state message.
+    ================================================ */
+    function renderBooks(filtered) {
+        var list  = document.getElementById('books-list');
+        var empty = document.getElementById('books-empty');
+        var label = document.getElementById('books-count-label');
+
+        list.innerHTML = ''; // clear previous rows
+
+        // No results → show empty state, hide list
+        if (!filtered.length) {
+            empty.style.display  = 'block';
+            list.style.display   = 'none';
+            label.textContent    = '0 books';
+            return;
         }
 
-        // Also allow keyboard activation (Enter / Space)
-        document.addEventListener('keydown', function(e) {
-            if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('book-card-header')) {
-                e.preventDefault();
-                toggleBookNotes(e.target);
-            }
+        // Has results → hide empty state, show list
+        empty.style.display = 'none';
+        list.style.display  = 'flex';
+        label.textContent   = filtered.length + ' book' + (filtered.length !== 1 ? 's' : '');
+
+        // Build one row for each book
+        filtered.forEach(function(book) {
+            var item = document.createElement('a');
+            item.href      = book.slug;         // links to /books/[name].html
+            item.className = 'book-list-item reveal';
+            item.setAttribute('role', 'listitem');
+            item.setAttribute('aria-label', book.title + ' by ' + book.author + ' — ' + book.verdictLabel);
+
+            item.innerHTML =
+                /* Left side: dot + title + author */
+                '<div class="book-list-left">' +
+                    '<span class="book-verdict-dot ' + book.verdict + '" aria-hidden="true"></span>' +
+                    '<span class="book-list-title">'  + book.title  + '</span>' +
+                    '<span class="book-list-author">' + book.author + '</span>' +
+                '</div>' +
+                /* Right side: year + verdict pill + arrow */
+                '<div class="book-list-right">' +
+                    '<span class="book-list-year">' + book.year + '</span>' +
+                    '<span class="book-list-verdict ' + book.verdict + '">' + book.verdictLabel + '</span>' +
+                    '<i class="fas fa-arrow-right book-list-arrow" aria-hidden="true"></i>' +
+                '</div>';
+
+            list.appendChild(item);
         });
+
+        // Trigger scroll-reveal animation for newly added rows
+        list.querySelectorAll('.reveal:not(.visible)').forEach(function(el) {
+            el.classList.add('visible');
+        });
+    }
+
+    /* ================================================
+       buildYearFilters()
+       ------------------------------------------------
+       Reads unique years from BOOKS[] and creates
+       pill buttons: [All] [2023] [2024] [2025]
+       The "All" button is active by default.
+    ================================================ */
+    function buildYearFilters() {
+        // Collect unique years and sort newest-first
+        var years = Array.from(
+            new Set(BOOKS.map(function(b) { return b.year; }))
+        ).sort(function(a, b) { return b - a; });
+
+        var container = document.getElementById('year-filters');
+
+        // "All" button
+        var allBtn = document.createElement('button');
+        allBtn.className            = 'year-btn active';
+        allBtn.textContent          = 'All';
+        allBtn.dataset.year         = 'all';
+        allBtn.setAttribute('aria-pressed', 'true');
+        allBtn.id                   = 'year-btn-all';
+        container.appendChild(allBtn);
+
+        // One button per unique year
+        years.forEach(function(year) {
+            var btn = document.createElement('button');
+            btn.className           = 'year-btn';
+            btn.textContent         = year;
+            btn.dataset.year        = String(year);
+            btn.setAttribute('aria-pressed', 'false');
+            btn.id                  = 'year-btn-' + year;
+            container.appendChild(btn);
+        });
+    }
+
+    /* ================================================
+       FILTER STATE
+       activeYear  — 'all' or a specific year string
+       searchQuery — current text in the search box
+    ================================================ */
+    var activeYear   = 'all';
+    var searchQuery  = '';
+
+    /* filterBooks() — applies both filters and re-renders */
+    function filterBooks() {
+        var filtered = BOOKS.filter(function(book) {
+            // Year filter
+            var matchesYear = activeYear === 'all' ||
+                              book.year === parseInt(activeYear);
+            // Search filter (title, author, genre — case-insensitive)
+            var q = searchQuery.toLowerCase().trim();
+            var matchesSearch = !q ||
+                book.title.toLowerCase().includes(q)  ||
+                book.author.toLowerCase().includes(q) ||
+                (book.genre && book.genre.toLowerCase().includes(q));
+            return matchesYear && matchesSearch;
+        });
+        renderBooks(filtered);
+    }
+
+    /* ================================================
+       INIT — runs after the DOM is ready
+    ================================================ */
+    document.addEventListener('DOMContentLoaded', function() {
+
+        buildYearFilters();                 // create year pill buttons
+        renderBooks(BOOKS);                 // show all books on first load
+        document.getElementById('books-count-label').textContent =
+            BOOKS.length + ' books';        // "8 books" label
+
+        /* ── Year filter: click any pill ── */
+        document.getElementById('year-filters').addEventListener('click', function(e) {
+            var btn = e.target.closest('.year-btn');
+            if (!btn) return;
+
+            // Deactivate all, activate clicked one
+            document.querySelectorAll('.year-btn').forEach(function(b) {
+                b.classList.remove('active');
+                b.setAttribute('aria-pressed', 'false');
+            });
+            btn.classList.add('active');
+            btn.setAttribute('aria-pressed', 'true');
+
+            activeYear = btn.dataset.year;
+            filterBooks();
+        });
+
+        /* ── Search: debounce input by 180ms to avoid re-rendering on every keystroke ── */
+        var searchInput   = document.getElementById('books-search');
+        var debounceTimer;
+        searchInput.addEventListener('input', function() {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(function() {
+                searchQuery = searchInput.value;
+                filterBooks();
+            }, 180);
+        });
+    });
     </script>
+
 </body>
 </html>
