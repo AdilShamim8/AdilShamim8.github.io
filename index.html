@@ -90,32 +90,32 @@
         <div class="container">
             <div class="hero-layout">
                 <div class="hero-text">
-                    <h1 class="hero-title fade-in">Adil Shamim</h1>
-                    <p class="hero-subtitle fade-in delay-1">AI/ML Engineer — Bengali Speech AI · Production Systems · GenAI</p>
-                    <p class="hero-description fade-in delay-2">I build production ML systems that ship. Published first-author research on Bengali speaker diarization (BUET CSE Fest 2026), achieved 56% inference speedup via knowledge distillation. Kaggle Competitions Master — Global Rank #29, Top 1%.</p>
-                    <p class="hero-description fade-in delay-2">Currently: Building AI-powered tools at Toolly.</p>
-                    <p class="hero-description hero-hiring fade-in delay-3"><strong>Looking for: AI/ML Engineer roles at global AI startups.</strong></p>
+                    <!-- Availability pill -->
+                    <div class="hero-badge fade-in">
+                        <span class="hero-badge-dot"></span>
+                        Available for AI/ML roles
+                    </div>
+                    <h1 class="hero-title fade-in delay-1">Adil Shamim</h1>
+                    <p class="hero-subtitle fade-in delay-2">I build production AI systems that hold up in the real world.</p>
+                    <p class="hero-description fade-in delay-2">AI/ML Engineer focused on Bengali Speech AI, production ML systems, and GenAI. I turn research ideas into reliable, measurable products.</p>
+                    <p class="hero-description fade-in delay-2">First-author researcher on Bengali speaker diarization (BUET CSE Fest 2026), with 56% faster inference through knowledge distillation. Kaggle Competitions Master, Global Rank #29 (Top 1%).</p>
+                    <p class="hero-description fade-in delay-2">Currently building AI-powered tools at Toolly.</p>
+                    <div class="philosophy-content hero-philosophy fade-in delay-3">
+                        <h2 class="philosophy-heading">How I Think</h2>
+                        <p class="philosophy-text">I optimize for production impact, not leaderboard accuracy.</p>
+                        <p class="philosophy-text">Every system starts with constraints first: latency budget, drift risk, and the real cost of a wrong prediction.</p>
+                        <p class="philosophy-text">In real teams, 60-70% of AI/ML is software engineering. I build robust pipelines and monitoring so failures are detected before users feel them.</p>
+                    </div>
                     <div class="hero-actions fade-in delay-3">
                         <a href="assets/docs/AdilShamim_ML_Engineer_Resume.pdf" class="hero-cta" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-alt"></i> View Resume</a>
                         <a href="https://github.com/AdilShamim8" class="hero-secondary-cta" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="https://www.linkedin.com/in/adilshamim8" class="hero-secondary-cta" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
                         <a href="#contact" class="hero-secondary-cta"><i class="fas fa-envelope"></i> Let's Talk</a>
                     </div>
                 </div>
                 <div class="hero-image fade-in delay-2">
                     <img src="assets/images/Adil.jpeg" alt="Adil Shamim — AI/ML Engineer specializing in Bengali Speech AI and Production Systems" class="hero-photo" width="250" height="250" loading="eager" decoding="async">
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How I Think Section -->
-    <section id="philosophy" class="section philosophy-section">
-        <div class="container">
-            <div class="philosophy-content">
-                <h2 class="philosophy-heading">How I Think</h2>
-                <p class="philosophy-text">I don't optimize for accuracy. I optimize for production impact.</p>
-                <p class="philosophy-text">Every system I build starts with the constraint, not the model. What's the latency budget? What happens when data drifts? What does a wrong prediction cost the business?</p>
-                <p class="philosophy-text">60–70% of AI/ML engineering is software engineering. I build systems that don't break — and when they do, I've already built the monitoring to catch it.</p>
             </div>
         </div>
     </section>
@@ -210,7 +210,7 @@
                     <span class="blog-item-title">Semantic Search with SBERT &amp; FAISS</span>
                     <span class="blog-item-meta">NLP</span>
                 </a>
-                <a href="https://adilshamim8.medium.com/" class="blog-item" target="_blank" rel="noopener">
+                <a href="https://adilshamim8.medium.com/how-youtube-recommends-videos-to-2-billion-users-in-under-200ms-ff8db1cae188/" class="blog-item" target="_blank" rel="noopener">
                     <span class="blog-item-title">Building Recommendation Systems</span>
                     <span class="blog-item-meta">RecSys</span>
                 </a>
@@ -310,16 +310,28 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <p class="footer-copy">&copy; <span id="current-year"></span> Adil Shamim.</p>
-                <div class="footer-links">
-                    <a href="assets/docs/AdilShamim_ML_Engineer_Resume.pdf" class="footer-resume-link" target="_blank" rel="noopener noreferrer">Resume</a>
+                <!-- Left: brand + copyright -->
+                <div class="footer-brand">
+                    <span class="footer-logo">AdilShamim.</span>
+                    <span class="footer-copy">&copy; <span id="current-year"></span> Adil Shamim. All rights reserved.</span>
                 </div>
-                <div class="footer-socials">
-                    <a href="https://github.com/AdilShamim8" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/adilshamim8" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://www.kaggle.com/adilshamim8" target="_blank" rel="noopener" aria-label="Kaggle"><i class="fab fa-kaggle"></i></a>
-                    <a href="https://adilshamim8.medium.com/" target="_blank" rel="noopener" aria-label="Medium"><i class="fab fa-medium"></i></a>
-                    <a href="https://x.com/adil_shamim8" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <!-- Center: memorable tagline -->
+                <p class="footer-tagline">Built with curiosity. Shipped with care.</p>
+                <!-- Right: quick nav + socials -->
+                <div>
+                    <nav class="footer-nav" aria-label="Footer navigation">
+                        <a href="#projects">Projects</a>
+                        <a href="#about">About</a>
+                        <a href="#contact">Contact</a>
+                        <a href="My_Story.html">My Story</a>
+                    </nav>
+                    <div class="footer-socials">
+                        <a href="https://github.com/AdilShamim8" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/adilshamim8" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.kaggle.com/adilshamim8" target="_blank" rel="noopener" aria-label="Kaggle"><i class="fab fa-kaggle"></i></a>
+                        <a href="https://adilshamim8.medium.com/" target="_blank" rel="noopener" aria-label="Medium"><i class="fab fa-medium"></i></a>
+                        <a href="https://x.com/adil_shamim8" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
