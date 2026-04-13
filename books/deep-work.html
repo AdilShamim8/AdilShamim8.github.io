@@ -1,0 +1,243 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Work — Book Notes | Adil Shamim</title>
+    <meta name="description" content="My notes, key lessons, and honest opinion on Deep Work by Cal Newport.">
+    <meta name="author" content="Adil Shamim">
+    <link rel="canonical" href="https://adilshamim8.github.io/books/deep-work.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/chatbot.css">
+    <link rel="shortcut icon" href="https://adilshamim8.github.io/assets/images/Adil.jpeg" type="image/x-icon">
+    <style>
+        /* Book page layout — same structure used on every /books/ page */
+        .book-page { padding-top: 120px; padding-bottom: 100px; }
+        .book-page-inner { max-width: 720px; margin: 0 auto; }
+        .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 0.875rem; font-weight: 500; color: var(--text-secondary); margin-bottom: 40px; transition: color var(--transition), gap var(--transition); }
+        .back-link:hover { color: var(--accent); gap: 10px; }
+        .book-hero { margin-bottom: 48px; }
+        .book-genre-tag { display: inline-block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); background: var(--accent-light); padding: 4px 12px; border-radius: 20px; margin-bottom: 16px; }
+        .book-page-title { font-family: 'Newsreader', Georgia, serif; font-size: clamp(1.875rem, 4vw, 2.75rem); font-weight: 600; letter-spacing: -0.03em; line-height: 1.2; color: var(--text); margin-bottom: 10px; }
+        .book-page-author { font-size: 1rem; color: var(--text-secondary); margin-bottom: 24px; }
+        .book-meta-row { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; padding: 16px 20px; background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: 10px; }
+        .book-meta-item { display: flex; align-items: center; gap: 8px; font-size: 0.8125rem; color: var(--text-secondary); }
+        .book-meta-item i { color: var(--accent); font-size: 0.75rem; }
+        .book-meta-item strong { color: var(--text); }
+        .verdict-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 0.8125rem; font-weight: 700; padding: 6px 16px; border-radius: 20px; }
+        .verdict-badge.must-read    { background: rgba(34,197,94,0.12);  color: #16a34a; }
+        .verdict-badge.recommended  { background: rgba(245,158,11,0.12); color: #d97706; }
+        .verdict-badge.optional     { background: rgba(148,163,184,0.12);color: #64748b; }
+        [data-theme="dark"] .verdict-badge.must-read   { background: rgba(34,197,94,0.15);  color: #4ade80; }
+        [data-theme="dark"] .verdict-badge.recommended { background: rgba(245,158,11,0.15); color: #fbbf24; }
+        [data-theme="dark"] .verdict-badge.optional    { background: rgba(148,163,184,0.15);color: #94a3b8; }
+        .book-section { margin-bottom: 44px; }
+        .book-section-label { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 14px; }
+        .book-section-heading { font-family: 'Newsreader', Georgia, serif; font-size: 1.375rem; font-weight: 600; letter-spacing: -0.02em; color: var(--text); margin-bottom: 16px; }
+        .book-prose { font-size: 0.9375rem; line-height: 1.85; color: var(--text-secondary); }
+        .book-prose p { margin-bottom: 16px; }
+        .book-prose p:last-child { margin-bottom: 0; }
+        .book-prose strong { color: var(--text); font-weight: 600; }
+        .lessons-list { display: flex; flex-direction: column; gap: 20px; }
+        .lesson-item { display: flex; gap: 16px; padding: 20px; background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: 12px; transition: border-color var(--transition), box-shadow var(--transition); }
+        .lesson-item:hover { border-color: var(--accent-light); box-shadow: 0 4px 16px rgba(47,143,107,0.08); }
+        .lesson-number { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--accent-light); color: var(--accent); font-size: 0.75rem; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+        .lesson-content { flex: 1; }
+        .lesson-title { font-size: 0.9375rem; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+        .lesson-desc  { font-size: 0.875rem; line-height: 1.7; color: var(--text-secondary); }
+        .book-quote { border-left: 3px solid var(--accent); padding: 20px 20px 20px 24px; background: var(--accent-light); border-radius: 0 10px 10px 0; margin: 32px 0; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 1.0625rem; line-height: 1.7; color: var(--text); }
+        .verdict-box { border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+        .verdict-box-header { padding: 16px 20px; background: var(--bg-secondary); border-bottom: 1px solid var(--border-light); display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+        .verdict-box-title { font-size: 0.875rem; font-weight: 600; color: var(--text); }
+        .verdict-box-body { padding: 20px; }
+        .verdict-box-body p { font-size: 0.9375rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 14px; }
+        .verdict-box-body p:last-child { margin-bottom: 0; }
+        .verdict-box-body strong { color: var(--text); }
+        .read-for-list { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
+        .read-for-item { display: flex; align-items: flex-start; gap: 10px; font-size: 0.875rem; line-height: 1.6; color: var(--text-secondary); }
+        .read-for-item i { flex-shrink: 0; margin-top: 2px; font-size: 0.75rem; }
+        .read-for-item.yes i { color: #22c55e; }
+        .read-for-item.no  i { color: #f87171; }
+        .book-divider { border: none; border-top: 1px solid var(--border-light); margin: 40px 0; }
+        .book-nav { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border-light); }
+        .book-nav-link { display: flex; flex-direction: column; gap: 4px; text-decoration: none; padding: 14px 18px; border: 1px solid var(--border); border-radius: 10px; flex: 1; max-width: 220px; transition: all var(--transition); }
+        .book-nav-link:hover { border-color: var(--accent); background: var(--accent-light); }
+        .book-nav-label { font-size: 0.75rem; color: var(--text-tertiary); font-weight: 500; }
+        .book-nav-title { font-size: 0.875rem; font-weight: 600; color: var(--text); }
+        .book-nav-link.next { text-align: right; margin-left: auto; }
+        @media (max-width: 640px) {
+            .book-meta-row { gap: 12px; }
+            .book-nav { flex-direction: column; }
+            .book-nav-link { max-width: 100%; width: 100%; }
+            .book-nav-link.next { text-align: left; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Navbar -->
+    <nav class="navbar" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">AdilShamim.</a>
+            <div class="nav-right">
+                <ul class="nav-menu" id="primary-menu" aria-label="Primary">
+                    <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
+                    <li><a href="../index.html#blog"     class="nav-link">Blog</a></li>
+                    <li><a href="../index.html#about"    class="nav-link">About</a></li>
+                    <li><a href="../index.html#contact"  class="nav-link">Contact</a></li>
+                    <li><a href="../My_Story.html"       class="nav-link active">My Story</a></li>
+                </ul>
+                <button id="theme-toggle" class="theme-btn" aria-label="Switch to dark mode" aria-pressed="false"><i class="fas fa-moon"></i></button>
+                <button class="menu-toggle" id="mobile-menu" aria-label="Toggle navigation menu" aria-controls="primary-menu" aria-expanded="false">
+                    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+    <section class="section book-page">
+        <div class="container">
+            <div class="book-page-inner">
+
+                <a href="../My_Story.html#books" class="back-link"><i class="fas fa-arrow-left"></i> Back to Books</a>
+
+                <!-- ── HERO ── -->
+                <header class="book-hero">
+                    <span class="book-genre-tag">Productivity &amp; Focus</span>
+                    <h1 class="book-page-title">Deep Work</h1>
+                    <p class="book-page-author">by Cal Newport &mdash; Read in 2023</p>
+                    <div class="book-meta-row">
+                        <div class="book-meta-item"><i class="fas fa-calendar"></i><span>Year Read: <strong>2023</strong></span></div>
+                        <div class="book-meta-item"><i class="fas fa-clock"></i><span>Read Time: <strong>~7 hours</strong></span></div>
+                        <div class="book-meta-item"><i class="fas fa-star"></i><span>My Rating: <strong>9 / 10</strong></span></div>
+                        <div class="verdict-badge must-read" role="status"><i class="fas fa-check-circle"></i> Must Read</div>
+                    </div>
+                </header>
+
+                <!-- ── SUMMARY ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Learning Summary</p>
+                    <h2 class="book-section-heading">What this book is really about</h2>
+                    <div class="book-prose">
+                        <p>Deep Work is the book that convinced me to treat focused work not as a luxury but as a professional skill to be deliberately trained. Cal Newport's thesis: <strong>the ability to focus without distraction on cognitively demanding tasks is becoming increasingly rare and increasingly valuable.</strong></p>
+                        <p>Newport defines "deep work" as professional activities performed in a state of distraction-free concentration that push your cognitive capabilities to their limit. Contrast that with "shallow work" — email, meetings, admin tasks that don't require full focus and are easy to replicate.</p>
+                        <p>As an ML engineer, deep work is how I write good research code, debug subtle model architectures, and learn complex papers. Everything else is noise that makes me feel busy but produces little real output.</p>
+                    </div>
+                </div>
+
+                <blockquote class="book-quote">
+                    "Clarity about what matters provides clarity about what does not."
+                </blockquote>
+
+                <!-- ── KEY LESSONS ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Key Lessons</p>
+                    <h2 class="book-section-heading">4 ideas that restructured my workday</h2>
+                    <div class="lessons-list">
+
+                        <div class="lesson-item reveal">
+                            <div class="lesson-number">1</div>
+                            <div class="lesson-content">
+                                <div class="lesson-title">Deep work is a skill, not a personality trait</div>
+                                <div class="lesson-desc">Newport dismantles the myth that some people are just "naturally focused." Like any skill, depth is trained. He prescribes working in scheduled blocks of intense focus (no phone, no tabs, one task) and treating distraction like a muscle that weakens with disuse.</div>
+                            </div>
+                        </div>
+
+                        <div class="lesson-item reveal">
+                            <div class="lesson-number">2</div>
+                            <div class="lesson-content">
+                                <div class="lesson-title">Schedule every minute of your workday</div>
+                                <div class="lesson-desc">Newport's "time-block planning" approach sounds extreme but works: before each day starts, plan every hour. When interruptions happen (they will), replan. This stopped me from defaulting to email when I didn't know what to do next — the plan decides what's next.</div>
+                            </div>
+                        </div>
+
+                        <div class="lesson-item reveal">
+                            <div class="lesson-number">3</div>
+                            <div class="lesson-content">
+                                <div class="lesson-title">Quit social media (or at least be intentional about it)</div>
+                                <div class="lesson-desc">Newport's "any-benefit" mindset trap: we justify using social media because it has some benefit. His alternative: only use tools if the benefits substantially outweigh the costs. I reduced Twitter time by 80% — replaced it with focused reading.</div>
+                            </div>
+                        </div>
+
+                        <div class="lesson-item reveal">
+                            <div class="lesson-number">4</div>
+                            <div class="lesson-content">
+                                <div class="lesson-title">Drain the shallows ruthlessly</div>
+                                <div class="lesson-desc">Shallow tasks (email, admin, Slack) will expand to fill all available time unless you constrain them. Newport recommends batching all shallow work into short windows so the rest of the day is available for deep output. I check email twice daily now, and my output doubled.</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <hr class="book-divider">
+
+                <!-- ── OPINION ── -->
+                <div class="book-section">
+                    <p class="book-section-label">My Honest Opinion</p>
+                    <h2 class="book-section-heading">Should you read it?</h2>
+                    <div class="verdict-box">
+                        <div class="verdict-box-header">
+                            <span class="verdict-box-title">Adil's Verdict</span>
+                            <div class="verdict-badge must-read"><i class="fas fa-check-circle"></i> Must Read</div>
+                        </div>
+                        <div class="verdict-box-body">
+                            <p>Deep Work is essential reading for any knowledge worker who feels chronically distracted and wonders why they're putting in long hours but producing mediocre output. It names the problem clearly and offers concrete, actionable frameworks.</p>
+                            <p>Part one (the case for deep work) can feel repetitive if you already agree with the premise. Part two (the rules) is where the real value lives and is worth reading slowly and annotating.</p>
+                            <p><strong>For engineers, researchers, and writers — this is mandatory reading.</strong> The world is getting noisier. Depth is a competitive advantage.</p>
+                        </div>
+                    </div>
+                    <div style="margin-top: 24px;">
+                        <p style="font-size:0.875rem; font-weight:600; color:var(--text); margin-bottom:12px;">Read this if you are…</p>
+                        <div class="read-for-list">
+                            <div class="read-for-item yes"><i class="fas fa-check-circle"></i><span>An engineer, researcher, or writer who keeps getting interrupted and never finishes the important work</span></div>
+                            <div class="read-for-item yes"><i class="fas fa-check-circle"></i><span>Someone who spends hours on email and Slack but feels unproductive at the end of the day</span></div>
+                            <div class="read-for-item yes"><i class="fas fa-check-circle"></i><span>Anyone who wants to build expertise faster — deep practice is how skills compound</span></div>
+                            <div class="read-for-item no"><i class="fas fa-times-circle"></i><span>Someone in a job that genuinely requires constant real-time collaboration — Newport's ideas need adaptation</span></div>
+                            <div class="read-for-item no"><i class="fas fa-times-circle"></i><span>Looking for quick tips — this is a philosophical re-architecture of your work life</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book navigation -->
+                <nav class="book-nav" aria-label="Book navigation">
+                    <a href="atomic-habits.html" class="book-nav-link">
+                        <span class="book-nav-label"><i class="fas fa-arrow-left"></i> Previous</span>
+                        <span class="book-nav-title">Atomic Habits</span>
+                    </a>
+                    <a href="the-lean-startup.html" class="book-nav-link next">
+                        <span class="book-nav-label">Next Book <i class="fas fa-arrow-right"></i></span>
+                        <span class="book-nav-title">The Lean Startup</span>
+                    </a>
+                </nav>
+
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-copy">&copy; <span id="current-year"></span> Adil Shamim.</p>
+                <p class="footer-thanks">Thanks for visiting my portfolio website.</p>
+                <div class="footer-socials">
+                    <a href="https://github.com/AdilShamim8"          target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/adilshamim8" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.kaggle.com/adilshamim8"      target="_blank" rel="noopener" aria-label="Kaggle"><i class="fab fa-kaggle"></i></a>
+                    <a href="https://adilshamim8.medium.com/"         target="_blank" rel="noopener" aria-label="Medium"><i class="fab fa-medium"></i></a>
+                    <a href="https://x.com/adil_shamim8"              target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../assets/js/script.js" defer></script>
+    <script src="../assets/js/chatbot.js" defer></script>
+</body>
+</html>

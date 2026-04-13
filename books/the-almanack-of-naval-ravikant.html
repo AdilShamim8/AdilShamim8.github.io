@@ -1,0 +1,564 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Almanack of Naval Ravikant — Book Notes | Adil Shamim</title>
+    <meta name="description" content="My notes, key lessons, and honest opinion on The Almanack of Naval Ravikant by Eric Jorgenson. Should you read it?">
+    <meta name="author" content="Adil Shamim">
+    <link rel="canonical" href="https://adilshamim8.github.io/books/the-almanack-of-naval-ravikant.html">
+
+    <!-- Google Fonts: Inter (body) + Newsreader (headings) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Main site stylesheet (shared with all pages) -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
+
+    <!-- Chatbot stylesheet -->
+    <link rel="stylesheet" href="../assets/css/chatbot.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://adilshamim8.github.io/assets/images/Adil.jpeg" type="image/x-icon">
+
+    <style>
+        /* ================================================
+           BOOK PAGE — LOCAL STYLES
+           These styles are only used on individual book
+           pages inside the /books/ folder.
+           The main design tokens (colors, fonts, etc.)
+           come from /assets/css/styles.css
+        ================================================ */
+
+        /* ── Page wrapper: push content below fixed navbar ── */
+        .book-page {
+            padding-top: 120px;
+            padding-bottom: 100px;
+        }
+
+        /* ── Limit reading width so text doesn't stretch too wide ── */
+        .book-page-inner {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        /* ── "← Back to Books" link at the top ── */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            transition: color var(--transition), gap var(--transition);
+        }
+        .back-link:hover {
+            color: var(--accent);
+            gap: 10px; /* arrow slides right on hover */
+        }
+
+        /* ── Book hero: genre tag + title + author ── */
+        .book-hero { margin-bottom: 48px; }
+
+        .book-genre-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--accent);
+            background: var(--accent-light);
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+
+        .book-page-title {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: clamp(1.875rem, 4vw, 2.75rem);
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+
+        .book-page-author {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        /* ── Metadata row: year, read time, rating, verdict ── */
+        .book-meta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+            padding: 16px 20px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-light);
+            border-radius: 10px;
+        }
+
+        .book-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+        }
+
+        .book-meta-item i { color: var(--accent); font-size: 0.75rem; }
+        .book-meta-item strong { color: var(--text); }
+
+        /* ── Verdict badge (green/amber/grey pill) ── */
+        .verdict-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.8125rem;
+            font-weight: 700;
+            padding: 6px 16px;
+            border-radius: 20px;
+        }
+
+        /* Three verdict states */
+        .verdict-badge.must-read    { background: rgba(34,197,94,0.12);  color: #16a34a; }
+        .verdict-badge.recommended  { background: rgba(245,158,11,0.12); color: #d97706; }
+        .verdict-badge.optional     { background: rgba(148,163,184,0.12);color: #64748b; }
+
+        /* Dark mode overrides */
+        [data-theme="dark"] .verdict-badge.must-read   { background: rgba(34,197,94,0.15);  color: #4ade80; }
+        [data-theme="dark"] .verdict-badge.recommended { background: rgba(245,158,11,0.15); color: #fbbf24; }
+        [data-theme="dark"] .verdict-badge.optional    { background: rgba(148,163,184,0.15);color: #94a3b8; }
+
+        /* ── Section label (small uppercase text above headings) ── */
+        .book-section { margin-bottom: 44px; }
+
+        .book-section-label {
+            font-size: 0.6875rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            margin-bottom: 14px;
+        }
+
+        .book-section-heading {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.375rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--text);
+            margin-bottom: 16px;
+        }
+
+        /* ── Prose paragraphs (body text) ── */
+        .book-prose { font-size: 0.9375rem; line-height: 1.85; color: var(--text-secondary); }
+        .book-prose p { margin-bottom: 16px; }
+        .book-prose p:last-child { margin-bottom: 0; }
+        .book-prose strong { color: var(--text); font-weight: 600; }
+
+        /* ── Key lessons: numbered card list ── */
+        .lessons-list { display: flex; flex-direction: column; gap: 20px; }
+
+        .lesson-item {
+            display: flex;
+            gap: 16px;
+            padding: 20px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            transition: border-color var(--transition), box-shadow var(--transition);
+        }
+
+        .lesson-item:hover {
+            border-color: var(--accent-light);
+            box-shadow: 0 4px 16px rgba(47,143,107,0.08);
+        }
+
+        /* Circular number badge on the left */
+        .lesson-number {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--accent-light);
+            color: var(--accent);
+            font-size: 0.75rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lesson-content { flex: 1; }
+        .lesson-title { font-size: 0.9375rem; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+        .lesson-desc  { font-size: 0.875rem; line-height: 1.7; color: var(--text-secondary); }
+
+        /* ── Pull quote with accent left border ── */
+        .book-quote {
+            position: relative;
+            border-left: 3px solid var(--accent);
+            padding: 20px 20px 20px 24px;
+            background: var(--accent-light);
+            border-radius: 0 10px 10px 0;
+            margin: 32px 0;
+            font-family: 'Newsreader', Georgia, serif;
+            font-style: italic;
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            color: var(--text);
+        }
+
+        /* ── Opinion/verdict box ── */
+        .verdict-box { border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+
+        .verdict-box-header {
+            padding: 16px 20px;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .verdict-box-title { font-size: 0.875rem; font-weight: 600; color: var(--text); }
+
+        .verdict-box-body { padding: 20px; }
+        .verdict-box-body p { font-size: 0.9375rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 14px; }
+        .verdict-box-body p:last-child { margin-bottom: 0; }
+        .verdict-box-body strong { color: var(--text); }
+
+        /* ── Who should / should NOT read this ── */
+        .read-for-list { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
+
+        .read-for-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.875rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .read-for-item i { flex-shrink: 0; margin-top: 2px; font-size: 0.75rem; }
+        .read-for-item.yes i { color: #22c55e; }  /* green checkmark */
+        .read-for-item.no  i { color: #f87171; }  /* red cross    */
+
+        /* ── Horizontal rule between sections ── */
+        .book-divider { border: none; border-top: 1px solid var(--border-light); margin: 40px 0; }
+
+        /* ── Prev / Next book navigation at the bottom ── */
+        .book-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .book-nav-link {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            text-decoration: none;
+            padding: 14px 18px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            flex: 1;
+            max-width: 220px;
+            transition: all var(--transition);
+        }
+
+        .book-nav-link:hover { border-color: var(--accent); background: var(--accent-light); }
+        .book-nav-label { font-size: 0.75rem; color: var(--text-tertiary); font-weight: 500; }
+        .book-nav-title { font-size: 0.875rem; font-weight: 600; color: var(--text); }
+        .book-nav-link.next { text-align: right; margin-left: auto; }
+
+        /* ── Mobile adjustments ── */
+        @media (max-width: 640px) {
+            .book-meta-row { gap: 12px; }
+            .book-nav { flex-direction: column; }
+            .book-nav-link { max-width: 100%; width: 100%; }
+            .book-nav-link.next { text-align: left; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Skip to main content (accessibility) -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- ═══════════════════════════════════════
+         NAVBAR — shared across all pages
+    ═══════════════════════════════════════ -->
+    <nav class="navbar" aria-label="Main navigation">
+        <div class="nav-container">
+            <!-- Logo / home link -->
+            <a href="../index.html" class="nav-logo">AdilShamim.</a>
+
+            <div class="nav-right">
+                <!-- Primary nav links -->
+                <ul class="nav-menu" id="primary-menu" aria-label="Primary">
+                    <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
+                    <li><a href="../index.html#blog"     class="nav-link">Blog</a></li>
+                    <li><a href="../index.html#about"    class="nav-link">About</a></li>
+                    <li><a href="../index.html#contact"  class="nav-link">Contact</a></li>
+                    <!-- "My Story" is active because we came from there -->
+                    <li><a href="../My_Story.html" class="nav-link active">My Story</a></li>
+                </ul>
+
+                <!-- Dark / light mode toggle -->
+                <button id="theme-toggle" class="theme-btn" aria-label="Switch to dark mode" aria-pressed="false">
+                    <i class="fas fa-moon"></i>
+                </button>
+
+                <!-- Hamburger button for mobile -->
+                <button class="menu-toggle" id="mobile-menu"
+                        aria-label="Toggle navigation menu"
+                        aria-controls="primary-menu"
+                        aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════
+         MAIN CONTENT
+    ═══════════════════════════════════════ -->
+    <main id="main-content">
+    <section class="section book-page">
+        <div class="container">
+            <div class="book-page-inner">
+
+                <!-- ── Back arrow link ── -->
+                <a href="../My_Story.html#books" class="back-link">
+                    <i class="fas fa-arrow-left"></i> Back to Books
+                </a>
+
+                <!-- ════════════════════════════════
+                     BOOK HERO — title, author, meta
+                ════════════════════════════════ -->
+                <header class="book-hero">
+                    <!-- Genre pill tag -->
+                    <span class="book-genre-tag">Philosophy &amp; Wealth</span>
+
+                    <!-- Book title (h1 for SEO — one per page) -->
+                    <h1 class="book-page-title">The Almanack of Naval Ravikant</h1>
+
+                    <!-- Author + year read -->
+                    <p class="book-page-author">by Eric Jorgenson &mdash; Read in 2024</p>
+
+                    <!-- Quick stats row -->
+                    <div class="book-meta-row">
+                        <div class="book-meta-item">
+                            <i class="fas fa-calendar"></i>
+                            <span>Year Read: <strong>2024</strong></span>
+                        </div>
+                        <div class="book-meta-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Read Time: <strong>~5 hours</strong></span>
+                        </div>
+                        <div class="book-meta-item">
+                            <i class="fas fa-star"></i>
+                            <span>My Rating: <strong>9.5 / 10</strong></span>
+                        </div>
+                        <!-- Verdict badge: must-read | recommended | optional -->
+                        <div class="verdict-badge must-read" role="status">
+                            <i class="fas fa-check-circle"></i> Must Read
+                        </div>
+                    </div>
+                </header>
+
+                <!-- ════════════════════════════════
+                     SECTION 1 — Learning Summary
+                     What the book is really about
+                ════════════════════════════════ -->
+                <div class="book-section">
+                    <p class="book-section-label">Learning Summary</p>
+                    <h2 class="book-section-heading">What this book is really about</h2>
+                    <div class="book-prose">
+                        <p>This is not a typical business book. It's a curated collection of Naval Ravikant's tweets, podcasts, and essays — organized by Eric Jorgenson into a coherent life philosophy. Naval is an Indian-American entrepreneur and investor (co-founder of AngelList) who has spent decades thinking rigorously about wealth, happiness, and how to live a meaningful life.</p>
+                        <p>The book is split into two parts: <strong>Wealth</strong> and <strong>Happiness</strong>. The wealth section is not about making money for its own sake — it's about achieving financial independence so that you can spend your time on things you actually care about.</p>
+                        <p>What makes Naval's thinking exceptional is his ability to compress complex ideas into short, precise principles. This book is a masterclass in first-principles thinking applied to life.</p>
+                    </div>
+                </div>
+
+                <!-- Pull quote from the book -->
+                <blockquote class="book-quote">
+                    "Seek wealth, not money or status. Wealth is having assets that earn while you sleep. Money is how we transfer time and wealth. Status is your place in the social hierarchy."
+                </blockquote>
+
+                <!-- ════════════════════════════════
+                     SECTION 2 — Key Lessons
+                     One numbered card per lesson
+                ════════════════════════════════ -->
+                <div class="book-section">
+                    <p class="book-section-label">Key Lessons</p>
+                    <h2 class="book-section-heading">5 ideas I carry everywhere</h2>
+
+                    <div class="lessons-list">
+
+                        <!-- Lesson 1 -->
+                        <div class="lesson-item reveal">
+                            <div class="lesson-number">1</div>
+                            <div class="lesson-content">
+                                <div class="lesson-title">Leverage is everything in the modern world</div>
+                                <div class="lesson-desc">Naval identifies three types of leverage: labor (people working for you), capital (money), and products (code &amp; media that scale with zero marginal cost). Code and content are the new leverage — they work while you sleep. This is why I invest in building open-source ML tools and writing publicly.</div>
+                            </div>
+                        </div>
+
+                        <!-- Lesson 2 -->
+                        <div class="lesson-item reveal">
+                            <div class="lesson-number">2</div>
+                            <div class="lesson-content">
+                                <div class="lesson-title">Specific knowledge cannot be taught</div>
+                                <div class="lesson-desc">Specific knowledge is found at the intersection of what you're genuinely curious about, what you're good at, and what the world values. It can't be learned from a textbook — it's found by obsessively pursuing your own curiosity. For me, that's Bengali speech AI and low-resource NLP.</div>
+                            </div>
+                        </div>
+
+                        <!-- Lesson 3 -->
+                        <div class="lesson-item reveal">
+                            <div class="lesson-number">3</div>
+                            <div class="lesson-content">
+                                <div class="lesson-title">Play long-term games with long-term people</div>
+                                <div class="lesson-desc">Compound interest works in relationships, knowledge, and trust — not just finance. Every interaction with a collaborator or employer is either building or eroding trust. People who understand compounding build reputations that do work on their behalf.</div>
+                            </div>
+                        </div>
+
+                        <!-- Lesson 4 -->
+                        <div class="lesson-item reveal">
+                            <div class="lesson-number">4</div>
+                            <div class="lesson-content">
+                                <div class="lesson-title">Learn to sell AND build — then you're unstoppable</div>
+                                <div class="lesson-desc">Most engineers can build but not sell. The rare combination of both — making something AND communicating its value — is historically the most powerful position. Engineering is my building. Writing and open source is my selling.</div>
+                            </div>
+                        </div>
+
+                        <!-- Lesson 5 -->
+                        <div class="lesson-item reveal">
+                            <div class="lesson-number">5</div>
+                            <div class="lesson-content">
+                                <div class="lesson-title">Happiness is a skill, not a destination</div>
+                                <div class="lesson-desc">Naval argues that happiness is not something you achieve — it's something you practice. He defines it as the absence of desire, not the fulfilment of desire. This has genuinely changed how I measure personal success.</div>
+                            </div>
+                        </div>
+
+                    </div><!-- end .lessons-list -->
+                </div><!-- end section 2 -->
+
+                <hr class="book-divider">
+
+                <!-- ════════════════════════════════
+                     SECTION 3 — My Honest Opinion
+                     Verdict + who should / shouldn't read
+                ════════════════════════════════ -->
+                <div class="book-section">
+                    <p class="book-section-label">My Honest Opinion</p>
+                    <h2 class="book-section-heading">Should you read it?</h2>
+
+                    <!-- Verdict box with header + body -->
+                    <div class="verdict-box">
+                        <div class="verdict-box-header">
+                            <span class="verdict-box-title">Adil's Verdict</span>
+                            <div class="verdict-badge must-read">
+                                <i class="fas fa-check-circle"></i> Must Read
+                            </div>
+                        </div>
+                        <div class="verdict-box-body">
+                            <p>This book reframed how I think about my entire career. I stopped optimizing for salary and started optimizing for leverage, learning, and long-term compounding. It's why I build open-source tools, write publicly, and chase problems that genuinely excite me.</p>
+                            <p>The writing is incredibly dense — each sentence punches above its weight. You can read the whole book in a weekend, but you'll still be finding new implications six months later.</p>
+                            <p><strong>If you only read one non-technical book this year, make it this one.</strong> It's free online, it's short, and it will change how you think about wealth, time, and happiness.</p>
+                        </div>
+                    </div>
+
+                    <!-- Who should / should not read -->
+                    <div style="margin-top: 24px;">
+                        <p style="font-size:0.875rem; font-weight:600; color:var(--text); margin-bottom:12px;">Read this if you are…</p>
+                        <div class="read-for-list">
+                            <!-- Green = good fit -->
+                            <div class="read-for-item yes">
+                                <i class="fas fa-check-circle"></i>
+                                <span>An engineer who wants to understand how to build financial freedom, not just a job</span>
+                            </div>
+                            <div class="read-for-item yes">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Someone who feels stuck in the rat race and wants a different mental model</span>
+                            </div>
+                            <div class="read-for-item yes">
+                                <i class="fas fa-check-circle"></i>
+                                <span>A builder who's struggling to articulate why they work on what they work on</span>
+                            </div>
+                            <!-- Red = not a good fit -->
+                            <div class="read-for-item no">
+                                <i class="fas fa-times-circle"></i>
+                                <span>Someone looking for step-by-step investment tactics — this is philosophy, not a how-to guide</span>
+                            </div>
+                            <div class="read-for-item no">
+                                <i class="fas fa-times-circle"></i>
+                                <span>Someone wanting a continuous narrative — it's fragmented by design, which some readers find jarring</span>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- end section 3 -->
+
+                <!-- ════════════════════════════════
+                     BOOK NAVIGATION
+                     ← All Books | Next Book →
+                ════════════════════════════════ -->
+                <nav class="book-nav" aria-label="Book navigation">
+                    <!-- Left: go back to the full reading list -->
+                    <a href="../My_Story.html#books" class="book-nav-link">
+                        <span class="book-nav-label"><i class="fas fa-arrow-left"></i> All Books</span>
+                        <span class="book-nav-title">Back to Reading List</span>
+                    </a>
+                    <!-- Right: next book in the list -->
+                    <a href="atomic-habits.html" class="book-nav-link next">
+                        <span class="book-nav-label">Next Book <i class="fas fa-arrow-right"></i></span>
+                        <span class="book-nav-title">Atomic Habits</span>
+                    </a>
+                </nav>
+
+            </div><!-- end .book-page-inner -->
+        </div><!-- end .container -->
+    </section>
+    </main>
+
+    <!-- ═══════════════════════════════════════
+         FOOTER
+    ═══════════════════════════════════════ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-copy">&copy; <span id="current-year"></span> Adil Shamim.</p>
+                <p class="footer-thanks">Thanks for visiting my portfolio website.</p>
+                <div class="footer-socials">
+                    <a href="https://github.com/AdilShamim8"      target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/adilshamim8" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.kaggle.com/adilshamim8"  target="_blank" rel="noopener" aria-label="Kaggle"><i class="fab fa-kaggle"></i></a>
+                    <a href="https://adilshamim8.medium.com/"     target="_blank" rel="noopener" aria-label="Medium"><i class="fab fa-medium"></i></a>
+                    <a href="https://x.com/adil_shamim8"         target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS: navbar, theme toggle, scroll animations, year, etc. -->
+    <script src="../assets/js/script.js" defer></script>
+    <script src="../assets/js/chatbot.js" defer></script>
+
+</body>
+</html>

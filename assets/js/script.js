@@ -178,6 +178,11 @@ function initProjects() {
             constraint: 'Only 4 hours of labeled Bengali data. Off-the-shelf pyannote DER: 35%.',
             approach: 'Domain adaptation on speaker embedding layer only. Knowledge distillation for inference speedup.',
             numbers: 'DER 0.19 · WER 0.37 · 3.4× real-time on CPU · 56% inference speedup',
+            impact: [
+                { number: '56%', label: 'Faster Inference' },
+                { number: '0.19', label: 'DER Achieved' },
+                { number: '3.4×', label: 'Real-Time CPU' }
+            ],
             image: 'assets/images/project-bangla-diarizz.png',
             tags: ['PyTorch', 'pyannote', 'WeSpeaker', 'Knowledge Distillation'],
             paper: 'https://www.researchgate.net/publication/401194830_Bangla_Diarizz_Domain-Adapted_Speaker_Diarization_for_Bengali_Long-Form_Audio',
@@ -192,6 +197,11 @@ function initProjects() {
             constraint: 'Must handle PDF ingestion at scale, be idempotent on re-ingestion, and work across OpenAI, Gemini, and local models.',
             approach: 'PDF → recursive chunking → multi-provider embeddings → Qdrant with deterministic IDs → top-K retrieval → source-aware LLM generation. Durable workflows via Inngest ensure local-first resilience.',
             numbers: 'Multi-provider (OpenAI · Gemini · Ollama) · Idempotent re-ingestion · Grounded, auditable answers · Query routing + context window management',
+            impact: [
+                { number: '3', label: 'LLM Providers' },
+                { number: '0', label: 'Vendor Lock-in' },
+                { number: '100%', label: 'Idempotent' }
+            ],
             image: 'assets/images/project-rag-pipeline.png',
             tags: ['LangChain', 'Qdrant', 'FastAPI', 'Inngest', 'OpenAI', 'GenAI'],
             paper: null,
@@ -206,6 +216,11 @@ function initProjects() {
             constraint: '35+ exchanges, 6 LLM providers, 33 tests. The LLM layer must be 100% replaceable without touching business logic.',
             approach: 'Strict architectural separation: core/ (indicators, risk, data) has zero LLM dependencies. Engineered a 6-provider LLM fallback chain (OpenAI → Anthropic → Google → Ollama → Mistral → Cohere) with template-based fallback and full monitoring stack.',
             numbers: '35+ exchanges · 6 LLM providers · 33 tests · Zero vendor lock-in · Full monitoring stack',
+            impact: [
+                { number: '6', label: 'LLM Fallbacks' },
+                { number: '35+', label: 'Exchanges' },
+                { number: '33', label: 'Automated Tests' }
+            ],
             image: 'assets/images/project-quantscope.png',
             tags: ['Python', 'FastAPI', 'LangChain', 'Docker', 'pytest', 'Multi-LLM'],
             paper: null,
@@ -220,6 +235,11 @@ function initProjects() {
             constraint: 'Must demonstrate full MLOps lifecycle: data versioning, experiment tracking, hyperparameter tuning, and containerized serving.',
             approach: 'ZenML orchestration across ingest → preprocess → train → evaluate → register → serve stages. MLflow for experiment versioning and hyperparameter logging. Cross-validation and tuning in the training stage. Dockerized FastAPI inference service with structured logging and input validation.',
             numbers: 'End-to-end pipeline · MLflow tracking · Cross-validation + tuning · Dockerized FastAPI serving',
+            impact: [
+                { number: '6', label: 'Pipeline Stages' },
+                { number: '10%', label: 'Sales Lift' },
+                { number: '0', label: 'Manual Steps' }
+            ],
             image: 'assets/images/project-ml-pipeline.png',
             tags: ['ZenML', 'MLflow', 'XGBoost', 'Docker', 'FastAPI'],
             paper: null,
@@ -234,6 +254,11 @@ function initProjects() {
             constraint: 'Must handle heterogeneous inputs (PDF, plain text, URLs) and output clean, training-ready datasets with no manual curation step.',
             approach: 'Automated ingestion pipeline: raw documents → quality scoring → formatting → structured output ready for fine-tuning runs. Demonstrates full LLM engineering lifecycle: data ingestion → preprocessing → quality filtering → structured dataset output.',
             numbers: 'PDF · plain text · URL ingestion · Quality scoring · Fine-tuning ready output · Zero manual curation',
+            impact: [
+                { number: '3', label: 'Input Formats' },
+                { number: '0', label: 'Manual Curation' },
+                { number: '100%', label: 'Automated' }
+            ],
             image: 'assets/images/project-training-data-bot.png',
             tags: ['LLM Engineering', 'Fine-Tuning', 'PDF Ingestion', 'Quality Scoring', 'Python'],
             paper: null,
@@ -245,11 +270,22 @@ function initProjects() {
     ];
 
     grid.innerHTML = '';
+
     var fragment = document.createDocumentFragment();
 
     projects.forEach(function (project) {
         var card = document.createElement('article');
         card.className = 'project-card reveal' + (project.featured ? ' project-featured' : '');
+
+        // Build impact metrics HTML
+        var impactHtml = '';
+        if (project.impact && project.impact.length) {
+            impactHtml = '<div class="project-impact-metric">';
+            project.impact.forEach(function(stat) {
+                impactHtml += '<div class="impact-stat"><span class="impact-number">' + stat.number + '</span><span class="impact-label">' + stat.label + '</span></div>';
+            });
+            impactHtml += '</div>';
+        }
 
         // Build constraint story HTML
         var storyHtml =
@@ -281,6 +317,7 @@ function initProjects() {
             '</div>' +
             '<div class="project-card-body">' +
                 '<h3 class="project-card-title">' + project.title + '</h3>' +
+                impactHtml +
                 storyHtml +
                 '<div class="project-card-tags">' +
                     project.tags.map(function (tag) { return '<span>' + tag + '</span>'; }).join('') +

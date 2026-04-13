@@ -1,3 +1,17 @@
+// Resolve asset base path from this script's absolute URL.
+// Works correctly whether the page is at root or in a sub-directory (e.g. /books/).
+const ASSET_BASE = (function () {
+    var scripts = document.getElementsByTagName('script');
+    for (var i = 0; i < scripts.length; i++) {
+        var src = scripts[i].src; // always absolute URL in the browser
+        if (src && src.indexOf('chatbot.js') !== -1) {
+            // Strip 'assets/js/chatbot.js' to get the site root
+            return src.replace(/assets\/js\/chatbot\.js[^]*$/, '');
+        }
+    }
+    return ''; // fallback: same directory as page
+}());
+
 // Chatbot Configuration and Personal Information
 const CHATBOT_CONFIG = {
     apiKey: (window.CHATBOT_API_KEY || '').trim(),
@@ -64,29 +78,40 @@ const CHATBOT_CONFIG = {
         
         projects: [
             {
-                name: "Prices Predictor System",
-                github: "GitHub link available",
-                technologies: ["ZenML", "MLflow", "XGBoost", "LightGBM", "Docker", "FastAPI"],
-                description: "Built an end-to-end price-prediction pipeline (ingest → preprocess → train → evaluate → register → serve). Tracked experiments with MLflow, ran CV and hyperparameter tuning, and Dockerized a FastAPI inference service for reproducible production use."
+                name: "Bangla Diarizz",
+                github: "https://github.com/AdilShamim8/Bangla-Diarizz",
+                paper: "https://www.researchgate.net/publication/401194830_Bangla_Diarizz_Domain-Adapted_Speaker_Diarization_for_Bengali_Long-Form_Audio",
+                technologies: ["PyTorch", "pyannote", "WeSpeaker", "Knowledge Distillation"],
+                badge: "Published Research",
+                description: "Production-grade Bengali speaker diarization. Only 4 hours of labeled data; off-the-shelf DER was 35%. Domain-adapted the speaker embedding layer and applied knowledge distillation for inference speedup. Result: DER 0.19, WER 0.37, 3.4× real-time on CPU, 56% inference speedup. Published paper at BUET CSE Fest 2026."
             },
             {
-                name: "Toolly Studio",
-                github: "GitHub link available",
-                technologies: ["Streamlit", "Bria AI", "Python", "Docker"],
-                description: "Developed a demo-ready Streamlit app that generates professional product ads by integrating Bria AI image-generation APIs. Implemented client-preview, batch export workflows, and a one-command Docker demo."
+                name: "Production-Grade RAG",
+                github: "https://github.com/AdilShamim8/Production-grade-RAG",
+                technologies: ["LangChain", "Qdrant", "FastAPI", "Inngest", "OpenAI", "Gemini", "Ollama"],
+                badge: "Production GenAI",
+                description: "Enterprise RAG pipeline that handles PDF ingestion at scale with idempotent re-ingestion, multi-provider embeddings (OpenAI, Gemini, Ollama), Qdrant vector store with deterministic IDs, and grounded source-aware LLM generation. Durable workflows via Inngest ensure local-first resilience."
             },
             {
-                name: "Resume Screening",
-                github: "GitHub link available",
-                technologies: ["spaCy", "SBERT", "FAISS", "Flask", "Python"],
-                description: "Built an automated resume-parsing → embedding → ranking pipeline (spaCy → SBERT → FAISS) to surface top candidates quickly. Served ranked shortlists via a Flask API and reduced manual screening overhead."
+                name: "QuantScope",
+                github: "https://github.com/AdilShamim8/QuantScope",
+                technologies: ["Python", "FastAPI", "LangChain", "Docker", "pytest"],
+                badge: "Production System",
+                description: "Quantitative stock analysis platform supporting 35+ exchanges. Strict architectural separation: core indicators, risk, and data modules have zero LLM dependencies. Built a 6-provider LLM fallback chain (OpenAI → Anthropic → Google → Ollama → Mistral → Cohere) with template-based fallback. 33 tests, zero vendor lock-in."
             },
             {
-                name: "Book Recommender System",
-                github: "GitHub link available",
-                preview: "Live preview available",
-                technologies: ["ALS", "TF-IDF/Embeddings", "Python", "Flask"],
-                description: "Implemented a hybrid recommendation system combining collaborative filtering (ALS) with content-based embeddings. Exposed recommendations via Flask API and achieved a +10% sales lift in pilot deployment."
+                name: "Production ML Pipeline",
+                github: "https://github.com/AdilShamim8/Prices_Predictor_System",
+                technologies: ["ZenML", "MLflow", "XGBoost", "Docker", "FastAPI"],
+                badge: "MLOps",
+                description: "End-to-end ML pipeline for price prediction: ingest → preprocess → train → evaluate → register → serve. ZenML orchestration, MLflow experiment tracking, cross-validation and hyperparameter tuning, Dockerized FastAPI inference service with structured logging and input validation."
+            },
+            {
+                name: "Training Data Bot",
+                github: "https://github.com/AdilShamim8/Training-Data-Bot",
+                technologies: ["Python", "LLM Engineering", "PDF Ingestion", "Quality Scoring"],
+                badge: "LLM Engineering",
+                description: "Automated pipeline to generate clean, training-ready datasets for LLM fine-tuning. Ingests PDF, plain text, and URLs; applies quality scoring and formatting; outputs structured datasets with zero manual curation. Demonstrates full LLM engineering lifecycle."
             }
         ],
         
@@ -259,22 +284,34 @@ Adil Shamim is an AI/ML Engineer with over two years of hands-on experience. He 
 
 **PROJECTS:**
 
-1. **Prices Predictor System** | ZenML, MLflow, XGBoost, LightGBM, Docker, FastAPI
-   - Built an end-to-end price-prediction pipeline (ingest → preprocess → train → evaluate → register → serve) to standardize model development and deployment
-   - Tracked experiments with MLflow, ran CV and hyperparameter tuning for robust model selection
-   - Dockerized a FastAPI inference service for reproducible production use
+1. **Bangla Diarizz** | PyTorch, pyannote, WeSpeaker, Knowledge Distillation — [Published Research]
+   - Production-grade Bengali speaker diarization with only 4 hours of labeled data (off-the-shelf DER was 35%)
+   - Domain-adapted the speaker embedding layer; applied knowledge distillation for inference speedup
+   - Result: DER 0.19, WER 0.37, 3.4× real-time on CPU, 56% inference speedup
+   - Published paper at BUET CSE Fest 2026; available on ResearchGate
+   - GitHub: https://github.com/AdilShamim8/Bangla-Diarizz
 
-2. **Toolly Studio** | Streamlit, Bria AI, Python, Docker
-   - Developed a demo-ready Streamlit app that generates professional product ads by integrating Bria AI image-generation APIs and templated prompts
-   - Implemented client-preview, batch export workflows, and a one-command Docker demo
+2. **Production-Grade RAG** | LangChain, Qdrant, FastAPI, Inngest, OpenAI, Gemini, Ollama — [Production GenAI]
+   - Enterprise RAG pipeline: PDF ingestion at scale, idempotent re-ingestion, multi-provider embeddings
+   - Qdrant vector store with deterministic IDs; grounded, source-aware LLM generation
+   - Supports OpenAI, Gemini, and local Ollama models; durable workflows via Inngest
+   - GitHub: https://github.com/AdilShamim8/Production-grade-RAG
 
-3. **Resume Screening** | spaCy, SBERT, FAISS, Flask, Python
-   - Built an automated resume-parsing → embedding → ranking pipeline (spaCy → SBERT → FAISS) to surface top candidates quickly
-   - Served ranked shortlists via a Flask API and reduced manual screening overhead through accurate semantic matching
+3. **QuantScope** | Python, FastAPI, LangChain, Docker, pytest — [Production System]
+   - Quantitative stock analysis for 35+ exchanges with zero LLM vendor lock-in
+   - Strict separation: core indicators/risk/data modules have zero LLM dependencies
+   - 6-provider LLM fallback chain (OpenAI → Anthropic → Google → Ollama → Mistral → Cohere), 33 tests
+   - GitHub: https://github.com/AdilShamim8/QuantScope
 
-4. **Book Recommender System** | ALS, TF-IDF/Embeddings, Python, Flask
-   - Implemented a hybrid recommendation system combining collaborative filtering (ALS) with content-based embeddings to personalize suggestions
-   - Exposed recommendations via a lightweight Flask API and supported a pilot deployment that produced a +10% sales lift
+4. **Production ML Pipeline** | ZenML, MLflow, XGBoost, Docker, FastAPI — [MLOps]
+   - End-to-end price prediction pipeline: ingest → preprocess → train → evaluate → register → serve
+   - ZenML orchestration, MLflow tracking, cross-validation, Dockerized FastAPI inference service
+   - GitHub: https://github.com/AdilShamim8/Prices_Predictor_System
+
+5. **Training Data Bot** | Python, LLM Engineering, PDF Ingestion, Quality Scoring — [LLM Engineering]
+   - Automated pipeline: raw documents (PDF, text, URLs) → quality scoring → structured fine-tuning datasets
+   - Zero manual curation; demonstrates full LLM engineering lifecycle
+   - GitHub: https://github.com/AdilShamim8/Training-Data-Bot
 
 **TECHNICAL EXPERIENCE:**
 
@@ -397,7 +434,7 @@ class AdilChatbot {
             <div id="chatbot-container" class="chatbot-container hidden">
                 <div class="chatbot-header" id="chatbot-header">
                     <div class="chatbot-header-left">
-                        <img src="image/Adil.jpeg" alt="Adil" class="chatbot-avatar">
+                        <img src="${ASSET_BASE}assets/images/Adil.jpeg" alt="Adil" class="chatbot-avatar">
                         <div class="chatbot-title-container">
                             <h3>Adil's AI Assistant</h3>
                             <div class="chatbot-status">
@@ -645,11 +682,12 @@ Try the quick action buttons below or ask me anything! `;
 
         if (/(project|portfolio|built|work)/i.test(text)) {
             return [
-                "Highlighted projects:",
-                "1. Prices Predictor System — end-to-end ML pipeline with ZenML/MLflow and Dockerized FastAPI serving.",
-                "2. Toolly Studio — Streamlit app for AI-powered ad generation with Bria AI integration.",
-                "3. Resume Screening — spaCy + SBERT + FAISS ranking pipeline with Flask API.",
-                "4. Book Recommender System — hybrid collaborative + content-based recommender with measurable business lift."
+                "Adil's 5 production projects:",
+                "1. Bangla Diarizz — Published research: Bengali speaker diarization, DER 0.19, 56% faster inference. (github.com/AdilShamim8/Bangla-Diarizz)",
+                "2. Production-Grade RAG — Multi-provider RAG pipeline (OpenAI/Gemini/Ollama) with idempotent ingestion and Qdrant. (github.com/AdilShamim8/Production-grade-RAG)",
+                "3. QuantScope — Quantitative stock analysis with 6-provider LLM fallback chain and zero vendor lock-in. (github.com/AdilShamim8/QuantScope)",
+                "4. Production ML Pipeline — End-to-end ZenML + MLflow pipeline with Dockerized FastAPI serving. (github.com/AdilShamim8/Prices_Predictor_System)",
+                "5. Training Data Bot — Automated PDF/text/URL → fine-tuning dataset pipeline with quality scoring. (github.com/AdilShamim8/Training-Data-Bot)"
             ].join('\n');
         }
 
@@ -797,7 +835,7 @@ Try the quick action buttons below or ask me anything! `;
         });
         
         const avatarHTML = sender === 'bot' ? 
-            `<img src="image/Adil.jpeg" alt="Avatar" class="message-avatar">` : '';
+            `<img src="${ASSET_BASE}assets/images/Adil.jpeg" alt="Avatar" class="message-avatar">` : '';
         
         messageDiv.innerHTML = `
             ${avatarHTML}
@@ -930,7 +968,7 @@ Try the quick action buttons below or ask me anything! `;
         typingDiv.id = 'typing-indicator';
         
         typingDiv.innerHTML = `
-            <img src="image/Adil.jpeg" alt="Avatar" class="message-avatar">
+            <img src="${ASSET_BASE}assets/images/Adil.jpeg" alt="Avatar" class="message-avatar">
             <div class="typing-indicator">
                 <div class="typing-dot"></div>
                 <div class="typing-dot"></div>
