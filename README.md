@@ -20,7 +20,7 @@ Every design decision prioritises fast role clarity, verifiable proof points, an
 |------|------|---------|
 | **Portfolio** | `index.html` | Main page — hero, projects, skills, blog, about, contact |
 | **My Story & Books** | `My_Story.html` | Personal narrative + interactive reading library |
-| **Book Notes** (×21) | `books/*.html` | Dedicated notes page for each book with lessons & verdict |
+| **Book Notes** (×22) | `books/*.html` | Dedicated notes page for each book with lessons & verdict |
 
 ---
 
@@ -43,12 +43,12 @@ Every design decision prioritises fast role clarity, verifiable proof points, an
 
 ### My Story & Books (`My_Story.html`)
 - **Story section** — personal narrative with hero photo and 4 stat highlights
-- **Books library** — 21 books filterable by year (2023 / 2024 / 2025) and searchable by title, author, or genre
+- **Books library** — 22 books filterable by year (2023 / 2024 / 2025) and searchable by title, author, or genre
 - **Verdict colour system** — green (Must Read), amber (Recommended), grey (Optional)
 - **Live search** — 180 ms debounced input, shows empty-state message on no results
 - **Year filter pills** — built dynamically from the `BOOKS` data array
 
-### Book Detail Pages (`books/*.html`) — 21 total
+### Book Detail Pages (`books/*.html`) — 22 total
 | Must Read | Recommended | Optional |
 |-----------|-------------|---------|
 | The Almanack of Naval Ravikant | The Lean Startup | Ikigai |
@@ -57,7 +57,7 @@ Every design decision prioritises fast role clarity, verifiable proof points, an
 | Sapiens | The Psychology of Money | How to Talk to Anyone |
 | Zero to One | Rich Dad Poor Dad | Grit |
 | The Pragmatic Programmer | How to Win Friends and Influence People | |
-| | Think and Grow Rich | |
+| Principles | Think and Grow Rich | |
 | | Think Like a Monk | |
 | | The Art of Thinking Clearly | |
 | | The 48 Laws of Power | |
@@ -155,7 +155,8 @@ Each book page includes:
 │   ├── shoe-dog.html
 │   ├── the-subtle-art-of-not-giving.html
 │   ├── how-to-talk-to-anyone.html
-│   └── grit.html
+│   ├── grit.html
+│   └── principles.html
 └── .github/
     └── workflows/
         └── deploy.yml                  # CI/CD: validate → deploy to GitHub Pages
