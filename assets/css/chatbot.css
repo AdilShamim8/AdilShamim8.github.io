@@ -580,6 +580,11 @@
         max-height: min(65vh, 550px);
     }
     .chatbot-body { max-height: min(38vh, 380px); }
+    
+    body.mobile-menu-open .chatbot-container,
+    body.mobile-menu-open .chatbot-toggle-btn {
+        display: none !important;
+    }
 }
 
 @media (max-width: 480px) {
