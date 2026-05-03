@@ -35,7 +35,7 @@ A production-grade static portfolio built for hiring outcomes, not just visual p
 Key principles behind the site:
 
 - **Zero dependencies** — HTML, CSS, and Vanilla JS only. No frameworks, no build step, no `node_modules`.
-- **No regressions** — every push triggers automated HTML validation and broken-link checks before deployment.
+- **Quality checks ready** — repository includes guidance for HTML validation and broken-link checks before deployment.
 - **Performance first** — all assets are inlined, loaded from CDN, or `defer`-loaded. Lighthouse performance ≥ 95.
 - **Accessibility baked in** — skip links, ARIA attributes, keyboard navigation, and `prefers-reduced-motion` support.
 - **Dual-mode chatbot** — works offline via local fallback responses; upgrades to Gemini-powered conversation when an API key is present.
@@ -181,7 +181,7 @@ Five books have comprehensive chapter-by-chapter masterclass notes injected via 
 | Fonts | Google Fonts | Inter (body) + Newsreader (headings) |
 | Icons | Font Awesome 6.4 | Loaded from Cloudflare CDN |
 | Hosting | GitHub Pages | Static, free, HTTPS enforced |
-| CI/CD | GitHub Actions | HTML validation + link checking on every push |
+| CI/CD | Optional GitHub Actions | Can run HTML validation + link checking when workflow is configured |
 | Book generation | Python 3 | `gen_books.py` generates standard book pages; `scratch/convert_*.py` injects masterclass notes |
 
 ---
@@ -251,7 +251,7 @@ Five books have comprehensive chapter-by-chapter masterclass notes injected via 
 │   ├── convert_pragmatic_programmer.py
 │   └── convert_thinking_fast_and_slow.py
 │
-└── .github/
+└── .github/                                # Optional (if CI workflow is configured)
     └── workflows/
         └── deploy.yml                      # CI/CD: validate → link-check → deploy to GitHub Pages
 ```
@@ -388,17 +388,15 @@ Use this for books where you want to publish comprehensive chapter-by-chapter no
 
 ## Deployment & CI/CD
 
-Deployment is fully automated via GitHub Actions (`.github/workflows/deploy.yml`).
+If `.github/workflows/deploy.yml` is configured, deployment can be automated via GitHub Actions.
 
-On every push to `main`, the workflow:
+A typical workflow on push to `main`:
 
 1. Checks out the repository
 2. Runs HTML validation (`html-validate`)
 3. Runs broken link checks (`broken-link-checker`)
 4. Uploads the site as a Pages artifact
 5. Deploys to GitHub Pages
-
-**The live site updates within approximately 1–2 minutes of a push.**
 
 ---
 
