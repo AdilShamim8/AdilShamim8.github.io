@@ -7,7 +7,7 @@
 > **Personal portfolio of Adil Shamim — AI/ML Engineer**  
 > Bengali Speech AI · Production ML Systems · GenAI · Kaggle Competitions
 
-**Live:** https://adilshamim8.github.io
+**Live:** https://www.adilshamim.me/
 
 ---
 
