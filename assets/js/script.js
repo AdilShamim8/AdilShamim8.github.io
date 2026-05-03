@@ -168,8 +168,8 @@ function initThemeToggle() {
 
 // ===== PROJECTS =====
 function initProjects() {
-    var grid = document.querySelector('.projects-grid');
-    if (!grid) return;
+    var accordionContainer = document.querySelector('.projects-accordion');
+    if (!accordionContainer) return;
 
     var projects = [
         {
@@ -183,12 +183,10 @@ function initProjects() {
                 { number: '0.19', label: 'DER Achieved' },
                 { number: '3.4×', label: 'Real-Time CPU' }
             ],
-            image: 'assets/images/project-bangla-diarizz.png',
             tags: ['PyTorch', 'pyannote', 'WeSpeaker', 'Knowledge Distillation'],
             paper: 'https://www.researchgate.net/publication/401194830_Bangla_Diarizz_Domain-Adapted_Speaker_Diarization_for_Bengali_Long-Form_Audio',
             code: 'https://github.com/AdilShamim8/Bangla-Diarizz',
             demo: null,
-            featured: true,
             badge: 'Published Research'
         },
         {
@@ -202,12 +200,10 @@ function initProjects() {
                 { number: '0', label: 'Vendor Lock-in' },
                 { number: '100%', label: 'Idempotent' }
             ],
-            image: 'assets/images/project-rag-pipeline.png',
             tags: ['LangChain', 'Qdrant', 'FastAPI', 'Inngest', 'OpenAI', 'GenAI'],
             paper: null,
             demo: null,
             code: 'https://github.com/AdilShamim8/Production-grade-RAG',
-            featured: true,
             badge: 'Production GenAI'
         },
         {
@@ -221,12 +217,10 @@ function initProjects() {
                 { number: '35+', label: 'Exchanges' },
                 { number: '33', label: 'Automated Tests' }
             ],
-            image: 'assets/images/project-quantscope.png',
             tags: ['Python', 'FastAPI', 'LangChain', 'Docker', 'pytest', 'Multi-LLM'],
             paper: null,
             demo: null,
             code: 'https://github.com/AdilShamim8/QuantScope',
-            featured: false,
             badge: 'Production System'
         },
         {
@@ -240,12 +234,10 @@ function initProjects() {
                 { number: '10%', label: 'Sales Lift' },
                 { number: '0', label: 'Manual Steps' }
             ],
-            image: 'assets/images/project-ml-pipeline.png',
             tags: ['ZenML', 'MLflow', 'XGBoost', 'Docker', 'FastAPI'],
             paper: null,
             demo: null,
             code: 'https://github.com/AdilShamim8/Prices_Predictor_System',
-            featured: false,
             badge: 'MLOps'
         },
         {
@@ -259,89 +251,164 @@ function initProjects() {
                 { number: '0', label: 'Manual Curation' },
                 { number: '100%', label: 'Automated' }
             ],
-            image: 'assets/images/project-training-data-bot.png',
             tags: ['LLM Engineering', 'Fine-Tuning', 'PDF Ingestion', 'Quality Scoring', 'Python'],
             paper: null,
             demo: null,
             code: 'https://github.com/AdilShamim8/Training-Data-Bot',
-            featured: false,
             badge: 'LLM Engineering'
+        },
+        {
+            title: 'NeuroBridge',
+            problem: 'Connecting LLMs to real-world applications and APIs is brittle and lacks standardized middleware for reliable agentic actions.',
+            constraint: 'Must handle unpredictable LLM outputs and reliably route them to appropriate tools/actions without human intervention.',
+            approach: 'Built a middleware layer bridging LLMs with real-world applications for seamless agentic integration, standardizing tool calling and error handling.',
+            numbers: 'Agentic routing · Seamless API integration · Extensible tool architecture',
+            impact: [
+                { number: '100%', label: 'Extensible' },
+                { number: '0', label: 'Manual Routing' },
+                { number: '24/7', label: 'Availability' }
+            ],
+            tags: ['LangGraph', 'Agentic AI', 'API Integration', 'Middleware'],
+            paper: null,
+            demo: null,
+            code: 'https://github.com/AdilShamim8/NeuroBridge',
+            badge: 'Agentic AI'
+        },
+        {
+            title: 'Transformer Architecture (nanoGPT)',
+            problem: 'Using LLMs via APIs abstracts away the fundamental architecture, limiting the ability to debug, optimize, or customize models at a low level.',
+            constraint: 'Need to exactly replicate the architecture and training dynamics of a landmark model (GPT-2) from scratch.',
+            approach: 'Step-by-step reproduction of nanoGPT and GPT-2. Implemented custom causal self-attention, layer normalization, weight initialization, and training loops.',
+            numbers: 'GPT-2 architecture · Custom attention mechanisms · PyTorch from scratch',
+            impact: [
+                { number: '100%', label: 'From Scratch' },
+                { number: '124M', label: 'Params' },
+                { number: '1', label: 'Transformer' }
+            ],
+            tags: ['PyTorch', 'Transformers', 'Deep Learning', 'Custom Training'],
+            paper: null,
+            demo: null,
+            code: 'https://github.com/AdilShamim8/GPT-2-Rebuild-nanoGPT',
+            badge: 'Deep Learning'
         }
     ];
 
-    grid.innerHTML = '';
-
+    accordionContainer.innerHTML = '';
     var fragment = document.createDocumentFragment();
 
-    projects.forEach(function (project) {
-        var card = document.createElement('article');
-        card.className = 'project-card reveal' + (project.featured ? ' project-featured' : '');
+    projects.forEach(function (project, index) {
+        var item = document.createElement('div');
+        item.className = 'accordion-item reveal';
+        
+        var projectNum = (index + 1).toString().padStart(2, '0');
 
-        // Build impact metrics HTML
+        // Build Links
+        var linksHtml = '';
+        if (project.paper) {
+            linksHtml += '<a href="' + project.paper + '" class="accordion-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-alt"></i> Paper <i class="fas fa-arrow-up-right-from-square link-arrow"></i></a>';
+        }
+        if (project.demo) {
+            linksHtml += '<a href="' + project.demo + '" class="accordion-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Live Demo <i class="fas fa-arrow-up-right-from-square link-arrow"></i></a>';
+        }
+        linksHtml += '<a href="' + project.code + '" class="accordion-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Code <i class="fas fa-arrow-up-right-from-square link-arrow"></i></a>';
+
+        // Build Impact Metrics
         var impactHtml = '';
         if (project.impact && project.impact.length) {
-            impactHtml = '<div class="project-impact-metric">';
+            impactHtml = '<div class="accordion-metrics">';
             project.impact.forEach(function(stat) {
-                impactHtml += '<div class="impact-stat"><span class="impact-number">' + stat.number + '</span><span class="impact-label">' + stat.label + '</span></div>';
+                impactHtml += '<div class="metric-item"><span class="metric-number">' + stat.number + '</span><span class="metric-label">' + stat.label + '</span></div>';
             });
             impactHtml += '</div>';
         }
 
-        // Build constraint story HTML
-        var storyHtml =
-            '<div class="project-constraint-story">' +
-                '<div class="constraint-row"><span class="constraint-label">Problem</span><span class="constraint-value">' + project.problem + '</span></div>' +
-                '<div class="constraint-row"><span class="constraint-label">Constraint</span><span class="constraint-value">' + project.constraint + '</span></div>' +
-                '<div class="constraint-row"><span class="constraint-label">Approach</span><span class="constraint-value">' + project.approach + '</span></div>' +
-                '<div class="constraint-row constraint-numbers"><span class="constraint-label">Numbers</span><span class="constraint-value">' + project.numbers + '</span></div>' +
-            '</div>';
+        var badgeHtml = project.badge ? '<span class="accordion-badge">' + project.badge + '</span>' : '';
 
-        // Build links HTML
-        var linksHtml = '';
-        if (project.paper) {
-            linksHtml += '<a href="' + project.paper + '" class="project-card-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-alt"></i> Paper</a>';
-        }
-        if (project.demo) {
-            linksHtml += '<a href="' + project.demo + '" class="project-card-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Live Demo</a>';
-        }
-        linksHtml += '<a href="' + project.code + '" class="project-card-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Code</a>';
+        // Only display the first part of the problem for the header
+        var headerDescription = project.problem.split('—')[0] || project.problem;
 
-        var badgeHtml = project.badge
-            ? '<span class="project-card-badge">' + project.badge + '</span>'
-            : '';
-
-        card.innerHTML =
-            '<div class="project-card-image-wrap">' +
-                '<img src="' + project.image + '" alt="' + project.title + ' — ' + project.problem.split('.')[0] + '" class="project-card-image" loading="lazy" decoding="async">' +
-                badgeHtml +
-            '</div>' +
-            '<div class="project-card-body">' +
-                '<h3 class="project-card-title">' + project.title + '</h3>' +
-                impactHtml +
-                storyHtml +
-                '<div class="project-card-tags">' +
-                    project.tags.map(function (tag) { return '<span>' + tag + '</span>'; }).join('') +
+        item.innerHTML = 
+            '<button class="accordion-header" aria-expanded="false">' +
+                '<span class="accordion-num">' + projectNum + '</span>' +
+                '<div class="accordion-title-wrap">' +
+                    '<h3 class="accordion-title">' + project.title + '</h3>' +
+                    badgeHtml +
                 '</div>' +
-                '<div class="project-card-links">' + linksHtml + '</div>' +
+                '<span class="accordion-desc-short">' + headerDescription + '</span>' +
+                '<span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>' +
+            '</button>' +
+            '<div class="accordion-body">' +
+                '<div class="accordion-body-inner">' +
+                    '<div class="accordion-col-left">' +
+                        '<div class="accordion-section">' +
+                            '<h4 class="accordion-section-title">Problem</h4>' +
+                            '<p>' + project.problem + '</p>' +
+                        '</div>' +
+                        '<div class="accordion-section">' +
+                            '<h4 class="accordion-section-title">Constraint</h4>' +
+                            '<p>' + project.constraint + '</p>' +
+                        '</div>' +
+                        '<div class="accordion-section">' +
+                            '<h4 class="accordion-section-title">Approach</h4>' +
+                            '<p>' + project.approach + '</p>' +
+                        '</div>' +
+                        '<div class="accordion-section">' +
+                            '<h4 class="accordion-section-title">Numbers</h4>' +
+                            '<p>' + project.numbers + '</p>' +
+                        '</div>' +
+                        '<div class="accordion-tags">' +
+                            project.tags.map(function(tag) { return '<span class="accordion-tag">' + tag + '</span>'; }).join('') +
+                        '</div>' +
+                        '<div class="accordion-links">' + linksHtml + '</div>' +
+                    '</div>' +
+                    '<div class="accordion-col-right">' +
+                        '<h4 class="accordion-section-title">Impact</h4>' +
+                        impactHtml +
+                    '</div>' +
+                '</div>' +
             '</div>';
 
-        var image = card.querySelector('.project-card-image');
-        if (image) {
-            image.addEventListener('error', function () {
-                image.src = 'assets/images/Adil.jpeg';
-                image.style.objectFit = 'cover';
+        var header = item.querySelector('.accordion-header');
+        header.addEventListener('click', function() {
+            var isExpanded = this.getAttribute('aria-expanded') === 'true';
+            
+            // Close all other accordions
+            var allItems = accordionContainer.querySelectorAll('.accordion-item');
+            allItems.forEach(function(otherItem) {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                    otherItem.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
+                    var icon = otherItem.querySelector('.accordion-icon i');
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                }
             });
-        }
 
-        fragment.appendChild(card);
+            // Toggle current accordion
+            if (!isExpanded) {
+                item.classList.add('active');
+                this.setAttribute('aria-expanded', 'true');
+                var icon = this.querySelector('.accordion-icon i');
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+            } else {
+                item.classList.remove('active');
+                this.setAttribute('aria-expanded', 'false');
+                var icon = this.querySelector('.accordion-icon i');
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+            }
+        });
+
+        fragment.appendChild(item);
     });
 
-    grid.appendChild(fragment);
+    accordionContainer.appendChild(fragment);
 }
 
 // ===== SCROLL REVEAL =====
 function initScrollReveal() {
-    var elements = Array.prototype.slice.call(document.querySelectorAll('.reveal, .exp-item, .skill-group, .blog-item, .cert-item, .philosophy-content'));
+    var elements = Array.prototype.slice.call(document.querySelectorAll('.reveal, .exp-item, .skill-group, .blog-item, .cert-item, .philosophy-content, .sj-kaggle-cta'));
     if (!elements.length) return;
 
     elements.forEach(function (element) {
@@ -399,7 +466,7 @@ function setCurrentYear() {
 
 // ===== IMAGE LIGHTBOX =====
 function initImageLightbox() {
-    var selector = '.hero-photo, .project-card-image';
+    var selector = '.hero-photo, .project-card-image, .story-photo';
     if (document.querySelector('.image-lightbox')) return;
 
     var overlay = document.createElement('div');
