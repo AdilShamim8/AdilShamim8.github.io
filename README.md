@@ -107,19 +107,6 @@ A curated repository of 23 high-impact books, processed and structured for rapid
 | 🟡 **Recommended** | 10 | The Lean Startup, The Psychology of Money, Think and Grow Rich |
 | ⬜ **Optional** | 5 | Shoe Dog, The Subtle Art of Not Giving a F*ck |
 
-### Automated Content Pipeline (Masterclass Pages)
-
-Five selected works feature extensive, chapter-by-chapter engineering notes generated via a custom Python data pipeline.
-
-| Node | Generation Script | Payload Size |
-|------|------|-----------|
-| Principles | `convert_principles.py` | ~94 KB |
-| Sapiens | `convert_sapiens.py` | ~112 KB |
-| Zero to One | `convert_zero_to_one.py` | ~110 KB |
-| The Pragmatic Programmer | `convert_pragmatic_programmer.py` | ~91 KB |
-| Thinking, Fast and Slow | `convert_thinking_fast_and_slow.py` | ~100 KB |
-
-Markdown sources are parsed and injected into HTML templates using Python's `markdown` library and regex-based AST manipulation, avoiding heavy static site generators.
 
 ---
 
