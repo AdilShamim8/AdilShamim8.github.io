@@ -1,13 +1,13 @@
 # AdilShamim8.github.io
 
-[![Live Site](https://img.shields.io/badge/Live%20Site-adilshamim8.github.io-2f8f6b?style=flat-square&logo=github)](https://adilshamim8.github.io)
+[![Live Site](https://img.shields.io/badge/Live%20Site-www.adilshamim.me-2f8f6b?style=flat-square&logo=github)](https://www.adilshamim.me)
 [![GitHub Pages](https://img.shields.io/badge/Hosted%20on-GitHub%20Pages-222?style=flat-square&logo=github-pages)](https://pages.github.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
 
 > **Personal portfolio of Adil Shamim — AI/ML Engineer**  
 > Bengali Speech AI · Production ML Systems · GenAI · Kaggle Competitions
 
-**Live:** https://www.adilshamim.me/
+**Live:** https://www.adilshamim.me
 
 ---
 

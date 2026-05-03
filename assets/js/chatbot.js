@@ -22,16 +22,16 @@ const CHATBOT_CONFIG = {
     // Personal Information Context
     personalInfo: {
         name: "Adil Shamim",
-        title: "AI/ML Engineer",
+        title: "AI/ML Engineer & Data Scientist",
         location: "Dhaka, Bangladesh",
         phone: "+880 1321073452",
         email: "adilshamim696@gmail.com",
         education: "B.Sc. in Computer Science & Engineering - BNIST (February 2023—Present)",
-        experience: "AI/ML Engineer with over 2 years of hands-on experience",
-        kaggleStatus: "Kaggle Master - Completed 22 competitions",
-        languages: ["English (Fluent)", "Bengali (Native)", "Hindi (Conversational)"],
+        experience: "AI/ML Engineer and Data Scientist with over 2 years of hands-on experience building and shipping production LLM systems, RAG pipelines, and agentic workflows.",
+        kaggleStatus: "Kaggle Master (Top 1% globally) - Completed 24 competitions",
+        languages: ["English (Professional/Fluent)", "Bengali (Native)", "Hindi (Conversational)"],
         
-        bio: `I'm Adil Shamim. I'm an AI/ML Engineer with over two years of hands-on experience. I build practical ML systems—pipelines, Dockerized services, and tracked experiments—that teams actually use. I built a recommender that boosted a client's sales by 10%. I enjoy transforming complex data into intuitive tools that enable people to make informed decisions.`,
+        bio: `I'm Adil Shamim. I'm an AI/ML Engineer and Data Scientist with over two years of hands-on experience. I build practical ML systems—pipelines, Dockerized services, and tracked experiments—that teams actually use. I built a recommender that boosted a client's sales by 10%. I also founded Toolly, a live AI tools directory with 500+ tools. I'm a Kaggle Master (Top 1%) and a published researcher in Bengali speech AI.`,
         
         skills: {
             programmingAndData: [
@@ -42,6 +42,7 @@ const CHATBOT_CONFIG = {
                 "NumPy"
             ],
             modelingAndML: [
+                "PyTorch",
                 "TensorFlow",
                 "scikit-learn",
                 "XGBoost",
@@ -52,27 +53,33 @@ const CHATBOT_CONFIG = {
                 "MLflow",
                 "ZenML",
                 "Docker",
-                "FastAPI"
+                "FastAPI",
+                "Flask",
+                "Streamlit",
+                "AWS",
+                "CI/CD"
             ],
             tools: [
                 "Jupyter",
                 "Git",
-                "VSCode",
-                "Streamlit",
-                "Flask"
+                "GitHub Actions"
             ],
-            nlpAndEmbeddings: [
+            nlpAndSpeech: [
+                "HuggingFace Transformers",
+                "Whisper",
+                "wav2vec2",
+                "pyannote.audio",
+                "WeSpeaker",
+                "BERT",
                 "spaCy",
-                "SBERT",
-                "FAISS",
-                "TF-IDF"
+                "SBERT"
             ],
             generativeAI: [
-                "LLMs",
+                "LLMs (OpenAI, Anthropic, Gemini, Ollama)",
+                "Agentic AI (LangChain, LangGraph, MCP)",
                 "Prompt Engineering",
                 "RAG",
-                "LangChain",
-                "LangGraph"
+                "Qdrant"
             ]
         },
         
@@ -81,37 +88,37 @@ const CHATBOT_CONFIG = {
                 name: "Bangla Diarizz",
                 github: "https://github.com/AdilShamim8/Bangla-Diarizz",
                 paper: "https://www.researchgate.net/publication/401194830_Bangla_Diarizz_Domain-Adapted_Speaker_Diarization_for_Bengali_Long-Form_Audio",
-                technologies: ["PyTorch", "pyannote", "WeSpeaker", "Knowledge Distillation"],
+                technologies: ["PyTorch", "pyannote", "WeSpeaker", "wav2vec2", "HuggingFace Transformers"],
                 badge: "Published Research",
-                description: "Production-grade Bengali speaker diarization. Only 4 hours of labeled data; off-the-shelf DER was 35%. Domain-adapted the speaker embedding layer and applied knowledge distillation for inference speedup. Result: DER 0.19, WER 0.37, 3.4× real-time on CPU, 56% inference speedup. Published paper at BUET CSE Fest 2026."
+                description: "1st Author paper at BUET CSE Fest 2026. Production-grade Bengali speaker diarization. Fine-tuned segmentation model, replaced embeddings with WeSpeaker ResNet34-LM for domain adaptation. Result: DER 0.19 (0.286 on private leaderboard), 3.4× real-time on CPU, 56% wall-clock speed improvement. Ranked #19/100+ teams."
             },
             {
                 name: "Production-Grade RAG",
                 github: "https://github.com/AdilShamim8/Production-grade-RAG",
                 technologies: ["LangChain", "Qdrant", "FastAPI", "Inngest", "OpenAI", "Gemini", "Ollama"],
                 badge: "Production GenAI",
-                description: "Enterprise RAG pipeline that handles PDF ingestion at scale with idempotent re-ingestion, multi-provider embeddings (OpenAI, Gemini, Ollama), Qdrant vector store with deterministic IDs, and grounded source-aware LLM generation. Durable workflows via Inngest ensure local-first resilience."
+                description: "Enterprise RAG pipeline: PDF upload → recursive chunking → multi-provider embeddings → Qdrant vector store with deterministic IDs for idempotent re-ingestion → top-K retrieval → source-aware LLM generation with grounded, auditable answers. Includes query routing and context window management."
             },
             {
                 name: "QuantScope",
                 github: "https://github.com/AdilShamim8/QuantScope",
                 technologies: ["Python", "FastAPI", "LangChain", "Docker", "pytest"],
                 badge: "Production System",
-                description: "Quantitative stock analysis platform supporting 35+ exchanges. Strict architectural separation: core indicators, risk, and data modules have zero LLM dependencies. Built a 6-provider LLM fallback chain (OpenAI → Anthropic → Google → Ollama → Mistral → Cohere) with template-based fallback. 33 tests, zero vendor lock-in."
+                description: "Global Quantitative Stock Analysis Platform supporting 35+ exchanges. Strict architectural separation with zero LLM lock-in. Engineered a 6-provider LLM fallback chain (OpenAI → Anthropic → Google → Ollama → Mistral → Cohere) with template-based static fallback. Fully tested with 33 tests."
             },
             {
                 name: "Production ML Pipeline",
                 github: "https://github.com/AdilShamim8/Prices_Predictor_System",
                 technologies: ["ZenML", "MLflow", "XGBoost", "Docker", "FastAPI"],
                 badge: "MLOps",
-                description: "End-to-end ML pipeline for price prediction: ingest → preprocess → train → evaluate → register → serve. ZenML orchestration, MLflow experiment tracking, cross-validation and hyperparameter tuning, Dockerized FastAPI inference service with structured logging and input validation."
+                description: "End-to-end House Price Predictor ML pipeline: ingest → preprocess → train → evaluate → register → serve. Orchestrated with ZenML and MLflow for tracking. Included cross-validation and hyperparameter tuning. Deployed final model as a Dockerized FastAPI inference service with structured logging."
             },
             {
                 name: "Training Data Bot",
                 github: "https://github.com/AdilShamim8/Training-Data-Bot",
                 technologies: ["Python", "LLM Engineering", "PDF Ingestion", "Quality Scoring"],
                 badge: "LLM Engineering",
-                description: "Automated pipeline to generate clean, training-ready datasets for LLM fine-tuning. Ingests PDF, plain text, and URLs; applies quality scoring and formatting; outputs structured datasets with zero manual curation. Demonstrates full LLM engineering lifecycle."
+                description: "Automated LLM fine-tuning dataset pipeline. Ingests raw documents (PDF, plain text, URLs) → applies multi-signal quality scoring (length, deduplication, coherence) → outputs structured datasets formatted for direct use in fine-tuning. Zero manual curation required."
             }
         ],
         
@@ -127,41 +134,35 @@ const CHATBOT_CONFIG = {
         
         workExperience: [
             {
-                title: "Founder",
+                title: "Founder & AI/ML Engineer",
                 company: "Toolly",
-                period: "Ongoing",
-                description: "Founded Toolly to make discovering, submitting, and sharing AI tools effortless for creators and users. A community-driven platform where makers can submit their AI tools for free, and users can discover trusted, categorized AI utilities.",
+                period: "Jun 2025 — Present",
+                description: "Founded Toolly to make discovering, submitting, and sharing AI tools effortless.",
                 responsibilities: [
-                    "Defined product vision, roadmap, and go-to-market strategy",
-                    "Built and launched the live website (toolly.tech) with tool submission flow",
-                    "Led full-stack development and integrations",
-                    "Managed user acquisition, community outreach, and early partnerships",
-                    "Oversaw UI/UX and site performance improvements",
-                    "Set up analytics and feedback loops for rapid iteration"
+                    "Architected and shipped toolly.tech, a live AI tools directory with 500+ tools across 15 categories.",
+                    "Engineered the full production stack solo: frontend, tool submission and moderation system, search, filter logic, and usage analytics.",
+                    "Built and deployed Toolly Studio — a Streamlit + Bria AI image generation app with batch export and Docker packaging."
                 ]
             },
             {
                 title: "1st Author - Conference Paper",
-                company: "Research",
+                company: "BUET CSE Fest 2026",
                 period: "2026",
                 description: "Bangla Diarizz: Domain-Adapted Speaker Diarization for Bengali Long-Form Audio",
                 achievements: [
-                    "Addressed low-resource speech challenge: speaker diarization for Bengali",
-                    "Developed system for DL Sprint 4.0 Bengali Speaker Diarization (BUET CSE Fest 2026)",
-                    "Achieved competitive Diarization Error Rate (DER) on Bengali-Loop benchmark",
-                    "Reduced inference time from 1h 22m to ~36m",
-                    "Delivered 56% wall-clock speed improvement"
+                    "Achieved 56% wall-clock speed improvement (reduced inference from 1h 22m to ~36m).",
+                    "Fine-tuned segmentation model and replaced embeddings with WeSpeaker ResNet34-LM.",
+                    "Ranked #19 / 100+ teams on DL Sprint 4.0; deployed interactive Gradio demo on HuggingFace Spaces."
                 ]
             },
             {
-                    title: "Freelance AI/ML Engineer",
-                company: "Self-employed",
-                period: "July 2025—Present",
+                title: "ML Engineer — Independent Contractor",
+                company: "Freelance",
+                period: "Jan 2025 — May 2025",
                 responsibilities: [
-                    "Performed end-to-end analyses on public datasets to extract actionable insights for health and economic questions",
-                    "Produced slide decks and dashboards for stakeholders",
-                    "Created a hybrid recommendation system for a local business (collaborative + content-based)",
-                    "Achieved a 10% sales increase in 3 months through deployed ML solutions"
+                    "Built a hybrid recommendation engine (collaborative filtering ALS + content-based TF-IDF embeddings) for a retail client.",
+                    "Deployed system as a Flask API to production.",
+                    "Delivered a verified +10% client sales lift within 90 days, quantified against pre/post sales data."
                 ]
             }
         ],
@@ -174,27 +175,25 @@ const CHATBOT_CONFIG = {
             "Machine Learning Pipelines with Azure ML Studio (Coursera)"
         ],
         kaggleAchievements: [
-            "Kaggle Master (22 competitions completed)",
+            "Kaggle Master (24 competitions completed)",
             "Predicting Road Accident Risk — Ranked Top 1% (29/4,082 participants)",
             "Predicting Beats-per-Minute of Songs — Ranked Top 2% (38/2,581 participants)",
-            "Hosted competitions to engage the data science community"
+            "Published ML notebooks and datasets; hosted competitions to engage the community."
         ],
         
         achievements: [
-            "Founder of Toolly — an AI tools discovery platform with 400+ curated tools",
-            "1st Author of 'Bangla Diarizz' — Conference Paper on Bengali Speaker Diarization (56% faster inference)",
-            "Shipped a live AI product (Toolly.tech) with moderation and analytics",
-            "Ranked Top 1% on Kaggle (29/4,082 in Road Accident Prediction)",
-            "Kaggle Master with 22 completed competitions and hosted competitions",
-            "Active blogger + educator with ML notes and guides"
+            "Founder of Toolly — a live AI tools platform with 500+ curated tools, built solo.",
+            "1st Author of 'Bangla Diarizz' — Conference Paper on Bengali Speaker Diarization (56% inference speedup).",
+            "Ranked Top 1% globally on Kaggle out of 4,082 competitors.",
+            "Built a recommender system that delivered a verified +10% client sales lift in 90 days.",
+            "Deployed Toolly Studio, an image generation app with one-command demo flow for non-technical users."
         ],
         
         currentActivities: [
-            "Working on end-to-end ML pipelines and production deployments",
-            "Building practical ML systems with Docker and FastAPI",
-            "Competing in Kaggle data science competitions",
-            "Creating open-source ML tools and datasets",
-            "Writing technical blogs and educational content"
+            "Architecting multi-provider LLM orchestration and RAG pipelines.",
+            "Building practical ML systems with Docker, FastAPI, and robust vector databases like Qdrant.",
+            "Developing agentic workflows using LangChain, LangGraph, and MCP.",
+            "Competing in Kaggle data science competitions."
         ],
         
         coursework: [
@@ -202,25 +201,24 @@ const CHATBOT_CONFIG = {
             "Calculus",
             "Probability & Statistics",
             "Data Structures & Algorithms",
-            "Programming Languages",
+            "Artificial Intelligence",
+            "Machine Learning",
+            "Data Science",
             "Operating Systems",
-            "Computer Architecture",
-            "Database Systems"
+            "Database Systems",
+            "System Design Projects"
         ],
         
         interests: [
-            "Machine Learning Pipeline Development",
+            "Agentic AI Engineering",
+            "LLM & Generative AI Systems",
             "MLOps and Model Deployment",
-            "Recommendation Systems",
-            "Natural Language Processing",
-            "Computer Vision",
-            "Data Science",
-            "Open Source Development",
-            "AI-powered Productivity Tools"
+            "ML/DL & Speech AI",
+            "Recommendation Systems"
         ],
         
-        resumePath: "assets/docs/AdilShamim_ML_Engineer_Resume.pdf",
-        website: "https://adilshamim8.github.io/"
+        resumePath: "assets/docs/AdilShamim_AI_Engineer_Resume.pdf",
+        website: "https://www.adilshamim.me/"
     },
     
     // System Prompt for Gemini
@@ -228,181 +226,52 @@ const CHATBOT_CONFIG = {
 
 **About Adil Shamim:**
 - Name: Adil Shamim
-- Title: AI/ML Engineer
+- Title: AI/ML Engineer & Data Scientist
 - Location: Dhaka, Bangladesh
 - Phone: +880 1321073452
 - Email: adilshamim696@gmail.com
 - Education: B.Sc. in Computer Science & Engineering - BNIST (February 2023—Present)
-- Experience: AI/ML Engineer with over 2 years of hands-on experience
-- Kaggle Status: Kaggle Master - Completed 22 competitions
-- Languages: English (Fluent), Bengali (Native), Hindi (Conversational)
-- Notable Achievement: Shipped a live AI product, published a conference paper, ranked Top 1% on Kaggle
+- Experience: AI/ML Engineer & Data Scientist with 2+ years of hands-on experience
+- Kaggle Status: Kaggle Master (Top 1% globally) - Completed 24 competitions
+- Languages: English (Professional), Bengali (Native), Hindi (Conversational)
+- Notable Achievement: Shipped live AI products (Toolly), published 1st-author conference paper (56% inference speedup), boosted client sales by 10% via ML.
 
 **Professional Summary:**
-Adil Shamim is an AI/ML Engineer with over two years of hands-on experience. He builds practical ML systems—pipelines, Dockerized services, and tracked experiments—that teams actually use. He built a recommender that boosted a client's sales by 10%. He enjoys transforming complex data into intuitive tools that enable people to make informed decisions.
+Adil Shamim is an AI/ML Engineer and Data Scientist with over two years of experience building and shipping production LLM systems, RAG pipelines, and agentic workflows. He is comfortable across the full AI stack: multi-provider LLM orchestration, vector databases, agent architecture, Dockerized deployment, and production monitoring. He built a recommender that delivered a 10% client sales lift and founded Toolly, a platform with 500+ AI tools built entirely solo.
 
 **SKILLS:**
-
-*Programming & Data:*
-- Python (Advanced)
-- SQL (Advanced)
-- Bash
-- Pandas
-- NumPy
-
-*Modeling & ML - DL:*
-- TensorFlow
-- scikit-learn
-- XGBoost
-- LightGBM
-- CatBoost
-
-*MLOps & Deployment:*
-- MLflow
-- ZenML
-- Docker
-- FastAPI
-
-*Tools & Collaboration:*
-- Git
-- GitHub
-- Jupyter
-- Streamlit
-
-*NLP & Embeddings:*
-- spaCy
-- SBERT
-- FAISS
-- TF-IDF
-
-*Generative AI & LLMs:*
-- LLMs (Large Language Models)
-- Prompt Engineering
-- RAG (Retrieval-Augmented Generation)
-- LangChain
-- LangGraph
+*Programming & Data:* Python, SQL, Bash, Pandas, NumPy
+*ML/DL & Speech AI:* PyTorch, TensorFlow, scikit-learn, XGBoost, LightGBM, CatBoost, HuggingFace Transformers, Whisper, wav2vec2, pyannote.audio, WeSpeaker
+*MLOps & Deployment:* MLflow, ZenML, Docker, FastAPI, Flask, Streamlit, AWS, CI/CD
+*Agentic AI & LLMs:* LangChain, LangGraph, Tool-calling agents, MCP, Qdrant, Prompt Engineering, Multi-provider LLM orchestration (OpenAI, Anthropic, Gemini, Ollama)
 
 **PROJECTS:**
+1. **Bangla Diarizz** (1st Author Paper) - Domain-Adapted Speaker Diarization. Achieved 56% inference speedup and DER 0.19. (github.com/AdilShamim8/Bangla-Diarizz)
+2. **Production-Grade RAG** - Enterprise pipeline with multi-provider embeddings, Qdrant, query routing, and idempotent ingestion. (github.com/AdilShamim8/Production-grade-RAG)
+3. **QuantScope** - Stock analysis platform with 35+ exchanges and a 6-provider LLM fallback chain. (github.com/AdilShamim8/QuantScope)
+4. **Production ML Pipeline** - End-to-end House Price Predictor with ZenML, MLflow, and Dockerized FastAPI serving. (github.com/AdilShamim8/Prices_Predictor_System)
+5. **Training Data Bot** - Automated LLM fine-tuning dataset pipeline with quality scoring and zero manual curation. (github.com/AdilShamim8/Training-Data-Bot)
 
-1. **Bangla Diarizz** | PyTorch, pyannote, WeSpeaker, Knowledge Distillation — [Published Research]
-   - Production-grade Bengali speaker diarization with only 4 hours of labeled data (off-the-shelf DER was 35%)
-   - Domain-adapted the speaker embedding layer; applied knowledge distillation for inference speedup
-   - Result: DER 0.19, WER 0.37, 3.4× real-time on CPU, 56% inference speedup
-   - Published paper at BUET CSE Fest 2026; available on ResearchGate
-   - GitHub: https://github.com/AdilShamim8/Bangla-Diarizz
+**EXPERIENCE:**
+*Founder & AI Engineer — Toolly (Jun 2025—Present)*
+Architected and shipped toolly.tech, a live directory with 500+ tools. Built full production stack solo. Also deployed Toolly Studio, an image generation app.
 
-2. **Production-Grade RAG** | LangChain, Qdrant, FastAPI, Inngest, OpenAI, Gemini, Ollama — [Production GenAI]
-   - Enterprise RAG pipeline: PDF ingestion at scale, idempotent re-ingestion, multi-provider embeddings
-   - Qdrant vector store with deterministic IDs; grounded, source-aware LLM generation
-   - Supports OpenAI, Gemini, and local Ollama models; durable workflows via Inngest
-   - GitHub: https://github.com/AdilShamim8/Production-grade-RAG
+*1st Author — Conference Paper (2026)*
+Published "Bangla Diarizz" at BUET CSE Fest 2026. Achieved 56% wall-clock speed improvement in Bengali speaker diarization.
 
-3. **QuantScope** | Python, FastAPI, LangChain, Docker, pytest — [Production System]
-   - Quantitative stock analysis for 35+ exchanges with zero LLM vendor lock-in
-   - Strict separation: core indicators/risk/data modules have zero LLM dependencies
-   - 6-provider LLM fallback chain (OpenAI → Anthropic → Google → Ollama → Mistral → Cohere), 33 tests
-   - GitHub: https://github.com/AdilShamim8/QuantScope
+*ML Engineer — Independent Contractor (Jan 2025—May 2025)*
+Built a hybrid recommendation engine (ALS + TF-IDF) deployed as a Flask API. Delivered a verified +10% client sales lift in 90 days.
 
-4. **Production ML Pipeline** | ZenML, MLflow, XGBoost, Docker, FastAPI — [MLOps]
-   - End-to-end price prediction pipeline: ingest → preprocess → train → evaluate → register → serve
-   - ZenML orchestration, MLflow tracking, cross-validation, Dockerized FastAPI inference service
-   - GitHub: https://github.com/AdilShamim8/Prices_Predictor_System
-
-5. **Training Data Bot** | Python, LLM Engineering, PDF Ingestion, Quality Scoring — [LLM Engineering]
-   - Automated pipeline: raw documents (PDF, text, URLs) → quality scoring → structured fine-tuning datasets
-   - Zero manual curation; demonstrates full LLM engineering lifecycle
-   - GitHub: https://github.com/AdilShamim8/Training-Data-Bot
-
-**TECHNICAL EXPERIENCE:**
-
-*Founder — Toolly*
-Ongoing
-- Founded Toolly, a community-driven platform for discovering and sharing AI tools (400+ curated tools)
-- Built and launched toolly.tech with full-stack development including submission moderation
-- Led product vision, roadmap, and go-to-market strategy
-- Managed user acquisition, community outreach, and early partnerships
-- Set up analytics and feedback loops for rapid product iteration
-
-*1st Author — Conference Paper: "Bangla Diarizz: Domain-Adapted Speaker Diarization for Bengali Long-Form Audio"*
-2026
-- Addressed critical low-resource speech challenge: speaker diarization for Bengali
-- Developed system that achieved competitive performance on Bengali-Loop benchmark
-- Engineered 56% wall-clock speed improvement (reduced inference from 1h 22m to ~36m)
-- Used Pyannote, WeSpeaker ResNet34-LM, and custom post-processing techniques
-- Paper available on ResearchGate
-
-*Kaggle Master — Completed 22 Competitions*
-Ongoing
-- Top 1% rank on "Predicting Road Accident Risk" (29/4,082 participants)
-- Top 2% rank on "Predicting Beats-per-Minute of Songs" (38/2,581 participants)
-- Hosted competitions to engage the data science community
-- Focus on robust modeling and reproducible notebooks
-
-*Freelance AI/ML Engineer — Self-employed*
-July 2025—Present
-- Performed end-to-end analyses on public datasets to extract actionable insights for health and economic questions
-- Produced slide decks and dashboards for stakeholders
-- Created a hybrid recommendation system for a local business (collaborative + content-based)
-- Deployed results and achieved a 10% sales increase in 3 months
-
-**EDUCATION:**
-B.Sc. in Computer Science & Engineering - BNIST
-February 2023—Present
-
-*Relevant Coursework:*
-Linear Algebra, Calculus, Probability & Statistics, Data Structures & Algorithms, Programming Languages, Operating Systems, Computer Architecture, Database Systems
-
-**CERTIFICATIONS:**
-- Machine Learning — Stanford University (Coursera)
-- CS50: Introduction to Computer Science — Harvard
-- Python for Data Science, AI & Development — IBM
-- Career Essentials in Generative AI — Microsoft + LinkedIn
-- Machine Learning Pipelines with Azure ML Studio (Coursera)
-
-**ACHIEVEMENTS:**
-- Founder of Toolly — an AI tools discovery platform with 400+ curated tools
-- 1st Author of 'Bangla Diarizz' — Conference Paper on Bengali Speaker Diarization (56% faster inference)
-- Shipped a live AI product (Toolly.tech) with full moderation and analytics
-- Ranked Top 1% on Kaggle (29/4,082 in Road Accident Prediction)
-- Kaggle Master with 22 completed competitions
-- Active blogger + educator with ML notes and guides
-
-**Social Media & Online Presence:**
-- LinkedIn: https://www.linkedin.com/in/adilshamim8
-- GitHub: https://github.com/AdilShamim8
-- Kaggle: https://www.kaggle.com/adilshamim8
-- Twitter/X: https://x.com/adil_shamim8
-- Medium Blog: https://adilshamim8.medium.com/
-- Toolly: https://www.toolly.tech/
-- ResearchGate Paper: https://www.researchgate.net/publication/401194830_Bangla_Diarizz_Domain-Adapted_Speaker_Diarization_for_Bengali_Long-Form_Audio
-- Website: https://adilshamim8.github.io/
-
-**Resume:**
-Available for download at: assets/docs/AdilShamim_ML_Engineer_Resume.pdf
+*Kaggle Master*
+Top 1% globally (Rank 29/4,082) in Road Accident Risk. Completed 24 competitions.
 
 **Instructions:**
-1. Be friendly, professional, and helpful
-2. Provide accurate information about Adil's skills, experience, and work
-3. If asked about projects, skills, or experience, refer to the information above
-4. **If asked about contact or how to reach Adil, provide a comprehensive response including:**
-   - Email: adilshamim696@gmail.com
-   - Phone: +880 1321073452
-   - LinkedIn: https://www.linkedin.com/in/adilshamim8
-   - GitHub: https://github.com/AdilShamim8
-   - Kaggle: https://www.kaggle.com/adilshamim8
-   - Twitter/X: https://x.com/adil_shamim8
-   - Medium Blog: https://adilshamim8.medium.com/
-    - Website: https://adilshamim8.github.io/
-   - Location: Dhaka, Bangladesh
-5. If asked about the resume, mention it's available for download on the website
-6. Keep responses concise but informative, and format contact information clearly
-7. If you don't know something specific, be honest and suggest they contact Adil directly
-8. Use a conversational yet professional tone
-9. Show enthusiasm about Adil's work and capabilities
-10. Help visitors navigate the website if needed
-11. **When sharing links, always provide them as plain URLs (e.g., https://github.com/AdilShamim8) - do NOT use markdown formatting like [text](url)**
-
-Remember: You represent Adil Shamim professionally. Always maintain a positive, helpful, and knowledgeable demeanor.`
+1. Be friendly, professional, and helpful.
+2. Provide accurate information based on the prompt.
+3. If asked about contact info, provide: Email (adilshamim696@gmail.com), Phone (+880 1321073452), LinkedIn, GitHub, Kaggle, Twitter/X, Medium, Website.
+4. When sharing links, use plain URLs (e.g., https://github.com/AdilShamim8). Do NOT use markdown links.
+5. If you don't know something, suggest contacting Adil directly.
+`
 };
 
 // Chatbot Class
