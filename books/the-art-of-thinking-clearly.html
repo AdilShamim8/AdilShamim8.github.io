@@ -49,6 +49,1268 @@
 <h2 class="book-section-heading">Ideas I took away</h2>
 <div class="lessons-list"><div class='lesson-item reveal'><div class='lesson-number'>1</div><div class='lesson-content'><div class='lesson-title'>Survivorship bias: we only see the winners</div><div class='lesson-desc'>We read about successful startups, not the thousands that failed. In ML, we see published results, not the 90% of experiments that did not work. This systematically skews what we think causes success.</div></div></div><div class='lesson-item reveal'><div class='lesson-number'>2</div><div class='lesson-content'><div class='lesson-title'>The sunk cost fallacy keeps you in losing positions</div><div class='lesson-desc'>Past investment — time, money, emotion — should never influence future decisions. Only future costs and benefits matter. Recognising this helped me kill projects I had invested months in when the signal said to stop.</div></div></div><div class='lesson-item reveal'><div class='lesson-number'>3</div><div class='lesson-content'><div class='lesson-title'>Confirmation bias is the root of most bad thinking</div><div class='lesson-desc'>We actively seek information that confirms existing beliefs. Designing experiments that are genuinely falsifiable is a professional discipline, not a scientific nicety.</div></div></div><div class='lesson-item reveal'><div class='lesson-number'>4</div><div class='lesson-content'><div class='lesson-title'>The availability heuristic makes vivid things feel common</div><div class='lesson-desc'>Events that are easy to remember feel more probable than they are. In risk assessment this leads to systematically wrong prioritisation — a critical failure mode in ML safety and reliability work.</div></div></div></div>
 </div>
+                <!-- ── INTRODUCTION: WHY WE THINK THE WAY WE THINK ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">Introduction: Why We Think the Way We Think</h2>
+                    <div class="book-prose">
+                        <p>Rolf Dobelli, a Swiss author and entrepreneur, wrote "The Art of Thinking Clearly" as a practical catalogue of the most common cognitive errors, biases, and logical fallacies that distort human thinking and lead to poor decisions. The book is based on decades of research in behavioral economics, cognitive psychology, and evolutionary biology, drawing on the work of Daniel Kahneman, Nassim Nicholas Taleb, Charlie Munger, and dozens of other researchers and thinkers.</p>
+                        <p>The central premise of the book is simple and profound: the human brain was not designed for the modern world. Our thinking machinery evolved over hundreds of thousands of years to solve the problems of our ancestral environment, hunting, gathering, navigating social hierarchies, and avoiding physical danger. These ancient thinking shortcuts, which psychologists call heuristics, served our ancestors well. But in the complex, information-saturated modern world, these same shortcuts lead us systematically astray.</p>
+                        <p>Dobelli does not promise to make you a perfectly rational being. He acknowledges that many of these biases are deeply wired into our cognitive architecture and cannot be entirely eliminated. But by becoming aware of them, by learning to recognize them when they are operating, you can catch yourself before making the worst mistakes and make better decisions in the areas of life that matter most.</p>
+                        <p>The book covers 99 cognitive errors, biases, and fallacies. Each is presented in a short, accessible chapter with real-world examples, scientific context, and practical advice. This summary covers all 99, organized as they appear in the book, with the key lessons and insights from each.</p>
+                    </div>
+                </div>
+                <!-- ── 1. SURVIVORSHIP BIAS ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">1. Survivorship Bias</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We systematically overestimate our chances of success because we only see the survivors, the winners, the successful outcomes, and not the far larger number of failures that are invisible to us.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>When we look at successful entrepreneurs, famous artists, or winning investors, we see only those who made it. We do not see the thousands who tried the same thing and failed. This creates a distorted picture of reality where success seems more common and more achievable than it actually is.</p>
+                        <p>The classic example Dobelli uses is Abraham Wald's research during World War II. The military wanted to add armor to the most bullet-riddled parts of returning planes. Wald pointed out that they were only looking at the planes that returned. The planes that were hit in other locations did not return at all. The armor should go on the parts that showed no damage, because those were the locations that, when hit, led to total loss.</p>
+                        <p>In everyday life, survivorship bias leads us to follow business advice from successful CEOs without considering that hundreds of other CEOs followed the same advice and went bankrupt. It makes us think a particular strategy works because we only hear from those for whom it worked.</p>
+                        <p>The antidote is to actively seek out information about failures, not just successes. Before following advice or adopting a strategy, ask: what happened to the people who tried this and failed? Can I find data on the base rate of success and failure?</p>
+                    </div>
+                </div>
+                <!-- ── 2. SWIMMING IN DELUSION - THE SWIMMER'S BODY ILLUSION ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">2. Swimming in Delusion - The Swimmer's Body Illusion</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We confuse selection criteria with results, mistakenly believing that an activity or product produces a quality that was actually a precondition for selection.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Professional swimmers have extraordinary physiques. But did swimming create those bodies, or were people with those bodies selected into competitive swimming? The answer is largely the latter. The exceptional physique is a precondition for success, not a result of it.</p>
+                        <p>Similarly, Harvard graduates are extraordinarily successful. But is that because Harvard education is transformative, or is it because Harvard selects already exceptional people? Much of the answer lies in selection, not transformation.</p>
+                        <p>This error is pervasive in advertising. Models advertising beauty products are beautiful not because of the product but despite using it. Their beauty was the selection criterion for appearing in the advertisement.</p>
+                        <p>The lesson is to distinguish between what a process produces and what a process selects. Before concluding that something creates a desirable outcome, ask whether it simply attracts people who already had that outcome.</p>
+                    </div>
+                </div>
+                <!-- ── 3. IF FIFTY MILLION PEOPLE SAY SOMETHING FOOLISH, IT IS STILL FOOLISH - SOCIAL PROOF ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">3. If Fifty Million People Say Something Foolish, It Is Still Foolish - Social Proof</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We determine what is correct, desirable, or appropriate by observing what other people think and do, regardless of whether those people actually have good judgment.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Social proof is one of the most powerful and pervasive cognitive biases. It drives fashion, financial bubbles, political movements, religious trends, and countless everyday decisions. We look to others to tell us what to think, what to buy, and how to behave.</p>
+                        <p>The evolutionary logic is sound: in most ancestral situations, the crowd was right. If everyone in the tribe was running away from something, it was a good idea to run too, even without knowing why. Following the crowd was a reliable shortcut to survival.</p>
+                        <p>But in the modern world, the crowd is often wrong. The dot-com bubble, the housing crisis, and countless financial manias were driven by social proof. Everyone was buying, so it must be a good investment. The herd moved together off the cliff.</p>
+                        <p>The antidote is to make decisions based on logic and evidence rather than on what others are doing. When you find yourself doing something primarily because "everyone is doing it," pause and examine the actual reasons behind the behavior.</p>
+                    </div>
+                </div>
+                <!-- ── 4. WHY YOU SHOULD VISIT CEMETERIES - SUNK COST FALLACY ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">4. Why You Should Visit Cemeteries - Sunk Cost Fallacy</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We irrationally continue investing time, money, or effort into something because of what we have already invested, rather than because of the future value of continuing.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>The sunk cost fallacy is one of the most costly errors in human thinking. It affects business decisions, relationships, career choices, and even movie-watching habits. The logic of the error is: "I have already invested so much, I cannot stop now."</p>
+                        <p>But from a rational perspective, past investment is irrelevant to future decisions. The only question that matters is: "Given where I am right now, what is the best course of action going forward?" The money, time, or effort already spent is gone. It cannot be recovered regardless of what you do next.</p>
+                        <p>Dobelli uses the cemetery metaphor to illustrate the point. In the cemetery lie all the projects, relationships, and ventures that should have been abandoned earlier. By visiting the cemetery, by honestly examining the dead projects in your life, you can recognize the pattern of throwing good resources after bad.</p>
+                        <p>The antidote is to evaluate every ongoing project or relationship purely on its future merits. Ask: "If I were starting fresh today, knowing what I know now, would I begin this?" If the answer is no, the sunk cost fallacy may be the only thing keeping you in it.</p>
+                    </div>
+                </div>
+                <!-- ── 5. DO NOT ACCEPT FREE DRINKS - RECIPROCITY ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">5. Do Not Accept Free Drinks - Reciprocity</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> When someone does something for us, we feel an overwhelming obligation to reciprocate, even when the original gift was unsolicited or strategically motivated.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Reciprocity is one of the most deeply wired social instincts in human beings. It is the foundation of cooperation and civilized society. But it is also one of the most exploitable biases. Marketers, salespeople, politicians, and con artists all use reciprocity deliberately.</p>
+                        <p>The free drink, the unsolicited gift, the small favor, these create a sense of obligation that is often disproportionate to the value of what was received. A small gift can create enough obligation to generate a large purchase or commitment.</p>
+                        <p>Dobelli advises being suspicious of unsolicited gifts, especially from people who want something from you. Accept them graciously if you wish, but be aware that they are often designed to create an obligation. If you feel pressured by reciprocity, you can always simply return the gift.</p>
+                        <p>The broader lesson is to make decisions based on what you genuinely want and need, not based on what obligations social pressure seems to impose on you.</p>
+                    </div>
+                </div>
+                <!-- ── 6. DO NOT BELITTLE THE VILLAGE IDIOT - CONFIRMATION BIAS PART ONE ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">6. Do Not Belittle the Village Idiot - Confirmation Bias Part One</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We have a strong tendency to search for, interpret, and remember information in a way that confirms our preexisting beliefs and hypotheses.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Confirmation bias is widely considered the most dangerous of all cognitive biases because it is so pervasive and so difficult to detect. It operates invisibly, shaping what information we seek, how we interpret what we find, and what we remember.</p>
+                        <p>When we form a belief, we unconsciously begin to notice evidence that supports it and overlook evidence that contradicts it. We read news sources that align with our political views. We seek out friends who share our opinions. We remember the times our predictions were right and forget the times they were wrong.</p>
+                        <p>The person who seems like a village idiot for believing something wrong is often using the same cognitive processes as everyone else. The difference is just that their particular belief happens to be more obviously wrong. The same processes that lead someone to believe in flat earth also lead intelligent people to believe in poorly-supported financial theories, medical treatments, or political ideologies.</p>
+                        <p>The antidote is to actively seek out disconfirming evidence. For every belief you hold, ask: "What would convince me that I am wrong?" If you cannot answer this question, you may be holding the belief on emotional rather than rational grounds.</p>
+                    </div>
+                </div>
+                <!-- ── 7. DO YOU SUFFER FROM AN ILLUSION OF CONTROL? - CONFIRMATION BIAS PART TWO ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">7. Do You Suffer from an Illusion of Control? - Confirmation Bias Part Two</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We tend to believe we have more control over events than we actually do, and we seek out situations and interpretations that reinforce this illusion.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>The illusion of control is a specific manifestation of confirmation bias. We notice the times our actions seem to influence outcomes and overlook the times they do not. A gambler who blows on the dice feels they influence the outcome. A trader who has had a lucky streak feels they have superior skill.</p>
+                        <p>This illusion is particularly powerful in situations that involve some element of skill alongside randomness, because we can always credit our skill for the good outcomes and blame bad luck for the bad ones.</p>
+                        <p>The illusion of control drives excessive risk-taking, overconfidence, and poor calibration of our actual capabilities. It also leads to superstitious behavior: we repeat actions that coincided with positive outcomes even when there is no causal connection.</p>
+                        <p>The antidote is to honestly track your decisions and their outcomes over time, distinguishing between cases where your skill genuinely made a difference and cases where luck was the dominant factor.</p>
+                    </div>
+                </div>
+                <!-- ── 8. NEVER JUDGE A DECISION BY ITS OUTCOME - RESULTING ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">8. Never Judge a Decision by Its Outcome - Resulting</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We evaluate the quality of a decision based on its outcome rather than on the quality of the decision-making process itself.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>This is one of the most fundamental errors in judgment. A good decision can lead to a bad outcome (due to bad luck), and a bad decision can lead to a good outcome (due to good luck). Judging decisions by their outcomes prevents us from learning the right lessons.</p>
+                        <p>If you drive drunk and arrive home safely, driving drunk was still a terrible decision. If you invest wisely in a good company and the market crashes, your investment decision was still sound. The outcome does not retroactively change the quality of the decision.</p>
+                        <p>This error is particularly costly in business and investing, where we tend to fire managers after bad results and hire them after good results, when the results may be driven largely by market conditions rather than by the quality of their decisions.</p>
+                        <p>The antidote is to evaluate decisions based on the information available at the time they were made and the quality of the reasoning process, not on the outcomes that followed.</p>
+                    </div>
+                </div>
+                <!-- ── 9. WHY YOU ARE EITHER A GOOD PERSON OR A BAD PERSON - HALO EFFECT ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">9. Why You Are Either a Good Person or a Bad Person - Halo Effect</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> Our overall impression of a person, brand, or thing influences how we perceive their specific qualities, creating a halo or horn effect that distorts our judgment.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>The halo effect is the tendency to let one positive quality color our perception of all other qualities. An attractive person is assumed to be intelligent, kind, and competent. A charismatic leader is assumed to have sound judgment and ethical character. A well-designed product is assumed to work well.</p>
+                        <p>The horn effect is the reverse: one negative quality colors everything else. A person who lies once is assumed to be dishonest in all things. A company that makes one bad product is assumed to be incompetent across the board.</p>
+                        <p>This bias is enormously powerful in hiring, investment decisions, political elections, and personal relationships. We make snap judgments based on a single characteristic and then rationalize them with a comprehensive story.</p>
+                        <p>The antidote is to deliberately evaluate each characteristic of a person, product, or situation independently, rather than allowing your overall impression to carry over from one dimension to another.</p>
+                    </div>
+                </div>
+                <!-- ── 10. WHY CONSENSUS IS NOT ALWAYS THE BEST PATH - GROUP THINK ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">10. Why Consensus Is Not Always the Best Path - Group Think</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> In group settings, the desire for harmony and conformity overrides realistic appraisal of alternatives, leading to poor collective decisions.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Groupthink occurs when the cohesion of the group becomes more important than the quality of its decisions. Members suppress dissent, self-censor, and go along with the emerging consensus even when they have private doubts. The result is decisions that no individual member would have made alone.</p>
+                        <p>The symptoms of groupthink include the illusion of invulnerability, collective rationalization, pressure on dissenters, and a shared illusion of unanimity. Groups affected by groupthink tend to be overconfident, take excessive risks, and fail to consider alternative perspectives.</p>
+                        <p>Historical examples include the Bay of Pigs invasion, the space shuttle Challenger disaster, and numerous corporate failures where management teams reached catastrophically wrong decisions despite the presence of members who had doubts.</p>
+                        <p>The antidote includes designating a devil's advocate whose role is to argue against the consensus, seeking outside opinions, allowing anonymous dissent, and fostering a culture where disagreement is valued rather than punished.</p>
+                    </div>
+                </div>
+                <!-- ── 11. WHY YOU SYSTEMATICALLY OVERESTIMATE YOUR KNOWLEDGE AND ABILITIES - OVERCONFIDENCE EFFECT ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">11. Why You Systematically Overestimate Your Knowledge and Abilities - Overconfidence Effect</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We consistently overestimate the accuracy of our knowledge, the quality of our judgments, and the likelihood that our predictions will be correct.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>The overconfidence effect is one of the most robust findings in cognitive psychology. When asked to rate the accuracy of their answers, most people are wrong far more often than they predict. People asked to give 90 percent confidence intervals, within which they are 90 percent certain the true answer falls, are wrong far more than 10 percent of the time.</p>
+                        <p>This bias is stronger in experts than in novices, which is particularly troubling. Doctors, lawyers, financial analysts, and other professionals are not immune to overconfidence; they are often more susceptible because their expertise reinforces their sense of certainty.</p>
+                        <p>Overconfidence leads to excessive risk-taking, insufficient planning for contingencies, failure to seek additional information or expertise, and poor calibration of our actual skill level.</p>
+                        <p>The antidote is to practice deliberate humility. Keep track of your predictions and their accuracy. Seek disconfirming evidence. When you feel certain about something, ask yourself: "What would it take for me to be wrong?" Consult experts and alternative perspectives before making important decisions.</p>
+                    </div>
+                </div>
+                <!-- ── 12. DO NOT ACCEPT FREE TRIPS TO NOWHERE - CHAUFFEUR KNOWLEDGE ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">12. Do Not Accept Free Trips to Nowhere - Chauffeur Knowledge</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We often mistake the performance of knowledge for knowledge itself, and we fail to distinguish between people who genuinely understand something and those who merely sound like they do.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Dobelli tells the story of Max Planck's chauffeur, who had heard Planck's quantum theory lecture so many times that he could deliver it perfectly. When asked to give the lecture in a new city, the chauffeur did so flawlessly but then could not answer a single follow-up question. He had the performance of knowledge without the understanding.</p>
+                        <p>This phenomenon is everywhere. Pundits, commentators, and confident-sounding people on television often have chauffeur knowledge: they can describe what happened without understanding why, and they cannot answer questions that go beyond their prepared remarks.</p>
+                        <p>The danger is that chauffeur knowledge sounds identical to real knowledge. The chauffeur and the expert make the same claims with the same confidence. The only way to distinguish them is through questioning, particularly questions that probe the underlying mechanisms and implications of the claims.</p>
+                        <p>The lesson is twofold. First, be skeptical of confident-sounding expertise, especially in complex domains. Second, be honest about the limits of your own knowledge. Know where your genuine understanding ends and where your surface familiarity begins.</p>
+                    </div>
+                </div>
+                <!-- ── 13. WHY YOU SHOULD NOT READ THE NEWS - NEWS ILLUSION ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">13. Why You Should Not Read the News - News Illusion</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> News consumption gives us the illusion of understanding the world while actually distorting our picture of it through systematic biases in what gets reported.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Dobelli is famously anti-news, and this chapter explains why. News is optimized for attention, not for relevance or importance. It focuses on the dramatic, the novel, the immediate, and the emotionally engaging, which creates a wildly distorted picture of reality.</p>
+                        <p>News systematically overrepresents threats, conflicts, disasters, and the exceptional while underrepresenting the gradual improvements, long-term trends, and quiet successes that actually drive human progress.</p>
+                        <p>News also creates the illusion of understanding. After reading a newspaper article about a complex geopolitical situation, you feel you understand it. But you have been given a simplistic narrative with a good guy and a bad guy, a beginning and an end, that bears little resemblance to the actual complexity.</p>
+                        <p>Furthermore, news consumes enormous amounts of time and mental energy while providing almost no actionable information. Almost nothing you read in the daily news will be relevant to any decision you need to make.</p>
+                        <p>Dobelli recommends replacing news consumption with long-form reading: books, academic papers, and in-depth investigative journalism. These sources provide context, nuance, and genuine understanding rather than the illusion of it.</p>
+                    </div>
+                </div>
+                <!-- ── 14. WHY VISIONS OF THE FUTURE ARE SO OFTEN WRONG - THE PLANNING FALLACY ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">14. Why Visions of the Future Are So Often Wrong - The Planning Fallacy</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We consistently underestimate the time, costs, and risks of future actions, and overestimate the benefits of those actions.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>The planning fallacy was identified by Daniel Kahneman and Amos Tversky and has been replicated countless times across cultures and domains. Whether you are planning a home renovation, writing a book, building a bridge, or launching a software project, you will almost certainly underestimate how long it takes and how much it costs.</p>
+                        <p>The reasons are multiple. We focus on the best-case scenario. We fail to account for unforeseen complications. We underestimate the number and difficulty of individual steps. And we are subject to wishful thinking that distorts our estimates upward.</p>
+                        <p>The most reliable antidote is what Kahneman calls the "outside view" or reference class forecasting. Instead of planning from the inside, thinking about the specific details of your project, look at how long similar projects have actually taken in the past. The historical base rate is a far more accurate predictor than your specific planning.</p>
+                        <p>Another useful technique is the "pre-mortem": before beginning a project, imagine that it has already failed and then work backward to identify the most likely causes of failure. This forces you to confront the risks you are tempted to ignore.</p>
+                    </div>
+                </div>
+                <!-- ── 15. WHY YOU TAKE ON TOO MUCH - HYPERBOLIC DISCOUNTING ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">15. Why You Take on Too Much - Hyperbolic Discounting</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We value immediate rewards far more than future rewards, even when the future rewards are objectively much larger.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Hyperbolic discounting means that we give disproportionately high value to things we can have right now compared to the same things available in the future. A hundred dollars today is worth far more to us than a hundred and fifty dollars next month, even though rational calculation suggests we should prefer the larger amount.</p>
+                        <p>This bias drives procrastination, addiction, overeating, undersaving, and countless other self-destructive patterns. We know intellectually that we should exercise, save money, and eat well. But the immediate reward of comfort and pleasure consistently outweighs the distant reward of health, wealth, and discipline.</p>
+                        <p>The brain's reward system gives an immediate hit for immediate gratification and a much smaller signal for future rewards, even when the future rewards are far more valuable. This was useful when the future was uncertain and the present was all you had, but it is maladaptive in a world where planning for the future is essential.</p>
+                        <p>The antidotes include commitment devices (making it harder to choose immediate gratification), making future rewards more vivid and concrete in your imagination, and creating immediate rewards for future-oriented behavior.</p>
+                    </div>
+                </div>
+                <!-- ── 16. WINNERS AND LOSERS ARE TREATED DIFFERENTLY - THE WINNER'S CURSE ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">16. Winners and Losers Are Treated Differently - The Winner's Curse</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> The winner of an auction or competitive bid tends to overpay because the winner is the person with the highest (and therefore most likely inflated) estimate of the value.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>In any auction where the true value of an item is uncertain, the winner is systematically the person who overestimates the value the most. All other bidders with lower estimates are implicitly saying "this is not worth more than this." The winner's higher bid reflects a higher estimate that is more likely to be an overestimate.</p>
+                        <p>This applies far beyond actual auctions. It applies to corporate acquisitions, talent bidding wars, real estate purchases, and any competitive situation where you are competing against others for something of uncertain value.</p>
+                        <p>The lesson is that winning a contested bid should not make you feel confident that you got a good deal. It should make you suspicious that you overvalued what you won. The most rational response to winning an auction is to wonder whether you bid too much.</p>
+                    </div>
+                </div>
+                <!-- ── 17. WHY NEW YORK IS SAFER THAN YOU THINK - NEGLECT OF PROBABILITY ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">17. Why New York Is Safer Than You Think - Neglect of Probability</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We respond to risks based on our emotional reaction to them rather than on their actual probability, leading us to fear unlikely events while neglecting likely ones.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>People are terrified of plane crashes and terrorist attacks, which are extremely rare, but unconcerned about heart disease and car accidents, which kill vastly more people. This is not stupidity; it is a predictable result of how the brain processes risk.</p>
+                        <p>Our fear response is calibrated to vividness, ease of imagining, and emotional impact rather than to statistical frequency. A dramatic, imaginable threat triggers far more fear than a gradual, statistical threat, regardless of the actual probabilities.</p>
+                        <p>The result is systematic misallocation of attention and resources. We spend billions preventing rare dramatic threats while ignoring common gradual ones. We make personal decisions to avoid extremely low-probability risks while freely engaging in high-probability risky behaviors.</p>
+                        <p>The antidote is to make probability calculations explicit. When you feel afraid of something, ask: "What is the actual probability of this happening?" Then compare it to other risks you routinely ignore. This does not eliminate fear, but it helps calibrate it.</p>
+                    </div>
+                </div>
+                <!-- ── 18. WHY YOU CANNOT BEAT THE MARKET - ZERO RISK BIAS ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">18. Why You Cannot Beat the Market - Zero Risk Bias</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We prefer to reduce a small risk to zero rather than to reduce a larger risk by a greater amount, even when the second option is objectively better.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Dobelli illustrates this with an example from medicine. Given the choice between a treatment that reduces the risk of a disease from 5 percent to 2 percent, and a treatment that reduces the risk of a different disease from 50 percent to 46 percent, most people choose the first option. But the second option prevents more cases.</p>
+                        <p>We are psychologically attracted to certainty. Eliminating a risk entirely feels fundamentally different from reducing it, even when the expected value calculation clearly favors reduction over elimination.</p>
+                        <p>This bias affects personal health decisions, public policy, safety investments, and financial choices. We invest disproportionately in completely eliminating small risks while neglecting to reduce large ones.</p>
+                        <p>The antidote is to think in terms of expected value: probability times magnitude. Compare options based on how much total harm they prevent, not on how satisfying the reduction feels.</p>
+                    </div>
+                </div>
+                <!-- ── 19. IF YOU HAVE NOTHING TO SAY, SAY NOTHING - SCARCITY ERROR ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">19. If You Have Nothing to Say, Say Nothing - Scarcity Error</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We perceive things as more valuable and desirable when they are rare or becoming less available, regardless of their actual worth.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Scarcity triggers a powerful psychological response. "Limited time offer," "only three left in stock," and "exclusive membership" are all exploitation of the scarcity heuristic. We want things more when we are about to lose access to them.</p>
+                        <p>This is why people hoard during shortages even when they have no use for what they are hoarding. It is why "limited edition" products command a premium that has nothing to do with their quality. It is why we want things we ignored until someone else expressed interest in them.</p>
+                        <p>The evolutionary logic is clear. In a world of genuine scarcity, rare things were often genuinely valuable and worth securing. But in the modern world of manufactured abundance, scarcity is often artificial and the heuristic leads us astray.</p>
+                        <p>The antidote is to evaluate things based on their intrinsic value and utility to you, not on their availability. Before buying something because it is "limited edition," ask whether you would want it just as much if it were freely available.</p>
+                    </div>
+                </div>
+                <!-- ── 20. SPARE YOURSELF THE UNIMPORTANT AND SUPERFLUOUS - BASE RATE NEGLECT ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">20. Spare Yourself the Unimportant and Superfluous - Base Rate Neglect</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We systematically ignore general statistical information (base rates) in favor of specific, vivid, individual case information.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>When evaluating the probability of something, we should first consider the base rate: how often does this kind of thing happen in general? But instead, we focus on the specific details of the individual case in front of us and largely ignore the base rate.</p>
+                        <p>Dobelli uses the example of a person who seems artistic and sensitive. What is more likely: that they are a librarian or a farmer? Most people say librarian based on the personality description. But there are vastly more farmers than librarians, so the base rate heavily favors farmer regardless of the personality description.</p>
+                        <p>This error leads to overestimating the probability of events that seem to fit a pattern (stereotyping) and underestimating the probability of events that do not match our mental image (stereotyping in reverse).</p>
+                        <p>The antidote is to always start with the base rate and then adjust based on specific information. Ask: "How often does this type of thing happen in general?" before considering the specific details.</p>
+                    </div>
+                </div>
+                <!-- ── 21. WHY THE COCK CROWS AFTER SUNRISE - GAMBLER'S FALLACY ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">21. Why the Cock Crows After Sunrise - Gambler's Fallacy</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We believe that past random events influence the probability of future random events, when in fact they do not.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>The gambler's fallacy is the belief that after a long run of one outcome, the opposite outcome becomes more likely. After ten coin flips that come up heads, many people believe tails is "due." But the coin has no memory. The probability of tails is still exactly 50 percent.</p>
+                        <p>This fallacy affects gambling behavior, investment decisions, and countless everyday judgments. Investors believe a stock "must" go up after a long decline. Sports fans believe a team "must" win after a long losing streak. We impose patterns on random sequences and act on those imaginary patterns.</p>
+                        <p>The deeper issue is that the human brain is a pattern-recognition machine. It is so good at finding patterns that it finds them even where none exist. This was useful when patterns in the environment signaled genuine regularities, but it leads us astray with truly random processes.</p>
+                        <p>The antidote is to remember that each independent event starts fresh. Ask whether past events could have any causal influence on the current event. If not, they are irrelevant to your probability estimate.</p>
+                    </div>
+                </div>
+                <!-- ── 22. WHY THE BEST STORYTELLER RULES THE WORLD - THE NARRATIVE FALLACY ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">22. Why the Best Storyteller Rules the World - The Narrative Fallacy</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We impose stories on sequences of events to create the illusion of understanding and causality, even when the events were random or driven by complex forces that resist simple narrative.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Humans are storytelling animals. We understand the world through narratives with causes, effects, heroes, villains, and coherent arcs. This is deeply satisfying psychologically but often misleading epistemologically.</p>
+                        <p>When we tell the story of why a company succeeded or failed, we impose a causal narrative on what was actually a complex, partially random sequence of events. The same events could have produced a different outcome with slightly different circumstances. But the narrative makes it seem inevitable.</p>
+                        <p>The narrative fallacy affects how we learn from history, how we understand our own lives, and how we evaluate other people's decisions. A decision that led to success is framed as brilliance; the same decision leading to failure is framed as recklessness, even when the decision was identical in quality.</p>
+                        <p>The antidote is to be suspicious of clean, compelling stories, especially about complex events. Ask whether the narrative truly captures causality or whether it is a retrospective imposition of meaning on events that were actually more messy and random.</p>
+                    </div>
+                </div>
+                <!-- ── 23. WHY YOU SHOULD KEEP A DIARY - HINDSIGHT BIAS ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">23. Why You Should Keep a Diary - Hindsight Bias</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> After learning the outcome of an event, we believe we would have predicted it all along, distorting our memory of our actual predictions.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Hindsight bias is sometimes called the "I knew it all along" effect. Once we know how something turned out, we cannot accurately reconstruct our prior state of uncertainty. The outcome seems obvious in retrospect, even though it was genuinely uncertain beforehand.</p>
+                        <p>This bias is devastating for learning. If we think we knew the right answer all along, we cannot identify where our thinking went wrong. Doctors who learn that a patient had disease X cannot accurately remember how uncertain they were about the diagnosis. Investors who learn that a stock crashed think they knew it was overvalued. Historians believe events they study were inevitable.</p>
+                        <p>Dobelli recommends keeping a diary or decision journal precisely to combat hindsight bias. If you write down your actual predictions, uncertainties, and reasoning before an outcome is known, you have a record that cannot be revised by hindsight. Reviewing these records is often humbling and always instructive.</p>
+                        <p>The broader lesson is epistemic humility: the future is genuinely uncertain, and our sense of having known things in advance is largely an illusion constructed after the fact.</p>
+                    </div>
+                </div>
+                <!-- ── 24. ON THE DIFFICULTY OF LIVING WITH AN OPEN QUESTION - SELF-SERVING BIAS ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">24. On the Difficulty of Living With an Open Question - Self-Serving Bias</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We attribute our successes to our own qualities and our failures to external circumstances.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Self-serving bias is the universal human tendency to take credit for good outcomes and deflect blame for bad ones. When we succeed, it is because of our talent, hard work, and intelligence. When we fail, it is because of bad luck, unfair circumstances, or other people's failures.</p>
+                        <p>This bias protects our ego and maintains our self-esteem, which is why it is so persistent. But it prevents us from accurately assessing our own performance, identifying genuine weaknesses, and learning from our mistakes.</p>
+                        <p>Self-serving bias also operates at the group level. Members of a group attribute the group's successes to the group's qualities and its failures to external factors. This is why opposing sides in a conflict each believe themselves to be in the right and the other side to be the aggressor.</p>
+                        <p>The antidote is radical honesty in self-assessment. Keep a decision journal (see hindsight bias). Seek honest feedback from trusted people. When something goes wrong, resist the first impulse to identify external causes and honestly ask what you could have done differently.</p>
+                    </div>
+                </div>
+                <!-- ── 25. WHY EVIL IS BANAL - ACTION BIAS ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">25. Why Evil Is Banal - Action Bias</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We prefer action over inaction, even when inaction is the better choice, because we are wired to do something rather than nothing.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>When faced with a problem or uncertainty, we feel a powerful urge to act. Doing nothing feels irresponsible, weak, and passive. This action bias leads to unnecessary interventions, premature decisions, and a general tendency to do too much rather than too little.</p>
+                        <p>Dobelli uses the example of soccer goalkeepers facing penalty kicks. Research shows that goalkeepers who stay in the center of the goal save a slightly higher percentage of kicks. But most goalkeepers dive, left or right, even though the statistical evidence suggests that staying put is better. Diving feels like you are doing something. Staying still feels like you are doing nothing.</p>
+                        <p>In medicine, action bias leads to overtreatment. Doctors and patients both prefer to "do something" even when watchful waiting is the evidence-based approach. In investing, it leads to excessive trading. In management, it leads to constant reorganization.</p>
+                        <p>The antidote is to recognize that inaction is itself a choice, and often the best one. Before acting, ask: "What is the expected value of acting versus not acting?" Sometimes the best course of action is deliberate, conscious inaction.</p>
+                    </div>
+                </div>
+                <!-- ── 26. WHY REVOLUTION EATS ITS CHILDREN - THE OMISSION BIAS ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">26. Why Revolution Eats Its Children - The Omission Bias</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We judge harmful actions more harshly than equally harmful inactions, even when the outcomes are identical.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>The omission bias is the flip side of action bias. While we have a tendency to prefer action in some contexts, we also have a strong moral preference for harm caused by inaction over harm caused by action, even when the consequences are the same.</p>
+                        <p>Consider: most people believe it is worse to actively push someone into the path of a trolley to save five people than to pull a lever that diverts the trolley, killing one. But both result in one death to save five. The action feels more wrong than the omission.</p>
+                        <p>This bias affects medical ethics (active euthanasia versus allowing a patient to die), public policy (acts of commission versus omission by governments), and everyday moral judgments.</p>
+                        <p>The problem is that in a world where inaction causes harm, treating inaction as morally neutral leads to terrible outcomes. If a person drowns while you watch and could save them with minimal effort, your inaction is morally significant even if it feels less active than causing harm directly.</p>
+                        <p>The antidote is to evaluate outcomes, not actions and inactions. Ask: "What is the result of this choice?" rather than "Am I doing something or refraining from doing something?"</p>
+                    </div>
+                </div>
+                <!-- ── 27. WHAT BUNGEE JUMPING AND DERIVATIVES HAVE IN COMMON - SELF-CONTROL BIAS ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">27. What Bungee Jumping and Derivatives Have in Common - Self-Control Bias</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We overestimate our ability to control our future behavior and impulses, leading us to take on commitments that our future selves cannot honor.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>We make plans in a state of calm rationality that our future emotionally activated selves will not honor. We plan to eat healthily, exercise regularly, save money, and be patient. Then we find ourselves in the grocery store, the gym parking lot, or the investing moment, and our future self does not behave the way our planning self intended.</p>
+                        <p>This disconnect between the planning self and the acting self is the root of procrastination, addiction, financial irresponsibility, and broken resolutions. The planning self is rational and future-oriented. The acting self is emotional and present-focused.</p>
+                        <p>Ulysses, knowing that the sirens' song would make him irrationally want to crash his ship into the rocks, had himself tied to the mast before entering their waters. This is the concept of a "commitment device": constraining your future self before the temptation arises.</p>
+                        <p>Effective commitment devices include automatic savings contributions, not keeping junk food in the house, accountability partners, and any other mechanism that makes the desired behavior easier and the undesired behavior harder before you face the choice.</p>
+                    </div>
+                </div>
+                <!-- ── 28. YOU CONTROL LESS THAN YOU THINK - HEDONIC TREADMILL ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">28. You Control Less Than You Think - Hedonic Treadmill</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We quickly adapt to new circumstances, both good and bad, returning to a baseline level of happiness regardless of what happens to us.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Lottery winners are no happier one year after winning than they were before. Accident victims who become paralyzed are no less happy one year after the accident than they were before. We are remarkably good at adapting to new circumstances, which means that the things we believe will make us permanently happier or unhappier rarely do so for long.</p>
+                        <p>This has profound implications for decision-making. We systematically overestimate the impact that future events, positive or negative, will have on our happiness. This is called the impact bias. We over-invest in goals and acquisitions that will not actually move our happiness much, and we over-dread losses and failures that will not actually devastate us as much as we fear.</p>
+                        <p>The practical lesson is to be skeptical of the things you believe will make you permanently happier. Before pursuing a major goal, ask whether you are chasing a genuine improvement or just a temporary deviation from your hedonic baseline.</p>
+                    </div>
+                </div>
+                <!-- ── 29. DOES HARVARD MAKE YOU SMARTER? - ALTERNATIVE PATHS NEGLECTED ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">29. Does Harvard Make You Smarter? - Alternative Paths Neglected</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We evaluate decisions based on the path we took without considering what would have happened had we taken a different path.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>This is related to survivorship bias and the narrative fallacy. When we see someone who went to Harvard and is successful, we attribute the success to Harvard without considering what would have happened if they had gone to a different school. The alternative paths, the counterfactual scenarios, are invisible.</p>
+                        <p>This error makes it extremely difficult to evaluate the true causal impact of any decision or experience. To know whether Harvard truly adds value, you would need to compare the outcomes of Harvard graduates to what those same people would have achieved without Harvard. This comparison is impossible to make directly.</p>
+                        <p>The lesson is to be humble about causal attributions. When something seems to have caused a good outcome, ask: "Could this person or thing have achieved a similar outcome another way?" The answer is often yes, which means the cause you identified is less important than it seemed.</p>
+                    </div>
+                </div>
+                <!-- ── 30. WHY YOU ARE SEDUCED BY PRODUCT DESCRIPTIONS - THE FOCUSING ILLUSION ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">30. Why You Are Seduced by Product Descriptions - The Focusing Illusion</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We overestimate the importance of the thing we are focused on at the moment, leading to distorted assessments of how much it will affect our overall well-being.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>The focusing illusion was identified by Daniel Kahneman and is captured in his famous observation: "Nothing in life is as important as you think it is when you are thinking about it."</p>
+                        <p>When you are deciding whether to buy a house with a pool, the pool dominates your thinking. It seems very important. But after you buy the house, you will spend most of your time doing things that have nothing to do with the pool. The pool will fade into the background of your life and matter much less than you thought.</p>
+                        <p>This bias makes us systematically overestimate the importance of things we are evaluating at the moment of decision. Whatever is in focus seems more important than it will actually be in the full context of our lives.</p>
+                        <p>The antidote is to try to evaluate any purchase or decision in the context of your entire life, not just the focused moments of evaluation. Ask: "When I am not actively using or thinking about this, will it still matter to me?"</p>
+                    </div>
+                </div>
+                <!-- ── 31. WHY YOU CANNOT STOP EATING - THE SUNK COST FALLACY REVISITED AND FALSE CAUSALITY ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">31. Why You Cannot Stop Eating - The Sunk Cost Fallacy Revisited and False Causality</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We confuse correlation with causation, assuming that because two things occur together, one must cause the other.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Correlation is not causation. This is one of the most repeated phrases in science and one of the most systematically ignored in everyday thinking. We are biologically wired to detect patterns and infer causality. When two things happen together repeatedly, we assume one causes the other.</p>
+                        <p>But correlation can arise from coincidence, from both variables being caused by a third factor, or from reverse causation. The famous example: there is a strong correlation between shoe size and reading ability in children. Shoes cause reading? No. Both are caused by age.</p>
+                        <p>This error pervades medicine (people swear that folk remedies work because they got better after using them, ignoring that they might have gotten better anyway), business (companies that adopted a particular strategy while doing well attribute their success to the strategy), and everyday life.</p>
+                        <p>The antidote is to always ask, when you observe a correlation: "What else might explain this?" and "Is there a controlled experiment that actually tests whether A causes B?"</p>
+                    </div>
+                </div>
+                <!-- ── 32. WHY ATTRACTIVE PEOPLE ARE MORE SUCCESSFUL - HALO EFFECT REVISITED AND HERD MENTALITY ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">32. Why Attractive People Are More Successful - Halo Effect Revisited and Herd Mentality</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> The herd instinct causes us to seek safety in numbers, following the crowd even when the crowd is wrong.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>The herd mentality is a deeper exploration of social proof. When we are uncertain, which is often, we look at what others are doing and assume that the collective wisdom of the crowd must know something we do not. This makes sense when the crowd genuinely has more information. But when everyone is following everyone else without any independent source of information, the crowd is just amplifying a shared error.</p>
+                        <p>Financial markets are the clearest example. When prices are rising, people buy because others are buying. When prices are falling, people sell because others are selling. The herd amplifies both upward and downward movements, creating bubbles and crashes that overshoot any rational assessment of fundamental value.</p>
+                        <p>The antidote is to seek information from sources that are genuinely independent of the herd. Before following a trend, ask: "Does the crowd have more information than I do, or are they just following each other?" If the latter, the crowd's behavior is no evidence that the behavior is correct.</p>
+                    </div>
+                </div>
+                <!-- ── 33. IF YOU HAVE NOTHING TO SAY, SAY NOTHING - FEATURE POSITIVE EFFECT ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">33. If You Have Nothing to Say, Say Nothing - Feature Positive Effect</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We give more weight to information that is present than to information that is absent, even when the absent information is equally relevant.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>The feature positive effect means that we notice what is there and overlook what is not there. We evaluate a job candidate based on their listed accomplishments without sufficiently considering what is not mentioned. We assess a business plan based on the opportunities described without adequately weighing the risks not mentioned.</p>
+                        <p>This is related to the availability heuristic: information that is present is available to think about, while information that is absent must be consciously sought out. Because our thinking defaults to what is available, the absent information is systematically underweighted.</p>
+                        <p>The antidote is to deliberately ask: "What information is missing here?" For any important decision, make a conscious effort to identify what you do not know and what has not been mentioned, and assess how that absent information might change your evaluation.</p>
+                    </div>
+                </div>
+                <!-- ── 34. WHEN IS A FAVOR APPRECIATED? - REGRESSION TO THE MEAN ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">34. When Is a Favor Appreciated? - Regression to the Mean</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> Extreme performance in any domain tends to be followed by performance closer to the average, not because of any causal intervention but because of the natural statistical tendency for extreme values to be followed by less extreme ones.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Regression to the mean is one of the most misunderstood statistical phenomena and one of the most consequential for human judgment. When you praise exceptional performance and it is followed by average performance, you conclude that praise causes deterioration. When you punish poor performance and it is followed by average performance, you conclude that punishment causes improvement. Both conclusions are wrong.</p>
+                        <p>The extreme performances, good or bad, were partly the result of luck or temporary conditions. The subsequent average performance reflects the return to the underlying capability level, not the effect of your intervention.</p>
+                        <p>This leads to the paradox that punishment often seems to work better than praise, simply because punishment typically follows poor performance (which was extreme and will regress to the mean) while praise typically follows good performance (which was extreme and will also regress to the mean). The subsequent return to average is attributed to the punishment or praise when it would have happened anyway.</p>
+                        <p>The antidote is to always ask, before attributing a change in performance to an intervention: "Would this change have happened anyway due to regression to the mean?"</p>
+                    </div>
+                </div>
+                <!-- ── 35. NEVER JUDGE A STRANGER BY YOUR OWN STANDARDS - THE FUNDAMENTAL ATTRIBUTION ERROR ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">35. Never Judge a Stranger by Your Own Standards - The Fundamental Attribution Error</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We overestimate the role of personality and character in explaining other people's behavior and underestimate the role of situational factors.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>When we observe someone behaving badly, we assume it reflects their character. They are lazy, dishonest, reckless, or cruel. We rarely consider the situational pressures that might be driving their behavior. When we behave badly ourselves, we attribute it to the situation: we were tired, under pressure, or provoked.</p>
+                        <p>This double standard is the fundamental attribution error, and it is one of the most damaging biases in human relationships and social judgment. It causes us to condemn people whose behavior might be entirely situationally determined, and to misjudge character based on contextual factors.</p>
+                        <p>The famous Milgram experiments demonstrated this dramatically. When told that ordinary people administered electric shocks to strangers when instructed by an authority figure, most observers predicted they would not do so themselves. Almost all of them were wrong. The situation was far more powerful than anyone predicted.</p>
+                        <p>The antidote is to always ask: "What situational factors might be causing this behavior?" before concluding that behavior reflects character. This does not mean excusing all behavior, but it means making more accurate attributions.</p>
+                    </div>
+                </div>
+                <!-- ── 36. WHY YOUR ASSUMPTIONS ARE A DANGER - FALSE DILEMMA ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">36. Why Your Assumptions Are a Danger - False Dilemma</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We frame problems as binary choices when more options actually exist, limiting our thinking to two alternatives when many others are available.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>"You are either with us or against us." "Either we cut costs or we invest in growth." "Either I leave this job or I stay miserable." These false dilemmas dominate political discourse, business decision-making, and personal life.</p>
+                        <p>In reality, most situations have far more than two options. You can be neither fully with someone nor against them. A company can cut some costs while also investing selectively in growth. You can stay in a job while actively working to change what makes you miserable.</p>
+                        <p>False dilemmas are powerful rhetorical tools because they force people to choose between two options that both favor the person presenting the dilemma. By accepting the frame, you have already lost.</p>
+                        <p>The antidote is to always ask: "What other options exist beyond the two being presented?" Force yourself to generate at least three alternatives before accepting any binary framing.</p>
+                    </div>
+                </div>
+                <!-- ── 37. BEGGAR THY NEIGHBOR - THE AMBIGUITY AVERSION ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">37. Beggar Thy Neighbor - The Ambiguity Aversion</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We prefer known risks over unknown risks, even when the unknown risk may actually be smaller, because uncertainty itself is uncomfortable.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>This is related to the Ellsberg paradox in economics. Given a choice between a gamble with known probabilities and a gamble with unknown probabilities, people systematically prefer the known probability gamble, even when the expected values are identical or even when the unknown gamble might be better.</p>
+                        <p>Ambiguity aversion drives excessive conservatism, overinvestment in familiar options, and resistance to innovation. We prefer the known bad over the unknown potentially good.</p>
+                        <p>In business, ambiguity aversion causes companies to stick with proven but declining strategies rather than experimenting with novel approaches whose outcomes are uncertain. In personal life, it causes people to stay in bad situations simply because the alternative is unknown.</p>
+                        <p>The antidote is to recognize that ambiguity is not inherently bad. Sometimes the unknown option is genuinely better. Develop the habit of exploring ambiguous options rather than automatically defaulting to the familiar.</p>
+                    </div>
+                </div>
+                <!-- ── 38. MAKING FRIENDS WITH THE UNFORESEEABLE - THE DEFAULT EFFECT ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">38. Making Friends with the Unforeseeable - The Default Effect</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We tend to choose the default option in any decision, whether because of inertia, acceptance of the default as a recommendation, or effort avoidance.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>The default effect is one of the most powerful and easily exploited biases. In any choice architecture, the option designated as the default receives a disproportionate share of selections. This holds even when switching away from the default is trivially easy.</p>
+                        <p>This is why organ donation rates differ dramatically between opt-in and opt-out systems. Countries with opt-out systems (where you are an organ donor unless you actively choose not to be) have much higher donation rates than opt-in countries, even though the choice is theoretically identical.</p>
+                        <p>Companies use the default effect constantly. Default subscription renewals, default privacy settings, default service packages. Whatever is set as the default is what most people end up with.</p>
+                        <p>The lesson for self-defense is to be aware when you are choosing the default and ask whether you have actually made an active choice or whether you have simply failed to act. The lesson for design is that defaults are powerful tools for shaping behavior, and setting the right default can have enormous positive impact.</p>
+                    </div>
+                </div>
+                <!-- ── 39. LOVE IS CONSUMPTION - THE NOT-INVENTED-HERE SYNDROME ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">39. Love Is Consumption - The Not-Invented-Here Syndrome</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We undervalue ideas, solutions, and products that come from outside our group and overvalue those we created ourselves, simply because of their origin.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>The not-invented-here syndrome afflicts individuals, companies, and nations. We are attached to our own creations and resistant to external innovations, regardless of their relative quality.</p>
+                        <p>Companies reinvent wheels that already exist rather than licensing superior solutions. Individuals resist advice because it comes from outsiders. Nations prefer inferior domestic products over superior foreign ones.</p>
+                        <p>The evolutionary logic is that your tribe's solutions were tested in your environment, while outsiders' solutions might not apply. But in a globalized world of knowledge sharing, this heuristic has become largely counterproductive.</p>
+                        <p>The antidote is to evaluate ideas based on their merit rather than their origin. Actively seek out solutions developed elsewhere. When you find yourself resistant to an external idea, ask honestly: "Is this resistance based on the quality of the idea or simply on where it came from?"</p>
+                    </div>
+                </div>
+                <!-- ── 40. HOW TO THINK ABOUT RISK - THE BLACK SWAN PROBLEM ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">40. How to Think About Risk - The Black Swan Problem</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We fail to adequately account for rare, extreme, unpredictable events (black swans) that can have enormous consequences.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Nassim Nicholas Taleb's concept of the black swan, which Dobelli discusses at length, refers to events that are highly improbable based on past data, have massive impact when they occur, and are explained as predictable only in retrospect.</p>
+                        <p>Before the discovery of Australia, Europeans believed all swans were white because every swan they had ever seen was white. The discovery of black swans in Australia shattered this assumption instantly. The lesson: absence of evidence is not evidence of absence, especially for rare events.</p>
+                        <p>Our models, plans, and predictions are almost all based on historical data and assume that the future will resemble the past. But black swans, by definition, do not appear in historical data before they occur. The 2008 financial crisis, the September 11 attacks, the COVID-19 pandemic, all were black swans.</p>
+                        <p>The practical lesson is not to try to predict black swans but to build systems and personal lives that are robust to unexpected extreme events. This means maintaining reserves, avoiding excessive leverage, diversifying, and not betting everything on models that assume the future will resemble the past.</p>
+                    </div>
+                </div>
+                <!-- ── 41. KNOWLEDGE IS NOT A VIRTUE - THE DOMAIN DEPENDENCE OF RISK ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">41. Knowledge Is Not a Virtue - The Domain Dependence of Risk</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We apply risk thinking inconsistently across domains, being risk-averse in some contexts and risk-seeking in others in ways that cannot be rationally justified.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>The same person who carefully buckles their seatbelt every time they drive (risk-averse about car safety) may invest their retirement savings in speculative stocks (risk-seeking about financial safety). This inconsistency cannot be explained rationally; both risks are real and both could be devastating.</p>
+                        <p>Domain dependence means that our thinking does not generalize across contexts. We develop heuristics, habits, and beliefs in specific domains and fail to apply insights from one domain to similar situations in another domain.</p>
+                        <p>The lesson is to actively transfer insights across domains. When you develop a principle in one area of your life, ask whether it applies in other areas. This cross-domain thinking is one of the hallmarks of genuinely clear thinking.</p>
+                    </div>
+                </div>
+                <!-- ── 42. THE ART OF WINNING AN ARGUMENT - COGNITIVE DISSONANCE ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">42. The Art of Winning an Argument - Cognitive Dissonance</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> When our beliefs and our actions conflict, we experience psychological discomfort (dissonance) and resolve it by changing our beliefs to match our actions rather than changing our actions to match our beliefs.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Cognitive dissonance is the discomfort felt when holding two conflicting beliefs or when our behavior contradicts our beliefs. Because the discomfort is unpleasant, we are motivated to resolve it. But instead of changing our behavior (which is hard), we usually change our beliefs (which is easier).</p>
+                        <p>The classic experiment: people paid a small amount to tell a lie (saying a boring task was interesting) changed their actual opinion of the task more than people paid a large amount. The small payment was insufficient justification for the lie, so participants resolved the dissonance by convincing themselves that the task actually was interesting.</p>
+                        <p>This has enormous implications. People who have gone through difficult initiation rites value the group more because they need to justify the effort. Investors who have committed to a bad investment believe in it more strongly as evidence mounts against it. People who have behaved in ways that contradict their self-image revise their self-image rather than their behavior.</p>
+                        <p>The antidote is to be aware of when you might be changing your beliefs to justify your behavior. When you notice your beliefs shifting in the direction of your actions, ask whether the belief change is genuinely rational or whether it is driven by the need to reduce dissonance.</p>
+                    </div>
+                </div>
+                <!-- ── 43. THE DANGER OF REASONING BY ANALOGY - THE AVAILABILITY HEURISTIC ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">43. The Danger of Reasoning by Analogy - The Availability Heuristic</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We estimate the probability of events based on how easily examples come to mind, rather than on actual frequency.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>The availability heuristic is one of the most powerful and pervasive biases in human cognition. When we estimate how common or probable something is, we use the ease with which examples come to mind as a proxy for actual frequency. If we can easily think of examples, we conclude the thing is common. If we cannot, we conclude it is rare.</p>
+                        <p>The problem is that what comes to mind easily is determined by many factors other than actual frequency, including recency (we remember recent events better), vividness (dramatic events are more memorable), and media coverage (events that are heavily covered seem more common).</p>
+                        <p>This is why people overestimate the frequency of plane crashes (vivid, heavily covered) and underestimate the frequency of car crashes (common but not dramatic). It is why people overestimate the risk of murder and underestimate the risk of heart disease. It is why we overreact to risks we can easily imagine and underreact to risks that are hard to visualize.</p>
+                        <p>The antidote is to seek actual statistics rather than relying on ease of recall. When estimating frequency or probability, ask: "What is the actual base rate?" rather than "What examples come to mind easily?"</p>
+                    </div>
+                </div>
+                <!-- ── 44. WHY STEP-BY-STEP REASONING LEADS TO ABSURD CONCLUSIONS - THE SLIPPERY SLOPE ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">44. Why Step-by-Step Reasoning Leads to Absurd Conclusions - The Slippery Slope</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We assume that one step in a particular direction will inevitably lead to a series of subsequent steps that culminate in an extreme outcome.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>The slippery slope fallacy assumes that a moderate action will necessarily lead to extreme consequences. "If we allow this one exception, the whole system will collapse." "If you give people an inch, they will take a mile."</p>
+                        <p>Sometimes this is true: some slopes really are slippery, and the first step really does lead inexorably to the next. But often it is not. Many moderate actions do not lead to extreme outcomes. The fallacy lies in assuming inevitability where there is only possibility.</p>
+                        <p>Slippery slope arguments are used to oppose all kinds of reasonable changes by invoking nightmare scenarios that may have no real likelihood of occurring. Recognizing this fallacy allows you to evaluate each step on its own merits rather than allowing fear of the extreme endpoint to prevent reasonable action.</p>
+                        <p>The antidote is to analyze each step individually and ask for evidence that the slippery slope actually exists in this particular case, rather than accepting the inevitability of the sequence as given.</p>
+                    </div>
+                </div>
+                <!-- ── 45. WHY YOU THINK DIFFERENTLY IN GROUPS - THOUGHT EXPERIMENT ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">45. Why You Think Differently in Groups - Thought Experiment</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We can use thought experiments to test ideas, expose hidden assumptions, and reach conclusions that purely empirical approaches cannot access.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Thought experiments, famously used by Einstein, Galileo, and philosophers throughout history, allow us to test our reasoning about situations we cannot directly observe or create. By imagining a scenario and thinking through its implications, we can often discover logical truths that observation alone cannot reveal.</p>
+                        <p>The lesson Dobelli draws here is about the value of deliberate, careful reasoning rather than relying purely on intuition or experience. Many of our cognitive errors arise from applying intuitive shortcuts to situations that require careful logical analysis. The thought experiment is a tool for doing that analysis systematically.</p>
+                        <p>The practical application is to regularly subject your important beliefs and decisions to thought experiments: "If this principle were taken to its logical conclusion, what would follow?" "What would have to be true for this belief to be correct?" "If I imagine the best possible outcome and the worst possible outcome, what does that tell me about the realistic range of possibilities?"</p>
+                    </div>
+                </div>
+                <!-- ── 46. WHY YOU ACT AGAINST YOUR OWN INTERESTS - THE INCENTIVE BIAS ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">46. Why You Act Against Your Own Interests - The Incentive Bias</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We are systematically influenced by incentives in ways we often fail to recognize, and we tend to rationalize the conclusions that our incentives lead us to as if they were the result of objective reasoning.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Charlie Munger famously said: "Show me the incentive and I will show you the outcome." Incentives are among the most powerful forces shaping human behavior, and yet we consistently underestimate how powerfully they shape our own thinking.</p>
+                        <p>When a financial advisor recommends an investment that generates high commissions for them, they may genuinely believe it is the best recommendation. The incentive shapes the belief without the person being aware of the influence. When a doctor overdiagnoses to generate more procedures, they may genuinely believe each procedure is necessary.</p>
+                        <p>We are deeply skilled at rationalizing conclusions that happen to serve our interests, and deeply unskilled at recognizing when we are doing this.</p>
+                        <p>The antidote is to always ask, about yourself and others: "What incentives are at play here?" When someone gives you advice, consider what they stand to gain from your accepting it. When you find yourself strongly advocating a position, consider whether your incentive structure is influencing your conclusion.</p>
+                    </div>
+                </div>
+                <!-- ── 47. YOU HAVE MORE INFLUENCE THAN YOU THINK - THE SPOTLIGHT EFFECT ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">47. You Have More Influence Than You Think - The Spotlight Effect</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We overestimate how much attention others are paying to us and how much they notice our mistakes, appearance, and behavior.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>The spotlight effect is the tendency to believe that we are the center of attention, that others notice our every flaw and mistake as acutely as we do ourselves. In reality, other people are far less focused on us than we think, largely because they are busy thinking about themselves.</p>
+                        <p>This bias causes excessive self-consciousness, fear of judgment, and reluctance to take risks or try new things because of the imagined audience of critical observers. If you wear an embarrassing shirt to a party, you will think everyone noticed. Research shows that far fewer people noticed than you think.</p>
+                        <p>The antidote is to remember that other people are distracted by their own concerns, anxieties, and preoccupations. They are not watching you as closely as you fear. This realization can be enormously liberating, freeing you to take risks, make mistakes, and try new things without the paralyzing fear of imagined judgment.</p>
+                    </div>
+                </div>
+                <!-- ── 48. UNWARRANTED OPTIMISM - THE OPTIMISM BIAS ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">48. Unwarranted Optimism - The Optimism Bias</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> Most people believe they are above average in most positive dimensions and below average in most negative dimensions, which is statistically impossible for the majority.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>The optimism bias is one of the most documented findings in psychology. The vast majority of people believe they are better than average drivers, more honest than average, less likely than average to get divorced or sick, and more likely than average to succeed in business. Mathematically, the majority cannot be above average in all these dimensions.</p>
+                        <p>Optimism bias is not entirely harmful. Research suggests that people with a slight positive illusion about themselves are mentally healthier and more resilient than those with perfectly accurate self-assessment, and that depressed people often have more accurate assessments of reality than non-depressed people.</p>
+                        <p>But excessive optimism leads to poor planning, insufficient precautions, underestimation of risks, and overestimation of abilities. It is a major driver of business failures, failed personal projects, and poor health decisions.</p>
+                        <p>The antidote is calibrated optimism: maintaining a positive outlook while being honest about risks and limitations. This requires actively seeking disconfirming information, consulting with people who will tell you the truth rather than what you want to hear, and stress-testing your plans against realistic worst-case scenarios.</p>
+                    </div>
+                </div>
+                <!-- ── 49. TAKE CARE OF YOUR BODY AND MIND - THE EFFORT HEURISTIC ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">49. Take Care of Your Body and Mind - The Effort Heuristic</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We judge the quality of a product, service, or outcome based on the effort that went into it, assuming that more effort equals more value.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>We instinctively assume that things requiring more effort are more valuable. A poem that took years to write must be better than one that came in a flash of inspiration. A meal that took hours to prepare must taste better than one thrown together in minutes. A product with a high price must be more valuable than a cheap one.</p>
+                        <p>But this is often wrong. The effort that went into something is no guarantee of its quality. A poem can be brilliant and immediate. A quick meal can be delicious. An expensive product can be inferior to a cheap one.</p>
+                        <p>The effort heuristic leads us to overvalue things we have worked hard on (see the IKEA effect), to judge contributions by how hard people tried rather than by what they achieved, and to equate busyness with productivity.</p>
+                        <p>The antidote is to evaluate outputs rather than inputs. Ask: "How good is the result?" rather than "How hard was it to achieve?" This is uncomfortable because we are socialized to reward effort, but it is the only way to accurately assess quality.</p>
+                    </div>
+                </div>
+                <!-- ── 50. THE FALLACY THAT CANNOT BE NAMED - THE CONJUNCTION FALLACY ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">50. The Fallacy That Cannot Be Named - The Conjunction Fallacy</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We judge the probability of two events occurring together as higher than the probability of either event occurring alone, which is logically impossible.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Kahneman and Tversky's famous Linda experiment demonstrates this beautifully. Linda is described as a 31-year-old woman who is single, outspoken, and very bright. She majored in philosophy and was deeply concerned with social justice. Which is more probable: that Linda is a bank teller, or that Linda is a bank teller who is active in the feminist movement?</p>
+                        <p>Most people choose the second option, even though it is logically impossible. The probability of two events occurring together can never exceed the probability of either one occurring alone. Adding "active in the feminist movement" to "bank teller" can only make the conjunction less probable.</p>
+                        <p>We commit this error because the detailed, specific description feels more representative and more plausible than the bare description. Our representativeness heuristic overrides our probabilistic reasoning.</p>
+                        <p>The antidote is to remember that adding conditions to a statement always makes it less probable, never more. When you find a detailed scenario compelling, remind yourself that the more specific it is, the less likely it is.</p>
+                    </div>
+                </div>
+                <!-- ── 51. THE PITFALLS OF FOLLOWING INSTRUCTIONS - THE INTENTION TO TREAT ERROR ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">51. The Pitfalls of Following Instructions - The Intention to Treat Error</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> In evaluating treatments, interventions, and strategies, we often measure their effectiveness incorrectly, leading to false conclusions about what works.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>This error arises when we exclude the failures from our analysis. In a clinical trial, if people who drop out of a treatment because it is not working are excluded from the analysis, the treatment appears more effective than it is, because we are only analyzing people for whom it worked well enough to stay.</p>
+                        <p>The same principle applies outside medicine. If we evaluate a management strategy only by looking at the employees who thrived under it and ignoring those who failed or left, we will overestimate its effectiveness. If we evaluate an educational approach only by looking at the students who succeeded, we miss the ones it failed.</p>
+                        <p>The lesson is to analyze all cases, not just the convenient ones. Include the dropouts, the failures, and the exceptions in your analysis. This gives you a much more accurate picture of what is actually working.</p>
+                    </div>
+                </div>
+                <!-- ── 52. WHY GREAT THOUGHTS COME TO YOU IN THE SHOWER - INTROSPECTION ILLUSION ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">52. Why Great Thoughts Come to You in the Shower - Introspection Illusion</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We believe we have direct insight into our own mental processes through introspection, but introspection is often unreliable and our explanations of our own behavior are frequently confabulations.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>We are convinced that we know why we do what we do, feel what we feel, and believe what we believe. But research in cognitive science consistently shows that our conscious access to our own mental processes is extremely limited.</p>
+                        <p>When people are asked why they made a particular choice, they give confident explanations that research demonstrates are often wrong. The actual causes of the behavior were unconscious processes that the person had no access to. The explanation is a post-hoc rationalization.</p>
+                        <p>This has profound implications. It means that self-help approaches based on pure introspection are unreliable. It means that when people explain their behavior, especially their problematic behavior, their explanations should be treated with caution. And it means that changing behavior often requires changing the environment or the incentives rather than the conscious beliefs that people think are driving the behavior.</p>
+                        <p>The antidote is to supplement introspection with behavioral tracking. Instead of trusting your memory and interpretation of your own behavior, keep records. The data will often tell a different story than your introspective account.</p>
+                    </div>
+                </div>
+                <!-- ── 53. ON THE IMPORTANCE OF FORGETTING - THE AVAILABILITY BIAS IN MEMORY ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">53. On the Importance of Forgetting - The Availability Bias in Memory</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> Our memories are not accurate recordings of the past but reconstructive processes that are influenced by our current beliefs, emotions, and subsequent experiences.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Memory feels like a recording, but it functions more like a story we tell ourselves about the past. Each time we remember something, we reconstruct it, and the reconstruction is influenced by our current knowledge, emotional state, and desires. This means that memories change over time and are systematically biased.</p>
+                        <p>We remember events that fit our current narrative of who we are and what happened. We forget events that contradict that narrative. We misremember the emotions we felt, the details of conversations, and the sequence of events.</p>
+                        <p>This has critical implications for learning from experience. The lessons we draw from our past experiences may be based on systematically distorted memories. The feedback loop between experience and learning is corrupted by memorial bias.</p>
+                        <p>The practical antidote, again, is record-keeping. Diaries, decision journals, and written records of experiences and their outcomes provide a check on the revisionist tendencies of memory.</p>
+                    </div>
+                </div>
+                <!-- ── 54. DO NOT THROW GOOD MONEY AFTER BAD - SUNK COST FALLACY EXTENDED ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">54. Do Not Throw Good Money After Bad - Sunk Cost Fallacy Extended</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> This revisits and extends the sunk cost fallacy with additional dimensions, emphasizing how it applies across domains from business to relationships.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>The sunk cost fallacy resurfaces repeatedly throughout the book because it is so powerful and so common. Here Dobelli extends its application to relationships (staying in a bad relationship because of how long you have been together), careers (staying in a wrong career because of how much training you invested), and national policies (continuing a failed policy because of how much has been spent on it).</p>
+                        <p>The logic of the sunk cost fallacy is always the same: past investment creates an irrational obligation to continue. The rational response is always the same: evaluate the future on its own merits, regardless of past investment.</p>
+                        <p>One of the hardest applications of this principle is in relationships. When a relationship is not working, the natural human response is to point to all the time and love invested as a reason to continue. But that past investment is gone whether you continue or not. The only rational question is whether the relationship, as it currently exists, has enough value to justify continuing.</p>
+                    </div>
+                </div>
+                <!-- ── 55. WHY IT IS NOT NECESSARILY FOOLISH TO BE GREEDY - THE PARADOX OF CHOICE ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">55. Why It Is Not Necessarily Foolish to Be Greedy - The Paradox of Choice</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> Having more choices does not necessarily lead to better decisions or greater satisfaction; it often leads to paralysis, regret, and reduced happiness.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Barry Schwartz's paradox of choice shows that beyond a certain point, more options reduce rather than increase well-being. When you have too many options, the decision becomes harder, the opportunity cost of each unchosen option looms larger, and the standard against which you judge the chosen option rises.</p>
+                        <p>The "maximizer," who wants to find the absolute best option, suffers far more from choice overload than the "satisficer," who wants to find an option that is good enough. The maximizer must evaluate all options exhaustively, is never certain they found the best one, and is haunted by the options they did not choose.</p>
+                        <p>In practical terms, this suggests that constraining your own choices, rather than seeking maximum optionality, can lead to better outcomes. Creating personal rules and standards (I always choose from the top three options, I do not spend more than a set time on a decision below a certain value) reduces the cognitive burden of choice and the regret that follows.</p>
+                    </div>
+                </div>
+                <!-- ── 56. YOU ARE NOT WHAT YOU SAY - CONSISTENCY BIAS ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">56. You Are Not What You Say - Consistency Bias</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We feel compelled to behave consistently with our past behavior, statements, and commitments, even when circumstances have changed and consistency is no longer rational.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>The consistency bias, also known as the commitment and consistency principle, is one of the most powerful levers of social influence. Once we have committed to a position, made a statement, or taken an action, we feel internal psychological pressure to remain consistent with it, regardless of whether it still makes sense.</p>
+                        <p>This is why politicians rarely change their positions, even when new evidence clearly supports a change. It is why people continue to defend bad decisions after they have made them. It is why once you have agreed to a small request, you are far more likely to agree to a large one (the foot-in-the-door technique).</p>
+                        <p>Dobelli emphasizes that consistency is a virtue only when the underlying circumstances and evidence remain unchanged. When they change, clinging to consistency is a form of intellectual cowardice. Being willing to change your mind when the evidence changes is a sign of intelligence, not weakness.</p>
+                    </div>
+                </div>
+                <!-- ── 57. HOW YOU EXPLAIN YOUR FAILURES AND SUCCESSES AFFECTS YOUR FUTURE - ATTRIBUTION ERROR REVISITED ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">57. How You Explain Your Failures and Successes Affects Your Future - Attribution Error Revisited</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> The explanations we offer for our successes and failures have profound consequences for our future behavior and performance.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>This revisits the self-serving bias and attribution error with a focus on their consequences for learning and growth. If you attribute success to your ability, you become overconfident. If you attribute failure to external factors, you miss the opportunity to learn. If you attribute success to luck, you may give up. If you attribute failure to your own fixed traits ("I am just not good at this"), you may stop trying.</p>
+                        <p>The most productive attributional style is one that attributes successes to effort and strategy (which are controllable and repeatable) and failures to specific, changeable factors ("I did not prepare enough" rather than "I am not smart enough").</p>
+                        <p>This explanatory style, which psychologist Martin Seligman associated with learned optimism, leads to better resilience, more productive effort, and better learning from both successes and failures.</p>
+                    </div>
+                </div>
+                <!-- ── 58. WHY EXPERTS DO NOT KNOW EVERYTHING - THE CURSE OF KNOWLEDGE ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">58. Why Experts Do Not Know Everything - The Curse of Knowledge</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> Once we know something, it is extremely difficult to imagine not knowing it, which makes it hard to communicate with or understand those who lack our knowledge.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>The curse of knowledge is the cognitive bias that makes experts poor communicators and poor teachers. Having mastered a domain, the expert cannot easily recall what it was like not to know it. They forget the confusions, the misconceptions, and the gaps that a beginner has. So they communicate in ways that assume knowledge the beginner does not have.</p>
+                        <p>This is why the best teachers are often not the most eminent experts in a field, but people who recently mastered the material and still remember the experience of not knowing it.</p>
+                        <p>The curse of knowledge also affects judgment about others' decision-making. Knowing the outcome of a decision, we cannot easily recall how genuinely uncertain the situation was when the decision was made. This leads to hindsight bias and unfair judgment of decision-makers.</p>
+                        <p>The practical antidote is to deliberately adopt the perspective of someone who does not share your knowledge. When communicating, ask: "What would I need to know to understand this if I were starting from zero?" When judging past decisions, ask: "What information did the decision-maker have at the time?"</p>
+                    </div>
+                </div>
+                <!-- ── 59. HOW YOU MAKE DECISIONS DEPENDS ON HOW THEY ARE PRESENTED - FRAMING EFFECT ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">59. How You Make Decisions Depends on How They Are Presented - Framing Effect</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> The way information is presented, the frame in which a choice is offered, has a powerful influence on the decisions we make, independent of the actual content of the information.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Kahneman and Tversky showed that people respond differently to "a 90 percent chance of survival" versus "a 10 percent chance of death," even though these are mathematically identical. The frame of survival is preferred over the frame of death, even when they describe the same reality.</p>
+                        <p>This is because our brains process information relative to reference points rather than in absolute terms, and the reference point is provided by the frame. Gains and losses are evaluated differently, and how something is categorized (as a gain or a loss, as risky or safe, as common or rare) profoundly affects our response.</p>
+                        <p>Framing effects are exploited constantly in marketing, politics, and negotiation. "95 percent fat-free" and "5 percent fat" describe the same product but create different impressions. "We have a 95 percent success rate" and "We lose 5 percent of our patients" describe the same statistic but produce very different reactions.</p>
+                        <p>The antidote is to reframe important information deliberately. Translate every important statistic or claim into multiple framings before making a decision. Ask: "How would this look if framed as a loss rather than a gain?" or "What does this positive statistic look like stated as its negative complement?"</p>
+                    </div>
+                </div>
+                <!-- ── 60. YOU PREFER THE STATUS QUO - STATUS QUO BIAS ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">60. You Prefer the Status Quo - Status Quo Bias</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We prefer the current state of affairs and resist change, even when the alternative would be objectively better.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Status quo bias is a combination of several other biases, including loss aversion (we feel losses more strongly than gains), the endowment effect (we overvalue what we already have), and the sunk cost fallacy (we feel invested in the current state). Together, these create a powerful inertia that keeps people, organizations, and systems locked in suboptimal states.</p>
+                        <p>Status quo bias affects personal life (staying in bad jobs, bad relationships, or bad habits), organizational life (resisting necessary change even when the need is obvious), and public policy (maintaining ineffective programs because they exist).</p>
+                        <p>The antidote is to regularly evaluate your current situation as if you were encountering it for the first time. Ask: "If I were not already in this situation, would I choose to enter it?" If the answer is no, status quo bias may be the primary reason you are staying.</p>
+                    </div>
+                </div>
+                <!-- ── 61. WHY DOCTORS PERFORM UNNECESSARY OPERATIONS - THE PROBLEM OF EXCESSIVE INCENTIVES ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">61. Why Doctors Perform Unnecessary Operations - The Problem of Excessive Incentives</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> Excessive incentives can produce exactly the opposite of the desired outcome by distorting the behavior of those responding to the incentives.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>This revisits the incentive theme with a focus on how powerful incentives can corrupt judgment and produce outcomes that are the opposite of what was intended. When doctors are paid per procedure, they perform more procedures, including unnecessary ones. When salespeople are rewarded purely on volume, they generate sales that are not in the customer's interest. When executives are rewarded purely on short-term stock price, they take actions that harm the long-term health of the company.</p>
+                        <p>The problem is that incentives are a blunt instrument. They reward the measurable aspects of performance and ignore the unmeasurable ones. They create pressure to optimize for the metric at the expense of the underlying goal the metric was designed to measure.</p>
+                        <p>This is sometimes called Goodhart's Law: when a measure becomes a target, it ceases to be a good measure. People will find ways to hit the metric that do not advance the underlying goal.</p>
+                        <p>The lesson is to be aware of the incentives operating on the people whose advice or services you rely on, and to structure incentive systems carefully when you are in a position to design them.</p>
+                    </div>
+                </div>
+                <!-- ── 62. THE PERILS OF TOO MUCH KNOWLEDGE - INFORMATION BIAS ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">62. The Perils of Too Much Knowledge - Information Bias</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We believe that more information always leads to better decisions, but beyond a certain point, additional information adds noise rather than signal and can actually impair decision-making.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>More information feels better. It seems like it should lead to better decisions. But research consistently shows that beyond a certain point, additional information does not improve decision quality. It may even worsen it by adding irrelevant details that distract from the key factors.</p>
+                        <p>Doctors given more information about a patient do not make better diagnoses, and beyond a moderate amount of information, their confidence increases without a corresponding increase in accuracy. The additional information feeds confidence more than accuracy.</p>
+                        <p>The same applies to investment decisions, business strategy, and most other complex choices. The critical information is usually contained in a small number of key factors. Beyond those, additional information is mostly noise.</p>
+                        <p>The antidote is to identify the most critical information for any decision and focus on gathering that, rather than trying to gather all available information. Ask: "What are the two or three most important factors in this decision?" and concentrate on understanding those thoroughly.</p>
+                    </div>
+                </div>
+                <!-- ── 63. WHY ADVICE SHOULD NOT BE GIVEN - THE ILLUSION OF EXPLANATORY DEPTH ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">63. Why Advice Should Not Be Given - The Illusion of Explanatory Depth</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We think we understand how complex systems work in far more detail than we actually do.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Ask someone how a toilet works. They will say confidently that they know. Then ask them to explain it in detail. Most people cannot. They have the illusion of explanatory depth: they believe they understand something thoroughly when they actually understand it only superficially.</p>
+                        <p>This illusion is pervasive. People believe they understand their government, the economy, complex technologies, and major public issues in far more depth than they actually do. The illusion of understanding prevents us from seeking the information we actually need and makes us overconfident in our opinions and judgments.</p>
+                        <p>The antidote is to attempt actual explanation. Before concluding that you understand something, try to explain it in detail, as if you were teaching it. The gaps in your explanation will reveal the gaps in your understanding.</p>
+                    </div>
+                </div>
+                <!-- ── 64. THE FALLACY OF THE PERFECT SOLUTION - THE NIRVANA FALLACY ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">64. The Fallacy of the Perfect Solution - The Nirvana Fallacy</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We compare real-world options to an ideal, imaginary alternative rather than to the realistic alternatives actually available.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>The nirvana fallacy occurs when we reject an imperfect solution because it falls short of a perfect one, even when the perfect solution does not exist and the realistic alternatives are worse than the imperfect solution being rejected.</p>
+                        <p>This is particularly common in political discourse. A policy that reduces poverty by 50 percent is criticized because it does not reduce it by 100 percent, even if no available policy can do better. A medical treatment that helps 70 percent of patients is rejected because it does not help all of them.</p>
+                        <p>The comparison should always be between the realistic options available, not between an option and an ideal that does not exist. The question is not "Is this perfect?" but "Is this the best option realistically available?"</p>
+                    </div>
+                </div>
+                <!-- ── 65. ON THE FOLLY OF BUYING FRIENDS - THE RECIPROCITY EFFECT IN GIVING ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">65. On the Folly of Buying Friends - The Reciprocity Effect in Giving</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> Gifts and favors given in genuine goodwill create positive social bonds, but gifts calculated to manipulate create resentment when the manipulation is detected.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>This revisits reciprocity with a focus on its potential to backfire. When a gift is clearly strategic, when it is obviously designed to create obligation rather than to genuinely benefit the recipient, it produces a negative reaction rather than a positive one.</p>
+                        <p>People have finely tuned social detectors for the difference between genuine generosity and calculated gift-giving. When you sense that someone gave you something in order to obligate you, resentment replaces gratitude.</p>
+                        <p>The lesson is that genuinely generous behavior, giving without expecting anything in return, creates far stronger social bonds than strategic gift-giving. And paradoxically, the genuinely generous person often receives more in return than the strategically generous one, because their gifts generate genuine gratitude rather than resentment.</p>
+                    </div>
+                </div>
+                <!-- ── 66. WHY ENVY IS COUNTERPRODUCTIVE - ENVY AND ITS EFFECTS ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">66. Why Envy Is Counterproductive - Envy and Its Effects</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> Envy is a uniquely self-destructive emotion because it makes us suffer when others succeed, without providing any benefit to ourselves.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Envy is different from other negative emotions because its object is not a threat to us but a benefit enjoyed by someone else. The envious person suffers not because of what they lack but because of what another person has. This makes envy uniquely pointless and self-destructive.</p>
+                        <p>Dobelli points out that we never envy people whose situation is completely unlike our own. We envy those in our own reference group, people who are similar to us but have achieved more. This is why professional colleagues are more likely to generate envy than strangers, and why neighbors in similar houses generate more envy than billionaires.</p>
+                        <p>The antidote is to redefine your reference group. Instead of comparing yourself to those slightly above you in your immediate peer group, compare yourself to your own past performance or to the broader sweep of human history, in which you are almost certainly among the most fortunate people who have ever lived.</p>
+                    </div>
+                </div>
+                <!-- ── 67. WHY FINANCIAL REWARDS CAN DAMAGE INTRINSIC MOTIVATION - EXTRINSIC MOTIVATION CROWDING OUT INTRINSIC MOTIVATION ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">67. Why Financial Rewards Can Damage Intrinsic Motivation - Extrinsic Motivation Crowding Out Intrinsic Motivation</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> Adding external rewards to an intrinsically motivating activity can destroy the intrinsic motivation and ultimately reduce performance and engagement.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>The overjustification effect shows that when you pay someone to do something they already enjoy, they may begin to do it for the money rather than for the intrinsic enjoyment. When the money is removed, they are less motivated than they were before the payment was introduced.</p>
+                        <p>Children who love to draw lose interest when their drawing is rewarded with prizes. People who volunteer enthusiastically become less engaged when they are paid a small amount for the same work. The external reward replaces the internal motivation rather than supplementing it.</p>
+                        <p>This has critical implications for incentive design in organizations. Paying people for activities that they find inherently meaningful can undermine that meaning. The goal should be to remove obstacles to intrinsic motivation rather than to replace intrinsic motivation with extrinsic rewards.</p>
+                    </div>
+                </div>
+                <!-- ── 68. THE DIFFICULTY OF BEING A GOOD RISK ASSESSOR - THE VIVIDNESS EFFECT ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">68. The Difficulty of Being a Good Risk Assessor - The Vividness Effect</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We judge risks based on how vividly we can imagine them rather than on their actual probability or severity.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Vividness is a more detailed exploration of the availability heuristic applied specifically to risk assessment. The risks we can imagine most vividly, those with clear narratives, identifiable victims, and dramatic imagery, receive disproportionate attention and concern compared to statistical risks that are equally or more dangerous but harder to visualize.</p>
+                        <p>Identified lives matter more than statistical lives. We spend enormous resources to rescue a single identified person in danger (a child trapped in a well, a single astronaut stranded in space) but resist spending comparable resources to prevent statistical deaths that lack identifiable faces.</p>
+                        <p>The vividness effect also explains why the first loss in a new domain feels much worse than subsequent losses of equal or greater magnitude. The first experience is vivid and novel; subsequent ones become familiar and less emotionally activating.</p>
+                        <p>The antidote is to deliberately work to make statistical risks as vivid and concrete as possible, using stories, visualizations, and specific examples to bring the numbers to life.</p>
+                    </div>
+                </div>
+                <!-- ── 69. WHY LOTTERIES EXIST - THE LOTTERY PARADOX ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">69. Why Lotteries Exist - The Lottery Paradox</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> People consistently choose gambles with tiny probabilities of large gains over certain small gains, even when the expected value strongly favors the certain option.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Lotteries are mathematically terrible investments. The expected value of a lottery ticket is far below its purchase price. And yet people buy them in enormous quantities. This is not because people are irrational in a general sense; it is because they are buying something other than expected value.</p>
+                        <p>The lottery provides the experience of hope: the temporary but pleasurable possibility of a life-changing outcome. This psychological experience has a value that is separate from and can exceed the expected monetary value of the gamble.</p>
+                        <p>The lesson is to understand what you are actually buying when you make any decision. Sometimes the decision is about expected value. Sometimes it is about the experience of possibility, security, belonging, or identity. Understanding which you are purchasing helps you evaluate whether you are getting what you actually want.</p>
+                    </div>
+                </div>
+                <!-- ── 70. DO NOT BE SEDUCED BY BEAUTIFUL THINGS - THE AESTHETICS EFFECT ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">70. Do Not Be Seduced by Beautiful Things - The Aesthetics Effect</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> Beautiful things are perceived as more valuable, more trustworthy, and more effective than they may actually be.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Attractive people are judged as more competent, more intelligent, and more honest. Well-designed products are judged as better-performing. Beautiful presentations are judged as containing better arguments. The aesthetics of a thing influences our judgment of its substance.</p>
+                        <p>This is the halo effect applied specifically to beauty and design. The visual experience of beauty triggers positive emotional responses that color our judgment of everything associated with the beautiful object or person.</p>
+                        <p>In practical terms, this means being suspicious of the appeal that beautiful things have on your judgment. When evaluating a product, an argument, or a person, ask: "Would I assess this the same way if it looked less beautiful?" If the answer is no, your judgment may be biased by aesthetics.</p>
+                    </div>
+                </div>
+                <!-- ── 71. WHY YOU SEE PATTERNS THAT ARE NOT THERE - THE PATTERN FALLACY ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">71. Why You See Patterns That Are Not There - The Pattern Fallacy</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We are so good at recognizing patterns that we see them even in random data, and we create explanatory narratives for patterns that have no real cause.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>The brain is a pattern-recognition machine. This capability is enormously valuable in a world that contains genuine patterns. But it leads us to find patterns in random data: faces in clouds, streaks in random sequences, trends in noise.</p>
+                        <p>Investors see patterns in stock price charts that are actually random walks. Sports fans believe in hot hands, the idea that a basketball player who has made several shots in a row is more likely to make the next one, when research shows the probability of the next shot is essentially independent of previous ones.</p>
+                        <p>The narrative fallacy is closely related: once we see a pattern, we create a story to explain it. The story makes the pattern seem even more real and inevitable than it is.</p>
+                        <p>The antidote is to be deeply skeptical of patterns in domains where randomness plays a significant role. Learn enough about statistics to distinguish genuine patterns from random variation. And be especially skeptical of patterns that come with compelling narratives.</p>
+                    </div>
+                </div>
+                <!-- ── 72. THE IMPORTANCE OF WHY - THE AUTHORITY BIAS ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">72. The Importance of Why - The Authority Bias</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We give disproportionate weight to the opinions of authority figures, even when they are operating outside their domain of expertise.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>The authority bias means that we change our beliefs and behavior based on who is saying something, not just on what they are saying. A statement endorsed by an expert, a celebrity, or an authority figure is given more credence than the same statement made by an unknown person.</p>
+                        <p>This is sometimes appropriate. Experts in their field genuinely do have more reliable opinions than novices. But the authority bias leads us to extend that deference beyond its appropriate domain. A celebrity endorsing a medical treatment has no more relevant knowledge than any other non-expert. A brilliant physicist's opinions on economics deserve no special deference.</p>
+                        <p>The authority bias is also exploited commercially. White lab coats, professional titles, and official-sounding endorsements are used to trigger deference that is not warranted by genuine expertise.</p>
+                        <p>The antidote is to evaluate the actual argument or evidence rather than the source. Ask: "Does this person have genuine expertise in this specific domain?" and "What is the evidence, independent of who is presenting it?"</p>
+                    </div>
+                </div>
+                <!-- ── 73. WHEN YOU DON'T KNOW WHETHER TO TRUST YOUR GUT - THE INTUITION BIAS ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">73. When You Don't Know Whether to Trust Your Gut - The Intuition Bias</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We do not apply intuition and deliberate reasoning appropriately to different types of problems.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Intuition, or gut feeling, is not uniformly good or bad. It is the product of pattern recognition based on accumulated experience. For problems within a domain where you have extensive experience and where patterns are real and stable, intuition can be highly reliable. Chess grandmasters have reliable intuitions about board positions. Experienced firefighters have reliable intuitions about when a fire is about to behave dangerously.</p>
+                        <p>But for problems outside your domain of expertise, for novel situations, or for domains where patterns are unstable or driven by randomness, intuition is unreliable. The feeling of certainty that accompanies intuition does not distinguish between well-founded and poorly-founded gut feelings.</p>
+                        <p>The key is to match the type of thinking to the type of problem. Use deliberate, analytical reasoning for complex, novel, or high-stakes decisions, especially in domains where you lack deep experience. Trust intuition for quick decisions in domains where you have extensive, relevant experience.</p>
+                    </div>
+                </div>
+                <!-- ── 74. THE SEDUCTIVE APPEAL OF STORIES - THE REPRESENTATIVENESS HEURISTIC ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">74. The Seductive Appeal of Stories - The Representativeness Heuristic</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We judge the probability of something by how well it matches our mental prototype or stereotype of that category, rather than by actual statistical probability.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>The representativeness heuristic means that we ask "how typical is this?" rather than "how probable is this?" When something matches our mental image of a category very well, we think it is very probable to belong to that category, even if the base rate of membership is extremely low.</p>
+                        <p>The Linda problem (conjunction fallacy) is a demonstration of this. Linda matches the mental image of a feminist more strongly than she matches the mental image of a bank teller, so we think it is more probable that she is a feminist bank teller than that she is simply a bank teller, even though this violates basic probability.</p>
+                        <p>Stereotyping is the social manifestation of the representativeness heuristic. We match individuals to category prototypes and then make inferences about the individual based on the category, ignoring the enormous variation within categories.</p>
+                        <p>The antidote is to always consider base rates alongside representativeness. Ask: "Even if this matches the prototype perfectly, how common is this thing in reality?" The answer will often shift your probability estimate significantly.</p>
+                    </div>
+                </div>
+                <!-- ── 75. WHY YOU FOLLOW THE HERD - SOCIAL COMPARISON BIAS ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">75. Why You Follow the Herd - Social Comparison Bias</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We make decisions to appear favorable relative to our peers rather than to maximize our absolute outcomes, leading to decisions that are collectively irrational.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Social comparison is a fundamental human drive. We constantly evaluate ourselves relative to others, and our decisions are profoundly influenced by how those decisions will make us look in comparison to our peers.</p>
+                        <p>This leads to what Dobelli calls social comparison bias: making decisions not because they are best for us but because they allow us to compare favorably to others. People buy cars, houses, and clothing not for their practical value but for their social signaling value. Companies make investments not because they are profitable but because competitors are making them and not investing would look bad.</p>
+                        <p>This bias is the engine of status competition and the hedonic treadmill. When everyone upgrades their house simultaneously, the relative positions are unchanged but the absolute costs have increased for everyone.</p>
+                        <p>The antidote is to evaluate decisions based on absolute outcomes rather than relative ones. Ask: "Does this improve my situation?" rather than "Does this make me look better than others?"</p>
+                    </div>
+                </div>
+                <!-- ── 76. THE DANGER OF SELF-CONFIDENCE - THE BEGINNER'S LUCK EFFECT AND OVERCONFIDENCE REVISITED ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">76. The Danger of Self-Confidence - The Beginner's Luck Effect and Overconfidence Revisited</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> Early success in a new domain is often the result of beginner's luck rather than genuine ability, but we attribute it to skill, leading to overconfidence and risk-taking.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>When we try something new and succeed early, we attribute the success to our ability rather than to luck. This is especially dangerous in domains that involve significant randomness, like investing, gambling, or any competitive game with a large luck component.</p>
+                        <p>The beginner who wins at poker in their first session concludes they are good at poker. The person who makes money in their first stock picks concludes they are a skilled investor. These early successes are often the product of random variance, but they feel like ability and drive overconfident future risk-taking.</p>
+                        <p>The antidote is to maintain a long time horizon before drawing conclusions about your ability in any domain. Any single success or failure in a domain with significant randomness is almost entirely uninformative about your underlying skill. Only after many observations can you begin to separate skill from luck.</p>
+                    </div>
+                </div>
+                <!-- ── 77. ON THE POINTLESSNESS OF NEW YEAR'S RESOLUTIONS - COMMITMENT DEVICES REVISITED ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">77. On the Pointlessness of New Year's Resolutions - Commitment Devices Revisited</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> New Year's resolutions and similar self-improvement commitments fail at extremely high rates because they rely on willpower and motivation, which are unreliable resources.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Willpower is a depleting resource. Research (though some of this research is contested) suggests that the ability to resist temptation is finite and can be exhausted. More reliably, motivation is highly variable and context-dependent. The motivation you feel when making a resolution in January is not the same motivation you have in February when the challenge of change has become real and the novelty has worn off.</p>
+                        <p>Effective self-change relies not on willpower or motivation but on systems and environment design. Instead of resolving to exercise more, make it impossible not to exercise by joining a class that charges you if you miss, working out with a friend who will call you out, or laying out your workout clothes the night before.</p>
+                        <p>The lesson is that character and willpower are far weaker than environment and system design. Change your environment, your routines, and your systems, and behavior change follows relatively naturally. Rely on motivation and willpower alone, and you will almost always fail.</p>
+                    </div>
+                </div>
+                <!-- ── 78. DO NOT ASSERT A POSITION YOU CANNOT DEFEND - THE ILLUSION OF VALIDITY ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">78. Do Not Assert a Position You Cannot Defend - The Illusion of Validity</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We experience feelings of confidence and certainty about our judgments that are unrelated to their actual validity.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>The illusion of validity is the experience of feeling highly confident about a judgment that is, in fact, unreliable. Psychologists experience it when they feel certain about a diagnosis that research shows they get wrong frequently. Investors feel it when they are convinced a stock will rise. Managers feel it when they are certain a job candidate will succeed.</p>
+                        <p>The feeling of certainty is generated by the coherence and internal consistency of the information available. When the available evidence fits together neatly and tells a compelling story, confidence rises, even if the evidence is incomplete or biased.</p>
+                        <p>This is deeply related to the narrative fallacy: coherent stories feel true and generate confidence, even when they are not supported by adequate evidence.</p>
+                        <p>The antidote is to calibrate your confidence by tracking your predictions over time. Keep a record of your confident judgments and their accuracy. The humbling reality is that most people are far less accurate than they feel they are.</p>
+                    </div>
+                </div>
+                <!-- ── 79. WHY READING IS ONE OF THE FEW UNCONDITIONALLY GOOD THINGS - THE ANTI-INTELLECTUAL BIAS ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">79. Why Reading Is One of the Few Unconditionally Good Things - The Anti-Intellectual Bias</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We undervalue systematic, evidence-based thinking and overvalue intuitive, experience-based thinking in domains where the former is clearly superior.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>This chapter is a defense of reading, education, and deliberate intellectual engagement as genuine competitive advantages in life. In an era of short attention spans and entertainment-driven media, the person who reads deeply and thinks carefully has a significant advantage over those who rely on intuition, hearsay, and gut feeling.</p>
+                        <p>Reading exposes you to other times, other cultures, other perspectives, and the distilled thinking of the best minds in human history. It builds the vocabulary of ideas that allows you to think about complex problems with greater precision and nuance. It provides the base of knowledge that allows you to identify patterns, make connections, and avoid the mistakes of others.</p>
+                        <p>Dobelli recommends reading selectively and deeply rather than broadly and shallowly. Fewer, better books, read with full engagement and reflection, are worth more than many books skimmed superficially.</p>
+                    </div>
+                </div>
+                <!-- ── 80. THE PROBABILITY OF RAIN AND OTHER UNCERTAIN THINGS - THE CALIBRATION OF PROBABILITIES ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">80. The Probability of Rain and Other Uncertain Things - The Calibration of Probabilities</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We are poorly calibrated in our probability estimates, systematically overconfident in some domains and underconfident in others.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Good probabilistic thinking requires calibration: your stated probabilities should correspond to actual frequencies. If you say something has a 70 percent chance of happening, it should happen about 70 percent of the time across all the times you make that prediction.</p>
+                        <p>Most people are overconfident: their 90 percent confidence intervals contain the true answer far less than 90 percent of the time. In domains of personal expertise, overconfidence is particularly severe.</p>
+                        <p>Calibration can be improved through deliberate practice: making explicit probability estimates, tracking their accuracy over time, and adjusting based on feedback. Weather forecasters who receive daily feedback on their predictions are among the best-calibrated forecasters in any domain, and their calibration is the product of extensive practice and feedback.</p>
+                        <p>The lesson is that probabilistic thinking is a skill that can be developed. Seek feedback on your predictions. Make them explicit enough to be evaluated. Over time, your calibration will improve.</p>
+                    </div>
+                </div>
+                <!-- ── 81. THE DANGER OF FIRST IMPRESSIONS - PRIMACY EFFECT AND RECENCY EFFECT ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">81. The Danger of First Impressions - Primacy Effect and Recency Effect</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We are disproportionately influenced by the first and last pieces of information we receive in a sequence, with middle information receiving insufficient weight.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>The primacy effect means that information presented first has a disproportionate influence on judgment. In an interview, the first impression of a candidate heavily shapes the interpretation of all subsequent information. The first item on a menu gets ordered more. The first argument heard in a debate has the most persuasive effect.</p>
+                        <p>The recency effect means that information presented most recently is also overweighted. The last thing you heard before making a decision, the most recent quarter's results, the last conversation you had, looms larger than it should.</p>
+                        <p>The practical applications are both defensive and offensive. To protect yourself from these biases, deliberately bring middle information to the forefront of your attention. To use these biases strategically, consider the order in which you present information: first for lasting impact, last for immediate impact.</p>
+                    </div>
+                </div>
+                <!-- ── 82. WHY GOOD ARGUMENTS ARE NOT ALWAYS CONVINCING - THE MERE EXPOSURE EFFECT ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">82. Why Good Arguments Are Not Always Convincing - The Mere Exposure Effect</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We develop preference for things simply because we are familiar with them, regardless of their actual quality.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>The mere exposure effect shows that repeated exposure to a stimulus increases our liking for it, independent of any genuine evaluation. Songs we have heard many times seem better than songs we are hearing for the first time. Faces we have seen repeatedly seem more trustworthy than unfamiliar ones. Ideas we have encountered before seem more plausible than novel ones.</p>
+                        <p>Advertisers exploit this effect: repeat exposure to a brand name, even without any positive content, increases brand preference. Politicians exploit it: name recognition alone conveys electability.</p>
+                        <p>This means that good arguments are not always convincing (because the person has not been exposed to them enough times), and bad arguments can be convincing (because they feel familiar and comfortable). Novelty works against conviction, even when the novel argument is correct.</p>
+                        <p>The practical lesson is to be suspicious of your preferences for familiar things and deliberate discomfort with unfamiliar ones. Ask: "Do I prefer this because it is genuinely better, or simply because it is familiar?"</p>
+                    </div>
+                </div>
+                <!-- ── 83. WHY YOU CAN NEVER BE FULLY RATIONAL - THE EMOTIONAL BASIS OF DECISION-MAKING ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">83. Why You Can Never Be Fully Rational - The Emotional Basis of Decision-Making</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> Emotions are not purely obstacles to rational decision-making; they are essential inputs that provide information about values and priorities that pure reasoning cannot access.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>The neurologist Antonio Damasio studied patients with damage to the emotional centers of the brain. These patients could reason perfectly but could not make decisions, even simple ones. Without emotional signals (what Damasio called "somatic markers"), they had no way to prioritize among options or to connect decisions to values.</p>
+                        <p>This suggests that the goal of "purely rational" decision-making is both impossible and undesirable. Emotions carry information about what matters to us, what we value, and what consequences we should care about. A completely dispassionate reasoner would have no preferences and therefore no direction.</p>
+                        <p>The goal is not to eliminate emotions from decision-making but to integrate them appropriately: using emotional signals to identify what matters and what to value, while using deliberate reasoning to evaluate options against those values and to correct for the known distortions that emotions introduce.</p>
+                    </div>
+                </div>
+                <!-- ── 84. WHY EXPERIENCE IS NOT ALWAYS THE BEST TEACHER - COMPLEXITY AND MENTAL MODELS ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">84. Why Experience Is Not Always the Best Teacher - Complexity and Mental Models</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> Experience is a poor teacher in complex systems where feedback is delayed, incomplete, or misleading, and where multiple factors interact in non-linear ways.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Experience is most valuable in simple, stable domains where feedback is immediate, clear, and accurate: learning to ride a bicycle, cooking a recipe, playing a musical instrument. In these domains, the feedback loop between action and outcome is tight enough for experience to build genuine expertise.</p>
+                        <p>But in complex domains, including business strategy, investing, politics, medicine, and most social domains, feedback is delayed, ambiguous, and confounded by many other factors. Experience in these domains does not reliably build expertise; it often builds overconfidence in patterns that are unreliable.</p>
+                        <p>The solution is to supplement direct experience with mental models: conceptual frameworks drawn from multiple disciplines that help you reason about complex systems. The goal is to build a "lattice of mental models," as Charlie Munger puts it, that allows you to reason about situations that your direct experience cannot adequately address.</p>
+                    </div>
+                </div>
+                <!-- ── 85. THE HIDDEN IMPORTANCE OF CONTEXT - THE CONTRAST EFFECT ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">85. The Hidden Importance of Context - The Contrast Effect</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We evaluate things not in absolute terms but relative to what we have just experienced or what is presented alongside them.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>After immersing your hand in ice cold water, lukewarm water feels warm. After handling a heavy object, a lighter object feels very light. After seeing an expensive option, a moderately expensive option seems reasonable. These are all examples of the contrast effect.</p>
+                        <p>The contrast effect means that our judgments are not absolute but relative to a reference point established by recent experience or by the context in which the evaluation takes place. This is why retailers put extremely expensive items at the front of the store: it makes everything else seem more reasonably priced by comparison.</p>
+                        <p>This effect is used constantly in negotiation (the anchor), in real estate (showing terrible properties before the one you want to sell), and in pricing strategy (the decoy effect).</p>
+                        <p>The antidote is to evaluate things against absolute standards rather than relative ones. Ask: "What would I think of this if I had not just seen the alternative?" Set your evaluation criteria before exposure to the options rather than after.</p>
+                    </div>
+                </div>
+                <!-- ── 86. WHY YOU PROCRASTINATE - THE PRESENT BIAS ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">86. Why You Procrastinate - The Present Bias</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We systematically prefer present rewards over future rewards in ways that lead to chronic procrastination and present-biased decision-making.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Present bias is related to but slightly different from hyperbolic discounting. It specifically captures the way our preference for the immediate dramatically increases as the immediate moment approaches. You may prefer to work rather than watch television, in principle. But when it is time to sit down and work, the immediate appeal of television overwhelms the abstract preference for working.</p>
+                        <p>This temporal inconsistency is the engine of procrastination. We make plans in a state of temporal distance where future discipline seems easy and natural. We then fail to execute them when the future becomes the present and the immediate costs of discipline are fully felt.</p>
+                        <p>Dobelli recommends several strategies for dealing with present bias. Implementation intentions: instead of "I will exercise more," commit to "I will exercise every Monday, Wednesday, and Friday at 7am." These specific, time-bound plans reduce the decision point where present bias can derail you. Commitment devices, as discussed earlier, also work by removing the decision altogether.</p>
+                    </div>
+                </div>
+                <!-- ── 87. THE DISADVANTAGES OF BEING AN EXPERT - THE EXPERT PARADOX ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">87. The Disadvantages of Being an Expert - The Expert Paradox</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> Experts in a field often perform worse than simple statistical models when making predictions, because their expertise introduces complexity and overconfidence that the simple model avoids.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Decades of research comparing expert judgment to simple actuarial or statistical models show that the models consistently match or outperform human experts in prediction tasks across many domains, including clinical psychology, medicine, parole decisions, and business.</p>
+                        <p>The expert's problem is not lack of knowledge but rather the application of that knowledge. They overweight unusual features of specific cases, create complex narratives that feel compelling but are not predictive, and become overconfident in their judgment. The simple model, by contrast, consistently applies a small number of relevant factors without being distracted by irrelevant details.</p>
+                        <p>This does not mean experts are useless. They are essential for gathering and interpreting information, for making qualitative judgments that resist quantification, and for operating in genuinely novel situations. But for predictions in domains with enough historical data to build models, the model should be consulted alongside or instead of pure expert intuition.</p>
+                    </div>
+                </div>
+                <!-- ── 88. THE INERTIA OF THE STATUS QUO - LOSS AVERSION ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">88. The Inertia of the Status Quo - Loss Aversion</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We feel losses more powerfully than equivalent gains, which distorts our decisions in favor of avoiding losses even at the cost of missing gains.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Kahneman and Tversky's prospect theory showed that losses feel approximately twice as bad as equivalent gains feel good. Losing one hundred dollars is psychologically about as painful as gaining two hundred dollars is pleasurable.</p>
+                        <p>This asymmetry has enormous consequences. We hold losing investments too long because selling at a loss feels worse than the rational expected value calculation would justify. We stay in bad situations because the loss of leaving feels worse than the discomfort of staying. We decline gambles with positive expected values because the potential loss looms larger than the potential gain.</p>
+                        <p>Loss aversion is the psychological engine of the status quo bias and the sunk cost fallacy. It makes change, risk-taking, and cutting losses psychologically painful even when they are rationally appropriate.</p>
+                        <p>The antidote is to frame decisions in terms of their full expected value rather than in terms of potential losses alone. Ask: "What would I advise a friend to do in this situation?" Removing yourself from the emotional immediacy of the loss often reveals the rational path more clearly.</p>
+                    </div>
+                </div>
+                <!-- ── 89. THE DIFFERENCE BETWEEN GOOD AND BAD RISKS - RISK HOMEOSTASIS ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">89. The Difference Between Good and Bad Risks - Risk Homeostasis</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> People adjust their behavior in response to changes in safety measures, often negating the benefit of the safety improvement.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Risk homeostasis is the phenomenon where people maintain a relatively constant level of perceived acceptable risk. When safety features are added, people compensate by taking more risks. Drivers with antilock brakes drive more aggressively. Helmeted cyclists take more risks than unhelmeted ones. As roads become safer, people drive faster.</p>
+                        <p>This does not mean safety improvements are useless. They often do reduce overall harm, because compensation is rarely complete. But it does mean that the full benefit of safety improvements is often not realized because behavioral compensation reduces it.</p>
+                        <p>The practical lesson is to be aware of your own risk compensation behavior. When you feel safer due to a safety measure, ask whether you are actually safer or whether you are compensating by taking more risks. The feeling of safety is not the same as actual safety.</p>
+                    </div>
+                </div>
+                <!-- ── 90. BEWARE THE INSIDE VIEW - THE OUTSIDE VIEW ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">90. Beware the Inside View - The Outside View</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We systematically make better predictions about outcomes when we use base rates and historical data from similar cases (the outside view) rather than focusing on the specific details of our particular case (the inside view).</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>This is Kahneman's extension of the planning fallacy. The inside view is what we naturally do: we think about the specific details of our situation, our unique circumstances, our particular plan, and we reason from there. The outside view asks: what happens to other people in situations like this?</p>
+                        <p>The outside view is almost always more accurate, particularly for predictions about time, cost, and probability of success. This is because the inside view is subject to optimism bias, the planning fallacy, and the failure to account for unknown unknowns. The outside view captures all of these, because they were present in the historical cases too.</p>
+                        <p>The practical application is to always seek out reference classes before planning a project, making an investment, or predicting an outcome. Find cases similar to yours and look at what happened in those cases. This reference class prediction should be the starting point, with adjustments made for genuine unique features of your situation.</p>
+                    </div>
+                </div>
+                <!-- ── 91. THE DIFFERENCE BETWEEN EXPERIENCING AND REMEMBERING - THE PEAK-END RULE ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">91. The Difference Between Experiencing and Remembering - The Peak-End Rule</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We judge an experience based primarily on its peak (most intense moment) and its end, rather than on the average quality across the entire experience.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Kahneman's research showed that our remembered utility of an experience is determined by the peak intensity and the final moment, not by the duration or the average quality. A medical procedure that was painful throughout but ended with a period of mild discomfort is remembered as less bad than a shorter procedure that ended at peak pain, even though the total pain was less.</p>
+                        <p>This "duration neglect" has important consequences. A vacation that ends wonderfully is remembered as better than one of equal overall quality that ends on a neutral note. A meal whose final course is exquisite is remembered as better than one whose courses were uniformly good.</p>
+                        <p>The practical lesson for designing experiences is clear: make sure the peak and the end are exceptional. The implication for evaluating experiences is more sobering: our memories of experiences are systematically distorted and should not be trusted as accurate records of total quality.</p>
+                    </div>
+                </div>
+                <!-- ── 92. WHY RATIONAL ARGUMENTS DO NOT CHANGE MINDS - THE BACKFIRE EFFECT ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">92. Why Rational Arguments Do Not Change Minds - The Backfire Effect</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> When people are presented with evidence that contradicts a strongly held belief, they sometimes hold the belief more strongly rather than updating it.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>The backfire effect is perhaps the most discouraging finding in all of cognitive psychology. When beliefs are part of a person's identity, contradicting evidence does not weaken the belief but strengthens it, because the challenge is experienced as a threat to the self, which triggers defensive rather than open-minded processing.</p>
+                        <p>This is why political debate rarely changes minds. Why presenting facts to conspiracy theorists can make them more committed. Why very confident people become more confident when challenged, rather than less.</p>
+                        <p>The effective strategies for changing minds, when they exist, involve reducing the threat to identity. Instead of attacking the belief directly, affirm the person's other identities and values, create a context of safety and exploration, and ask questions rather than making statements. This reduces defensive processing and creates space for genuine consideration of new information.</p>
+                    </div>
+                </div>
+                <!-- ── 93. THE IMPORTANCE OF PAYING ATTENTION - INATTENTIONAL BLINDNESS ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">93. The Importance of Paying Attention - Inattentional Blindness</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We fail to notice unexpected things in our visual field when our attention is directed elsewhere, even when those things are large and obvious.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>The famous gorilla experiment by Simons and Chabris demonstrated this: most people watching a video and counting basketball passes failed to notice a person in a gorilla suit walking through the frame. The gorilla was visible. People just did not see it because their attention was elsewhere.</p>
+                        <p>Inattentional blindness means that we are not passive recorders of our environment. We actively construct our experience of the world based on what we attend to, and we miss enormous amounts of what is actually present.</p>
+                        <p>The practical implications are profound. We miss important information in meetings because we are focused on our own thoughts. We miss social cues because we are self-conscious. We miss business opportunities because we are focused on our existing model. Training attention, reducing multitasking, and deliberately broadening your focus are all practical responses to this limitation.</p>
+                    </div>
+                </div>
+                <!-- ── 94. WHY MOTIVATION IS FRAGILE - THE EFFORT JUSTIFICATION EFFECT ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">94. Why Motivation Is Fragile - The Effort Justification Effect</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> We value things more when we have put more effort into obtaining or creating them, regardless of their actual quality.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>This is the IKEA effect: furniture you assembled yourself is valued more than identical furniture that came pre-assembled. The effort you invested creates psychological ownership and attachment that inflates your perceived value of the object.</p>
+                        <p>This effect makes it difficult to objectively evaluate our own work, our own decisions, and our own creations. We have invested effort, and that investment creates a valuation that is independent of quality. The entrepreneur who worked ten years on a business values it at a price no outside investor will match. The author who labored over a manuscript loves it more than any objective reader will.</p>
+                        <p>The antidote is to seek outside evaluation of anything you have invested significant effort in, and to weight that outside evaluation heavily relative to your own inflated assessment.</p>
+                    </div>
+                </div>
+                <!-- ── 95. THE DRAWBACK OF BEING CLEVER - THE INTELLIGENCE TRAP ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">95. The Drawback of Being Clever - The Intelligence Trap</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> High intelligence does not protect against cognitive biases; in some respects it makes people more susceptible to them.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Intelligent people are better at constructing arguments for their existing beliefs, which makes them better at rationalizing rather than reasoning. They can build more sophisticated stories, find more clever connections, and persuasively defend positions that are actually wrong.</p>
+                        <p>Intelligence also tends to correlate with confidence, which means intelligent people are often more susceptible to overconfidence than less intelligent ones. And the ability to reason fluently can create the illusion of having thought something through when one has merely articulated it smoothly.</p>
+                        <p>The antidote for intelligent people is particularly important: seek active disconfirmation. Use your intelligence to find reasons you might be wrong, not just reasons you might be right. Cultivate relationships with people who are not impressed by your intellect and will tell you honestly when you are wrong.</p>
+                    </div>
+                </div>
+                <!-- ── 96. THE SIMPLE LOGIC OF RISK - EXPECTED VALUE THINKING ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">96. The Simple Logic of Risk - Expected Value Thinking</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> Many of our risk-related errors can be corrected by consistently applying expected value thinking, which considers both probability and magnitude of outcomes.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Expected value is calculated by multiplying the probability of an outcome by its magnitude. A 10 percent chance of gaining one thousand dollars has an expected value of one hundred dollars. Decisions that maximize expected value tend to perform best over time.</p>
+                        <p>Most people do not naturally think in terms of expected value. We think about probabilities without adequately weighting magnitudes, or we focus on magnitudes without adequately accounting for probabilities. We overweight vivid, low-probability events and underweight common, high-probability ones.</p>
+                        <p>Consistently applying expected value thinking requires estimating probabilities explicitly, estimating outcomes in magnitude terms, multiplying them, and comparing the results across options. This is harder than intuitive judgment but far more reliable for important decisions.</p>
+                        <p>The exception to pure expected value thinking comes when the magnitude of a potential loss is catastrophic and irreversible. No amount of expected value calculation justifies risking ruin. This is the "never risk what you cannot afford to lose" principle.</p>
+                    </div>
+                </div>
+                <!-- ── 97. THREE PRACTICAL SUGGESTIONS FOR CLEARER THINKING - META-LESSONS ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">97. Three Practical Suggestions for Clearer Thinking - Meta-Lessons</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> There are specific practices that can help you apply the lessons of the book in everyday life.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Dobelli offers several meta-level suggestions for improving thinking quality overall.</p>
+                        <p>Keep a journal of decisions and predictions. Write down your reasoning before you know the outcome, and review it afterward. This combats hindsight bias, builds calibration, and reveals patterns in your thinking errors.</p>
+                        <p>Create thinking checklists for important decisions. Before making any major choice, run through the most relevant biases and ask whether any of them might be distorting your thinking. Pilots use checklists not because they do not know how to fly but because the stakes are high enough to warrant systematic verification. The same logic applies to major decisions.</p>
+                        <p>Reduce the number of decisions you make daily. Decision fatigue is real: the quality of decisions degrades as the number of decisions increases. Simplify your life to preserve cognitive resources for the decisions that actually matter. Automate the unimportant (what to eat for breakfast, what to wear) so that you have full cognitive resources for what is genuinely important.</p>
+                    </div>
+                </div>
+                <!-- ── 98. THE CIRCLE OF COMPETENCE - KNOWING WHAT YOU DO NOT KNOW ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">98. The Circle of Competence - Knowing What You Do Not Know</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> The most important intellectual skill is not knowing a great deal but accurately knowing what you know and what you do not know.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Warren Buffett and Charlie Munger have both emphasized the concept of the "circle of competence": the domain within which you have genuine expertise and reliable judgment. The key is not to have a large circle but to know exactly where its edges are.</p>
+                        <p>The person who knows the limits of their knowledge avoids making confident predictions and decisions in domains where they lack genuine expertise. They defer to experts in those domains while speaking with appropriate authority in their own domain.</p>
+                        <p>This is the deepest and most important lesson in the entire book. Not any specific bias or fallacy, but the fundamental posture of epistemic humility: knowing that you do not know, knowing where the limits of your knowledge lie, and behaving accordingly.</p>
+                        <p>Developing this skill requires regular honest self-assessment, seeking feedback on your judgments, and cultivating the discomfort of uncertainty rather than resolving it prematurely with false confidence.</p>
+                    </div>
+                </div>
+                <!-- ── 99. THE ART OF THINKING CLEARLY - THE GRAND CONCLUSION ── -->
+                <div class="book-section">
+                    <p class="book-section-label">Section</p>
+                    <h2 class="book-section-heading">99. The Art of Thinking Clearly - The Grand Conclusion</h2>
+                    <div class="book-prose">
+                        <p><strong>Core Idea:</strong> The goal is not perfect rationality but better judgment: being aware of your cognitive limitations, building systems to compensate for them, and accepting that some degree of irrationality is both inevitable and, occasionally, beneficial.</p>
+                        <p><strong>Key Lessons:</strong></p>
+                        <p>Perfect rationality is impossible for biological creatures operating in real time with limited information and processing capacity. We must rely on heuristics. The goal of understanding cognitive biases is not to eliminate them entirely but to recognize when they are leading us toward catastrophic errors in high-stakes situations.</p>
+                        <p>Dobelli suggests a pragmatic approach: in low-stakes decisions (what to eat, what to watch, minor purchases), let intuition and heuristics rule. The cost of overthinking outweighs the cost of a slightly suboptimal decision.</p>
+                        <p>But for high-stakes decisions (career choices, marriage, major investments, health decisions), slow down, engage deliberate analytical reasoning, and actively run through the catalogue of common cognitive errors to check your thinking. This selective application of rational analysis is the true art of thinking clearly.</p>
+                    </div>
+                </div>
 <hr class="book-divider">
 <div class="book-section">
 <p class="book-section-label">My Honest Opinion</p>
