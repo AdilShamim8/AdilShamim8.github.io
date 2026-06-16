@@ -3579,3 +3579,149 @@ button {
         font-size: 0.75rem;
     }
 }
+
+/* ===== AI ENGINEER SECTION ===== */
+.ai-engineer-table-wrap {
+    overflow-x: auto;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    box-shadow: var(--card-shadow);
+    margin-bottom: 2rem;
+}
+
+.ai-engineer-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+}
+
+.ai-engineer-table thead {
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border);
+}
+
+.ai-engineer-table th {
+    padding: 14px 20px;
+    text-align: left;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.ai-engineer-table tbody tr {
+    border-bottom: 1px solid var(--border-light);
+    transition: background-color var(--transition);
+}
+
+.ai-engineer-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.ai-engineer-table tbody tr:hover {
+    background-color: var(--accent-light);
+}
+
+.ai-engineer-table td {
+    padding: 18px 20px;
+    vertical-align: middle;
+}
+
+/* Row number */
+.ae-num {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    width: 48px;
+}
+
+/* Project link */
+.ae-project {
+    white-space: nowrap;
+    font-weight: 600;
+    min-width: 160px;
+}
+
+.ae-project a {
+    color: var(--accent);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color var(--transition), gap var(--transition);
+}
+
+.ae-project a::after {
+    content: '↗';
+    font-size: 0.75rem;
+    opacity: 0.6;
+    transition: opacity var(--transition), transform var(--transition);
+}
+
+.ae-project a:hover {
+    color: var(--accent-hover);
+    gap: 8px;
+}
+
+.ae-project a:hover::after {
+    opacity: 1;
+    transform: translate(2px, -2px);
+}
+
+/* Description */
+.ae-desc {
+    color: var(--text-secondary);
+    line-height: 1.55;
+    font-size: 0.9rem;
+}
+
+/* Tags cell */
+.ae-tags {
+    white-space: nowrap;
+}
+
+.ae-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--tag-text);
+    background: var(--tag-bg);
+    border-radius: 999px;
+    padding: 3px 10px;
+    margin: 2px 3px 2px 0;
+    letter-spacing: 0.01em;
+    transition: background-color var(--transition), transform var(--transition);
+}
+
+.ae-tag:hover {
+    transform: translateY(-1px);
+}
+
+/* CTA below table */
+.ae-cta {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 1.5rem;
+}
+
+/* Responsive: stack on mobile */
+@media (max-width: 640px) {
+    .ai-engineer-table th:nth-child(3),
+    .ai-engineer-table td.ae-desc {
+        display: none;
+    }
+
+    .ae-tags {
+        white-space: normal;
+    }
+
+    .ai-engineer-table th,
+    .ai-engineer-table td {
+        padding: 14px 12px;
+    }
+}

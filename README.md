@@ -1,7 +1,7 @@
 <h1 align="center">
   <br>
   <a href="https://www.adilshamim.me">
-    <!-- <img src="https://www.adilshamim.me/assets/images/Adil.jpeg" alt="Adil Shamim" width="120" style="border-radius:50%"> -->
+    <img src="https://www.adilshamim.me/assets/images/Adil.jpeg" alt="Adil Shamim" width="120" style="border-radius:50%">
   </a>
   <br>
   adilshamim.me
