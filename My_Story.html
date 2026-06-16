@@ -27,7 +27,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap"
         rel="stylesheet">
 
     <!-- Font Awesome icons (used for nav icons, search icon, arrows, etc.) -->
@@ -40,7 +40,8 @@
     <link rel="stylesheet" href="assets/css/chatbot.css">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="https://www.adilshamim.me/assets/images/Adil.jpeg" type="image/x-icon">
+    <link rel="icon" href="assets/images/Adil.jpeg" type="image/jpeg">
+    <link rel="shortcut icon" href="assets/images/Adil.jpeg" type="image/jpeg">
 
     <style>
         /* ================================================
@@ -211,25 +212,34 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 18px 0;
+            padding: 16px 12px;
+            margin: 4px 0;
+            border-radius: 12px;
+            border: 1px solid transparent;
             border-bottom: 1px solid var(--border-light);
             text-decoration: none;
             color: var(--text);
             /* Smooth slide-right on hover */
-            transition: padding-left var(--transition), color var(--transition), border-bottom-color var(--transition);
+            transition: all var(--transition);
             gap: 20px;
         }
 
         /* Top border only on the very first row */
         .book-list-item:first-child {
-            border-top: 1px solid var(--border-light);
+            /* Removed for consistent spacing */
         }
 
         /* Hover: indent + accent color + accent border */
         .book-list-item:hover {
-            padding-left: 14px;
+            padding-left: 20px;
             color: var(--accent);
-            border-bottom-color: var(--accent-light);
+            background: var(--bg-secondary);
+            border-color: var(--border-light);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.04);
+            transform: translateY(-2px);
+        }
+        [data-theme="dark"] .book-list-item:hover {
+            box-shadow: 0 6px 16px rgba(0,0,0,0.3);
         }
 
         /* Left side: colored dot + title + author */
@@ -469,18 +479,28 @@
             display: grid;
             grid-template-columns: 1fr auto;
             align-items: center;
-            padding: 20px 0;
+            padding: 18px 16px;
+            margin: 6px 0;
+            border-radius: 12px;
+            border: 1px solid transparent;
             border-bottom: 1px solid var(--border-light);
             gap: 24px;
-            transition: padding-left var(--transition);
+            transition: all var(--transition);
         }
 
         .learn-item:first-child {
-            border-top: 1px solid var(--border-light);
+            /* Removed for consistent spacing */
         }
 
         .learn-item:hover {
-            padding-left: 14px;
+            padding-left: 24px;
+            background: var(--bg-secondary);
+            border-color: var(--border-light);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.04);
+            transform: translateY(-2px);
+        }
+        [data-theme="dark"] .learn-item:hover {
+            box-shadow: 0 6px 16px rgba(0,0,0,0.3);
         }
 
         .learn-item-left {
@@ -674,6 +694,25 @@
             margin-top: 8px;
             text-align: center;
         }
+
+        /* ── Modern Blockquote ── */
+        .story-blockquote {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--text);
+            border-left: 4px solid var(--accent);
+            background: linear-gradient(90deg, var(--accent-light) 0%, transparent 100%);
+            padding: 24px 32px;
+            margin: 32px 0 40px 0;
+            border-radius: 0 12px 12px 0;
+        }
+        .story-blockquote p {
+            margin-bottom: 0 !important;
+            font-size: inherit !important;
+            color: inherit !important;
+            line-height: 1.6 !important;
+        }
     </style>
 </head>
 
@@ -695,8 +734,9 @@
             <div class="nav-right">
                 <!-- Primary navigation links -->
                 <ul class="nav-menu" id="primary-menu" aria-label="Primary">
-                    <li><a href="index.html#projects" class="nav-link">Projects</a></li>
-                    <li><a href="index.html#blog" class="nav-link">Blog</a></li>
+                    <li><a href="index.html#home" class="nav-link">Home</a></li>
+                    <li><a href="index.html#projects" class="nav-link">Work</a></li>
+                    <li><a href="index.html#research" class="nav-link">Research</a></li>
                     <li><a href="index.html#about" class="nav-link">About</a></li>
                     <li><a href="index.html#contact" class="nav-link">Contact</a></li>
                     <!-- "active" class highlights the current page in the nav -->
@@ -747,65 +787,73 @@
                     <!-- Long-form essay -->
                     <div class="story-essay">
 
-                        <p>A friend once reminded me that my story is what sets me apart. For a long time, I hesitated
-                            to embrace it — but they were right. So, here is a short, honest account of how I got here.
-                        </p>
+                        <blockquote class="story-blockquote reveal">
+                            <p>A friend once reminded me that my story is what sets me apart. For a long time, I hesitated
+                                to embrace it — but they were right. So, here is a short, honest account of how I got here.
+                            </p>
+                        </blockquote>
 
-                        <p>I grew up in Dhaka, Bangladesh.</p>
+                        <p class="reveal">I grew up in Dhaka, Bangladesh.</p>
 
-                        <p>My interest in computers started early, but it took university to turn that interest into
+                        <p class="reveal">My interest in computers started early, but it took university to turn that interest into
                             something real.</p>
 
-                        <p>I joined BNIST in February 2023 to study Computer Science &amp; Engineering. The first
+                        <p class="reveal">I joined BNIST in February 2023 to study Computer Science &amp; Engineering. The first
                             semester was a recalibration. Linear algebra, probability, and data structures were suddenly
                             more than subjects — they were the vocabulary of a discipline I wanted to master.</p>
 
-                        <p>I started building things. Small scripts, then models, then full pipelines.</p>
+                        <p class="reveal">I started building things. Small scripts, then models, then full pipelines.</p>
 
-                        <p>My first serious project was a hybrid recommendation system for a local business — a mix of
+                        <p class="reveal">My first serious project was a hybrid recommendation system for a local business — a mix of
                             collaborative filtering and content-based embeddings. It wasn't glamorous, but it worked. It
                             produced a <strong>10% increase in sales</strong> over three months. That result told me
                             everything I needed to know: production systems are where real learning happens.</p>
 
-                        <p>I joined Kaggle not long after. What started as casual practice became something I took
+                        <p class="reveal">I joined Kaggle not long after. What started as casual practice became something I took
                             seriously. I went on to complete 25 competitions. A <strong>Top 1% finish</strong> — 29th
                             out of 4,082 teams — in Road Accident Risk prediction earned me a <strong>Kaggle
                                 Master</strong> rank.</p>
 
-                        <p>While competing, I was also researching.</p>
+                        <p class="reveal">While competing, I was also researching.</p>
 
-                        <p>I led a project that became a first-author conference paper: <strong>Bangla Diarizz</strong>
+                        <p class="reveal">I led a project that became a first-author conference paper: <strong>Bangla Diarizz</strong>
                             — a domain-adapted speaker diarization system for Bengali long-form audio. We presented at
                             BUET CSE Fest 2026. The system achieved a Diarization Error Rate of 0.19, processed at
                             3.4&times; real-time on CPU, and ran <strong>56% faster</strong> than our baseline through
                             knowledge distillation.</p>
 
-
-                        <p>That project taught me that low-resource problems are the most creative ones. Building
+                        <p class="reveal">That project taught me that low-resource problems are the most creative ones. Building
                             systems that no one has built before, with almost no labeled data, forces a different kind
                             of engineering discipline.</p>
 
-                        <p>Around the same time, I founded <strong>Toolly</strong> — a community-driven platform for
+                        <p class="reveal">Around the same time, I founded <strong>Toolly</strong> — a community-driven platform for
                             discovering and sharing AI tools. It now hosts over 500 curated tools across 15 categories.
                         </p>
 
-                        <p>Running Toolly while competing on Kaggle while publishing research while staying current in a
+                        <p class="reveal">Running Toolly while competing on Kaggle while publishing research while staying current in a
                             field that moves every week is a constant juggle.</p>
 
-                        <p>But I have learned that momentum is its own reward.</p>
+                        <p class="reveal">But I have learned that momentum is its own reward.</p>
 
-                        <p>Today, I focus on production AI systems: Bengali speech AI, GenAI pipelines, and MLOps. I
+                        <p class="reveal">Today, I focus on production AI systems: Bengali speech AI, GenAI pipelines, and MLOps. I
                             believe that 60–70% of AI/ML work is software engineering, and I take that part just as
                             seriously as the modeling.</p>
 
-                        <p>I am actively looking for <strong>AI/ML Engineering roles</strong> at global startups where
+                        <p class="reveal">I am actively looking for <strong>AI/ML Engineering roles</strong> at global startups where
                             the problems are hard and the standards are high.</p>
 
-                        <p>If you are building something ambitious, I would love to connect. <a
+                        <p class="reveal">If you are building something ambitious, I would love to connect. <a
                                 href="mailto:adilshamim696@gmail.com">Shoot me an email</a>, and let's talk.</p>
 
-                        <p class="story-closing">I spent a lot of time reading. My only real friends were books. Books
+                        <p class="reveal">When I do deep work, I listen to music to stay focused. You can check out my playlists on my <a href="https://open.spotify.com/user/31tes3nwdkr5ueeoouuvlhk2bqlm?si=d6b542971edc4a27" target="_blank" rel="noopener" style="text-decoration: underline;">Spotify account</a>.</p>
+
+                        <p class="story-closing reveal">I spent a lot of time reading. My only real friends were books. Books
                             make for great friends.</p>
+
+                        <div class="reveal" style="margin-top: 50px; text-align: center; padding: 30px; background: var(--bg-secondary); border-radius: 12px; border: 1px solid var(--border-light);">
+                            <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 16px;">If you'd like to read more about what I am thinking, my personal notes, and my blog:</p>
+                            <a href="Notes/Notes.html" style="display: inline-block; padding: 12px 24px; background: var(--text); color: var(--bg); border-radius: 8px; font-weight: 500; text-decoration: none; transition: transform 0.2s;">Read My Notes & Thoughts &rarr;</a>
+                        </div>
 
                     </div><!-- end .story-essay -->
                 </div><!-- end .story-essay-wrap -->

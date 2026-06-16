@@ -177,10 +177,10 @@ function initProjects() {
             problem: 'Production-grade Bengali speaker diarization — no existing solution for real Bengali call center audio.',
             constraint: 'Only 4 hours of labeled Bengali data. Off-the-shelf pyannote DER: 35%.',
             approach: 'Domain adaptation on speaker embedding layer only. Knowledge distillation for inference speedup.',
-            numbers: 'DER 0.19 · WER 0.37 · 3.4× real-time on CPU · 56% inference speedup',
+            numbers: 'DER 0.19 (dev) / 0.286 (private LB) · 3.4× real-time on CPU · 56% inference speedup',
             impact: [
                 { number: '56%', label: 'Faster Inference' },
-                { number: '0.19', label: 'DER Achieved' },
+                { number: '0.19', label: 'DER (dev)' },
                 { number: '3.4×', label: 'Real-Time CPU' }
             ],
             tags: ['PyTorch', 'pyannote', 'WeSpeaker', 'Knowledge Distillation'],

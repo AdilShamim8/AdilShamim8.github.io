@@ -3133,6 +3133,14 @@ button {
     border-radius: 980px;
     border: 1px solid var(--border);
     background: var(--bg);
+    transition: border-color var(--transition), color var(--transition), background-color var(--transition);
+    text-decoration: none;
+}
+
+a.hero-cred-pill:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-light);
 }
 
 .sj-section-eyebrow {

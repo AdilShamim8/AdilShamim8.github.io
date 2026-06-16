@@ -14,6 +14,9 @@ const ASSET_BASE = (function () {
 
 // Chatbot Configuration and Personal Information
 const CHATBOT_CONFIG = {
+    // SECURITY: Do not expose API keys in client-side code.
+    // Use a serverless proxy (Cloudflare Worker, Vercel Edge Function) in production.
+    // The chatbot will fall back to local responses when no API key is configured.
     apiKey: (window.CHATBOT_API_KEY || '').trim(),
     model: 'gemini-2.0-flash-exp',
     apiEndpoint: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent',
@@ -28,10 +31,10 @@ const CHATBOT_CONFIG = {
         email: "adilshamim696@gmail.com",
         education: "B.Sc. in Computer Science & Engineering — BNIST (February 2023 — Present)",
         experience: "AI/ML Engineer & Data Scientist with 2+ years of hands-on experience building and shipping production LLM systems, RAG pipelines, and agentic workflows.",
-        kaggleStatus: "Kaggle Master — Top 1% globally (Rank 29/4,082). Completed 24 competitions.",
+        kaggleStatus: "Kaggle Master — Top 1% (29/4,082) in Road Accident Risk. Completed 22 competitions.",
         languages: ["English (Fluent — IELTS in progress)", "Bengali (Native)", "Hindi (Conversational)"],
         
-        bio: `I'm Adil Shamim — an AI/ML Engineer and Data Scientist with over two years of hands-on experience. I build practical ML systems that ship: production RAG pipelines, agentic workflows, Dockerized inference services, and tracked experiments that teams actually use. I built a recommendation engine that delivered a verified +10% client sales lift in 90 days. I founded Toolly — a live AI tools platform with 500+ tools, built and maintained solo. I'm a Kaggle Master (Top 1% globally, Rank 29 out of 4,082 competitors) and a published 1st-author researcher in Bengali speech AI (56% inference speedup, BUET CSE Fest 2026). I'm comfortable across the full AI stack: multi-provider LLM orchestration, vector databases, agent architecture, Dockerized deployment, and production monitoring.`,
+        bio: `I'm Adil Shamim — an AI/ML Engineer and Data Scientist with over two years of hands-on experience. I build practical ML systems that ship: production RAG pipelines, agentic workflows, Dockerized inference services, and tracked experiments that teams actually use. I built a recommendation engine that delivered a verified +10% client sales lift in 90 days. I founded Toolly — a live AI tools platform with 400+ tools, built and maintained solo. I'm a Kaggle Master (Top 1%, 29/4,082 in Road Accident Risk) and a published 1st-author researcher in Bengali speech AI (56% inference speedup, BUET CSE Fest 2026). I'm comfortable across the full AI stack: multi-provider LLM orchestration, vector databases, agent architecture, Dockerized deployment, and production monitoring.`,
         
         skills: {
             programmingAndData: [
@@ -112,7 +115,7 @@ const CHATBOT_CONFIG = {
                 paper: "https://www.researchgate.net/publication/401194830_Bangla_Diarizz_Domain-Adapted_Speaker_Diarization_for_Bengali_Long-Form_Audio",
                 technologies: ["PyTorch", "pyannote", "WeSpeaker", "wav2vec2", "HuggingFace Transformers"],
                 badge: "Published Research",
-                description: "1st Author paper at BUET CSE Fest 2026. Production-grade Bengali speaker diarization. Fine-tuned segmentation model, replaced embeddings with WeSpeaker ResNet34-LM for domain adaptation. Result: DER 0.19 (0.286 on private leaderboard), 3.4× real-time on CPU, 56% wall-clock speed improvement. Ranked #19/100+ teams."
+                description: "1st Author paper at BUET CSE Fest 2026. Production-grade Bengali speaker diarization. Fine-tuned segmentation model, replaced embeddings with WeSpeaker ResNet34-LM for domain adaptation. Result: DER 0.19 (dev) / 0.286 (private LB), 3.4× real-time on CPU, 56% wall-clock speed improvement. Ranked #19/100+ teams."
             },
             {
                 name: "Production-Grade RAG",
@@ -162,7 +165,7 @@ const CHATBOT_CONFIG = {
                 period: "Jun 2025 — Present",
                 description: "Founded Toolly to make discovering, submitting, and sharing AI tools effortless.",
                 responsibilities: [
-                    "Designed and shipped toolly.tech — a live AI tools directory with 500+ tools, 15 categories, a community submission pipeline, and an integrated Learn AI hub; all built and maintained solo.",
+                    "Designed and shipped toolly.tech — a live AI tools directory with 400+ tools, 15 categories, a community submission pipeline, and an integrated Learn AI hub; all built and maintained solo.",
                     "Engineered the full production stack: frontend (HTML/CSS/JS), tool submission and moderation system, search/filter logic, and usage analytics — 206+ commits over 10 months.",
                     "Built and deployed Toolly Studio — a Streamlit + Bria AI image generation app with batch export, Docker packaging, and a one-command demo flow for non-technical users."
                 ]
@@ -197,7 +200,7 @@ const CHATBOT_CONFIG = {
                 responsibilities: [
                     "Top 1% globally — Rank 29/4,082 in Predicting Road Accident Risk.",
                     "Top 2% — Rank 38/2,581 in Predicting BPM of Songs.",
-                    "Completed 24 competitions. Published ML notebooks and datasets; hosted competitions to engage the community."
+                    "Completed 22 competitions. Published ML notebooks and datasets; hosted competitions to engage the community."
                 ]
             }
         ],
@@ -210,16 +213,16 @@ const CHATBOT_CONFIG = {
             "Machine Learning Pipelines with Azure ML Studio (Coursera)"
         ],
         kaggleAchievements: [
-            "Kaggle Master (24 competitions completed)",
-            "Predicting Road Accident Risk — Ranked Top 1% (29/4,082 participants)",
+            "Kaggle Master (22 competitions completed)",
+            "Predicting Road Accident Risk — Top 1% (29/4,082 participants)",
             "Predicting Beats-per-Minute of Songs — Ranked Top 2% (38/2,581 participants)",
             "Published ML notebooks and datasets; hosted competitions to engage the community."
         ],
         
         achievements: [
-            "Founder of Toolly — a live AI tools platform with 500+ curated tools, built solo.",
+            "Founder of Toolly — a live AI tools platform with 400+ curated tools, built solo.",
             "1st Author of 'Bangla Diarizz' — Conference Paper on Bengali Speaker Diarization (56% inference speedup).",
-            "Ranked Top 1% globally on Kaggle out of 4,082 competitors.",
+            "Top 1% on Kaggle (29/4,082) in Road Accident Risk.",
             "Built a recommender system that delivered a verified +10% client sales lift in 90 days.",
             "Deployed Toolly Studio, an image generation app with one-command demo flow for non-technical users."
         ],
@@ -282,7 +285,7 @@ const CHATBOT_CONFIG = {
 - Medium: https://adilshamim8.medium.com
 
 **PROFESSIONAL SUMMARY:**
-AI/ML Engineer & Data Scientist with 2+ years of experience building and shipping production LLM systems, RAG pipelines, and agentic workflows. Published 1st-author conference paper achieving 56% inference speedup (BUET CSE Fest 2026). Kaggle Master — Top 1% globally (Rank 29/4,082). Founded Toolly — a live AI tools platform with 500+ tools, built and maintained solo. Comfortable across the full AI stack: multi-provider LLM orchestration, vector databases, agent architecture, Dockerized deployment, and production monitoring. Delivered a verified +10% client sales lift via a deployed recommendation engine.
+AI/ML Engineer & Data Scientist with 2+ years of experience building and shipping production LLM systems, RAG pipelines, and agentic workflows. Published 1st-author conference paper achieving 56% inference speedup (BUET CSE Fest 2026). Kaggle Master — Top 1% (29/4,082) in Road Accident Risk. Founded Toolly — a live AI tools platform with 400+ tools, built and maintained solo. Comfortable across the full AI stack: multi-provider LLM orchestration, vector databases, agent architecture, Dockerized deployment, and production monitoring. Delivered a verified +10% client sales lift via a deployed recommendation engine.
 
 **SKILLS (from all 3 role-specific resumes):**
 - Programming & Data: Python (Advanced), SQL, Java, JavaScript, Bash, Pandas, NumPy
@@ -294,17 +297,17 @@ AI/ML Engineer & Data Scientist with 2+ years of experience building and shippin
 - Visualization: Matplotlib, Seaborn, Plotly, Tableau, PowerBI
 
 **PROJECTS:**
-1. **Bangla Diarizz** (1st Author Paper at BUET CSE Fest 2026) — Production-grade Bengali speaker diarization. Fine-tuned segmentation model, replaced embeddings with WeSpeaker ResNet34-LM for domain adaptation. DER 0.286 on private leaderboard. 56% wall-clock speed improvement (1h22m → ~36m). Ranked #19/100+ teams. Deployed Gradio demo on HuggingFace Spaces. GitHub: https://github.com/AdilShamim8/Bangla-Diarizz
+1. **Bangla Diarizz** (1st Author Paper at BUET CSE Fest 2026) — Production-grade Bengali speaker diarization. Fine-tuned segmentation model, replaced embeddings with WeSpeaker ResNet34-LM for domain adaptation. DER 0.19 (dev) / 0.286 (private LB). 56% wall-clock speed improvement (1h22m → ~36m). Ranked #19/100+ teams. Deployed Gradio demo on HuggingFace Spaces. GitHub: https://github.com/AdilShamim8/Bangla-Diarizz
 2. **Production-Grade RAG Pipeline** — Enterprise RAG: PDF upload → recursive chunking → multi-provider embeddings (OpenAI, Gemini, Ollama) → Qdrant vector store with deterministic IDs for idempotent re-ingestion → top-K retrieval → source-aware LLM generation. Includes query routing, context window management, and source attribution. GitHub: https://github.com/AdilShamim8/Production-grade-RAG
 3. **QuantScope** — Global Quantitative Stock Analysis Platform. 35+ exchanges. Strict architectural separation (core/ has zero imports from llm/ or api/). 6-provider LLM fallback chain (OpenAI → Anthropic → Google → Ollama → Mistral → Cohere) with template-based static fallback. 33 tests, zero vendor lock-in. GitHub: https://github.com/AdilShamim8/QuantScope
 4. **Production ML Pipeline** — End-to-end House Price Predictor: ingest → preprocess → train → evaluate → register → serve. ZenML orchestration + MLflow tracking. Cross-validation and hyperparameter tuning. Dockerized FastAPI inference service. GitHub: https://github.com/AdilShamim8/Prices_Predictor_System
 5. **Training Data Bot** — Automated LLM fine-tuning dataset pipeline. Ingests PDF/text/URLs → multi-signal quality scoring (length, dedup, coherence) → structured output for fine-tuning. Zero manual curation. GitHub: https://github.com/AdilShamim8/Training-Data-Bot
 
 **EXPERIENCE:**
-1. Founder & AI/ML Engineer — Toolly (Jun 2025 — Present): Designed and shipped toolly.tech — live AI tools directory with 500+ tools, 15 categories, community submission pipeline, Learn AI hub. 206+ commits. Built Toolly Studio (Streamlit + Bria AI image gen). URL: https://www.toolly.tech
+1. Founder & AI/ML Engineer — Toolly (Jun 2025 — Present): Designed and shipped toolly.tech — live AI tools directory with 400+ tools, 15 categories, community submission pipeline, Learn AI hub. 206+ commits. Built Toolly Studio (Streamlit + Bria AI image gen). URL: https://www.toolly.tech
 2. 1st Author — Conference Paper (BUET CSE Fest 2026): "Bangla Diarizz" — Bengali speaker diarization with 56% inference speedup. ResearchGate: https://www.researchgate.net/publication/401194830
 3. ML Engineer — Independent Contractor (Jan–May 2025): Built hybrid recommendation engine (ALS + TF-IDF). Deployed as Flask API. Verified +10% client sales lift in 90 days.
-4. Kaggle Master: Top 1% globally (Rank 29/4,082). Top 2% in BPM prediction (38/2,581). 24 competitions completed. Published notebooks and hosted competitions.
+4. Kaggle Master: Top 1% (29/4,082) in Road Accident Risk. Top 2% in BPM prediction (38/2,581). 22 competitions completed. Published notebooks and hosted competitions.
 
 **CERTIFICATIONS:**
 - Machine Learning — Stanford University (Coursera)
