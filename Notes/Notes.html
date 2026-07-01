@@ -4,635 +4,222 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notes & Thoughts — Adil Shamim</title>
-    <meta name="description"
-        content="The story of Adil Shamim â€” AI/ML Engineer from Dhaka. Books that shaped my thinking, with honest notes and opinions on each.">
+    <title>Notes &amp; Thoughts — Adil Shamim</title>
+    <meta name="description" content="The story of Adil Shamim — AI/ML Engineer from Dhaka. My raw thoughts, notes, and personal reflections.">
     <meta name="author" content="Adil Shamim">
     <meta name="robots" content="index, follow">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="My Story & Books â€” Adil Shamim">
-    <meta property="og:description"
-        content="Books I've read, lessons I've kept, and honest opinions on whether you should read them.">
+    <meta property="og:title" content="Notes &amp; Thoughts — Adil Shamim">
+    <meta property="og:description" content="My raw thoughts, notes, and personal reflections.">
     <meta property="og:image" content="https://www.adilshamim.me/assets/images/Adil.jpeg">
     <meta property="og:url" content="https://www.adilshamim.me/Notes/Notes.html">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@adil_shamim8">
-    <meta name="twitter:title" content="My Story &amp; Books â€” Adil Shamim">
-    <meta name="twitter:description"
-        content="Books I've read, lessons I've kept, and honest opinions on whether you should read them.">
+    <meta name="twitter:title" content="Notes &amp; Thoughts — Adil Shamim">
     <meta name="twitter:image" content="https://www.adilshamim.me/assets/images/Adil.jpeg">
     <link rel="canonical" href="https://www.adilshamim.me/Notes/Notes.html">
 
-    <!-- Google Fonts: Inter (body text) + Newsreader (headings/titles) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap"
-        rel="stylesheet">
-
-    <!-- Font Awesome icons (used for nav icons, search icon, arrows, etc.) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Main site styles (colors, fonts, navbar, footer, etc.) -->
     <link rel="stylesheet" href="../assets/css/styles.css">
-
-    <!-- Chatbot widget styles -->
     <link rel="stylesheet" href="../assets/css/chatbot.css">
-
-    <!-- Favicon -->
     <link rel="icon" href="../assets/images/Adil.jpeg" type="image/jpeg">
     <link rel="shortcut icon" href="../assets/images/Adil.jpeg" type="image/jpeg">
 
     <style>
-        /* ================================================
-           MY_STORY.HTML â€” PAGE-SPECIFIC STYLES
-           These styles only apply to this page.
-           Global design tokens (colors, fonts, spacing)
-           all come from assets/css/styles.css
-        ================================================ */
-
-        /* â”€â”€ Story section: extra top padding to clear the fixed navbar â”€â”€ */
-        .story-section {
-            padding-top: 120px;
-        }
-
-        /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-           BOOKS SECTION WRAPPER
-        â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
-        .books-section {
-            padding-top: 32px;
-            padding-bottom: 100px;
-        }
-
-        /* â”€â”€ Header block above the book list â”€â”€ */
-        .books-header {
-            margin-bottom: 40px;
-        }
-
-        /* â”€â”€ Title row: "Books That Shaped My Thinking" + count badge â”€â”€ */
-        .books-header-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 16px;
-        }
-
-        /* Serif section title */
-        .books-title {
-            font-family: 'Newsreader', Georgia, serif;
-            font-size: 1.75rem;
-            font-weight: 600;
-            letter-spacing: -0.03em;
-            color: var(--text);
-        }
-
-        /* Small "8 books" counter on the right */
-        .books-count {
-            font-size: 0.8125rem;
-            color: var(--text-tertiary);
-            font-weight: 400;
-        }
-
-        /* Intro paragraph below the title */
-        .books-intro {
-            font-size: 0.9375rem;
-            line-height: 1.7;
-            color: var(--text-secondary);
-            max-width: 640px;
-            margin-bottom: 28px;
-        }
-
-        /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-           SEARCH BAR + YEAR FILTER CONTROLS
-        â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
-        .books-controls {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-            flex-wrap: wrap;
-            /* stacks on mobile */
-        }
-
-        /* Search input wrapper (icon + input) */
-        .books-search-wrap {
-            position: relative;
-            flex: 1;
-            min-width: 200px;
-            max-width: 360px;
-        }
-
-        /* Magnifying glass icon inside the search box */
-        .books-search-icon {
-            position: absolute;
-            left: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-tertiary);
-            font-size: 0.8125rem;
-            pointer-events: none;
-            /* click passes through to the input */
-        }
-
-        /* The actual search <input> */
-        .books-search {
-            width: 100%;
-            padding: 9px 12px 9px 34px;
-            /* left padding leaves room for the icon */
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            background: var(--bg-secondary);
-            color: var(--text);
-            font-size: 0.875rem;
-            transition: border-color var(--transition), box-shadow var(--transition);
-        }
-
-        /* Focus ring for accessibility */
-        .books-search:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px var(--accent-light);
-        }
-
-        .books-search::placeholder {
-            color: var(--text-tertiary);
-        }
-
-        /* Row of year pill buttons (All / 2023 / 2024 / 2025) */
-        .year-filters {
-            display: flex;
-            gap: 6px;
-            flex-wrap: wrap;
-        }
-
-        /* Each individual year button */
-        .year-btn {
-            font-size: 0.8125rem;
-            font-weight: 500;
-            padding: 7px 14px;
-            border-radius: 20px;
-            border: 1px solid var(--border);
-            color: var(--text-secondary);
-            background: transparent;
-            cursor: pointer;
-            transition: all var(--transition);
-            white-space: nowrap;
-        }
-
-        .year-btn:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-            background: var(--accent-light);
-        }
-
-        /* Active (selected) year button fills with accent color */
-        .year-btn.active {
-            background: var(--accent);
-            color: #fff;
-            border-color: var(--accent);
-        }
-
-        /* Dark mode: keep text readable on the filled button */
-        [data-theme="dark"] .year-btn.active {
-            color: #09090b;
-        }
-
-        /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-           BOOK LIST â€” nav.al inspired row layout
-           Each book is a clickable <a> that navigates
-           to its dedicated book notes page in /books/
-        â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
-        .books-list {
-            margin-top: 32px;
+        /* ── Layout ── */
+        body {
             display: flex;
             flex-direction: column;
-        }
-
-        /* One book row */
-        .book-list-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 16px 12px;
-            margin: 4px 0;
-            border-radius: 12px;
-            border: 1px solid transparent;
-            border-bottom: 1px solid var(--border-light);
-            text-decoration: none;
-            color: var(--text);
-            /* Smooth slide-right on hover */
-            transition: all var(--transition);
-            gap: 20px;
-        }
-
-        /* Top border only on the very first row */
-        .book-list-item:first-child {
-            /* Removed for consistent spacing */
-        }
-
-        /* Hover: indent + accent color + accent border */
-        .book-list-item:hover {
-            padding-left: 20px;
-            color: var(--accent);
-            background: var(--bg-secondary);
-            border-color: var(--border-light);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.04);
-            transform: translateY(-2px);
-        }
-        [data-theme="dark"] .book-list-item:hover {
-            box-shadow: 0 6px 16px rgba(0,0,0,0.3);
-        }
-
-        /* Left side: colored dot + title + author */
-        .book-list-left {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            flex: 1;
-            min-width: 0;
-            /* allow text-overflow to work */
-        }
-
-        /* Color-coded outcome dot (green/amber/grey) */
-        .book-verdict-dot {
-            flex-shrink: 0;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-        }
-
-        /* Dot color by verdict */
-        .book-verdict-dot.must-read {
-            background: #22c55e;
-        }
-
-        .book-verdict-dot.recommended {
-            background: #f59e0b;
-        }
-
-        .book-verdict-dot.optional {
-            background: #94a3b8;
-        }
-
-        /* Book title text â€” truncates with â€¦ if too long */
-        .book-list-title {
-            font-size: 0.9375rem;
-            font-weight: 500;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        /* Author name (hidden on very small screens) */
-        .book-list-author {
-            font-size: 0.8125rem;
-            color: var(--text-tertiary);
-            flex-shrink: 0;
-        }
-
-        /* Right side: year + verdict pill + arrow icon */
-        .book-list-right {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            flex-shrink: 0;
-        }
-
-        /* "2024" year label */
-        .book-list-year {
-            font-size: 0.8125rem;
-            color: var(--text-tertiary);
-            font-weight: 400;
-        }
-
-        /* Verdict pill: Must Read / Recommended / Optional */
-        .book-list-verdict {
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.03em;
-            padding: 3px 10px;
-            border-radius: 20px;
-        }
-
-        /* Verdict pill colors â€” light mode */
-        .book-list-verdict.must-read {
-            background: rgba(34, 197, 94, 0.12);
-            color: #16a34a;
-        }
-
-        .book-list-verdict.recommended {
-            background: rgba(245, 158, 11, 0.12);
-            color: #d97706;
-        }
-
-        .book-list-verdict.optional {
-            background: rgba(148, 163, 184, 0.12);
-            color: #64748b;
-        }
-
-        /* Verdict pill colors â€” dark mode */
-        [data-theme="dark"] .book-list-verdict.must-read {
-            background: rgba(34, 197, 94, 0.15);
-            color: #4ade80;
-        }
-
-        [data-theme="dark"] .book-list-verdict.recommended {
-            background: rgba(245, 158, 11, 0.15);
-            color: #fbbf24;
-        }
-
-        [data-theme="dark"] .book-list-verdict.optional {
-            background: rgba(148, 163, 184, 0.15);
-            color: #94a3b8;
-        }
-
-        /* Arrow icon on the right of each row â€” slides right on hover */
-        .book-list-arrow {
-            font-size: 0.875rem;
-            color: var(--text-tertiary);
-            transition: transform var(--transition);
-        }
-
-        .book-list-item:hover .book-list-arrow {
-            transform: translateX(4px);
-            color: var(--accent);
-        }
-
-        /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-           VERDICT LEGEND
-           Small colour-key above the search bar explaining
-           what green / amber / grey dots mean
-        â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
-        .verdict-legend {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-bottom: 0;
-            padding: 14px 16px;
-            background: var(--bg-secondary);
-            border-radius: 10px;
-            border: 1px solid var(--border-light);
-        }
-
-        .verdict-legend-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.8125rem;
-            color: var(--text-secondary);
-        }
-
-        .verdict-legend-dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
-
-        /* â”€â”€ Empty state shown when search has no results â”€â”€ */
-        .books-empty {
-            text-align: center;
-            padding: 60px 20px;
-            color: var(--text-tertiary);
-            font-size: 0.9375rem;
-            display: none;
-            /* hidden by default; shown by JS */
-        }
-
-        .books-empty i {
-            font-size: 2rem;
-            margin-bottom: 12px;
-            display: block;
-            opacity: 0.4;
-        }
-
-        /* â”€â”€ Horizontal rule separating story section from books section â”€â”€ */
-        .section-divider {
-            border: none;
-            border-top: 1px solid var(--border-light);
+            min-height: 100vh;
             margin: 0;
         }
+        #main-content { flex: 1; }
 
-        /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-           LEARN ANYTHING SECTION
-        â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
-        .learn-section {
-            padding-top: 0;
-            padding-bottom: 100px;
-        }
-
-        /* Header banner */
-        .learn-header {
-            margin-bottom: 36px;
-        }
-
-        .learn-header-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 14px;
-        }
-
-        /* Teal accent overline label */
-        .learn-overline {
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: #0d9488;
-            /* teal-600 */
-            margin-bottom: 10px;
-        }
-
-        [data-theme="dark"] .learn-overline {
-            color: #2dd4bf;
-        }
-
-        .learn-title {
-            font-family: 'Newsreader', Georgia, serif;
-            font-size: 1.75rem;
-            font-weight: 600;
-            letter-spacing: -0.03em;
-            color: var(--text);
-        }
-
-        .learn-count {
-            font-size: 0.8125rem;
-            color: var(--text-tertiary);
-            font-weight: 400;
-        }
-
-        .learn-intro {
-            font-size: 0.9375rem;
-            line-height: 1.7;
-            color: var(--text-secondary);
-            max-width: 640px;
-        }
-
-        /* Book rows */
-        .learn-list {
-            margin-top: 24px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .learn-item {
-            display: grid;
-            grid-template-columns: 1fr auto;
-            align-items: center;
-            padding: 18px 16px;
-            margin: 6px 0;
-            border-radius: 12px;
-            border: 1px solid transparent;
-            border-bottom: 1px solid var(--border-light);
-            gap: 24px;
-            transition: all var(--transition);
-        }
-
-        .learn-item:first-child {
-            /* Removed for consistent spacing */
-        }
-
-        .learn-item:hover {
-            padding-left: 24px;
-            background: var(--bg-secondary);
-            border-color: var(--border-light);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.04);
-            transform: translateY(-2px);
-        }
-        [data-theme="dark"] .learn-item:hover {
-            box-shadow: 0 6px 16px rgba(0,0,0,0.3);
-        }
-
-        .learn-item-left {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-            min-width: 0;
-        }
-
-        /* Teal numbered badge */
-        .learn-num {
-            flex-shrink: 0;
-            width: 26px;
-            height: 26px;
-            border-radius: 50%;
-            background: rgba(13, 148, 136, 0.12);
-            color: #0d9488;
-            font-size: 0.75rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 2px;
-        }
-
-        [data-theme="dark"] .learn-num {
-            background: rgba(45, 212, 191, 0.12);
-            color: #2dd4bf;
-        }
-
-        .learn-text {
-            display: flex;
-            flex-direction: column;
-            gap: 3px;
-            min-width: 0;
-        }
-
-        .learn-book-title {
-            font-size: 0.9375rem;
-            font-weight: 600;
-            color: var(--text);
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .learn-book-author {
-            font-size: 0.8125rem;
-            color: var(--text-tertiary);
-        }
-
-        /* "â†’ what it changes" tagline */
-        .learn-tagline {
-            font-size: 0.8125rem;
-            color: #0d9488;
-            font-style: italic;
-            margin-top: 2px;
-        }
-
-        [data-theme="dark"] .learn-tagline {
-            color: #2dd4bf;
-        }
-
-        /* Right: "Must Read" pill */
-        .learn-pill {
-            flex-shrink: 0;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.03em;
-            padding: 3px 10px;
-            border-radius: 20px;
-            background: rgba(13, 148, 136, 0.12);
-            color: #0d9488;
-            white-space: nowrap;
-        }
-
-        [data-theme="dark"] .learn-pill {
-            background: rgba(45, 212, 191, 0.12);
-            color: #2dd4bf;
-        }
-
-        /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-           RESPONSIVE â€” mobile adjustments
-        â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
-        @media (max-width: 640px) {
-
-            /* Stack title + count vertically */
-            .books-header-top {
-                flex-direction: column;
-                gap: 6px;
-            }
-
-            /* Stack search + year filters vertically */
-            .books-controls {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            /* Search fills full width on mobile */
-            .books-search-wrap {
-                max-width: 100%;
-            }
-
-            /* Hide verdict pill â€” not enough room */
-            .book-list-verdict {
-                display: none;
-            }
-
-            /* Hide author name â€” not enough room */
-            .book-list-author {
-                display: none;
-            }
-
-            .verdict-legend {
-                gap: 12px;
-            }
-
-            /* Learn Anything â€” hide pill on mobile */
-            .learn-pill {
-                display: none;
-            }
-        }
-
-        /* Override centered title */
+        /* ── Page title ── */
         .story-title {
             text-align: center;
             font-size: clamp(1.875rem, 4.5vw, 2.625rem);
             font-style: italic;
             margin-bottom: 0;
+            font-family: 'Newsreader', Georgia, serif;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            color: var(--text);
         }
 
-        /* Small accent label above the title */
+        .books-intro {
+            font-size: 0.9375rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            max-width: 640px;
+        }
+
+        /* ── Notes card grid ── */
+        .notes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .note-card {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            padding: 28px 28px 22px;
+            cursor: pointer;
+            transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+            width: 100%;
+        }
+
+        .note-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+        }
+
+        .note-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .note-card-tag {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+            background: var(--accent-light);
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+
+        .note-card-date {
+            font-size: 0.8rem;
+            color: var(--text-tertiary);
+        }
+
+        .note-card-title {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.375rem;
+            font-weight: 600;
+            font-style: italic;
+            letter-spacing: -0.02em;
+            color: var(--text);
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .note-card-excerpt {
+            font-size: 0.9rem;
+            line-height: 1.65;
+            color: var(--text-secondary);
+            flex: 1;
+            margin-bottom: 20px;
+        }
+
+        .note-card-footer {
+            border-top: 1px solid var(--border-light);
+            padding-top: 14px;
+        }
+
+        .note-card-read {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .note-card:hover .note-card-read { gap: 10px; }
+        .note-card:hover .note-card-read i { transform: translateX(3px); }
+        .note-card-read i { transition: transform 0.2s ease; }
+
+        /* ── Modal ── */
+        .post-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .post-modal-overlay.is-active {
+            display: flex;
+        }
+
+        .post-modal-panel {
+            background: var(--bg);
+            border: 1px solid var(--border-light);
+            border-radius: 20px;
+            width: 100%;
+            max-width: 700px;
+            max-height: 90vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            box-shadow: 0 32px 80px rgba(0,0,0,0.25);
+            animation: modalIn 0.3s cubic-bezier(0.16,1,0.3,1) both;
+        }
+
+        @keyframes modalIn {
+            from { opacity: 0; transform: translateY(24px) scale(0.97); }
+            to   { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        [data-theme="dark"] .post-modal-panel {
+            box-shadow: 0 32px 80px rgba(0,0,0,0.55);
+        }
+
+        .post-modal-close {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid var(--border-light);
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            z-index: 1;
+        }
+
+        .post-modal-close:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+            transform: rotate(90deg);
+        }
+
+        .post-modal-body {
+            padding: 44px 48px 48px;
+            overflow-y: auto;
+            overscroll-behavior: contain;
+        }
+
+        /* ── Essay styles ── */
         .story-overline {
             font-size: 0.75rem;
             font-weight: 700;
@@ -640,125 +227,105 @@
             text-transform: uppercase;
             color: var(--accent);
             margin-bottom: 14px;
-            text-align: center;
         }
 
-        /* Constrained essay container â€” centered on page, text reads left */
-        .story-essay-wrap {
-            max-width: 660px;
-            margin: 0 auto;
-        }
+        .story-essay { margin-top: 28px; }
 
-        /* Essay body */
-        .story-essay {
-            margin-top: 36px;
-        }
-
-        /* Each paragraph in the essay */
         .story-essay p {
             font-size: 1rem;
             line-height: 1.875;
             color: var(--text-secondary);
             margin-bottom: 1.4em;
             letter-spacing: -0.01em;
-            text-align: left;
         }
 
-        .story-essay p:last-child {
-            margin-bottom: 0;
-        }
+        .story-essay p:last-child { margin-bottom: 0; }
 
         .story-essay strong {
             color: var(--text);
             font-weight: 600;
         }
 
-        .story-essay a {
-            color: var(--accent);
-            text-decoration: underline;
-            text-underline-offset: 3px;
-        }
-
-        .story-essay a:hover {
-            color: var(--accent-hover);
-        }
-
-        /* Closing sentence â€” serif italic, centered for emphasis */
-        .story-essay .story-closing {
-            font-family: 'Newsreader', Georgia, serif;
-            font-style: italic;
-            font-size: 1.0625rem;
-            color: var(--text);
-            border-top: 1px solid var(--border-light);
-            padding-top: 28px;
-            margin-top: 8px;
-            text-align: center;
-        }
-
-        /* â”€â”€ Modern Blockquote â”€â”€ */
         .story-blockquote {
             font-family: 'Newsreader', Georgia, serif;
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             font-style: italic;
             color: var(--text);
             border-left: 4px solid var(--accent);
             background: linear-gradient(90deg, var(--accent-light) 0%, transparent 100%);
-            padding: 24px 32px;
-            margin: 32px 0 40px 0;
+            padding: 20px 28px;
+            margin: 28px 0 36px 0;
             border-radius: 0 12px 12px 0;
         }
+
         .story-blockquote p {
             margin-bottom: 0 !important;
             font-size: inherit !important;
             color: inherit !important;
             line-height: 1.6 !important;
         }
-            /* Force footer to the bottom of the page when content is short */
-        body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            margin: 0;
+
+        .story-closing {
+            font-family: 'Newsreader', Georgia, serif;
+            font-style: italic;
+            font-size: 1.05rem;
+            color: var(--text);
+            border-top: 1px solid var(--border-light);
+            padding-top: 24px;
+            margin-top: 8px;
+            text-align: center;
         }
-        #main-content {
-            flex: 1;
+
+        /* ── Card image thumbnail ── */
+        .note-card-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 18px;
+            display: block;
+        }
+
+        /* ── Modal hero image ── */
+        .modal-hero-img {
+            width: 100%;
+            max-height: 320px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 28px;
+            display: block;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 600px) {
+            .post-modal-body { padding: 32px 20px 36px; }
+            .notes-grid { grid-template-columns: 1fr; }
+            .note-card-img { height: 130px; }
+            .modal-hero-img { max-height: 200px; }
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Skip to main content link (screen readers / keyboard users) -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-         NAVBAR â€” fixed at the top of every page
-         Links go back to index.html sections since
-         this is a separate page (My_Story.html)
-    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <!-- NAVBAR -->
     <nav class="navbar" aria-label="Main navigation">
         <div class="nav-container">
-            <!-- Logo: clicking returns to portfolio home -->
             <a href="../index.html" class="nav-logo">AdilShamim.</a>
-
             <div class="nav-right">
-                <!-- Primary navigation links -->
                 <ul class="nav-menu" id="primary-menu" aria-label="Primary">
                     <li><a href="../index.html#home" class="nav-link">Home</a></li>
                     <li><a href="../index.html#projects" class="nav-link">Work</a></li>
                     <li><a href="../index.html#research" class="nav-link">Research</a></li>
                     <li><a href="../index.html#about" class="nav-link">About</a></li>
                     <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
-                    <!-- "active" class highlights the current page in the nav -->
                     <li><a href="../My_Story.html" class="nav-link active">My Story</a></li>
                 </ul>
-
-                <!-- Light / dark mode toggle button -->
                 <button id="theme-toggle" class="theme-btn" aria-label="Switch to dark mode" aria-pressed="false">
                     <i class="fas fa-moon"></i>
                 </button>
-
-                <!-- Hamburger menu (visible only on mobile) -->
                 <button class="menu-toggle" id="mobile-menu" aria-label="Toggle navigation menu"
                     aria-controls="primary-menu" aria-expanded="false">
                     <span class="bar"></span>
@@ -769,56 +336,121 @@
         </div>
     </nav>
 
-    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-         MAIN CONTENT AREA
-    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
-    <main id="main-content">
-    <section class="section" style="padding-top: 120px;">
-        <div class="container">
-            <h1 class="story-title">My Notes & Thoughts</h1>
-            <p class="books-intro" style="margin-bottom: 40px; text-align: center; margin-left: auto; margin-right: auto;">A collection of my thoughts, notes, and personal life reflections.</p>
-            
-            <div style="background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: 12px; padding: 40px; text-align: center;">
-                <p style="color: var(--text-secondary); font-size: 1.1rem;">Content coming soon...</p>
+    <!-- MODAL -->
+    <div id="post-modal" class="post-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="post-modal-panel">
+            <button class="post-modal-close" id="modal-close-btn" aria-label="Close post">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="post-modal-body">
+                <img src="https://i.postimg.cc/d3dTj5cx/Don-t-Waste-It.png" alt="Don't Waste It!" class="modal-hero-img" loading="lazy">
+                <p class="story-overline">Notes &amp; Thoughts</p>
+                <h2 id="modal-title" style="font-family:'Newsreader',Georgia,serif;font-size:clamp(1.6rem,4vw,2.1rem);font-weight:600;letter-spacing:-0.03em;color:var(--text);margin-bottom:8px;font-style:italic;">Don't Waste It!</h2>
+                <p style="font-size:0.8125rem;color:var(--text-tertiary);margin-bottom:4px;">July 2026</p>
+
+                <div class="story-essay">
+                    <p>Dear reader,</p>
+                    <p>Here I am sharing my thoughts, not someone else's. Maybe you'll like them, or maybe you won't.</p>
+                    <p>Here I am sharing something that I feel is most important to me. I don't know how other people use it, but for me, it's one of the things that I never, ever want to waste: <strong>TIME</strong>.</p>
+                    <p>But one question: what is a waste of time?</p>
+                    <p>If I answer that everything you and I do is maybe a waste of time, then maybe what I am writing now is also a waste of time. Or maybe reading philosophy is also a waste of time. Does that mean everything you do is a waste of time?</p>
+                    <blockquote class="story-blockquote">
+                        <p>I can't give you an answer to this question because I think the question itself is wrong!</p>
+                    </blockquote>
+                    <p>I am not that good at writing. If you expect me to answer all your questions or write like you're reading a story, then I am sorry — I am not like that. I am still writing this because I am thinking while I write, and I am sharing some of my thoughts and questions.</p>
+                    <p>Why do I hate wasting my time? Why do I spend time writing this? And why do you spend your time reading it? Is it important to you? I can't directly give you the answer to that question because I don't know who you are or why you're reading this.</p>
+                    <p>But here, finally, I think maybe I can share something with you. If you're doing something that feels like it's a waste of time, then maybe it's a waste of your mental energy.</p>
+                    <p>What you want in life is to be in control of your time. We waste our time with short-term thinking and busywork that may not be important to us.</p>
+                    <p>I can share one thought: if you are confused or can't decide whether to do something or not, then maybe the answer is <strong>NO</strong>.</p>
+                    <p>Then, can I ask one question? Why is time important? Because we can't buy it with money? Or maybe I don't know.</p>
+                    <p>I often hate the feeling of something being wasted, especially time. I feel bad when I don't like something but still need to do it for someone else. So I try to avoid those types of things or the people I don't like who do things that I feel waste my time.</p>
+                    <p>To be honest, while I am still writing this, I feel like I am wasting my time. Maybe everything you're doing is a waste of time. Maybe none of it has meaning or purpose. Who knows?</p>
+                    <p>Here, I am not trying to share my answers about time. I am just here to share all the questions I have at this moment while writing this — without filters, raw.</p>
+                    <p>Then maybe I need to share something else. I feel that you should try to cut off toxic people around you or unmotivated people who blame you and only waste your mental energy. I want to tell you to stay away from those types of people who waste your time, because maybe that's something truly important.</p>
+                    <p class="story-closing">— Adil Shamim</p>
+                </div>
             </div>
         </div>
-    </section>
-</main><!-- end #main-content -->
+    </div>
 
-    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-         FOOTER
-    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <!-- MAIN -->
+    <main id="main-content">
+        <section class="section" style="padding-top:120px;padding-bottom:100px;">
+            <div class="container">
+                <h1 class="story-title">My Notes &amp; Thoughts</h1>
+                <p class="books-intro" style="margin-bottom:48px;text-align:center;margin-left:auto;margin-right:auto;">
+                    A collection of my thoughts, notes, and personal life reflections.
+                </p>
+
+                <div class="notes-grid">
+                    <button class="note-card" id="card-dont-waste-it" aria-haspopup="dialog">
+                        <img src="https://i.postimg.cc/d3dTj5cx/Don-t-Waste-It.png" alt="Don't Waste It!" class="note-card-img" loading="lazy">
+                        <div class="note-card-top">
+                            <span class="note-card-tag">Notes &amp; Thoughts</span>
+                            <span class="note-card-date">July 2026</span>
+                        </div>
+                        <h2 class="note-card-title">Don't Waste It!</h2>
+                        <p class="note-card-excerpt">Here I am sharing something that I feel is most important to me — one of the things I never, ever want to waste: time.</p>
+                        <div class="note-card-footer">
+                            <span class="note-card-read">Read <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <!-- Copyright year is injected by setCurrentYear() in script.js -->
                 <p class="footer-copy">&copy; <span id="current-year"></span> Adil Shamim.</p>
-
                 <p class="footer-thanks">Thanks for visiting my portfolio website.</p>
-
-                <!-- Social icon links -->
                 <div class="footer-socials">
-                    <a href="https://github.com/AdilShamim8" target="_blank" rel="noopener" aria-label="GitHub"><i
-                            class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/adilshamim8" target="_blank" rel="noopener"
-                        aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://www.kaggle.com/adilshamim8" target="_blank" rel="noopener" aria-label="Kaggle"><i
-                            class="fab fa-kaggle"></i></a>
-                    <a href="https://adilshamim8.medium.com/" target="_blank" rel="noopener" aria-label="Medium"><i
-                            class="fab fa-medium"></i></a>
-                    <a href="https://x.com/adil_shamim8" target="_blank" rel="noopener" aria-label="Twitter"><i
-                            class="fab fa-twitter"></i></a>
+                    <a href="https://github.com/AdilShamim8" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/adilshamim8" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.kaggle.com/adilshamim8" target="_blank" rel="noopener" aria-label="Kaggle"><i class="fab fa-kaggle"></i></a>
+                    <a href="https://adilshamim8.medium.com/" target="_blank" rel="noopener" aria-label="Medium"><i class="fab fa-medium"></i></a>
+                    <a href="https://x.com/adil_shamim8" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Shared JS: navbar, theme toggle, reveal animations, year, smooth scroll -->
     <script src="../assets/js/script.js" defer></script>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var modal   = document.getElementById('post-modal');
+            var closeBtn = document.getElementById('modal-close-btn');
+            var card    = document.getElementById('card-dont-waste-it');
 
-    
+            function openModal() {
+                modal.classList.add('is-active');
+                document.body.style.overflow = 'hidden';
+                closeBtn.focus();
+            }
+
+            function closeModal() {
+                modal.classList.remove('is-active');
+                document.body.style.overflow = '';
+                card.focus();
+            }
+
+            card.addEventListener('click', openModal);
+            closeBtn.addEventListener('click', closeModal);
+
+            modal.addEventListener('click', function (e) {
+                if (e.target === modal) closeModal();
+            });
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && modal.classList.contains('is-active')) {
+                    closeModal();
+                }
+            });
+        });
+    </script>
 
 </body>
-
 </html>
