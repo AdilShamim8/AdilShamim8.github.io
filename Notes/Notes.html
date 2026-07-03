@@ -407,6 +407,46 @@
         </div>
     </div>
 
+    <!-- MODAL 3: Happiness -->
+    <div id="post-modal-3" class="post-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-3-title">
+        <div class="post-modal-panel">
+            <button class="post-modal-close" id="modal-3-close-btn" aria-label="Close post">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="post-modal-body">
+                <img src="https://i.postimg.cc/8CGdkQRC/Happiness.jpg" alt="Happiness!" class="modal-hero-img" loading="lazy">
+                <p class="story-overline">Notes &amp; Thoughts</p>
+                <h2 id="modal-3-title" style="font-family:'Newsreader',Georgia,serif;font-size:clamp(1.6rem,4vw,2.1rem);font-weight:600;letter-spacing:-0.03em;color:var(--text);margin-bottom:8px;font-style:italic;">Happiness!</h2>
+                <p style="font-size:0.8125rem;color:var(--text-tertiary);margin-bottom:4px;">July 2026</p>
+
+                <div class="story-essay">
+                    <p>Now, today I am writing about happiness! Why?</p>
+                    <p>But what is actual happiness? And why are we staying unhappy?</p>
+                    <p>If I am missing something or feel I don't have something, does that mean I feel upset? Does that make me unhappy? Or if I feel like that, is happiness what is there when I remove the feeling that something is missing in my life? Or if I want to have peace in my life, do I have to move beyond good and evil?</p>
+                    <blockquote class="story-blockquote">
+                        <p>Because maybe the world just reflects your own feelings back at you.</p>
+                    </blockquote>
+                    <p>Or one question comes to my mind: can I literally destroy my own happiness if I spend all of my time living in delusions of the future?</p>
+                    <p>Or if I just don't believe in anything from my past. Anything. No memories. No regrets. No people. No trips. Nothing. Does that mean I will be happy? Because a lot of our unhappiness comes from comparing the past to the present.</p>
+                    <p>Is desire a contract that makes me unhappy until I get what I want?</p>
+                    <p>Or I think the reality is that life is a single-player game. I was born alone. I'm going to die alone. All of my interpretations are alone.</p>
+                    <p>Or maybe I can increase my happiness over time, and it starts with believing I can do it.</p>
+                    <p>The world just reflects your own feelings back at you.</p>
+                    <p>Tell your friends you're a happy person. Then you'll be forced to live up to it. You'll have a consistency bias. You have to become that person. Your friends will expect you to be a happy person.</p>
+                    <p>Even if you can't come up with something positive, you can say, <strong>&ldquo;Well, the universe is going to teach me something now. Now I get to listen and learn.&rdquo;</strong></p>
+                    <p>There is no legacy. There's nothing to leave. We're all going to be gone.</p>
+                    <p>Our work will be dust. Our civilizations will be dust. Our planet will be dust. Our solar system will be dust. In the grand scheme of things, the universe has been around for billions of years, and it will be around for billions more.</p>
+                    <p>You are going to die one day, and none of this is going to matter. So enjoy yourself. Do something positive. Project some love. Make someone happy. Laugh a little bit. Appreciate the moment. And do your work.</p>
+                    <p>I know life is not easy. We all have money problems, family problems, and relationship problems. Sometimes we can't decide what we need to do in life. Sometimes life is hard, or maybe we make it hard. But we need to solve our life problems by ourselves.</p>
+                    <p>At the end of the day, I think life always gives us two choices.</p>
+                    <p style="text-align:center;font-weight:700;letter-spacing:0.04em;font-size:1rem;color:var(--text);margin-top:8px;">HARD CHOICES &rarr; EASY LIFE</p>
+                    <p style="text-align:center;font-weight:700;letter-spacing:0.04em;font-size:1rem;color:var(--text);">EASY CHOICES &rarr; HARD LIFE</p>
+                    <p class="story-closing">&mdash; Adil Shamim</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- MAIN -->
     <main id="main-content">
         <section class="section" style="padding-top:120px;padding-bottom:100px;">
@@ -444,6 +484,20 @@
                             <span class="note-card-read">Read <i class="fas fa-arrow-right"></i></span>
                         </div>
                     </button>
+
+                    <!-- Card 3: Happiness -->
+                    <button class="note-card" id="card-happiness" aria-haspopup="dialog">
+                        <img src="https://i.postimg.cc/8CGdkQRC/Happiness.jpg" alt="Happiness!" class="note-card-img" loading="lazy">
+                        <div class="note-card-top">
+                            <span class="note-card-tag">Notes &amp; Thoughts</span>
+                            <span class="note-card-date">July 2026</span>
+                        </div>
+                        <h2 class="note-card-title">Happiness!</h2>
+                        <p class="note-card-excerpt">What is actual happiness? And why are we staying unhappy? Maybe the world just reflects your own feelings back at you.</p>
+                        <div class="note-card-footer">
+                            <span class="note-card-read">Read <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </button>
                 </div>
             </div>
         </section>
@@ -472,8 +526,9 @@
         document.addEventListener('DOMContentLoaded', function () {
             // Generic modal handler — maps each card ID to its modal ID
             var posts = [
-                { cardId: 'card-dont-waste-it', modalId: 'post-modal',   closeBtnId: 'modal-close-btn' },
-                { cardId: 'card-surround',       modalId: 'post-modal-2', closeBtnId: 'modal-2-close-btn' }
+                { cardId: 'card-dont-waste-it', modalId: 'post-modal',   closeBtnId: 'modal-close-btn'   },
+                { cardId: 'card-surround',       modalId: 'post-modal-2', closeBtnId: 'modal-2-close-btn' },
+                { cardId: 'card-happiness',      modalId: 'post-modal-3', closeBtnId: 'modal-3-close-btn' }
             ];
 
             posts.forEach(function (post) {
