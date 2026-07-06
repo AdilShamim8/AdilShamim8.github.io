@@ -6,7 +6,7 @@
 <div align="center">
 
   <a href="https://www.adilshamim.me">
-    <img src="https://www.adilshamim.me/assets/images/Adil.jpeg" alt="Adil Shamim" width="140" style="border-radius:50%">
+    <!-- <img src="https://www.adilshamim.me/assets/images/Adil.jpeg" alt="Adil Shamim" width="140" style="border-radius:50%"> -->
   </a>
 
   # adilshamim.me
