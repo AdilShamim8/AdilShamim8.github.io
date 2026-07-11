@@ -447,6 +447,67 @@
         </div>
     </div>
 
+    <!-- MODAL 4: Stay Focus -->
+    <div id="post-modal-4" class="post-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-4-title">
+        <div class="post-modal-panel">
+            <button class="post-modal-close" id="modal-4-close-btn" aria-label="Close post">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="post-modal-body">
+                <img src="https://i.postimg.cc/qvBryrrM/Focus.png" alt="Stay Focus" class="modal-hero-img" loading="lazy">
+                <p class="story-overline">Notes &amp; Thoughts</p>
+                <h2 id="modal-4-title" style="font-family:'Newsreader',Georgia,serif;font-size:clamp(1.6rem,4vw,2.1rem);font-weight:600;letter-spacing:-0.03em;color:var(--text);margin-bottom:8px;font-style:italic;">Stay Focus</h2>
+                <p style="font-size:0.8125rem;color:var(--text-tertiary);margin-bottom:4px;">July 2026</p>
+
+                <div class="story-essay">
+                    <p>What does stay focused mean?</p>
+                    <p>Recently, I feel I lost my focus. Of course, there are some reasons, but now I feel I can't focus for a long time. So I know my problem, and then I try to find out why I have this problem now.</p>
+                    <p>Because the old version of me could focus.</p>
+                    <blockquote class="story-blockquote">
+                        <p>&ldquo;On good days, I can get in four hours of focus in the morning, then maybe another three or four hours in the afternoon.&rdquo;</p>
+                    </blockquote>
+                    <p>It was a great feeling for me, for my work and my studies. But recently, for a few reasons, I lost my focus, and I can't stay focused. Because of that, it has impacted my results, my studies, and also my work.</p>
+                    <p>First, think about this: what is distraction?</p>
+                    <p>I used to think distraction meant using my phone, but I was wrong. Nir Eyal said:</p>
+                    <blockquote class="story-blockquote">
+                        <p>&ldquo;Distraction is any action that pulls you away from what you plan to do with intent.&rdquo;</p>
+                    </blockquote>
+                    <p>Second, where does distraction come from?</p>
+                    <p><strong>Disguise 1: External Distraction</strong></p>
+                    <p>Sometimes you want to do something with full focus, but then a phone call, a message, or just one notification completely changes your focus.</p>
+                    <p><strong>Disguise 2: Internal Distraction</strong></p>
+                    <p>Here, I think there are three reasons.</p>
+                    <p><strong>First, physical pain.</strong> You can't stay focused when you are in pain because your mind gives more attention to the pain.</p>
+                    <p><strong>Second, emotional pain.</strong> It comes from when someone hurts you, from family problems, or from overthinking.</p>
+                    <p><strong>Third, an incomplete life.</strong> You keep thinking about all the things you still need to do.</p>
+                    <p><strong>Disguise 3: Attention Switching</strong></p>
+                    <p>When you try to multitask, you lose your focus. Staying focused means doing one thing at one time.</p>
+                    <p>Can you totally remove distraction?</p>
+                    <p>Maybe the answer is no. But you can do something to stay more focused.</p>
+                    <p>I call this framework <strong>FIT</strong>.</p>
+                    <p><strong>What does FIT mean?</strong></p>
+                    <p><strong>F &mdash; Find Your Trigger</strong></p>
+                    <p>That means you need to find out when you lose your focus. For example, when I try to solve a complex problem, I start using my phone, and then I lose my focus.</p>
+                    <p><strong>I &mdash; Implement Friction</strong></p>
+                    <p>When something is hard, few people like to do it. But when something is easy, most people like to do it.</p>
+                    <p>BJ Fogg said:</p>
+                    <blockquote class="story-blockquote">
+                        <p>&ldquo;Behavior happens when motivation, ability, and prompts converge at the same point.&rdquo;</p>
+                    </blockquote>
+                    <p>Try to set up a time box.</p>
+                    <blockquote class="story-blockquote">
+                        <p>What you can't measure, you can't track. What you can't track, you can't grow.</p>
+                    </blockquote>
+                    <p><strong>T &mdash; Train Your Traction Muscles</strong></p>
+                    <p>Try to use the Pomodoro Technique.</p>
+                    <p>Staying focused means saying <strong>No</strong>.</p>
+                    <p>And I share these thoughts because maybe after some days I will forget all of this knowledge. I need to read it again and stay focused because I want to become the greatest one.</p>
+                    <p class="story-closing">&mdash; Adil Shamim</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- MAIN -->
     <main id="main-content">
         <section class="section" style="padding-top:120px;padding-bottom:100px;">
@@ -498,6 +559,20 @@
                             <span class="note-card-read">Read <i class="fas fa-arrow-right"></i></span>
                         </div>
                     </button>
+
+                    <!-- Card 4: Stay Focus -->
+                    <button class="note-card" id="card-stay-focus" aria-haspopup="dialog">
+                        <img src="https://i.postimg.cc/qvBryrrM/Focus.png" alt="Stay Focus" class="note-card-img" loading="lazy">
+                        <div class="note-card-top">
+                            <span class="note-card-tag">Notes &amp; Thoughts</span>
+                            <span class="note-card-date">July 2026</span>
+                        </div>
+                        <h2 class="note-card-title">Stay Focus</h2>
+                        <p class="note-card-excerpt">I lost my focus recently. So I tried to find out why — and built a framework called FIT to get it back.</p>
+                        <div class="note-card-footer">
+                            <span class="note-card-read">Read <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </button>
                 </div>
             </div>
         </section>
@@ -528,7 +603,8 @@
             var posts = [
                 { cardId: 'card-dont-waste-it', modalId: 'post-modal',   closeBtnId: 'modal-close-btn'   },
                 { cardId: 'card-surround',       modalId: 'post-modal-2', closeBtnId: 'modal-2-close-btn' },
-                { cardId: 'card-happiness',      modalId: 'post-modal-3', closeBtnId: 'modal-3-close-btn' }
+                { cardId: 'card-happiness',      modalId: 'post-modal-3', closeBtnId: 'modal-3-close-btn' },
+                { cardId: 'card-stay-focus',     modalId: 'post-modal-4', closeBtnId: 'modal-4-close-btn' }
             ];
 
             posts.forEach(function (post) {
