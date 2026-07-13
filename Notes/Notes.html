@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notes &amp; Thoughts — Adil Shamim</title>
-    <meta name="description" content="The story of Adil Shamim — AI/ML Engineer from Dhaka. My raw thoughts, notes, and personal reflections.">
+    <meta name="description"
+        content="The story of Adil Shamim — AI/ML Engineer from Dhaka. My raw thoughts, notes, and personal reflections.">
     <meta name="author" content="Adil Shamim">
     <meta name="robots" content="index, follow">
     <meta property="og:type" content="website">
@@ -21,7 +22,9 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="stylesheet" href="../assets/css/chatbot.css">
@@ -36,7 +39,10 @@
             min-height: 100vh;
             margin: 0;
         }
-        #main-content { flex: 1; }
+
+        #main-content {
+            flex: 1;
+        }
 
         /* ── Page title ── */
         .story-title {
@@ -82,7 +88,7 @@
         .note-card:hover {
             border-color: var(--accent);
             transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
         }
 
         .note-card-top {
@@ -141,9 +147,17 @@
             gap: 6px;
         }
 
-        .note-card:hover .note-card-read { gap: 10px; }
-        .note-card:hover .note-card-read i { transform: translateX(3px); }
-        .note-card-read i { transition: transform 0.2s ease; }
+        .note-card:hover .note-card-read {
+            gap: 10px;
+        }
+
+        .note-card:hover .note-card-read i {
+            transform: translateX(3px);
+        }
+
+        .note-card-read i {
+            transition: transform 0.2s ease;
+        }
 
         /* ── Modal ── */
         .post-modal-overlay {
@@ -151,7 +165,7 @@
             position: fixed;
             inset: 0;
             z-index: 9999;
-            background: rgba(0,0,0,0.6);
+            background: rgba(0, 0, 0, 0.6);
             backdrop-filter: blur(6px);
             -webkit-backdrop-filter: blur(6px);
             align-items: center;
@@ -174,17 +188,24 @@
             display: flex;
             flex-direction: column;
             position: relative;
-            box-shadow: 0 32px 80px rgba(0,0,0,0.25);
-            animation: modalIn 0.3s cubic-bezier(0.16,1,0.3,1) both;
+            box-shadow: 0 32px 80px rgba(0, 0, 0, 0.25);
+            animation: modalIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
         }
 
         @keyframes modalIn {
-            from { opacity: 0; transform: translateY(24px) scale(0.97); }
-            to   { opacity: 1; transform: translateY(0) scale(1); }
+            from {
+                opacity: 0;
+                transform: translateY(24px) scale(0.97);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
 
         [data-theme="dark"] .post-modal-panel {
-            box-shadow: 0 32px 80px rgba(0,0,0,0.55);
+            box-shadow: 0 32px 80px rgba(0, 0, 0, 0.55);
         }
 
         .post-modal-close {
@@ -229,7 +250,9 @@
             margin-bottom: 14px;
         }
 
-        .story-essay { margin-top: 28px; }
+        .story-essay {
+            margin-top: 28px;
+        }
 
         .story-essay p {
             font-size: 1rem;
@@ -239,7 +262,9 @@
             letter-spacing: -0.01em;
         }
 
-        .story-essay p:last-child { margin-bottom: 0; }
+        .story-essay p:last-child {
+            margin-bottom: 0;
+        }
 
         .story-essay strong {
             color: var(--text);
@@ -298,10 +323,21 @@
 
         /* ── Responsive ── */
         @media (max-width: 600px) {
-            .post-modal-body { padding: 32px 20px 36px; }
-            .notes-grid { grid-template-columns: 1fr; }
-            .note-card-img { height: 130px; }
-            .modal-hero-img { max-height: 200px; }
+            .post-modal-body {
+                padding: 32px 20px 36px;
+            }
+
+            .notes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .note-card-img {
+                height: 130px;
+            }
+
+            .modal-hero-img {
+                max-height: 200px;
+            }
         }
     </style>
 </head>
@@ -343,30 +379,53 @@
                 <i class="fas fa-times"></i>
             </button>
             <div class="post-modal-body">
-                <img src="https://i.postimg.cc/d3dTj5cx/Don-t-Waste-It.png" alt="Don't Waste It!" class="modal-hero-img" loading="lazy">
+                <img src="https://i.postimg.cc/d3dTj5cx/Don-t-Waste-It.png" alt="Don't Waste It!" class="modal-hero-img"
+                    loading="lazy">
                 <p class="story-overline">Notes &amp; Thoughts</p>
-                <h2 id="modal-title" style="font-family:'Newsreader',Georgia,serif;font-size:clamp(1.6rem,4vw,2.1rem);font-weight:600;letter-spacing:-0.03em;color:var(--text);margin-bottom:8px;font-style:italic;">Don't Waste It!</h2>
+                <h2 id="modal-title"
+                    style="font-family:'Newsreader',Georgia,serif;font-size:clamp(1.6rem,4vw,2.1rem);font-weight:600;letter-spacing:-0.03em;color:var(--text);margin-bottom:8px;font-style:italic;">
+                    Don't Waste It!</h2>
                 <p style="font-size:0.8125rem;color:var(--text-tertiary);margin-bottom:4px;">July 2026</p>
 
                 <div class="story-essay">
                     <p>Dear reader,</p>
-                    <p>Here I am sharing my thoughts, not someone else's. Maybe you'll like them, or maybe you won't.</p>
-                    <p>Here I am sharing something that I feel is most important to me. I don't know how other people use it, but for me, it's one of the things that I never, ever want to waste: <strong>TIME</strong>.</p>
+                    <p>Here I am sharing my thoughts, not someone else's. Maybe you'll like them, or maybe you won't.
+                    </p>
+                    <p>Here I am sharing something that I feel is most important to me. I don't know how other people
+                        use it, but for me, it's one of the things that I never, ever want to waste:
+                        <strong>TIME</strong>.</p>
                     <p>But one question: what is a waste of time?</p>
-                    <p>If I answer that everything you and I do is maybe a waste of time, then maybe what I am writing now is also a waste of time. Or maybe reading philosophy is also a waste of time. Does that mean everything you do is a waste of time?</p>
+                    <p>If I answer that everything you and I do is maybe a waste of time, then maybe what I am writing
+                        now is also a waste of time. Or maybe reading philosophy is also a waste of time. Does that mean
+                        everything you do is a waste of time?</p>
                     <blockquote class="story-blockquote">
                         <p>I can't give you an answer to this question because I think the question itself is wrong!</p>
                     </blockquote>
-                    <p>I am not that good at writing. If you expect me to answer all your questions or write like you're reading a story, then I am sorry — I am not like that. I am still writing this because I am thinking while I write, and I am sharing some of my thoughts and questions.</p>
-                    <p>Why do I hate wasting my time? Why do I spend time writing this? And why do you spend your time reading it? Is it important to you? I can't directly give you the answer to that question because I don't know who you are or why you're reading this.</p>
-                    <p>But here, finally, I think maybe I can share something with you. If you're doing something that feels like it's a waste of time, then maybe it's a waste of your mental energy.</p>
-                    <p>What you want in life is to be in control of your time. We waste our time with short-term thinking and busywork that may not be important to us.</p>
-                    <p>I can share one thought: if you are confused or can't decide whether to do something or not, then maybe the answer is <strong>NO</strong>.</p>
-                    <p>Then, can I ask one question? Why is time important? Because we can't buy it with money? Or maybe I don't know.</p>
-                    <p>I often hate the feeling of something being wasted, especially time. I feel bad when I don't like something but still need to do it for someone else. So I try to avoid those types of things or the people I don't like who do things that I feel waste my time.</p>
-                    <p>To be honest, while I am still writing this, I feel like I am wasting my time. Maybe everything you're doing is a waste of time. Maybe none of it has meaning or purpose. Who knows?</p>
-                    <p>Here, I am not trying to share my answers about time. I am just here to share all the questions I have at this moment while writing this — without filters, raw.</p>
-                    <p>Then maybe I need to share something else. I feel that you should try to cut off toxic people around you or unmotivated people who blame you and only waste your mental energy. I want to tell you to stay away from those types of people who waste your time, because maybe that's something truly important.</p>
+                    <p>I am not that good at writing. If you expect me to answer all your questions or write like you're
+                        reading a story, then I am sorry — I am not like that. I am still writing this because I am
+                        thinking while I write, and I am sharing some of my thoughts and questions.</p>
+                    <p>Why do I hate wasting my time? Why do I spend time writing this? And why do you spend your time
+                        reading it? Is it important to you? I can't directly give you the answer to that question
+                        because I don't know who you are or why you're reading this.</p>
+                    <p>But here, finally, I think maybe I can share something with you. If you're doing something that
+                        feels like it's a waste of time, then maybe it's a waste of your mental energy.</p>
+                    <p>What you want in life is to be in control of your time. We waste our time with short-term
+                        thinking and busywork that may not be important to us.</p>
+                    <p>I can share one thought: if you are confused or can't decide whether to do something or not, then
+                        maybe the answer is <strong>NO</strong>.</p>
+                    <p>Then, can I ask one question? Why is time important? Because we can't buy it with money? Or maybe
+                        I don't know.</p>
+                    <p>I often hate the feeling of something being wasted, especially time. I feel bad when I don't like
+                        something but still need to do it for someone else. So I try to avoid those types of things or
+                        the people I don't like who do things that I feel waste my time.</p>
+                    <p>To be honest, while I am still writing this, I feel like I am wasting my time. Maybe everything
+                        you're doing is a waste of time. Maybe none of it has meaning or purpose. Who knows?</p>
+                    <p>Here, I am not trying to share my answers about time. I am just here to share all the questions I
+                        have at this moment while writing this — without filters, raw.</p>
+                    <p>Then maybe I need to share something else. I feel that you should try to cut off toxic people
+                        around you or unmotivated people who blame you and only waste your mental energy. I want to tell
+                        you to stay away from those types of people who waste your time, because maybe that's something
+                        truly important.</p>
                     <p class="story-closing">— Adil Shamim</p>
                 </div>
             </div>
@@ -380,28 +439,70 @@
                 <i class="fas fa-times"></i>
             </button>
             <div class="post-modal-body">
-                <img src="https://i.postimg.cc/d3n1pjgr/Surround-Yourself-with-These-People.jpg" alt="Surround Yourself with These People!" class="modal-hero-img" loading="lazy">
+                <img src="https://i.postimg.cc/d3n1pjgr/Surround-Yourself-with-These-People.jpg"
+                    alt="Surround Yourself with These People!" class="modal-hero-img" loading="lazy">
                 <p class="story-overline">Notes &amp; Thoughts</p>
-                <h2 id="modal-2-title" style="font-family:'Newsreader',Georgia,serif;font-size:clamp(1.6rem,4vw,2.1rem);font-weight:600;letter-spacing:-0.03em;color:var(--text);margin-bottom:8px;font-style:italic;">Surround Yourself with These People!</h2>
+                <h2 id="modal-2-title"
+                    style="font-family:'Newsreader',Georgia,serif;font-size:clamp(1.6rem,4vw,2.1rem);font-weight:600;letter-spacing:-0.03em;color:var(--text);margin-bottom:8px;font-style:italic;">
+                    Surround Yourself with These People!</h2>
                 <p style="font-size:0.8125rem;color:var(--text-tertiary);margin-bottom:4px;">July 2026</p>
 
                 <div class="story-essay">
                     <p>I often think about those who surround me and who they are.</p>
-                    <p>I want to share my own story. When I was a teenager, surrounded by a lot of people and friends, I spent most of my time with people. Now, truly, I feel I wasted my time. You can ask me why I think like that. The answer is not easy for me to explain because I think I was a totally different person when I was a teenager. I feel that I was completely different. But now I am an adult, and I think in a different way—a totally different way. Why did I tell you that, and why did you read it?</p>
-                    <p>Because of that, I feel that when I was a teenager, I was a different person, and now that I am an adult, I think differently. Maybe you also think like that. The people you surround yourself with change often, if not constantly, but my question is: are the people you've surrounded yourself with right for you?</p>
-                    <p>That question came to my mind because Steve Jobs recommended one book, <em>King Lear</em> by William Shakespeare. I also recommend it to you if you can read it. Decide whether the people around you are right for you or not because surrounding yourself with good people—people you truly believe in—will help you grow. You need those types of people around you. They not only save your time, but they can also save your life.</p>
+                    <p>I want to share my own story. When I was a teenager, surrounded by a lot of people and friends, I
+                        spent most of my time with people. Now, truly, I feel I wasted my time. You can ask me why I
+                        think like that. The answer is not easy for me to explain because I think I was a totally
+                        different person when I was a teenager. I feel that I was completely different. But now I am an
+                        adult, and I think in a different way—a totally different way. Why did I tell you that, and why
+                        did you read it?</p>
+                    <p>Because of that, I feel that when I was a teenager, I was a different person, and now that I am
+                        an adult, I think differently. Maybe you also think like that. The people you surround yourself
+                        with change often, if not constantly, but my question is: are the people you've surrounded
+                        yourself with right for you?</p>
+                    <p>That question came to my mind because Steve Jobs recommended one book, <em>King Lear</em> by
+                        William Shakespeare. I also recommend it to you if you can read it. Decide whether the people
+                        around you are right for you or not because surrounding yourself with good people—people you
+                        truly believe in—will help you grow. You need those types of people around you. They not only
+                        save your time, but they can also save your life.</p>
                     <blockquote class="story-blockquote">
-                        <p>Truly, you are not going to find a lot of people like that. If you find yourself surrounded by those types of people, don't lose them.</p>
+                        <p>Truly, you are not going to find a lot of people like that. If you find yourself surrounded
+                            by those types of people, don't lose them.</p>
                     </blockquote>
-                    <p>Maybe it takes a long time to understand whether the people around you are actually good for you or not, whether they help you grow in your life, support your goals and dreams, and, most importantly, whether you can trust them. I want to share with you that if you can't trust those types of people, that means they are not the right people for you. If you find good people around you, treat them the way you want them to treat you and the way you would want someone to treat yourself.</p>
-                    <p>Now, you must be thinking about why good people around you really matter and why it's important.</p>
+                    <p>Maybe it takes a long time to understand whether the people around you are actually good for you
+                        or not, whether they help you grow in your life, support your goals and dreams, and, most
+                        importantly, whether you can trust them. I want to share with you that if you can't trust those
+                        types of people, that means they are not the right people for you. If you find good people
+                        around you, treat them the way you want them to treat you and the way you would want someone to
+                        treat yourself.</p>
+                    <p>Now, you must be thinking about why good people around you really matter and why it's important.
+                    </p>
                     <p>If you do not know the answer, that means you are not ready to find those people.</p>
-                    <p>But I can tell you that we are human, and we can make mistakes. That is nothing new. We may spend a long time with toxic people who are not good for us. They make you happy and fill your mind with crazy dreams. They make promises, but they don't actually do anything that helps you grow. They don't think much about your career or your life. Sometimes they stay with you because you are good at business or because they need something from you. When they feel they no longer need you, they slowly start to stay away from you. Their behavior changes, and they begin to treat you badly. If you want to recognize those types of people, pay attention to this: one day they make you feel like you are the most important person in the world, and then, without any reason, they start to avoid you.</p>
-                    <p>I just want to tell you that if you find those people—maybe they are your business partners or maybe your life partners—please try to stay away from them as much as possible. Because at the end of the day, you will feel that you wasted your time and your mental energy. Never stay with them thinking about long-term happiness. One thing, please keep in mind: they need you only when they need something from you.</p>
-                    <p>The last thing I want to share with you is this. If you think you found the right person in your life but you lost them because you acted badly, and if those people are truly important to you, then stay with them and be happy with them. If you want to keep them in your life, try to treat them with kindness, show them respect, and appreciate them because they may truly care about you for no reason other than who you are.</p>
-                    <p>Don't waste your time on toxic people because your time is limited and short. You can't keep wasting it on them forever.</p>
-                    <p>I always think to myself that I don't need a lot of people around me. I only need maybe one, two, or three people who are truly honest, who genuinely want to stay with me, and who honestly care about who I am.</p>
-                    <p class="story-closing">Surround yourself with those who truly change your life.<br>— Adil Shamim</p>
+                    <p>But I can tell you that we are human, and we can make mistakes. That is nothing new. We may spend
+                        a long time with toxic people who are not good for us. They make you happy and fill your mind
+                        with crazy dreams. They make promises, but they don't actually do anything that helps you grow.
+                        They don't think much about your career or your life. Sometimes they stay with you because you
+                        are good at business or because they need something from you. When they feel they no longer need
+                        you, they slowly start to stay away from you. Their behavior changes, and they begin to treat
+                        you badly. If you want to recognize those types of people, pay attention to this: one day they
+                        make you feel like you are the most important person in the world, and then, without any reason,
+                        they start to avoid you.</p>
+                    <p>I just want to tell you that if you find those people—maybe they are your business partners or
+                        maybe your life partners—please try to stay away from them as much as possible. Because at the
+                        end of the day, you will feel that you wasted your time and your mental energy. Never stay with
+                        them thinking about long-term happiness. One thing, please keep in mind: they need you only when
+                        they need something from you.</p>
+                    <p>The last thing I want to share with you is this. If you think you found the right person in your
+                        life but you lost them because you acted badly, and if those people are truly important to you,
+                        then stay with them and be happy with them. If you want to keep them in your life, try to treat
+                        them with kindness, show them respect, and appreciate them because they may truly care about you
+                        for no reason other than who you are.</p>
+                    <p>Don't waste your time on toxic people because your time is limited and short. You can't keep
+                        wasting it on them forever.</p>
+                    <p>I always think to myself that I don't need a lot of people around me. I only need maybe one, two,
+                        or three people who are truly honest, who genuinely want to stay with me, and who honestly care
+                        about who I am.</p>
+                    <p class="story-closing">Surround yourself with those who truly change your life.<br>— Adil Shamim
+                    </p>
                 </div>
             </div>
         </div>
@@ -414,33 +515,56 @@
                 <i class="fas fa-times"></i>
             </button>
             <div class="post-modal-body">
-                <img src="https://i.postimg.cc/8CGdkQRC/Happiness.jpg" alt="Happiness!" class="modal-hero-img" loading="lazy">
+                <img src="https://i.postimg.cc/8CGdkQRC/Happiness.jpg" alt="Happiness!" class="modal-hero-img"
+                    loading="lazy">
                 <p class="story-overline">Notes &amp; Thoughts</p>
-                <h2 id="modal-3-title" style="font-family:'Newsreader',Georgia,serif;font-size:clamp(1.6rem,4vw,2.1rem);font-weight:600;letter-spacing:-0.03em;color:var(--text);margin-bottom:8px;font-style:italic;">Happiness!</h2>
+                <h2 id="modal-3-title"
+                    style="font-family:'Newsreader',Georgia,serif;font-size:clamp(1.6rem,4vw,2.1rem);font-weight:600;letter-spacing:-0.03em;color:var(--text);margin-bottom:8px;font-style:italic;">
+                    Happiness!</h2>
                 <p style="font-size:0.8125rem;color:var(--text-tertiary);margin-bottom:4px;">July 2026</p>
 
                 <div class="story-essay">
                     <p>Now, today I am writing about happiness! Why?</p>
                     <p>But what is actual happiness? And why are we staying unhappy?</p>
-                    <p>If I am missing something or feel I don't have something, does that mean I feel upset? Does that make me unhappy? Or if I feel like that, is happiness what is there when I remove the feeling that something is missing in my life? Or if I want to have peace in my life, do I have to move beyond good and evil?</p>
+                    <p>If I am missing something or feel I don't have something, does that mean I feel upset? Does that
+                        make me unhappy? Or if I feel like that, is happiness what is there when I remove the feeling
+                        that something is missing in my life? Or if I want to have peace in my life, do I have to move
+                        beyond good and evil?</p>
                     <blockquote class="story-blockquote">
                         <p>Because maybe the world just reflects your own feelings back at you.</p>
                     </blockquote>
-                    <p>Or one question comes to my mind: can I literally destroy my own happiness if I spend all of my time living in delusions of the future?</p>
-                    <p>Or if I just don't believe in anything from my past. Anything. No memories. No regrets. No people. No trips. Nothing. Does that mean I will be happy? Because a lot of our unhappiness comes from comparing the past to the present.</p>
+                    <p>Or one question comes to my mind: can I literally destroy my own happiness if I spend all of my
+                        time living in delusions of the future?</p>
+                    <p>Or if I just don't believe in anything from my past. Anything. No memories. No regrets. No
+                        people. No trips. Nothing. Does that mean I will be happy? Because a lot of our unhappiness
+                        comes from comparing the past to the present.</p>
                     <p>Is desire a contract that makes me unhappy until I get what I want?</p>
-                    <p>Or I think the reality is that life is a single-player game. I was born alone. I'm going to die alone. All of my interpretations are alone.</p>
+                    <p>Or I think the reality is that life is a single-player game. I was born alone. I'm going to die
+                        alone. All of my interpretations are alone.</p>
                     <p>Or maybe I can increase my happiness over time, and it starts with believing I can do it.</p>
                     <p>The world just reflects your own feelings back at you.</p>
-                    <p>Tell your friends you're a happy person. Then you'll be forced to live up to it. You'll have a consistency bias. You have to become that person. Your friends will expect you to be a happy person.</p>
-                    <p>Even if you can't come up with something positive, you can say, <strong>&ldquo;Well, the universe is going to teach me something now. Now I get to listen and learn.&rdquo;</strong></p>
+                    <p>Tell your friends you're a happy person. Then you'll be forced to live up to it. You'll have a
+                        consistency bias. You have to become that person. Your friends will expect you to be a happy
+                        person.</p>
+                    <p>Even if you can't come up with something positive, you can say, <strong>&ldquo;Well, the universe
+                            is going to teach me something now. Now I get to listen and learn.&rdquo;</strong></p>
                     <p>There is no legacy. There's nothing to leave. We're all going to be gone.</p>
-                    <p>Our work will be dust. Our civilizations will be dust. Our planet will be dust. Our solar system will be dust. In the grand scheme of things, the universe has been around for billions of years, and it will be around for billions more.</p>
-                    <p>You are going to die one day, and none of this is going to matter. So enjoy yourself. Do something positive. Project some love. Make someone happy. Laugh a little bit. Appreciate the moment. And do your work.</p>
-                    <p>I know life is not easy. We all have money problems, family problems, and relationship problems. Sometimes we can't decide what we need to do in life. Sometimes life is hard, or maybe we make it hard. But we need to solve our life problems by ourselves.</p>
+                    <p>Our work will be dust. Our civilizations will be dust. Our planet will be dust. Our solar system
+                        will be dust. In the grand scheme of things, the universe has been around for billions of years,
+                        and it will be around for billions more.</p>
+                    <p>You are going to die one day, and none of this is going to matter. So enjoy yourself. Do
+                        something positive. Project some love. Make someone happy. Laugh a little bit. Appreciate the
+                        moment. And do your work.</p>
+                    <p>I know life is not easy. We all have money problems, family problems, and relationship problems.
+                        Sometimes we can't decide what we need to do in life. Sometimes life is hard, or maybe we make
+                        it hard. But we need to solve our life problems by ourselves.</p>
                     <p>At the end of the day, I think life always gives us two choices.</p>
-                    <p style="text-align:center;font-weight:700;letter-spacing:0.04em;font-size:1rem;color:var(--text);margin-top:8px;">HARD CHOICES &rarr; EASY LIFE</p>
-                    <p style="text-align:center;font-weight:700;letter-spacing:0.04em;font-size:1rem;color:var(--text);">EASY CHOICES &rarr; HARD LIFE</p>
+                    <p
+                        style="text-align:center;font-weight:700;letter-spacing:0.04em;font-size:1rem;color:var(--text);margin-top:8px;">
+                        HARD CHOICES &rarr; EASY LIFE</p>
+                    <p
+                        style="text-align:center;font-weight:700;letter-spacing:0.04em;font-size:1rem;color:var(--text);">
+                        EASY CHOICES &rarr; HARD LIFE</p>
                     <p class="story-closing">&mdash; Adil Shamim</p>
                 </div>
             </div>
@@ -454,45 +578,62 @@
                 <i class="fas fa-times"></i>
             </button>
             <div class="post-modal-body">
-                <img src="https://i.postimg.cc/qvBryrrM/Focus.png" alt="Stay Focus" class="modal-hero-img" loading="lazy">
+                <img src="https://i.postimg.cc/qvBryrrM/Focus.png" alt="Stay Focus" class="modal-hero-img"
+                    loading="lazy">
                 <p class="story-overline">Notes &amp; Thoughts</p>
-                <h2 id="modal-4-title" style="font-family:'Newsreader',Georgia,serif;font-size:clamp(1.6rem,4vw,2.1rem);font-weight:600;letter-spacing:-0.03em;color:var(--text);margin-bottom:8px;font-style:italic;">Stay Focus</h2>
+                <h2 id="modal-4-title"
+                    style="font-family:'Newsreader',Georgia,serif;font-size:clamp(1.6rem,4vw,2.1rem);font-weight:600;letter-spacing:-0.03em;color:var(--text);margin-bottom:8px;font-style:italic;">
+                    Stay Focus</h2>
                 <p style="font-size:0.8125rem;color:var(--text-tertiary);margin-bottom:4px;">July 2026</p>
 
                 <div class="story-essay">
                     <p>What does stay focused mean?</p>
-                    <p>Recently, I feel I lost my focus. Of course, there are some reasons, but now I feel I can't focus for a long time. So I know my problem, and then I try to find out why I have this problem now.</p>
+                    <p>Recently, I feel I lost my focus. Of course, there are some reasons, but now I feel I can't focus
+                        for a long time. So I know my problem, and then I try to find out why I have this problem now.
+                    </p>
                     <p>Because the old version of me could focus.</p>
                     <blockquote class="story-blockquote">
-                        <p>&ldquo;On good days, I can get in four hours of focus in the morning, then maybe another three or four hours in the afternoon.&rdquo;</p>
+                        <p>&ldquo;On good days, I can get in four hours of focus in the morning, then maybe another
+                            three or four hours in the afternoon.&rdquo;</p>
                     </blockquote>
-                    <p>It was a great feeling for me, for my work and my studies. But recently, for a few reasons, I lost my focus, and I can't stay focused. Because of that, it has impacted my results, my studies, and also my work.</p>
+                    <p>It was a great feeling for me, for my work and my studies. But recently, for a few reasons, I
+                        lost my focus, and I can't stay focused. Because of that, it has impacted my results, my
+                        studies, and also my work.</p>
                     <p>First, think about this: what is distraction?</p>
                     <p>I used to think distraction meant using my phone, but I was wrong. Nir Eyal said:</p>
                     <blockquote class="story-blockquote">
-                        <p>&ldquo;Distraction is any action that pulls you away from what you plan to do with intent.&rdquo;</p>
+                        <p>&ldquo;Distraction is any action that pulls you away from what you plan to do with
+                            intent.&rdquo;</p>
                     </blockquote>
                     <p>Second, where does distraction come from?</p>
                     <p><strong>Disguise 1: External Distraction</strong></p>
-                    <p>Sometimes you want to do something with full focus, but then a phone call, a message, or just one notification completely changes your focus.</p>
+                    <p>Sometimes you want to do something with full focus, but then a phone call, a message, or just one
+                        notification completely changes your focus.</p>
                     <p><strong>Disguise 2: Internal Distraction</strong></p>
                     <p>Here, I think there are three reasons.</p>
-                    <p><strong>First, physical pain.</strong> You can't stay focused when you are in pain because your mind gives more attention to the pain.</p>
-                    <p><strong>Second, emotional pain.</strong> It comes from when someone hurts you, from family problems, or from overthinking.</p>
-                    <p><strong>Third, an incomplete life.</strong> You keep thinking about all the things you still need to do.</p>
+                    <p><strong>First, physical pain.</strong> You can't stay focused when you are in pain because your
+                        mind gives more attention to the pain.</p>
+                    <p><strong>Second, emotional pain.</strong> It comes from when someone hurts you, from family
+                        problems, or from overthinking.</p>
+                    <p><strong>Third, an incomplete life.</strong> You keep thinking about all the things you still need
+                        to do.</p>
                     <p><strong>Disguise 3: Attention Switching</strong></p>
-                    <p>When you try to multitask, you lose your focus. Staying focused means doing one thing at one time.</p>
+                    <p>When you try to multitask, you lose your focus. Staying focused means doing one thing at one
+                        time.</p>
                     <p>Can you totally remove distraction?</p>
                     <p>Maybe the answer is no. But you can do something to stay more focused.</p>
                     <p>I call this framework <strong>FIT</strong>.</p>
                     <p><strong>What does FIT mean?</strong></p>
                     <p><strong>F &mdash; Find Your Trigger</strong></p>
-                    <p>That means you need to find out when you lose your focus. For example, when I try to solve a complex problem, I start using my phone, and then I lose my focus.</p>
+                    <p>That means you need to find out when you lose your focus. For example, when I try to solve a
+                        complex problem, I start using my phone, and then I lose my focus.</p>
                     <p><strong>I &mdash; Implement Friction</strong></p>
-                    <p>When something is hard, few people like to do it. But when something is easy, most people like to do it.</p>
+                    <p>When something is hard, few people like to do it. But when something is easy, most people like to
+                        do it.</p>
                     <p>BJ Fogg said:</p>
                     <blockquote class="story-blockquote">
-                        <p>&ldquo;Behavior happens when motivation, ability, and prompts converge at the same point.&rdquo;</p>
+                        <p>&ldquo;Behavior happens when motivation, ability, and prompts converge at the same
+                            point.&rdquo;</p>
                     </blockquote>
                     <p>Try to set up a time box.</p>
                     <blockquote class="story-blockquote">
@@ -501,7 +642,8 @@
                     <p><strong>T &mdash; Train Your Traction Muscles</strong></p>
                     <p>Try to use the Pomodoro Technique.</p>
                     <p>Staying focused means saying <strong>No</strong>.</p>
-                    <p>And I share these thoughts because maybe after some days I will forget all of this knowledge. I need to read it again and stay focused because I want to become the greatest one.</p>
+                    <p>And I share these thoughts because maybe after some days I will forget all of this knowledge. I
+                        need to read it again and stay focused because I want to become the greatest one.</p>
                     <p class="story-closing">&mdash; Adil Shamim</p>
                 </div>
             </div>
@@ -520,13 +662,15 @@
                 <div class="notes-grid">
                     <!-- Card 1: Don't Waste It! -->
                     <button class="note-card" id="card-dont-waste-it" aria-haspopup="dialog">
-                        <img src="https://i.postimg.cc/d3dTj5cx/Don-t-Waste-It.png" alt="Don't Waste It!" class="note-card-img" loading="lazy">
+                        <img src="https://i.postimg.cc/d3dTj5cx/Don-t-Waste-It.png" alt="Don't Waste It!"
+                            class="note-card-img" loading="lazy">
                         <div class="note-card-top">
                             <span class="note-card-tag">Notes &amp; Thoughts</span>
                             <span class="note-card-date">July 2026</span>
                         </div>
                         <h2 class="note-card-title">Don't Waste It!</h2>
-                        <p class="note-card-excerpt">Here I am sharing something that I feel is most important to me — one of the things I never, ever want to waste: time.</p>
+                        <p class="note-card-excerpt">Here I am sharing something that I feel is most important to me —
+                            one of the things I never, ever want to waste: time.</p>
                         <div class="note-card-footer">
                             <span class="note-card-read">Read <i class="fas fa-arrow-right"></i></span>
                         </div>
@@ -534,13 +678,15 @@
 
                     <!-- Card 2: Surround Yourself -->
                     <button class="note-card" id="card-surround" aria-haspopup="dialog">
-                        <img src="https://i.postimg.cc/d3n1pjgr/Surround-Yourself-with-These-People.jpg" alt="Surround Yourself with These People!" class="note-card-img" loading="lazy">
+                        <img src="https://i.postimg.cc/d3n1pjgr/Surround-Yourself-with-These-People.jpg"
+                            alt="Surround Yourself with These People!" class="note-card-img" loading="lazy">
                         <div class="note-card-top">
                             <span class="note-card-tag">Notes &amp; Thoughts</span>
                             <span class="note-card-date">July 2026</span>
                         </div>
                         <h2 class="note-card-title">Surround Yourself with These People!</h2>
-                        <p class="note-card-excerpt">The people you surround yourself with change often — but are the people you've surrounded yourself with right for you?</p>
+                        <p class="note-card-excerpt">The people you surround yourself with change often — but are the
+                            people you've surrounded yourself with right for you?</p>
                         <div class="note-card-footer">
                             <span class="note-card-read">Read <i class="fas fa-arrow-right"></i></span>
                         </div>
@@ -548,13 +694,15 @@
 
                     <!-- Card 3: Happiness -->
                     <button class="note-card" id="card-happiness" aria-haspopup="dialog">
-                        <img src="https://i.postimg.cc/8CGdkQRC/Happiness.jpg" alt="Happiness!" class="note-card-img" loading="lazy">
+                        <img src="https://i.postimg.cc/8CGdkQRC/Happiness.jpg" alt="Happiness!" class="note-card-img"
+                            loading="lazy">
                         <div class="note-card-top">
                             <span class="note-card-tag">Notes &amp; Thoughts</span>
                             <span class="note-card-date">July 2026</span>
                         </div>
                         <h2 class="note-card-title">Happiness!</h2>
-                        <p class="note-card-excerpt">What is actual happiness? And why are we staying unhappy? Maybe the world just reflects your own feelings back at you.</p>
+                        <p class="note-card-excerpt">What is actual happiness? And why are we staying unhappy? Maybe the
+                            world just reflects your own feelings back at you.</p>
                         <div class="note-card-footer">
                             <span class="note-card-read">Read <i class="fas fa-arrow-right"></i></span>
                         </div>
@@ -562,13 +710,15 @@
 
                     <!-- Card 4: Stay Focus -->
                     <button class="note-card" id="card-stay-focus" aria-haspopup="dialog">
-                        <img src="https://i.postimg.cc/qvBryrrM/Focus.png" alt="Stay Focus" class="note-card-img" loading="lazy">
+                        <img src="https://i.postimg.cc/qvBryrrM/Focus.png" alt="Stay Focus" class="note-card-img"
+                            loading="lazy">
                         <div class="note-card-top">
                             <span class="note-card-tag">Notes &amp; Thoughts</span>
                             <span class="note-card-date">July 2026</span>
                         </div>
                         <h2 class="note-card-title">Stay Focus</h2>
-                        <p class="note-card-excerpt">I lost my focus recently. So I tried to find out why — and built a framework called FIT to get it back.</p>
+                        <p class="note-card-excerpt">I lost my focus recently. So I tried to find out why — and built a
+                            framework called FIT to get it back.</p>
                         <div class="note-card-footer">
                             <span class="note-card-read">Read <i class="fas fa-arrow-right"></i></span>
                         </div>
@@ -585,11 +735,16 @@
                 <p class="footer-copy">&copy; <span id="current-year"></span> Adil Shamim.</p>
                 <p class="footer-thanks">Thanks for visiting my portfolio website.</p>
                 <div class="footer-socials">
-                    <a href="https://github.com/AdilShamim8" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/adilshamim8" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://www.kaggle.com/adilshamim8" target="_blank" rel="noopener" aria-label="Kaggle"><i class="fab fa-kaggle"></i></a>
-                    <a href="https://adilshamim8.medium.com/" target="_blank" rel="noopener" aria-label="Medium"><i class="fab fa-medium"></i></a>
-                    <a href="https://x.com/adil_shamim8" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://github.com/AdilShamim8" target="_blank" rel="noopener" aria-label="GitHub"><i
+                            class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/adilshamim8" target="_blank" rel="noopener"
+                        aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.kaggle.com/adilshamim8" target="_blank" rel="noopener" aria-label="Kaggle"><i
+                            class="fab fa-kaggle"></i></a>
+                    <a href="https://adilshamim8.medium.com/" target="_blank" rel="noopener" aria-label="Medium"><i
+                            class="fab fa-medium"></i></a>
+                    <a href="https://x.com/adil_shamim8" target="_blank" rel="noopener" aria-label="Twitter"><i
+                            class="fab fa-twitter"></i></a>
                 </div>
             </div>
         </div>
@@ -601,15 +756,15 @@
         document.addEventListener('DOMContentLoaded', function () {
             // Generic modal handler — maps each card ID to its modal ID
             var posts = [
-                { cardId: 'card-dont-waste-it', modalId: 'post-modal',   closeBtnId: 'modal-close-btn'   },
-                { cardId: 'card-surround',       modalId: 'post-modal-2', closeBtnId: 'modal-2-close-btn' },
-                { cardId: 'card-happiness',      modalId: 'post-modal-3', closeBtnId: 'modal-3-close-btn' },
-                { cardId: 'card-stay-focus',     modalId: 'post-modal-4', closeBtnId: 'modal-4-close-btn' }
+                { cardId: 'card-dont-waste-it', modalId: 'post-modal', closeBtnId: 'modal-close-btn' },
+                { cardId: 'card-surround', modalId: 'post-modal-2', closeBtnId: 'modal-2-close-btn' },
+                { cardId: 'card-happiness', modalId: 'post-modal-3', closeBtnId: 'modal-3-close-btn' },
+                { cardId: 'card-stay-focus', modalId: 'post-modal-4', closeBtnId: 'modal-4-close-btn' }
             ];
 
             posts.forEach(function (post) {
-                var card     = document.getElementById(post.cardId);
-                var modal    = document.getElementById(post.modalId);
+                var card = document.getElementById(post.cardId);
+                var modal = document.getElementById(post.modalId);
                 var closeBtn = document.getElementById(post.closeBtnId);
                 if (!card || !modal || !closeBtn) return;
 
@@ -649,4 +804,5 @@
     </script>
 
 </body>
+
 </html>
