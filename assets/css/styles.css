@@ -3733,3 +3733,124 @@ a.hero-cred-pill:hover {
         padding: 14px 12px;
     }
 }
+
+/* ===== CONTACT INLINE FORM ===== */
+.contact-form-wrapper {
+    display: block;
+    padding: 24px 32px;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+}
+
+.contact-form-wrapper:hover {
+    background: var(--bg-secondary);
+    border-color: var(--border);
+}
+
+.contact-inline-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+.contact-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.contact-form-input {
+    width: 100%;
+    padding: 12px 16px;
+    background: var(--bg);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color var(--transition), box-shadow var(--transition);
+    resize: none;
+    box-sizing: border-box;
+}
+
+.contact-form-input::placeholder {
+    color: var(--text-tertiary);
+}
+
+.contact-form-input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 15%, transparent);
+}
+
+.contact-form-textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.contact-form-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    align-self: flex-start;
+    padding: 12px 24px;
+    background: var(--text);
+    color: var(--bg);
+    border: none;
+    border-radius: var(--radius);
+    font-family: inherit;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity var(--transition), transform var(--transition);
+}
+
+.contact-form-btn:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+}
+
+.contact-form-btn:active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+@media (max-width: 576px) {
+    .contact-form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form-wrapper {
+        padding: 20px 20px;
+    }
+}
+
+/* ===== ACCORDION THESIS CALLOUT ===== */
+.accordion-thesis {
+    background: color-mix(in srgb, var(--accent) 8%, transparent);
+    border-left: 2px solid var(--accent);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.accordion-thesis-text {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+.accordion-thesis-text .fa-lightbulb {
+    color: var(--accent);
+    margin-top: 3px;
+    flex-shrink: 0;
+    font-size: 0.875rem;
+}

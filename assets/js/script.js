@@ -174,10 +174,11 @@ function initProjects() {
     var projects = [
         {
             title: 'Bangla Diarizz',
-            problem: 'Production-grade Bengali speaker diarization — no existing solution for real Bengali call center audio.',
-            constraint: 'Only 4 hours of labeled Bengali data. Off-the-shelf pyannote DER: 35%.',
-            approach: 'Domain adaptation on speaker embedding layer only. Knowledge distillation for inference speedup.',
+            problem: 'Production-grade Bengali speaker diarization — no existing solution for real Bengali call center audio. Off-the-shelf pyannote achieved a DER of 35% on in-domain data, making it unusable for production deployments.',
+            constraint: 'Only 4 hours of labeled Bengali data. GPU-free inference required for cost-constrained deployments.',
+            approach: 'Targeted domain adaptation on the speaker embedding layer only, leaving the upstream VAD and segmentation stages intact to avoid catastrophic forgetting. Applied knowledge distillation to produce a lighter student model — transferring behavioral knowledge from the teacher without labeled data.',
             numbers: 'DER 0.19 (dev) / 0.286 (private LB) · 3.4× real-time on CPU · 56% inference speedup',
+            improve: 'Extend labeled data via semi-supervised bootstrapping using the current model\'s own high-confidence outputs. Explore streaming inference for live call center audio, and benchmark against the newly released pyannote 3.1 backbone.',
             impact: [
                 { number: '56%', label: 'Faster Inference' },
                 { number: '0.19', label: 'DER (dev)' },
@@ -208,10 +209,11 @@ function initProjects() {
         },
         {
             title: 'QuantScope',
-            problem: 'Quantitative stock analysis breaks when the AI provider goes down — runtime dependency on a single LLM is an unacceptable single point of failure.',
-            constraint: '35+ exchanges, 6 LLM providers, 33 tests. The LLM layer must be 100% replaceable without touching business logic.',
-            approach: 'Strict architectural separation: core/ (indicators, risk, data) has zero LLM dependencies. Engineered a 6-provider LLM fallback chain (OpenAI → Anthropic → Google → Ollama → Mistral → Cohere) with template-based fallback and full monitoring stack.',
-            numbers: '35+ exchanges · 6 LLM providers · 33 tests · Zero vendor lock-in · Full monitoring stack',
+            problem: 'Quantitative stock analysis breaks when the AI provider goes down — runtime dependency on a single LLM is an unacceptable single point of failure for a financial tool.',
+            constraint: '35+ exchanges, 6 LLM providers, 33 automated tests. The LLM layer must be 100% replaceable without touching business logic.',
+            approach: 'Strict architectural separation: core/ (indicators, risk, data) has zero LLM dependencies. Engineered a 6-provider LLM fallback chain (OpenAI → Anthropic → Google → Ollama → Mistral → Cohere) with template-based fallback and a full monitoring stack — so analysis never silently fails when a provider is unavailable.',
+            numbers: '35+ exchanges · 6 LLM providers · 33 automated tests · Zero vendor lock-in · Full monitoring stack',
+            thesis: 'QuantScope sits at the intersection of my AI engineering and Finance interests — applying production-grade LLM resilience patterns to quantitative analysis tools where reliability is non-negotiable.',
             impact: [
                 { number: '6', label: 'LLM Fallbacks' },
                 { number: '35+', label: 'Exchanges' },
@@ -221,7 +223,7 @@ function initProjects() {
             paper: null,
             demo: null,
             code: 'https://github.com/AdilShamim8/QuantScope',
-            badge: 'Production System'
+            badge: 'AI × Finance'
         },
         {
             title: 'Production ML Pipeline',
@@ -353,9 +355,11 @@ function initProjects() {
                             '<p>' + project.approach + '</p>' +
                         '</div>' +
                         '<div class="accordion-section">' +
-                            '<h4 class="accordion-section-title">Numbers</h4>' +
+                            '<h4 class="accordion-section-title">Result</h4>' +
                             '<p>' + project.numbers + '</p>' +
                         '</div>' +
+                        (project.improve ? '<div class="accordion-section"><h4 class="accordion-section-title">What I\'d Improve Next</h4><p>' + project.improve + '</p></div>' : '') +
+                        (project.thesis ? '<div class="accordion-section accordion-thesis"><p class="accordion-thesis-text"><i class="fas fa-lightbulb" aria-hidden="true"></i> ' + project.thesis + '</p></div>' : '') +
                         '<div class="accordion-tags">' +
                             project.tags.map(function(tag) { return '<span class="accordion-tag">' + tag + '</span>'; }).join('') +
                         '</div>' +
